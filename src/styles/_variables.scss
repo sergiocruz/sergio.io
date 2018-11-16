@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin:400,700|Raleway:300,400,900');
+
+$font-family-sans-serif: 'Cabin', serif;
+$headings-font-family: 'Raleway', sans-serif;
+$headings-font-weight: 700;
+$blue: #00044E;
+$green: #9BFF4A;
+$pink: #FF0077;
+$gray-100: #FFFFFC;
+$gray-800: #373940;
+// $nav-link-padding-y: 0;
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";

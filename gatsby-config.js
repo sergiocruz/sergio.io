@@ -1,3 +1,5 @@
+var autoprefixer = require('autoprefixer')
+
 module.exports = {
   siteMetadata: {
     title: 'Sergio Cruz ',
@@ -27,11 +29,17 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-typography`,
+      resolve: `gatsby-plugin-sass`,
       options: {
-        pathToConfigModule: `src/utils/typography.js`,
+        postCssPlugins: [autoprefixer()],
       },
     },
+    // {
+    //   resolve: `gatsby-plugin-typography`,
+    //   options: {
+    //     pathToConfigModule: `src/utils/typography.js`,
+    //   },
+    // },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',

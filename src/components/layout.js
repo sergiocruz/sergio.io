@@ -2,11 +2,18 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { fab } from '@fortawesome/free-brands-svg-icons'
 
 import Header from './header'
-import './layout.css'
+import '../styles/bootstrap.scss'
+import './layout.module.css'
 
-const Layout = ({ children }) => (
+
+library.add(fas, fab)
+
+const Layout = ({ children, header=true }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -28,15 +35,12 @@ const Layout = ({ children }) => (
         >
           <html lang="en" />
         </Helmet>
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <div
-          style={{
-            margin: '0 auto',
-            maxWidth: 960,
-            padding: '0px 1.0875rem 1.45rem',
-            paddingTop: 0,
-          }}
-        >
+
+        {(header) && (
+          <Header />
+        )}
+
+        <div>
           {children}
         </div>
       </>
