@@ -27,30 +27,26 @@
   z-index: 2;
 }
 
+.heroAvatar {
+  width: 90px;
+  height: 90px;
+  border: 1px solid $gray-800;
+  box-shadow: 2px 2px 2px black;
+}
+
 .heroName {
   color: $white;
-  font-size: 3.5rem;
+  font-size: 3.25rem;
   font-weight: 400;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .heroQualities {
-  background: $blue;
-  // color: $green;
+  background: transparentize($blue, .4);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   font-weight: 700;
-
-  
-
-  // li:not(:last-child):after {
-  //   content: '-';
-  //   display: inline-block;
-  //   color: $pink;
-  //   margin: .5rem .5rem 0 1rem;
-  //   line-height: 0;
-  // }
 }
 
 .heroQualitiesSeparator {
@@ -67,7 +63,7 @@
   a {
     color: $gray-300;
     display: inline-block;
-    transition: transform 200ms ease;
+    transition: transform 300ms ease-out;
     margin: 0 1.75rem 0 0;
 
     span {

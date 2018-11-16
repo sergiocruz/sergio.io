@@ -13,13 +13,13 @@ const Header = ({ siteTitle }) => (
       <div class="collapse navbar-collapse justify-content-lg-end">
         <ul class="navbar-nav ml-lg-0">
           <li class="nav-item mb-0 active">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item mb-0">
-            <a class="nav-link" href="#">Publications</a>
+            <a class="nav-link" href="/">Publications</a>
           </li>
           <li class="nav-item mb-0">
-            <a class="nav-link" href="#">Conferences</a>
+            <a class="nav-link" href="/">Conferences</a>
           </li>
         </ul>
       </div>

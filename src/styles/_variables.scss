@@ -10,5 +10,13 @@ $gray-100: #FFFFFC;
 $gray-800: #373940;
 // $nav-link-padding-y: 0;
 
+$theme-colors: (
+  "pink": $pink,
+  "green": $green,
+  "blue": $blue,
+  "gray-100": $gray-100,
+  "gray-800": $gray-800,
+);
+
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";

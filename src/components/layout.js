@@ -7,7 +7,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 
 import Header from './header'
-import '../styles/bootstrap.scss'
+import '../styles/app.scss'
 import './layout.module.css'
 
 
