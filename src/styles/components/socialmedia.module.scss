@@ -1,0 +1,33 @@
+@import "../variables.scss";
+
+.socialmedia {
+  font-size: 1.5rem;
+  text-align: center;
+
+  a {
+    color: $white;
+    display: inline-block;
+    transition: color 300ms ease-out, transform 300ms ease-out;
+    margin: 0 1.75rem 0 0;
+
+    span {
+      display: block;
+      font-size: .75rem;
+      transition: opacity 300ms ease, transform 200ms ease;
+      opacity: 0;
+      transform: translateY(-.20rem);
+    }
+
+    &:hover,
+    &:active {
+      transform: translateY(-.20rem) scale(1.15);
+      color: $green;
+      text-decoration: none;
+
+      span {
+        opacity: 1;
+        transform: translateY(-.1rem);
+      }
+    }
+  }
+}

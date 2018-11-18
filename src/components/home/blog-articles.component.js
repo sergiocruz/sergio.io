@@ -28,12 +28,12 @@ class BlogArticles extends Component {
         </div>
 
         <div>
-          <ul className="list-unstyled">
+          <ul className="list-unstyled mb-0">
             {articles.map((article, i) => (
               <li key={i} className={classnames(styles.blogArticle, 'py-4')}>
                 <div className="container">
                   <h6><Link to={article.frontmatter.path} className="text-white">{article.frontmatter.title}</Link></h6>
-                  <p className="text-light font-size-sm">{article.excerpt}</p>
+                  <p>{article.excerpt}</p>
                   <Link to={article.frontmatter.path} className="btn btn-sm btn-outline-light extra-rounded">Read Article</Link>
                 </div>
               </li>

@@ -35,7 +35,7 @@ class Introduction extends Component {
                 <strong>P.</strong> (407) six-nine-four 8175
               </p>
 
-              <p className="mt-4">
+              <p className="mt-4 mb-0">
                 <Link className="btn btn-outline-blue extra-rounded px-4">View resume</Link>
               </p>
             </div>

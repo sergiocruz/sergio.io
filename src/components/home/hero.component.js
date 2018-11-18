@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import classnames from 'classnames'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import SocialMedia from '../socialmedia.component'
 import styles from '../../styles/pages/home.module.scss'
 
 class Hero extends Component {
@@ -29,27 +30,7 @@ class Hero extends Component {
                   <span className="list-inline-item mb-0">Mentor</span>
                 </div>
 
-                <div className={classnames(styles.socialMedia, 'mt-3')}>
-                  <a href="https://twitter.com/hashtagserg" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={['fab', 'twitter']} />
-                    <span>Twitter</span>
-                  </a>
-
-                  <a href="https://github.com/sergiocruz" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={['fab', 'github']} />
-                    <span>GitHub</span>
-                  </a>
-
-                  <a href="https://www.linkedin.com/in/sergiorlcruz" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={['fab', 'linkedin']} />
-                    <span>LinkedIn</span>
-                  </a>
-
-                  <a href="mailto:hello@sergiocruz.me" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={['fas', 'envelope']} />
-                    <span>Email</span>
-                  </a>
-                </div>
+                <SocialMedia />
 
                 <div className="mt-3">
                   <button className="btn btn-outline-light extra-rounded px-4">View Resume</button>

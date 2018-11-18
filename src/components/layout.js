@@ -9,6 +9,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import Header from './header'
 import '../styles/app.scss'
 import './layout.module.css'
+import Footer from './footer';
 
 
 library.add(fas, fab)
@@ -43,6 +44,8 @@ const Layout = ({ children, header=true }) => (
         <div>
           {children}
         </div>
+
+        <Footer />
       </>
     )}
   />
