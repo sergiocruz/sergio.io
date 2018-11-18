@@ -7,19 +7,19 @@ const Header = ({ siteTitle }) => (
   <div className={classnames(styles.header, 'mb-3')}>
     <div className="container">
     <nav className={classnames(styles.navbar, 'navbar navbar-dark navbar-expand-lg px-0')}>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span className="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse justify-content-lg-end">
-        <ul class="navbar-nav ml-lg-0">
-          <li class="nav-item mb-0 active">
-            <a class="nav-link" href="/">Home</a>
+      <div className="collapse navbar-collapse justify-content-lg-end">
+        <ul className="navbar-nav ml-lg-0">
+          <li className="nav-item mb-0 active">
+            <a className="nav-link" href="/">Home</a>
           </li>
-          <li class="nav-item mb-0">
-            <a class="nav-link" href="/">Publications</a>
+          <li className="nav-item mb-0">
+            <a className="nav-link" href="/">Publications</a>
           </li>
-          <li class="nav-item mb-0">
-            <a class="nav-link" href="/">Conferences</a>
+          <li className="nav-item mb-0">
+            <a className="nav-link" href="/">Conferences</a>
           </li>
         </ul>
       </div>
