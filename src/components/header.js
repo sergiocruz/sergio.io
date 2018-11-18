@@ -1,6 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
-import { Link } from 'gatsby'
+// import { Link } from 'gatsby'
 import styles from '../styles/components/header.module.scss'
 
 const Header = ({ siteTitle }) => (

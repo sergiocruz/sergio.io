@@ -1,21 +1,28 @@
-@import url('https://fonts.googleapis.com/css?family=Cabin:400,700|Raleway:300,400,900');
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,900');
 
-$font-family-sans-serif: 'Cabin', serif;
-$headings-font-family: 'Raleway', sans-serif;
-$headings-font-weight: 700;
+$font-family-sans-serif: 'Raleway', serif;
+$headings-font-weight: 600;
 $blue: #00044E;
+$gray-100: #FFFFFC;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #373940;
+$gray-900: #212529;
 $green: #9BFF4A;
 $pink: #FF0077;
-$gray-100: #FFFFFC;
-$gray-800: #373940;
+$yellow: #EFFF00;
+// $body-color: $gray-800;
+$link-color: $gray-900;
+$link-hover-decoration: none;
 // $nav-link-padding-y: 0;
 
 $theme-colors: (
-  "pink": $pink,
-  "green": $green,
   "blue": $blue,
   "gray-100": $gray-100,
   "gray-800": $gray-800,
+  "green": $green,
+  "pink": $pink,
+  "yellow": $yellow,
 );
 
 @import "~bootstrap/scss/functions";

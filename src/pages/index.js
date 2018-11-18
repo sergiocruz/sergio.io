@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import Layout from '../components/layout'
 import styles from '../styles/pages/home.module.scss'
+import speakerImg from '../images/sergiocruz-speaker.jpg'
 
 const IndexPage = () => (
   <Layout header={false}>
@@ -57,14 +58,40 @@ const IndexPage = () => (
       </div>
     </div>
 
-    <div className="py-4 bg-gray-100 text-gray-800">
+    <div className="py-4 bg-gray-100">
       <div className="container">
-        <h2>
-          <span className="bg-green text-dark px-1">Sergio Cruz</span>
-        </h2>
-        <p className="lead">Full stack developer in Orlando, FL.</p>
-        <p>Welcome to your new Gatsby site.</p>
-        <p>Now go build something great.</p>
+        <div className="row">
+          <div className="col-md-8">
+            <h2><span className="bg-green text-dark px-1 rounded">About Sergio</span></h2>
+            <p className="lead">Full stack developer in Orlando, FL.</p>
+
+            <p>
+              Hey there <span role="img" aria-label="Waving hand">👋</span>, thanks for dropping by!
+              {' '}
+              I’m a software engineer who exuberates passion for the art of writing code.
+              {' '}
+              I'm a big fan of shipping beautiful experiences and observing how they impact the people using them.
+            </p>
+
+            <p>
+              I also enjoy helping fellow developers learn new technologies.
+              {' '}
+              That’s why I <a href="https://www.meetup.com/OrlandoDevs" target="_blank" rel="noopener noreferrer" className="a-underlined">organize meetups</a>, <a href="https://youtu.be/WHMyaTy7PME" target="_blank" rel="noopener noreferrer" className="a-underlined">speak at conferences</a>, and even <a href="https://www.pluralsight.com/courses/code-school-powering-up-with-react" target="_blank" rel="noopener noreferrer" className="a-underlined">teach online courses</a> occasionally.
+              {' '}
+              To further augment my desire to help other engineers succeed, I have most recently taken on management and leadership positions.
+            </p>
+
+            <p>
+              Please feel free to contact me at any time with questions:<br />
+              <strong>E.</strong> hello [at] sergiocruz.me<br />
+              <strong>P.</strong> (407) six-nine-four 8175
+            </p>
+          </div>
+          <div className="col-md-4">
+            <img src={speakerImg} className="img-fluid rounded" alt="Sergio speaking at ng-conf 2018" />
+          </div>
+        </div>
+
       </div>
     </div>
   </Layout>
