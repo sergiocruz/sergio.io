@@ -22,6 +22,17 @@ class Resume extends Component {
               activity: PropTypes.arrayOf(PropTypes.string).isRequired,
             })).isRequired,
           })).isRequired,
+          accomplishments: PropTypes.arrayOf(PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            position: PropTypes.string.isRequired,
+            description: PropTypes.string.isRequired,
+            url: PropTypes.string.isRequired,
+          })).isRequired,
+          education: PropTypes.arrayOf(PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            when: PropTypes.string.isRequired,
+            degree: PropTypes.string.isRequired,
+          })).isRequired,
         }).isRequired,
       }).isRequired,
     }).isRequired,
@@ -49,8 +60,9 @@ class Resume extends Component {
   }
 
   render() {
-    const experience = this.getExperience()
+    const { data: { dataJson: { resume: { accomplishments, education } } } } = this.props
     const { isHidingPositions } = this.state
+    const experience = this.getExperience()
 
     return (
       <Layout>
@@ -122,23 +134,16 @@ class Resume extends Component {
 
           <div>
             <ul className="list-unstyled mb-0">
-              <li className={classnames(articles.articleItem, 'py-4')}>
-                <div className="container">
-                  <h4>Orlando Devs, Inc.</h4>
-                  <h5>President</h5>
-                  <p>Nonprofit focused on improving the qualitfy of life of Software Professionals in Central Florida.</p>
-                  <a href="https://orlandodevs.com" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-outline-light extra-rounded">Learn more</a>
-                </div>
-              </li>
-
-              <li className={classnames(articles.articleItem, 'py-4')}>
-                <div className="container">
-                  <h4>OrlandoJS</h4>
-                  <h5>Co-organizer</h5>
-                  <p>Tech meetup in Orlando that covers all things JavaScript and meets on a monthly basis.</p>
-                  <a href="https://meetup.com/OrlandoJS" target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-outline-light extra-rounded">Learn more</a>
-                </div>
-              </li>
+              {accomplishments.map((accomplishment, i) => (
+                <li className={classnames(articles.articleItem, 'py-4')} key={i}>
+                  <div className="container">
+                    <h4>{accomplishment.name}</h4>
+                    <h5>{accomplishment.position}</h5>
+                    <p>{accomplishment.description}</p>
+                    <a href={accomplishment.url} target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-outline-light extra-rounded">Learn more</a>
+                  </div>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -151,24 +156,19 @@ class Resume extends Component {
 
           <div>
             <ul className="list-unstyled mb-0">
-              <li className={classnames(articles.articleItem, 'py-3')}>
-                <div className="container">
-                  <h4>University of Central Florida (2013-2015)</h4>
-                  <p>Bachelor's in Computer Science <em>(Incomplete)</em></p>
-                </div>
-              </li>
-
-              <li className={classnames(articles.articleItem, 'py-3')}>
-                <div className="container">
-                  <h4>Valencia Community College (2010-2013)</h4>
-                  <p>Associate of Arts</p>
-                </div>
-              </li>
+              {education.map((school, i) => (
+                <li className={classnames(articles.articleItem, 'py-3')} key={i}>
+                  <div className="container">
+                    <h4>{school.name} ({school.when})</h4>
+                    <p>{school.degree}</p>
+                  </div>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
-        <div className="bg-green text-dark font-size-sm">
+        <div className="bg-gray-700 text-light font-size-sm">
           <div className="container py-4">
             <div className="row">
               <div className="col-lg-8">
@@ -176,7 +176,7 @@ class Resume extends Component {
                 <p>Watch my talks, or read articles I have written for various publications.</p>
               </div>
               <div className="col-lg-4 align-self-center text-center text-lg-right">
-                <Link to="/talks-and-publications" className="btn btn-outline-blue extra-rounded px-4">View Talks & Publications</Link>
+                <Link to="/talks-and-publications" className="btn btn-outline-light extra-rounded px-4">View Talks & Publications</Link>
               </div>
             </div>
           </div>
@@ -199,6 +199,19 @@ export const pageQuery = graphql`
             when
             activity
           }
+        }
+        
+        accomplishments {
+          name
+          position
+          description
+          url
+        }
+        
+        education {
+          name
+          when
+          degree
         }
       }
     }

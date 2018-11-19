@@ -6,17 +6,17 @@ import speakerImg from '../../images/sergiocruz-speaker.jpg'
 class Introduction extends Component {
   render() {
     return (
-      <div className="py-4 bg-gray-100">
+      <div className="py-5 bg-gray-100">
         <div className="container">
           <div className="row">
-            <div className="col-md-8 body-content">
+            <div className="col-md-8 body-content font-size-sm">
               <h2><span className="bg-blue text-white px-1 rounded">About Sergio</span></h2>
               <p className="lead">Full stack developer in Orlando, FL.</p>
 
               <p>
                 Hey there <span role="img" aria-label="Waving hand">👋</span>, thanks for dropping by!
                 {' '}
-                I’m a software engineer who exuberates passion for the art of writing code.
+                I’m a software engineer who has a great passion for the art of writing code.
                 {' '}
                 I'm a big fan of shipping beautiful experiences and observing how they impact the people using them.
               </p>

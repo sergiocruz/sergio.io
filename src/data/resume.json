@@ -22,7 +22,7 @@
             "title": "Lead UI Engineer",
             "when": "Dec 2016 - May 2017",
             "activity": [
-              "Lead of the UI efforts for my engineering team",
+              "The lead of the UI efforts for my engineering team",
               "Created and maintained Single Page Applications",
               "Integrated apps with enterprise systems (domain-driven design)"
             ]
@@ -137,6 +137,32 @@
             ]
           }
         ]
+      }
+    ],
+    "accomplishments": [
+      {
+        "name": "Orlando Devs, Inc.",
+        "position": "President",
+        "description": "Nonprofit focused on improving the qualitfy of life of Software Professionals in Central Florida.",
+        "url": "https://orlandodevs.com/"
+      },
+      {
+        "name": "OrlandoJS",
+        "position": "Co-organizer",
+        "description": "Tech meetup in Orlando that covers all things JavaScript and meets on a monthly basis.",
+        "url": "https://meetup.com/OrlandoJS/"
+      }
+    ],
+    "education": [
+      {
+        "name": "University of Central Florida",
+        "when": "2013-2015",
+        "degree": "Bachelor's in Computer Science (Incomplete)"
+      },
+      {
+        "name": "Valencia Community College",
+        "when": "2010-2013",
+        "degree": "Associate of Arts"
       }
     ]
   }

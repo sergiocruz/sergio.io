@@ -10,6 +10,15 @@
     transition: color 300ms ease-out, transform 300ms ease-out;
     margin: 0 1.75rem 0 0;
 
+    :global(.text-dark) & {
+      color: $gray-800;
+
+      &:hover,
+      &:active {
+        color: $gray-500;
+      }
+    }
+
     span {
       display: block;
       font-size: .75rem;
