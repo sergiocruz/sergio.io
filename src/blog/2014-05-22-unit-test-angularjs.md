@@ -14,7 +14,7 @@ For the sake of simplicity I will be using <a href="http://yeoman.io" target="_b
 
 Let's get started! First things first, make sure you have <a href="http://gruntjs.com" target="_blank">GruntJS</a>, <a href="http://yeoman.io" target="_blank">Yeoman</a> and the <a href="https://github.com/yeoman/generator-angular" target="_blank">AngularJS Generator</a> all installed globally:
 
-```language-markup
+```sh
 npm install -g grunt-cli
 npm install -g yo
 npm install -g generator-angular
@@ -22,7 +22,7 @@ npm install -g generator-angular
 
 Once you are certain these three guys are installed, let's go ahead and scaffold a new AngularJS project:
 
-```language-markup
+```markup
 mkdir angularjs-unit-test && cd $_
 yo angular angularjs-unit-test
 ```
@@ -38,7 +38,7 @@ Now that we have our application laid out, let's just tweak a couple of files:
 **Step 1:**
 Add `npm` dependencies that will allow `karma` to run tests and generate the code coverage report:
 
-```language-markup
+```markup
 npm install karma-jasmine --save-dev
 npm install karma-phantomjs-launcher --save-dev
 npm install karma-coverage --save-dev
@@ -47,18 +47,19 @@ npm install karma-coverage --save-dev
 *Attention: We are using <a href="http://jasmine.github.io" target="_blank">Jasmine</a> as our testing framework and <a href="http://phantomjs.org" target="_blank">PhantomJS</a> as the default browser to run our tests. Don't worry about installing PhantomJS though, as the <a href="https://github.com/karma-runner/karma-phantomjs-launcher">karma-phantomjs-launcher</a> package includes a standalone executable `PhanthomJS` binary. Lastly, we are using <a href="https://github.com/karma-runner/karma-coverage" target="_blank">karma-coverage</a> to generate our code coverage.*
 
 <br />
+
 **Step 2:**
 Start by modifying the `browsers` flag within the `karma.conf.js` file, which should be located right on the root directory of your application.
 
 
-```language-javascript
+```javascript
 // Located on line 49 on my local version of karma.conf.js
 browsers: ['PhantomJS'],
 ```
 
 In this same file, add the following lines right after the `browsers` flag to make sure code coverage reports are generated every time the code is tested:
 
-```language-javascript
+```javascript
 // Code coverage report
 reporters: ['progress', 'coverage'],
 preprocessors: {
@@ -76,7 +77,6 @@ plugins: [
 ]
 ```
 
-<br />
 **Step 3:**
 By now we should be able to run our test and see the code coverage report!
 
@@ -127,7 +127,6 @@ autoprefixer:dist  45ms  ▇ 1%
 karma:unit         2.5s  ▇▇▇▇▇▇▇▇▇▇▇▇ 59%
 Total 4.1s
 ```
-<br />
 
 ##Finally! View your code coverage report
 

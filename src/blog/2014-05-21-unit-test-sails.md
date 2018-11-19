@@ -19,18 +19,17 @@ Perhaps you may have much more experience with SailsJS and have way gone beyond 
 **Step 1:**
 Add the following dependencies to your project:
 
-```language-markup
+```markup
 npm install mocha --save-dev
 npm install assert --save-dev
 npm install sinon --save-dev
 npm install grunt-mocha-istanbul --save-dev
 ```
 
-<br />
 **Step 2:**
 Add a `/test` directory to the root directory of your application that mimics the format of the `/api` directory. Your new root directory structure should look something like this:
 
-```language-markup
+```markup
 /api
 /assets
 /config
@@ -48,13 +47,12 @@ package.json
 README.md
 ```
 
-<br />
 **Step 3:**
 Modify your `Gruntfile.js`
 
 First add the following snippet at the end of your `grunt.initConfig()` *(located around line 414 in my case)*
 
-```language-javascript
+```javascript
 mocha_istanbul: {
   coverage: {
     src: 'test', // the folder, not the files
@@ -69,7 +67,7 @@ mocha_istanbul: {
 
 And add the two following snippet right before the file ends: *(again around line 496 in my case)*
 
-```language-javascript
+```javascript
 // Adds "grunt-mocha-istanbul" npm task
 grunt.loadNpmTasks('grunt-mocha-istanbul');
 
@@ -79,14 +77,13 @@ grunt.registerTask('test', [
 ]);
 ```
 
-<br />
 **Step 4:**
 Create your first test
 
 For the sake of simplicity let's create a HelloController and its test:
 
 
-```language-javascript
+```javascript
 /**
  * Sails Controller: HelloController
  * File location: api/controllers/HelloController.js
@@ -100,7 +97,7 @@ module.exports = {
 };
 ```
 
-```language-javascript
+```javascript
 /**
  * Test File: Testing HelloController
  * File location: test/controllers/HelloController.spec.js

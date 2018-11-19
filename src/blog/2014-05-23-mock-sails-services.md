@@ -19,16 +19,15 @@ Fortunately, *lifting SailsJS* in code is almost as easy as running `sails lift`
 **Step 1:**
 Start by instantiating SailsJS in your test file:
 
-```language-javascript
+```javascript
 var Sails = require('sails'),
     sinon = require('sinon'),
     assert = require('assert');
 ```
-<br />
 
 **Step 2:**
 Lift SailsJS before executing each test and *lower* it after the test is executed:
-```language-javascript
+```javascript
 
 var app,
 	testingServicesController;
@@ -65,11 +64,10 @@ after(function afterControllerTest(done){
 });
 ```
 
-<br />
 **Step 3:**
 Mock service and test controller
 
-```language-javascript
+```javascript
 it('should have called mocked service', function() {
 
   // Mocking our service
@@ -99,12 +97,11 @@ it('should have called mocked service', function() {
 });
 ```
 
-<br />
 ##Putting the pieces of the puzzle together
 
 Below is what my code looks like when we put all three steps together:
 
-```language-javascript
+```javascript
 var Sails = require('sails'),
     sinon = require('sinon'),
     assert = require('assert');

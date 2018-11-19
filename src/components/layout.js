@@ -8,7 +8,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 
 import Header from './header'
 import '../styles/app.scss'
-import './layout.module.css'
+import '../styles/components/layout.module.scss'
 import Footer from './footer';
 
 

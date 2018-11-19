@@ -1,9 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,900');
-
 $font-family-sans-serif: 'Raleway', serif;
-$headings-font-weight: 600;
+$headings-font-weight: 500;
 $blue: #08254E;
 $gray-100: #FFFFFC;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
 $gray-600: #6c757d;
 $gray-700: #495057;
 $gray-800: #373940;
@@ -15,11 +17,23 @@ $yellow: #EFFF00;
 $link-color: $gray-900;
 // $link-decoration: underline;
 $link-hover-decoration: none;
-// $nav-link-padding-y: 0;
+$nav-link-padding-x: .5rem;
+$nav-link-padding-y: .25rem;
+
+$font-size-base: 1rem;
+$font-size-xs: ($font-size-base * 0.7);
+$h1-font-size: $font-size-base * 2;
+$h2-font-size: $font-size-base * 1.5;
+$h3-font-size: $font-size-base * 1.25;
+$h4-font-size: $font-size-base * 1.15;
+$h5-font-size: $font-size-base * 1.05;
 
 $theme-colors: (
   "blue": $blue,
   "gray-100": $gray-100,
+  "gray-200": $gray-200,
+  "gray-500": $gray-500,
+  "gray-600": $gray-600,
   "gray-800": $gray-800,
   "green": $green,
   "pink": $pink,
@@ -27,4 +41,5 @@ $theme-colors: (
 );
 
 @import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins";
 @import "~bootstrap/scss/variables";

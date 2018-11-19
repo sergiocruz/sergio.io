@@ -1,12 +1,26 @@
 @import "../variables.scss";
 
 .header {
-  //border-bottom: 1px solid rgba(255, 0, 119, .6);
+  transition: background-color 300ms ease;
+  background-color: $blue;
+
+  :global(.hero) & {
+    background-color: transparentize($blue, .2);
+  }
 }
 
-.navbar {
-
-  .nav-link {
+:global(.nav-dark) {
+  :global(.nav-link) {
+    font-size: $font-size-sm;
     transition: color 300ms ease-out;
+    color: $navbar-dark-color;
+
+    @include hover-focus {
+      color: $navbar-dark-hover-color;
+    }
+
+    &:global(.active) {
+      color: $navbar-dark-active-color;
+    }
   }
 }

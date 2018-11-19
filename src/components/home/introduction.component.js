@@ -6,10 +6,10 @@ import speakerImg from '../../images/sergiocruz-speaker.jpg'
 class Introduction extends Component {
   render() {
     return (
-      <div className="py-5 bg-gray-100">
+      <div className="py-4 bg-gray-100">
         <div className="container">
           <div className="row">
-            <div className="col-md-8">
+            <div className="col-md-8 body-content">
               <h2><span className="bg-blue text-white px-1 rounded">About Sergio</span></h2>
               <p className="lead">Full stack developer in Orlando, FL.</p>
 
@@ -24,7 +24,7 @@ class Introduction extends Component {
               <p>
                 I also enjoy helping fellow developers learn new technologies.
                 {' '}
-                That’s why I <a href="https://www.meetup.com/OrlandoDevs" target="_blank" rel="noopener noreferrer" className="a-underlined">organize meetups</a>, <a href="https://youtu.be/WHMyaTy7PME" target="_blank" rel="noopener noreferrer" className="a-underlined">speak at conferences</a>, and even <a href="https://www.pluralsight.com/courses/code-school-powering-up-with-react" target="_blank" rel="noopener noreferrer" className="a-underlined">teach online courses</a> occasionally.
+                That’s why I <a href="https://www.meetup.com/OrlandoDevs" target="_blank" rel="noopener noreferrer">organize meetups</a>, <a href="https://youtu.be/WHMyaTy7PME" target="_blank" rel="noopener noreferrer">speak at conferences</a>, and even <a href="https://www.pluralsight.com/courses/code-school-powering-up-with-react" target="_blank" rel="noopener noreferrer">teach online courses</a> occasionally.
                 {' '}
                 To further augment my desire to help other engineers succeed, I have most recently taken on management and leadership positions.
               </p>
@@ -35,12 +35,12 @@ class Introduction extends Component {
                 <strong>P.</strong> (407) six-nine-four 8175
               </p>
 
-              <p className="mt-4 mb-0">
-                <Link className="btn btn-outline-blue extra-rounded px-4">View resume</Link>
+              <p className="mt-4 mb-md-0">
+                <Link to="/resume" className="btn btn-outline-blue extra-rounded px-4">View resume</Link>
               </p>
             </div>
             <div className="col-md-4">
-              <img src={speakerImg} className="img-fluid rounded" alt="Sergio speaking at ng-conf 2018" />
+              <img src={speakerImg} className="img-fluid rounded mt-3 mt-md-0" alt="Sergio speaking at ng-conf 2018" />
             </div>
           </div>
 

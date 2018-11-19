@@ -1,29 +1,18 @@
 import React from 'react'
 import classnames from 'classnames'
-// import { Link } from 'gatsby'
+import { Link } from 'gatsby'
 import styles from '../styles/components/header.module.scss'
 
-const Header = ({ siteTitle }) => (
-  <div className={classnames(styles.header, 'mb-3')}>
+const Header = ({ siteTitle, className='' }) => (
+  <div className={classnames(styles.header, className)}>
     <div className="container">
-    <nav className={classnames(styles.navbar, 'navbar navbar-dark navbar-expand-lg px-0')}>
-      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      <div className="collapse navbar-collapse justify-content-lg-end">
-        <ul className="navbar-nav ml-lg-0">
-          <li className="nav-item mb-0 active">
-            <a className="nav-link" href="/">Home</a>
-          </li>
-          <li className="nav-item mb-0">
-            <a className="nav-link" href="/">Publications</a>
-          </li>
-          <li className="nav-item mb-0">
-            <a className="nav-link" href="/">Conferences</a>
-          </li>
-        </ul>
+      <div className="d-flex justify-content-center justify-content-md-end">
+        <nav className="nav nav-dark py-2 px-0">
+          <Link className="nav-link" activeClassName="active" to="/">Home</Link>
+          <Link className="nav-link" activeClassName="active" to="/resume">Resume</Link>
+          <Link className="nav-link" activeClassName="active" to="/talks-and-publications">Talks & Publications</Link>
+        </nav>
       </div>
-    </nav>
     </div>
   </div>
 )

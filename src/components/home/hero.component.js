@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import classnames from 'classnames'
+import { Link } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import SocialMedia from '../socialmedia.component'
+import Header from '../header'
 import styles from '../../styles/pages/home.module.scss'
 
 class Hero extends Component {
   render() {
     return (
-      <div className={classnames(styles.hero, 'd-flex align-items-center justify-content-center')}>
-        <div className={styles.heroContent}>
-          <div className="container p-3">
+      <div className={classnames(styles.hero, 'hero pb-5')}>
+        <div className={classnames(styles.heroContent)}>
+          <Header className="mb-3" />
+          <div className="container">
             <div className="d-flex align-items-center justify-content-center text-center">
               <div>
                 <h1 className={classnames(styles.heroName, 'mb-3 d-flex align-items-center justify-content-center')}>
@@ -33,7 +36,7 @@ class Hero extends Component {
                 <SocialMedia />
 
                 <div className="mt-3">
-                  <button className="btn btn-outline-light extra-rounded px-4">View Resume</button>
+                  <Link to="/resume" className="btn btn-outline-light extra-rounded px-4">View Resume</Link>
                 </div>
               </div>
             </div>

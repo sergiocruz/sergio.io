@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import classnames from 'classnames'
 
-import styles from '../../styles/pages/home.module.scss'
+import styles from '../../styles/components/article-list.module.scss'
 
 class BlogArticles extends Component {
 
@@ -30,7 +30,7 @@ class BlogArticles extends Component {
         <div>
           <ul className="list-unstyled mb-0">
             {articles.map((article, i) => (
-              <li key={i} className={classnames(styles.blogArticle, 'py-4')}>
+              <li key={i} className={classnames(styles.articleItem, 'py-4')}>
                 <div className="container">
                   <h6><Link to={article.frontmatter.path} className="text-white">{article.frontmatter.title}</Link></h6>
                   <p>{article.excerpt}</p>

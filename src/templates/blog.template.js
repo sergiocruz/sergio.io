@@ -10,15 +10,21 @@ export default function Template({
   const { frontmatter, html } = markdownRemark
   return (
     <Layout>
-      <div className="blog-post-container">
-        <div className="blog-post">
+      <div className="bg-gray-200 text-dark py-3">
+        <div className="container">
           <h1>{frontmatter.title}</h1>
-          <h2>{frontmatter.date}</h2>
+        </div>
+      </div>
+
+      <div className="bg-light text-dark py-3">
+        <div className="container">
+          <p>Published <date>{frontmatter.date}</date></p>
           <div
-            className="blog-post-content"
+            className="body-content font-size-sm"
             dangerouslySetInnerHTML={{ __html: html }}
           />
-        </div>
+      </div>
+      
       </div>
     </Layout>
   )
