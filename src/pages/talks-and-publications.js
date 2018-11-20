@@ -4,6 +4,7 @@ import classnames from 'classnames'
 import { Link, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import Helmet from 'react-helmet'
 
 import Layout from '../components/layout'
@@ -99,7 +100,7 @@ class TalksAndPublications extends Component {
                     )}
                   >
                     <div className="position-relative overflow-hidden">
-                      <a
+                      <OutboundLink
                         href={talk.url}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -114,27 +115,27 @@ class TalksAndPublications extends Component {
                           className="rounded-top"
                           alt={talk.title}
                         />
-                      </a>
+                      </OutboundLink>
                     </div>
 
                     <div className="card-body">
                       <p className="card-text font-size-sm">
                         <small className="text-muted">{talk.where}</small>
                         <br />
-                        <a
+                        <OutboundLink
                           href={talk.url}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-gray-600 font-weight-600"
                         >
                           {talk.title}
-                        </a>
+                        </OutboundLink>
                       </p>
                     </div>
 
                     <div className="card-footer">
                       <div className="d-flex justify-content-between align-items-center">
-                        <a
+                        <OutboundLink
                           href={talk.url}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -145,7 +146,7 @@ class TalksAndPublications extends Component {
                             icon={['fas', 'play-circle']}
                             className="ml-2"
                           />
-                        </a>
+                        </OutboundLink>
                         <small className="text-muted">{talk.when}</small>
                       </div>
                     </div>
@@ -177,14 +178,14 @@ class TalksAndPublications extends Component {
                 >
                   <div className="container">
                     <h4 className="mb-0">
-                      <a
+                      <OutboundLink
                         href={publication.url}
                         className="text-white"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         {publication.title}
-                      </a>
+                      </OutboundLink>
                     </h4>
                     <p className="text-white my-0">
                       <small>
@@ -193,7 +194,7 @@ class TalksAndPublications extends Component {
                     </p>
                     <p className="mt-2">{publication.excerpt}</p>
 
-                    <a
+                    <OutboundLink
                       href={publication.url}
                       className="btn btn-sm btn-outline-light extra-rounded"
                       target="_blank"
@@ -204,7 +205,7 @@ class TalksAndPublications extends Component {
                         icon={['fas', 'chevron-circle-right']}
                         className="ml-2"
                       />
-                    </a>
+                    </OutboundLink>
                   </div>
                 </li>
               ))}

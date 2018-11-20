@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql, Link, withPrefix } from 'gatsby'
 import classnames from 'classnames'
 import Helmet from 'react-helmet'
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
 import Layout from '../components/layout'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -111,7 +112,7 @@ class Resume extends Component {
               </div>
               <div className="col-lg-5">
                 <div className="d-flex align-items-center justify-content-center justify-content-lg-end">
-                  <a
+                  <OutboundLink
                     href={withPrefix('downloads/cruzresume.pdf')}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -122,9 +123,9 @@ class Resume extends Component {
                       className="mr-2"
                     />
                     Download PDF
-                  </a>
+                  </OutboundLink>
 
-                  <a
+                  <OutboundLink
                     href={withPrefix('downloads/cruzresume.docx')}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -135,7 +136,7 @@ class Resume extends Component {
                       className="mr-2"
                     />
                     Download Word
-                  </a>
+                  </OutboundLink>
                 </div>
               </div>
             </div>

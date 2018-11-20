@@ -106,6 +106,12 @@ module.exports = {
         postCssPlugins: [autoprefixer()],
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-24173653-6',
+      },
+    },
     // {
     //   resolve: `gatsby-plugin-typography`,
     //   options: {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'gatsby'
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
 import SpeakerImage from '../speaker-image'
 
@@ -31,29 +32,29 @@ class Introduction extends Component {
               <p>
                 I also enjoy helping fellow developers learn new technologies.{' '}
                 That’s why I{' '}
-                <a
+                <OutboundLink
                   href="https://www.meetup.com/OrlandoDevs"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   organize meetups
-                </a>
+                </OutboundLink>
                 ,{' '}
-                <a
+                <OutboundLink
                   href="https://youtu.be/WHMyaTy7PME"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   speak at conferences
-                </a>
+                </OutboundLink>
                 , and even{' '}
-                <a
+                <OutboundLink
                   href="https://www.pluralsight.com/courses/code-school-powering-up-with-react"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   teach online courses
-                </a>{' '}
+                </OutboundLink>{' '}
                 occasionally. To further augment my desire to help other
                 engineers succeed, I have most recently taken on management and
                 leadership positions.
