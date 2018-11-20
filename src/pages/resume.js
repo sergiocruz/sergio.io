@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
-import { graphql, Link } from 'gatsby'
+import { graphql, Link, withPrefix } from 'gatsby'
 import classnames from 'classnames';
+import Helmet from 'react-helmet';
 
 import Layout from '../components/layout';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -66,24 +67,38 @@ class Resume extends Component {
 
     return (
       <Layout>
+        <Helmet>
+          <title>Resume of Sergio Cruz, a Software Engineer in Orlando, FL</title>
+          <meta name="description" content="Sergio Cruz has over a decade of demonstrated experience. Sergio has extensive experience with JavaScript, both on client and server-side but has used other languages as well."></meta>
+          <meta name="og:image" content="https://sergiocruz.me/img/sergiocruz-speaker.jpg"></meta>
+          <meta name="og:tite" content="Work Experience of Sergio Cruz, a software engineer in Orlando, FL"></meta>
+        </Helmet>
+
         <div className="bg-gray-200 text-dark py-4 border-bottom">
           <div className="container">
-            <div className="row">
-              <div className="col-lg-8 text-center text-lg-left">
-                <h1 className="m-0">Sergio's Resume</h1>                
+            <div className="row align-items-center">
+              <div className="col-lg-7 text-center text-lg-left">
+                <h1 className="mb-3 mb-lg-0">Sergio's Resume</h1>
               </div>
-              <div className="col-lg-4 align-self-center text-center text-lg-right">
-                <a href="/downloads/cruzresume.docx" className="btn btn-outline-blue extra-rounded px-3 mt-4 mt-lg-0">
-                  <FontAwesomeIcon icon={['fas', 'file-word']} className="mr-2" />
-                  Download Word Version
-                </a>
+              <div className="col-lg-5">
+                <div className="d-flex align-items-center justify-content-center justify-content-lg-end">
+                  <a href={withPrefix('downloads/cruzresume.pdf')} target="_blank" rel="noopener noreferrer" className="badge badge-primary extra-rounded px-3 py-2 mr-2">
+                    <FontAwesomeIcon icon={['fas', 'file-pdf']} className="mr-2" />
+                    Download PDF
+                  </a>
+
+                  <a href={withPrefix('downloads/cruzresume.docx')} target="_blank" rel="noopener noreferrer" className="badge badge-primary extra-rounded px-3 py-2">
+                    <FontAwesomeIcon icon={['fas', 'file-word']} className="mr-2" />
+                    Download Word
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="bg-light">
-          <div className="container pt-4 pb-0 mb-0">
+        <div className="bg-light pt-4 pt-lg-5 pb-3 pb-lg-4">
+          <div className="container pb-2 mb-0">
             <h2><span className="bg-pink text-white px-1 rounded">Work Experience</span></h2>
             <p className="lead">An overview of my career trajectory so far.</p>
           </div>
@@ -126,10 +141,10 @@ class Resume extends Component {
         </div>
 
 
-        <div className="bg-blue text-light font-size-sm">
-          <div className="container py-4">
+        <div className="bg-blue text-light font-size-sm pt-4 pt-lg-5 pb-3 pb-lg-4">
+          <div className="container pb-4 pb-lg-5">
             <h2><span className="bg-pink text-white px-1 rounded">Other Accomplishments</span></h2>
-            <p className="lead">What I do during my spare time.</p>
+            <p className="lead mb-0">What I do during my spare time.</p>
           </div>
 
           <div>
@@ -140,7 +155,10 @@ class Resume extends Component {
                     <h4>{accomplishment.name}</h4>
                     <h5>{accomplishment.position}</h5>
                     <p>{accomplishment.description}</p>
-                    <a href={accomplishment.url} target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-outline-light extra-rounded">Learn more</a>
+                    <a href={accomplishment.url} target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-outline-light extra-rounded">
+                      Learn more
+                      <FontAwesomeIcon icon={['fas', 'chevron-circle-right']} className="ml-2" />
+                    </a>
                   </div>
                 </li>
               ))}
@@ -148,10 +166,10 @@ class Resume extends Component {
           </div>
         </div>
 
-        <div className="bg-light text-dark font-size-sm">
-          <div className="container pt-4 pb-0">
+        <div className="bg-light text-dark font-size-sm pt-4 pb-2 pt-lg-5 pb-lg-4">
+          <div className="container pb-0">
             <h2><span className="bg-pink text-white px-1 rounded">Education</span></h2>
-            <p className="lead">College education is important! <small className="text-gray-200">(Maybe I should finish it some day)</small></p>
+            <p className="lead">College education is important! <small className="text-gray-200 d-block d-lg-inline">(Maybe I should finish it some day)</small></p>
           </div>
 
           <div>
@@ -173,7 +191,7 @@ class Resume extends Component {
             <div className="row">
               <div className="col-lg-8">
                 <h2>Want to see some of my work in action?</h2>
-                <p>Watch my talks, or read articles I have written for various publications.</p>
+                <p className="mb-lg-0">Watch my talks, or read articles I have written for various publications.</p>
               </div>
               <div className="col-lg-4 align-self-center text-center text-lg-right">
                 <Link to="/talks-and-publications" className="btn btn-outline-light extra-rounded px-4">View Talks & Publications</Link>

@@ -1,0 +1,39 @@
+@import "../variables.scss";
+
+.talkCard {
+  :hover {
+    :global(.card-img-top-icon) {
+      color: transparentize($white, 0);
+      transform: translateY(-.20rem) scale(1.15);
+    }
+  }
+
+  :global(.card-img-top) {
+    &:after {
+      content: ' ';
+      background: linear-gradient(
+        to bottom,
+        transparentize($blue, .3) 0%,
+        transparentize($blue, .1) 100%
+      );
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  :global(.card-img-top-icon) {
+    transition: color 400ms ease-out, transform 400ms ease-out;
+    color: transparentize($white, .6);
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 3.5rem;
+  }
+}

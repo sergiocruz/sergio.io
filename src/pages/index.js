@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import Helmet from 'react-helmet'
 
 import Layout from '../components/layout'
 import Hero from '../components/home/hero.component'
@@ -13,6 +14,12 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout header={false}>
+      <Helmet>
+        <title>Sergio Cruz, full stack application developer in Orlando, FL</title>
+        <meta name="description" content="Software engineer in Orlando, FL with over a decade of experience. Sergio regularly organizes tech events, speak at conferences, and teaches online courses."></meta>
+        <meta name="og:image" content="https://sergiocruz.me/img/sergiocruz-speaker.jpg"></meta>
+        <meta name="og:tite" content="Sergio Cruz: Software Engineer"></meta>
+      </Helmet>
       <Hero />
       <Introduction />
       <BlogArticles articles={articles} />

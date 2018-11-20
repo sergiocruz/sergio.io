@@ -1,0 +1,92 @@
+{
+  "talksAndPublications": {
+    "talks": [
+      {
+        "title": "Building a Karaoke Machine with Angular and HTML5 Speech Recognition",
+        "where": "ngconf 2018",
+        "when": "Apr 2018",
+        "url": "https://youtu.be/WHMyaTy7PME",
+        "thumbnail": "../images/talks-and-publications/ngconf2018.jpg"
+      },
+      {
+        "title": "Challenges of Upgrading to Angular",
+        "where": "Interview for This Dot Media",
+        "when": "May 2017",
+        "url": "https://youtu.be/xT4P2holvi0",
+        "thumbnail": "../images/talks-and-publications/ngconf2017-interview.png"
+      },
+      {
+        "title": "Back from the past: A tale of helping others upgrade from Angular 1.x",
+        "where": "ngconf 2017",
+        "when": "Apr 2017",
+        "url": "https://youtu.be/FFhJSkI35U8",
+        "thumbnail": "../images/talks-and-publications/ngconf2017.png"
+      },
+      {
+        "title": "Staying Sane (dot) JS",
+        "where": "Nodevember 2016",
+        "when": "Nov 2016",
+        "url": "https://youtu.be/WP8oEhFXhZs",
+        "thumbnail": "../images/talks-and-publications/nodevember2016.jpg"
+      },
+      {
+        "title": "Upgrading from AngularJS to Angular",
+        "where": "Little Rock Tech Fest 2016",
+        "when": "Jun 2016",
+        "url": "https://youtu.be/FvTw_PDRWDQ",
+        "thumbnail": "../images/talks-and-publications/lrtf2016.png"
+      },
+      {
+        "title": "Is your team ready to learn React?",
+        "where": "Pluralsight Webinars",
+        "when": "Jun 2016",
+        "url": "https://youtu.be/vFbf-_FFuZ4",
+        "thumbnail": "../images/talks-and-publications/pswebinar2016.jpg"
+      }
+    ],
+    "publications": [
+      {
+        "title": "20 JavaScript tools to blow your mind",
+        "excerpt": "JavaScript has grown beyond the browser. Discover the new features, tools and libraries transforming the way we use it.",
+        "publication": "Net Magazine",
+        "when": "Jun 2017",
+        "url": "https://www.creativebloq.com/features/20-javascript-tools-to-blow-your-mind"
+      },
+      {
+        "title": "Presentation - OSCON 2017: Upgrading AngularJS to Angular",
+        "excerpt": "Explore the evolution of JavaScript over time. Learn how to upgrade from Angular 1 to Angular 2.",
+        "publication": "Open Source Convention 2017",
+        "when": "May 2017",
+        "url": "https://conferences.oreilly.com/oscon/oscon-tx/public/schedule/detail/56963"
+      },
+      {
+        "title": "Getting Components to Communicate in Angular",
+        "excerpt": "Components are the building blocks of Angular and every visual element in an Angular application is made with components.",
+        "publication": "InfoQ",
+        "when": "Feb 2017",
+        "url": "https://www.infoq.com/articles/angular-component-communication"
+      },
+      {
+        "title": "Podcast - DNE 73: Entrevista Sergio Cruz (Portuguese 🇧🇷)",
+        "excerpt": "@femontanha bate um papo com o @hashtagserg. Ele nos conta sobre sua vontade de conhecer e morar nos Estados Unidos.",
+        "publication": "Devnaestrada",
+        "when": "Sep 2016",
+        "url": "https://devnaestrada.com.br/2016/09/30/entrevista-sergio-cruz.html"
+      },
+      {
+        "title": "5 hot new ways to use JavaScript",
+        "excerpt": "From robots to drones, discover 5 weird and wonderful ways people are using JavaScript.",
+        "publication": "Creative Bloq",
+        "when": "Sep 2016",
+        "url": "https://www.creativebloq.com/features/5-hot-new-ways-to-use-javascript"
+      },
+      {
+        "title": "Course - Code School: Powering up with React",
+        "excerpt": "Discover how React can help you take control of your UI code with composable user interfaces.",
+        "publication": "Pluralsight Courses",
+        "when": "Apr 2016",
+        "url": "https://www.pluralsight.com/courses/code-school-powering-up-with-react"
+      }
+    ]
+  }
+}

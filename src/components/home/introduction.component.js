@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'gatsby'
 
-import speakerImg from '../../images/sergiocruz-speaker.jpg'
+import SpeakerImage from '../speaker-image';
 
 class Introduction extends Component {
   render() {
@@ -40,7 +40,7 @@ class Introduction extends Component {
               </p>
             </div>
             <div className="col-md-4">
-              <img src={speakerImg} className="img-fluid rounded mt-3 mt-md-0" alt="Sergio speaking at ng-conf 2018" />
+              <SpeakerImage className="img-fluid rounded mt-3 mt-md-0" alt="Sergio speaking at ng-conf 2018" />
             </div>
           </div>
 

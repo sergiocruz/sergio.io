@@ -21,7 +21,7 @@ class BlogArticles extends Component {
     const { articles } = this.props
 
     return (
-      <div className="pt-5 bg-blue text-white">
+      <div className="pt-4 pb-0 pt-lg-5 pb-lg-5 bg-blue text-white">
         <div className="container mb-5">
           <h2><span className="bg-pink text-white px-1 rounded">Blog Articles</span></h2>
           <p className="lead">Explore some articles I wrote along the course of my career.</p>
