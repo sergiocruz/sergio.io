@@ -25,7 +25,7 @@ const IndexPage = ({ data }) => {
         />
         <meta
           name="og:image"
-          content="https://sergiocruz.me/img/sergiocruz-speaker.jpg"
+          content="https://sergio.io/img/sergiocruz-speaker.jpg"
         />
         <meta name="og:tite" content="Sergio Cruz: Software Engineer" />
       </Helmet>
