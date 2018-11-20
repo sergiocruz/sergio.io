@@ -21,7 +21,7 @@ const IndexPage = ({ data }) => {
         </title>
         <meta
           name="description"
-          content="Software engineer in Orlando, FL with over a decade of experience. Sergio regularly organizes tech events, speak at conferences, and teaches online courses."
+          content="Software engineer in Orlando, FL with over a decade of experience. Sergio regularly organizes tech events, speaks at conferences, and teaches online courses."
         />
         <meta
           name="og:image"

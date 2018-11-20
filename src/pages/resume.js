@@ -12,36 +12,43 @@ import articles from '../styles/components/article-list.module.scss'
 class Resume extends Component {
   static propTypes = {
     data: PropTypes.shape({
-      dataJson: PropTypes.shape({
-        resume: PropTypes.shape({
-          experience: PropTypes.arrayOf(
-            PropTypes.shape({
-              company: PropTypes.string.isRequired,
-              positions: PropTypes.arrayOf(
-                PropTypes.shape({
-                  title: PropTypes.string.isRequired,
-                  when: PropTypes.string.isRequired,
-                  activity: PropTypes.arrayOf(PropTypes.string).isRequired,
-                })
-              ).isRequired,
-            })
-          ).isRequired,
-          accomplishments: PropTypes.arrayOf(
-            PropTypes.shape({
-              name: PropTypes.string.isRequired,
-              position: PropTypes.string.isRequired,
-              description: PropTypes.string.isRequired,
-              url: PropTypes.string.isRequired,
-            })
-          ).isRequired,
-          education: PropTypes.arrayOf(
-            PropTypes.shape({
-              name: PropTypes.string.isRequired,
-              when: PropTypes.string.isRequired,
-              degree: PropTypes.string.isRequired,
-            })
-          ).isRequired,
-        }).isRequired,
+      allDataJson: PropTypes.shape({
+        edges: PropTypes.arrayOf(
+          PropTypes.shape({
+            node: PropTypes.shape({
+              resume: PropTypes.shape({
+                experience: PropTypes.arrayOf(
+                  PropTypes.shape({
+                    company: PropTypes.string.isRequired,
+                    positions: PropTypes.arrayOf(
+                      PropTypes.shape({
+                        title: PropTypes.string.isRequired,
+                        when: PropTypes.string.isRequired,
+                        activity: PropTypes.arrayOf(PropTypes.string)
+                          .isRequired,
+                      })
+                    ).isRequired,
+                  })
+                ).isRequired,
+                accomplishments: PropTypes.arrayOf(
+                  PropTypes.shape({
+                    name: PropTypes.string.isRequired,
+                    position: PropTypes.string.isRequired,
+                    description: PropTypes.string.isRequired,
+                    url: PropTypes.string.isRequired,
+                  })
+                ).isRequired,
+                education: PropTypes.arrayOf(
+                  PropTypes.shape({
+                    name: PropTypes.string.isRequired,
+                    when: PropTypes.string.isRequired,
+                    degree: PropTypes.string.isRequired,
+                  })
+                ).isRequired,
+              }),
+            }).isRequired,
+          }).isRequired
+        ).isRequired,
       }).isRequired,
     }).isRequired,
   }
@@ -50,21 +57,20 @@ class Resume extends Component {
     isHidingPositions: true,
   }
 
-  getExperience() {
-    let {
-      data: {
-        dataJson: {
-          resume: { experience },
-        },
-      },
-    } = this.props
+  getResume() {
     const { isHidingPositions } = this.state
+    const { data } = this.props
+
+    const resume = data.allDataJson.edges
+      .filter(edge => edge.node.resume)
+      .map(edge => edge.node.resume)
+      .reduce(resume => resume)
 
     if (isHidingPositions) {
-      experience = experience.slice(0, 5)
+      resume.experience = resume.experience.slice(0, 5)
     }
 
-    return experience
+    return resume
   }
 
   handleToggleHidingPositions = () => {
@@ -74,15 +80,8 @@ class Resume extends Component {
   }
 
   render() {
-    const {
-      data: {
-        dataJson: {
-          resume: { accomplishments, education },
-        },
-      },
-    } = this.props
     const { isHidingPositions } = this.state
-    const experience = this.getExperience()
+    const { accomplishments, education, experience } = this.getResume()
 
     return (
       <Layout>
@@ -301,28 +300,30 @@ export default Resume
 
 export const pageQuery = graphql`
   {
-    dataJson {
-      resume {
-        experience {
-          company
-          positions {
-            title
-            when
-            activity
+    allDataJson {
+      edges {
+        node {
+          resume {
+            experience {
+              company
+              positions {
+                title
+                when
+                activity
+              }
+            }
+            accomplishments {
+              name
+              position
+              description
+              url
+            }
+            education {
+              name
+              when
+              degree
+            }
           }
-        }
-
-        accomplishments {
-          name
-          position
-          description
-          url
-        }
-
-        education {
-          name
-          when
-          degree
         }
       }
     }

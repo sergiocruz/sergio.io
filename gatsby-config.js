@@ -4,6 +4,7 @@ module.exports = {
   siteMetadata: {
     title: 'Sergio Cruz ',
   },
+  // pathPrefix: '/sergio.io', // use when accessing via sergiocruz.github.io/sergio.io
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-sharp',

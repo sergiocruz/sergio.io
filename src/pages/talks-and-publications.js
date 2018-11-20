@@ -11,28 +11,32 @@ import styles from '../styles/pages/talks-and-publications.module.scss'
 import articles from '../styles/components/article-list.module.scss'
 
 class TalksAndPublications extends Component {
-  static PropTypes = {
+  static propTypes = {
     data: PropTypes.shape({
       allDataJson: PropTypes.shape({
         edges: PropTypes.arrayOf(
           PropTypes.shape({
             node: PropTypes.shape({
               talksAndPublications: PropTypes.shape({
-                talks: PropTypes.shape({
-                  thumbnail: PropTypes.object.isRequired,
-                  title: PropTypes.string.isRequired,
-                  url: PropTypes.string.isRequired,
-                  when: PropTypes.string.isRequired,
-                  where: PropTypes.string.isRequired,
-                }).isRequired,
-                publications: PropTypes.shape({
-                  excerpt: PropTypes.string.isRequired,
-                  publication: PropTypes.string.isRequired,
-                  title: PropTypes.string.isRequired,
-                  url: PropTypes.object.isRequired,
-                  when: PropTypes.string.isRequired,
-                }).isRequired,
-              }).isRequired,
+                talks: PropTypes.arrayOf(
+                  PropTypes.shape({
+                    thumbnail: PropTypes.object.isRequired,
+                    title: PropTypes.string.isRequired,
+                    url: PropTypes.string.isRequired,
+                    when: PropTypes.string.isRequired,
+                    where: PropTypes.string.isRequired,
+                  })
+                ).isRequired,
+                publications: PropTypes.arrayOf(
+                  PropTypes.shape({
+                    excerpt: PropTypes.string.isRequired,
+                    publication: PropTypes.string.isRequired,
+                    title: PropTypes.string.isRequired,
+                    url: PropTypes.string.isRequired,
+                    when: PropTypes.string.isRequired,
+                  })
+                ).isRequired,
+              }),
             }).isRequired,
           })
         ).isRequired,
@@ -40,12 +44,17 @@ class TalksAndPublications extends Component {
     }).isRequired,
   }
 
-  render() {
+  getTalksAndPublications() {
     const { data } = this.props
-    const {
-      talks,
-      publications,
-    } = data.allDataJson.edges[0].node.talksAndPublications
+
+    return data.allDataJson.edges
+      .filter(edge => edge.node.talksAndPublications)
+      .map(edge => edge.node.talksAndPublications)
+      .reduce(talksAndPublications => talksAndPublications)
+  }
+
+  render() {
+    const { talks, publications } = this.getTalksAndPublications()
 
     return (
       <Layout>
@@ -233,7 +242,7 @@ export default TalksAndPublications
 
 export const pageQuery = graphql`
   {
-    allDataJson(skip: 1) {
+    allDataJson {
       edges {
         node {
           talksAndPublications {
