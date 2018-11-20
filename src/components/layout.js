@@ -9,12 +9,11 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import Header from './header'
 import '../styles/app.scss'
 import '../styles/components/layout.module.scss'
-import Footer from './footer';
-
+import Footer from './footer'
 
 library.add(fas, fab)
 
-const Layout = ({ children, header=true }) => (
+const Layout = ({ children, header = true }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -37,13 +36,9 @@ const Layout = ({ children, header=true }) => (
           <html lang="en" />
         </Helmet>
 
-        {(header) && (
-          <Header />
-        )}
+        {header && <Header />}
 
-        <div>
-          {children}
-        </div>
+        <div>{children}</div>
 
         <Footer />
       </>

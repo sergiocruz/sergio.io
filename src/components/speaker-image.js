@@ -2,7 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
-const SpeakerImage = (props) => (
+const SpeakerImage = props => (
   <StaticQuery
     query={graphql`
       query {
@@ -15,7 +15,9 @@ const SpeakerImage = (props) => (
         }
       }
     `}
-    render={data => <Img {...props} fluid={data.placeholderImage.childImageSharp.fluid} />}
+    render={data => (
+      <Img {...props} fluid={data.placeholderImage.childImageSharp.fluid} />
+    )}
   />
 )
 export default SpeakerImage

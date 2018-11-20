@@ -25,13 +25,14 @@ export default function Template({
 
       <div className="bg-light text-dark py-3">
         <div className="container">
-          <p>Published <date>{frontmatter.date}</date></p>
+          <p>
+            Published <date>{frontmatter.date}</date>
+          </p>
           <div
             className="body-content font-size-sm"
             dangerouslySetInnerHTML={{ __html: html }}
           />
-      </div>
-      
+        </div>
       </div>
     </Layout>
   )

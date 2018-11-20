@@ -8,17 +8,26 @@ import Introduction from '../components/home/introduction.component'
 import BlogArticles from '../components/home/blog-articles.component'
 
 const IndexPage = ({ data }) => {
-  const { allMarkdownRemark: { edges } } = data
-  const articles = edges.map((edge) => edge.node)
-
+  const {
+    allMarkdownRemark: { edges },
+  } = data
+  const articles = edges.map(edge => edge.node)
 
   return (
     <Layout header={false}>
       <Helmet>
-        <title>Sergio Cruz, full stack application developer in Orlando, FL</title>
-        <meta name="description" content="Software engineer in Orlando, FL with over a decade of experience. Sergio regularly organizes tech events, speak at conferences, and teaches online courses."></meta>
-        <meta name="og:image" content="https://sergiocruz.me/img/sergiocruz-speaker.jpg"></meta>
-        <meta name="og:tite" content="Sergio Cruz: Software Engineer"></meta>
+        <title>
+          Sergio Cruz, full stack application developer in Orlando, FL
+        </title>
+        <meta
+          name="description"
+          content="Software engineer in Orlando, FL with over a decade of experience. Sergio regularly organizes tech events, speak at conferences, and teaches online courses."
+        />
+        <meta
+          name="og:image"
+          content="https://sergiocruz.me/img/sergiocruz-speaker.jpg"
+        />
+        <meta name="og:tite" content="Sergio Cruz: Software Engineer" />
       </Helmet>
       <Hero />
       <Introduction />

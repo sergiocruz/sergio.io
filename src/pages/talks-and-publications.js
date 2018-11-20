@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import { Link, graphql } from 'gatsby'
@@ -6,50 +6,63 @@ import Img from 'gatsby-image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Helmet from 'react-helmet'
 
-import Layout from '../components/layout';
+import Layout from '../components/layout'
 import styles from '../styles/pages/talks-and-publications.module.scss'
 import articles from '../styles/components/article-list.module.scss'
 
 class TalksAndPublications extends Component {
-
   static PropTypes = {
     data: PropTypes.shape({
       allDataJson: PropTypes.shape({
-        edges: PropTypes.arrayOf(PropTypes.shape({
-          node: PropTypes.shape({
-            talksAndPublications: PropTypes.shape({
-              talks: PropTypes.shape({
-                thumbnail: PropTypes.object.isRequired,
-                title: PropTypes.string.isRequired,
-                url: PropTypes.string.isRequired,
-                when: PropTypes.string.isRequired,
-                where: PropTypes.string.isRequired,
-              }).isRequired,
-              publications: PropTypes.shape({
-                excerpt: PropTypes.string.isRequired,
-                publication: PropTypes.string.isRequired,
-                title: PropTypes.string.isRequired,
-                url: PropTypes.object.isRequired,
-                when: PropTypes.string.isRequired,
+        edges: PropTypes.arrayOf(
+          PropTypes.shape({
+            node: PropTypes.shape({
+              talksAndPublications: PropTypes.shape({
+                talks: PropTypes.shape({
+                  thumbnail: PropTypes.object.isRequired,
+                  title: PropTypes.string.isRequired,
+                  url: PropTypes.string.isRequired,
+                  when: PropTypes.string.isRequired,
+                  where: PropTypes.string.isRequired,
+                }).isRequired,
+                publications: PropTypes.shape({
+                  excerpt: PropTypes.string.isRequired,
+                  publication: PropTypes.string.isRequired,
+                  title: PropTypes.string.isRequired,
+                  url: PropTypes.object.isRequired,
+                  when: PropTypes.string.isRequired,
+                }).isRequired,
               }).isRequired,
             }).isRequired,
-          }).isRequired,
-        })).isRequired,
-      })
+          })
+        ).isRequired,
+      }),
     }).isRequired,
   }
 
   render() {
     const { data } = this.props
-    const { talks, publications } = data.allDataJson.edges[0].node.talksAndPublications
+    const {
+      talks,
+      publications,
+    } = data.allDataJson.edges[0].node.talksAndPublications
 
     return (
       <Layout>
         <Helmet>
           <title>Talks, courses, and articles presented by Sergio Cruz</title>
-          <meta name="description" content="Sergio has done several technical talks around the world. He also regularly publishes articles on various publications, participates in podcasts, interviews, etc."></meta>
-          <meta name="og:image" content="https://sergiocruz.me/img/sergiocruz-speaker.jpg"></meta>
-          <meta name="og:tite" content="Talks, courses, and articles presented by Sergio Cruz"></meta>
+          <meta
+            name="description"
+            content="Sergio has done several technical talks around the world. He also regularly publishes articles on various publications, participates in podcasts, interviews, etc."
+          />
+          <meta
+            name="og:image"
+            content="https://sergiocruz.me/img/sergiocruz-speaker.jpg"
+          />
+          <meta
+            name="og:tite"
+            content="Talks, courses, and articles presented by Sergio Cruz"
+          />
         </Helmet>
 
         <div className="bg-gray-200 text-dark py-4 border-bottom">
@@ -60,33 +73,69 @@ class TalksAndPublications extends Component {
 
         <div className="bg-light text-dark py-4">
           <div className="container pt-4 pb-0 mb-0">
-            <h2><span className="bg-pink text-white px-1 rounded">Videos</span></h2>
-            <p className="lead">Videos of my conference talks, interviews, webinars, etc.</p>
+            <h2>
+              <span className="bg-pink text-white px-1 rounded">Videos</span>
+            </h2>
+            <p className="lead">
+              Videos of my conference talks, interviews, webinars, etc.
+            </p>
 
             <div className="row">
               {talks.map((talk, i) => (
                 <div className="col-md-4 mb-4" key={i}>
-                  <div className={classnames(styles.talkCard, 'card h-100 shadow-sm shadow--hover overflow-hidden')}>
+                  <div
+                    className={classnames(
+                      styles.talkCard,
+                      'card h-100 shadow-sm shadow--hover overflow-hidden'
+                    )}
+                  >
                     <div className="position-relative overflow-hidden">
-                      <a href={talk.url} target="_blank" rel="noopener noreferrer" className="d-block card-img-top">
-                        <FontAwesomeIcon icon={['fas', 'play-circle']} className="card-img-top-icon" />
-                        <Img fluid={talk.thumbnail.childImageSharp.fluid} className="rounded-top" alt={talk.title} />
+                      <a
+                        href={talk.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="d-block card-img-top"
+                      >
+                        <FontAwesomeIcon
+                          icon={['fas', 'play-circle']}
+                          className="card-img-top-icon"
+                        />
+                        <Img
+                          fluid={talk.thumbnail.childImageSharp.fluid}
+                          className="rounded-top"
+                          alt={talk.title}
+                        />
                       </a>
                     </div>
-                    
+
                     <div className="card-body">
                       <p className="card-text font-size-sm">
                         <small className="text-muted">{talk.where}</small>
                         <br />
-                        <a href={talk.url} target="_blank" rel="noopener noreferrer" className="text-gray-600 font-weight-600">{talk.title}</a>
+                        <a
+                          href={talk.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-600 font-weight-600"
+                        >
+                          {talk.title}
+                        </a>
                       </p>
                     </div>
 
                     <div className="card-footer">
                       <div className="d-flex justify-content-between align-items-center">
-                        <a href={talk.url} target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-outline-blue">
+                        <a
+                          href={talk.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn btn-sm btn-outline-blue"
+                        >
                           Watch Now
-                          <FontAwesomeIcon icon={['fas', 'play-circle']} className="ml-2" />
+                          <FontAwesomeIcon
+                            icon={['fas', 'play-circle']}
+                            className="ml-2"
+                          />
                         </a>
                         <small className="text-muted">{talk.when}</small>
                       </div>
@@ -97,25 +146,55 @@ class TalksAndPublications extends Component {
             </div>
           </div>
         </div>
-        
+
         <div className="bg-blue text-light">
           <div className="container py-5 pb-0">
-            <h2><span className="bg-pink text-white px-1 rounded">Publications</span></h2>
-            <p className="lead mb-0">See some of my work that has been published around the web.</p>
+            <h2>
+              <span className="bg-pink text-white px-1 rounded">
+                Publications
+              </span>
+            </h2>
+            <p className="lead mb-0">
+              See some of my work that has been published around the web.
+            </p>
           </div>
 
           <div>
             <ul className="list-unstyled mb-0">
               {publications.map((publication, i) => (
-                <li className={classnames(articles.articleItem, 'py-4')} key={i}>
+                <li
+                  className={classnames(articles.articleItem, 'py-4')}
+                  key={i}
+                >
                   <div className="container">
-                    <h4 className="mb-0"><a href={publication.url} className="text-white" target="_blank" rel="noopener noreferrer">{publication.title}</a></h4>
-                    <p className="text-white my-0"><small>{publication.when} - {publication.publication}</small></p>
+                    <h4 className="mb-0">
+                      <a
+                        href={publication.url}
+                        className="text-white"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {publication.title}
+                      </a>
+                    </h4>
+                    <p className="text-white my-0">
+                      <small>
+                        {publication.when} - {publication.publication}
+                      </small>
+                    </p>
                     <p className="mt-2">{publication.excerpt}</p>
 
-                    <a href={publication.url} className="btn btn-sm btn-outline-light extra-rounded" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href={publication.url}
+                      className="btn btn-sm btn-outline-light extra-rounded"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Check it out
-                      <FontAwesomeIcon icon={['fas', 'chevron-circle-right']} className="ml-2" />
+                      <FontAwesomeIcon
+                        icon={['fas', 'chevron-circle-right']}
+                        className="ml-2"
+                      />
                     </a>
                   </div>
                 </li>
@@ -129,20 +208,28 @@ class TalksAndPublications extends Component {
             <div className="row">
               <div className="col-lg-8">
                 <h2>Curious about my work experience?</h2>
-                <p className="mb-lg-0">See what I've been up to professionally over the past few years.</p>
+                <p className="mb-lg-0">
+                  See what I've been up to professionally over the past few
+                  years.
+                </p>
               </div>
               <div className="col-lg-4 align-self-center text-center text-lg-right">
-                <Link to="/resume" className="btn btn-outline-light extra-rounded px-4">View Resume</Link>
+                <Link
+                  to="/resume"
+                  className="btn btn-outline-light extra-rounded px-4"
+                >
+                  View Resume
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </Layout>
-    );
+    )
   }
 }
 
-export default TalksAndPublications;
+export default TalksAndPublications
 
 export const pageQuery = graphql`
   {
