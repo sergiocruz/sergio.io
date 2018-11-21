@@ -3,13 +3,15 @@ var autoprefixer = require('autoprefixer')
 module.exports = {
   siteMetadata: {
     title: 'Sergio Cruz ',
+    siteUrl: 'https://sergio.io'
   },
   // pathPrefix: '/sergio.io', // use when accessing via sergiocruz.github.io/sergio.io
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    `gatsby-transformer-json`,
+    'gatsby-transformer-json',
+    'gatsby-plugin-sitemap',
     {
       resolve: `gatsby-source-filesystem`,
       options: {

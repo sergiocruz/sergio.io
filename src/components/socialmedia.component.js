@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
 import styles from '../styles/components/socialmedia.module.scss'
-import JsonSchemaPerson from './home/jsonschema-person.component'
 
 const SocialMedia = () => (
   <div className={classnames(styles.socialmedia, 'mt-3')}>
@@ -43,8 +42,6 @@ const SocialMedia = () => (
       <FontAwesomeIcon icon={['fas', 'envelope']} />
       <span>Email</span>
     </OutboundLink>
-
-    <JsonSchemaPerson />
   </div>
 )
 

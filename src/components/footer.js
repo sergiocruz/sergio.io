@@ -1,5 +1,6 @@
 import React from 'react'
 
+import JsonSchemaPerson from './jsonschema-person.component'
 import SocialMedia from './socialmedia.component'
 
 const year = new Date().getFullYear()
@@ -8,6 +9,7 @@ const Footer = () => (
   <div className="bg-gray-200 py-3 text-dark">
     <div className="container d-flex flex-column align-items-center justify-content-center">
       <SocialMedia />
+      <JsonSchemaPerson />
       <p className="font-size-xs m-0">
         Copyright © {year} Sergio Cruz. All rights reserved.
       </p>
