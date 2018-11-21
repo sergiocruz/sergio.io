@@ -8,10 +8,11 @@ module.exports = {
   // pathPrefix: '/sergio.io', // use when accessing via sergiocruz.github.io/sergio.io
   plugins: [
     'gatsby-plugin-react-helmet',
-    'gatsby-transformer-sharp',
+    'gatsby-plugin-robots-txt',
     'gatsby-plugin-sharp',
-    'gatsby-transformer-json',
     'gatsby-plugin-sitemap',
+    'gatsby-transformer-json',
+    'gatsby-transformer-sharp',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
