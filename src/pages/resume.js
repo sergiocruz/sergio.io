@@ -67,7 +67,7 @@ class Resume extends Component {
       .reduce(resume => ({ ...resume }))
 
     const resume = {
-      ...dataResume
+      ...dataResume,
     }
 
     if (isHidingPositions) {

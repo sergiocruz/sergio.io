@@ -28,7 +28,7 @@ class BlogArticles extends Component {
             <span className="bg-pink text-white px-1 rounded">Blog</span>
           </h2>
           <p className="lead">
-            Explore some articles I wrote throughout the course of my career.
+            Explore some articles I wrote throughout my career.
           </p>
         </div>
 
