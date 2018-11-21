@@ -14,7 +14,7 @@ Perhaps you may have much more experience with SailsJS and have way gone beyond 
 
 ***Before we start:** Are you a total SailsJS n00b? Follow the official <a href="https://sailsjs.org/#!getStarted" target="_blank">Getting Started</a> guide to get SailsJS installed before proceeding.*
 
-###Without further adue, let's get started:
+###Without further ado, let's get started:
 
 **Step 1:**
 Add the following dependencies to your project:
