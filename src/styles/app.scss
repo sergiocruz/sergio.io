@@ -7,6 +7,11 @@
 // Bootstrap
 @import "./bootstrap.scss";
 
+::selection {
+  background-color: $green;
+  color: $gray-800;
+}
+
 html {
   background-color: $gray-100;
   font-size: 20px;

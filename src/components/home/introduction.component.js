@@ -30,6 +30,10 @@ class Introduction extends Component {
               </p>
 
               <p>
+                Currently most of my projects are written in JavaScript (or TypeScript). I tend to use <OutboundLink href="https://expressjs.com/" target="_blank" rel="noopener noreferrer">Express</OutboundLink> to write backend services, and a Single Page Application framework to write frontend experiences (usually <OutboundLink href="https://angular.io/" target="_blank" rel="noopener noreferrer">Angular</OutboundLink> or <OutboundLink href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">React</OutboundLink>). I have also worked with other languages in my day job, including PHP (with MVC frameworks like <OutboundLink href="https://laravel.com/" target="_blank" rel="noopener noreferrer">Laravel</OutboundLink>), and even some Java as well (although mostly for Android development).
+              </p>
+
+              <p>
                 I also enjoy helping fellow developers learn new technologies.{' '}
                 That’s why I{' '}
                 <OutboundLink
@@ -55,9 +59,9 @@ class Introduction extends Component {
                 >
                   teach online courses
                 </OutboundLink>{' '}
-                occasionally. To further augment my desire to help other
-                engineers succeed, I have most recently taken on management and
-                leadership positions.
+                occasionally. I have taken on management and leadership
+                positions to further augment my desire to help other engineers
+                succeed.
               </p>
 
               <p>

@@ -25,12 +25,10 @@ class BlogArticles extends Component {
       <div className="pt-4 pb-0 pt-lg-5 pb-lg-5 bg-blue text-white">
         <div className="container mb-5">
           <h2>
-            <span className="bg-pink text-white px-1 rounded">
-              Blog Articles
-            </span>
+            <span className="bg-pink text-white px-1 rounded">Blog</span>
           </h2>
           <p className="lead">
-            Explore some articles I wrote along the course of my career.
+            Explore some articles I wrote throughout the course of my career.
           </p>
         </div>
 

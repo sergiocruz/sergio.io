@@ -61,11 +61,14 @@ class Resume extends Component {
   getResume() {
     const { isHidingPositions } = this.state
     const { data } = this.props
-
-    const resume = data.allDataJson.edges
+    const dataResume = data.allDataJson.edges
       .filter(edge => edge.node.resume)
       .map(edge => edge.node.resume)
-      .reduce(resume => resume)
+      .reduce(resume => ({ ...resume }))
+
+    const resume = {
+      ...dataResume
+    }
 
     if (isHidingPositions) {
       resume.experience = resume.experience.slice(0, 5)

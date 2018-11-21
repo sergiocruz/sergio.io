@@ -23,11 +23,8 @@ export default function Template({
         </div>
       </div>
 
-      <div className="bg-light text-dark py-3">
+      <div className="bg-light text-dark py-4">
         <div className="container">
-          <p>
-            Published <date>{frontmatter.date}</date>
-          </p>
           <div
             className="body-content font-size-sm"
             dangerouslySetInnerHTML={{ __html: html }}
