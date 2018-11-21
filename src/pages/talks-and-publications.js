@@ -135,6 +135,7 @@ class TalksAndPublications extends Component {
 
                     <div className="card-footer">
                       <div className="d-flex justify-content-between align-items-center">
+                        <small className="text-muted">{talk.when}</small>
                         <OutboundLink
                           href={talk.url}
                           target="_blank"
@@ -147,7 +148,6 @@ class TalksAndPublications extends Component {
                             className="ml-2"
                           />
                         </OutboundLink>
-                        <small className="text-muted">{talk.when}</small>
                       </div>
                     </div>
                   </div>
