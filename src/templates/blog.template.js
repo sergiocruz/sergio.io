@@ -17,7 +17,7 @@ export default function Template({
         <meta name="og:tite" content={frontmatter.title} />
       </Helmet>
 
-      <div className="bg-gray-200 text-dark py-3">
+      <div className="bg-gray-200 text-dark py-4">
         <div className="container">
           <h1>{frontmatter.title}</h1>
         </div>
