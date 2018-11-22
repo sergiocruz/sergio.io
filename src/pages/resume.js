@@ -124,6 +124,7 @@ class Resume extends Component {
                     <FontAwesomeIcon
                       icon={['fas', 'file-pdf']}
                       className="mr-2"
+                      style={{ maxWidth: '15px' }}
                     />
                     Download PDF
                   </OutboundLink>
@@ -137,6 +138,7 @@ class Resume extends Component {
                     <FontAwesomeIcon
                       icon={['fas', 'file-word']}
                       className="mr-2"
+                      style={{ maxWidth: '15px' }}
                     />
                     Download Word
                   </OutboundLink>
