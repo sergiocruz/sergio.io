@@ -109,6 +109,7 @@ class TalksAndPublications extends Component {
                         <FontAwesomeIcon
                           icon={['fas', 'play-circle']}
                           className="card-img-top-icon"
+                          style={{ maxWidth: '70px' }}
                         />
                         <Img
                           fluid={talk.thumbnail.childImageSharp.fluid}
@@ -146,6 +147,7 @@ class TalksAndPublications extends Component {
                           <FontAwesomeIcon
                             icon={['fas', 'play-circle']}
                             className="ml-2"
+                            style={{ maxWidth: '15px' }}
                           />
                         </OutboundLink>
                       </div>
@@ -204,6 +206,7 @@ class TalksAndPublications extends Component {
                       <FontAwesomeIcon
                         icon={['fas', 'chevron-circle-right']}
                         className="ml-2"
+                        style={{ maxWidth: '15px' }}
                       />
                     </OutboundLink>
                   </div>

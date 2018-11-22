@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import classnames from 'classnames'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import styles from '../../styles/components/article-list.module.scss'
 
@@ -48,6 +49,11 @@ class BlogArticles extends Component {
                     className="btn btn-sm btn-outline-light extra-rounded"
                   >
                     Read Article
+                    <FontAwesomeIcon
+                      icon={['fas', 'chevron-circle-right']}
+                      className="ml-2"
+                      style={{ maxWidth: '15px' }}
+                    />
                   </Link>
                 </div>
               </li>

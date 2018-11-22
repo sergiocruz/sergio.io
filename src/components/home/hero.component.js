@@ -46,7 +46,7 @@ class Hero extends Component {
                       'list-inline-item my-0 ml-2 mr-3'
                     )}
                   >
-                    <FontAwesomeIcon icon={['fas', 'star']} />
+                    <FontAwesomeIcon icon={['fas', 'star']} style={{ maxWidth: '15px' }} />
                   </span>
                   <span className="list-inline-item my-0">Speaker</span>
                   <span
@@ -55,7 +55,7 @@ class Hero extends Component {
                       'list-inline-item my-0 ml-2 mr-3'
                     )}
                   >
-                    <FontAwesomeIcon icon={['fas', 'star']} />
+                    <FontAwesomeIcon icon={['fas', 'star']} style={{ maxWidth: '15px' }} />
                   </span>
                   <span className="list-inline-item mb-0">Mentor</span>
                 </div>
