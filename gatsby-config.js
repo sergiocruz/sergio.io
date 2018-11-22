@@ -1,4 +1,5 @@
-var autoprefixer = require('autoprefixer')
+const path = require('path')
+const autoprefixer = require('autoprefixer')
 
 module.exports = {
   siteMetadata: {
@@ -115,6 +116,14 @@ module.exports = {
       options: {
         trackingId: 'UA-24173653-6',
       },
+    },
+    {
+      resolve: 'gatsby-plugin-purgecss',
+      options: {
+        ignore: [
+          'node_modules/prismjs/'
+        ]
+      }
     },
     // {
     //   resolve: `gatsby-plugin-typography`,
