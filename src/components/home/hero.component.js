@@ -29,7 +29,7 @@ class Hero extends Component {
                       styles.heroAvatar,
                       'rounded-circle ml-4 my-2'
                     )}
-                    alt="Sergio's avatar"
+                    alt=""
                   />
                 </h1>
 
