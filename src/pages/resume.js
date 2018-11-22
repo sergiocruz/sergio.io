@@ -71,7 +71,7 @@ class Resume extends Component {
     }
 
     if (isHidingPositions) {
-      resume.experience = resume.experience.slice(0, 5)
+      resume.experience = resume.experience.slice(0, 3)
     }
 
     return resume
