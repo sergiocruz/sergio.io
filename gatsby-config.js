@@ -1,5 +1,8 @@
 const path = require('path')
 const autoprefixer = require('autoprefixer')
+require('dotenv').config()
+
+const { FULLSTORY_ORGID, GOOGLE_ANALYTICS_ID } = process.env
 
 module.exports = {
   siteMetadata: {
@@ -114,7 +117,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: 'UA-24173653-6',
+        trackingId: GOOGLE_ANALYTICS_ID,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-fullstory`,
+      options: {
+        fs_org: FULLSTORY_ORGID,
       },
     },
     {
