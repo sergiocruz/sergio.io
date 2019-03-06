@@ -143,12 +143,14 @@
       {
         "name": "Orlando Devs, Inc.",
         "position": "President",
+        "when": "2016 - March 2018",
         "description": "Nonprofit focused on improving the quality of life of Software Professionals in Central Florida. The organization accompanies a community of over 3,000 members who actively engage both in person and online.",
         "url": "https://orlandodevs.com/"
       },
       {
         "name": "OrlandoJS",
         "position": "Co-organizer",
+        "when": "2015 - March 2018",
         "description": "Tech meetup in Orlando that covers all things JavaScript and meets on a monthly basis.",
         "url": "https://meetup.com/OrlandoJS/"
       }

@@ -17,11 +17,11 @@ const IndexPage = ({ data }) => {
     <Layout header={false}>
       <Helmet>
         <title>
-          Sergio Cruz, full stack application developer in Orlando, FL
+          Sergio Cruz, full stack application developer in Nashville, TN
         </title>
         <meta
           name="description"
-          content="Software engineer in Orlando, FL with over a decade of experience. Sergio regularly organizes tech events, speaks at conferences, and teaches online courses."
+          content="Software engineer in Nashville, TN with over a decade of experience. Sergio regularly organizes tech events, speaks at conferences, and teaches online courses."
         />
         <meta
           name="og:image"
