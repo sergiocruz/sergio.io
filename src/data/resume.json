@@ -2,15 +2,29 @@
   "resume": {
     "experience": [
       {
+        "company": "Ramsey Solutions",
+        "positions": [
+          {
+            "title": "Associate Director of Digital Development",
+            "when": "March 2019 - Present",
+            "activity": [
+              "Lead a team of Software Developers. The team is internally known as the Frontman team",
+              "We build tools in the personal finance space, focusing on connecting customers to our advertising partners."
+            ]
+          }
+        ]
+      },
+      {
         "company": "Trazi Ventures",
         "positions": [
           {
             "title": "Engineering Manager",
-            "when": "May 2017 - Present",
+            "when": "May 2017 - March 2019",
             "activity": [
-              "Architects scalable software for that is used by millions of people every month",
-              "Writes new features using REST APIs (Laravel backend) and Single Page Applications (React)",
-              "Runs engineering team responsible for maintaning and scaling product"
+              "Led the software engineering team",
+              "Introduced culture-related initiatives to increase team cohesiveness & productivity",
+              "Architected scalable software for that is used by millions of people every month",
+              "Wrote new features using REST API (Laravel) and Single Page Apps (React)"
             ]
           }
         ]
@@ -143,12 +157,14 @@
       {
         "name": "Orlando Devs, Inc.",
         "position": "President",
+        "when": "2016 - March 2018",
         "description": "Nonprofit focused on improving the quality of life of Software Professionals in Central Florida. The organization accompanies a community of over 3,000 members who actively engage both in person and online.",
         "url": "https://orlandodevs.com/"
       },
       {
         "name": "OrlandoJS",
         "position": "Co-organizer",
+        "when": "2015 - March 2018",
         "description": "Tech meetup in Orlando that covers all things JavaScript and meets on a monthly basis.",
         "url": "https://meetup.com/OrlandoJS/"
       }

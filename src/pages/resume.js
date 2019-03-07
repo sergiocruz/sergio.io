@@ -91,7 +91,7 @@ class Resume extends Component {
       <Layout>
         <Helmet>
           <title>
-            Resume of Sergio Cruz, a Software Engineer in Orlando, FL
+            Resume of Sergio Cruz, a Software Engineer in Nashville, TN
           </title>
           <meta
             name="description"
@@ -103,7 +103,7 @@ class Resume extends Component {
           />
           <meta
             name="og:tite"
-            content="Work Experience of Sergio Cruz, a software engineer in Orlando, FL"
+            content="Work Experience of Sergio Cruz, a software engineer in Nashville, TN"
           />
         </Helmet>
 
@@ -223,7 +223,11 @@ class Resume extends Component {
                 >
                   <div className="container">
                     <h4>{accomplishment.name}</h4>
-                    <h5>{accomplishment.position}</h5>
+                    <h5>
+                      {accomplishment.position}
+                      {' '}
+                      <small class="d-block d-lg-inline">{accomplishment.when}</small>
+                    </h5>
                     <p>{accomplishment.description}</p>
                     <a
                       href={accomplishment.url}
@@ -321,6 +325,7 @@ export const pageQuery = graphql`
             accomplishments {
               name
               position
+              when
               description
               url
             }

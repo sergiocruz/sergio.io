@@ -16,7 +16,7 @@ class Introduction extends Component {
                   About Sergio
                 </span>
               </h2>
-              <p className="lead">Full stack developer in Orlando, FL.</p>
+              <p className="lead">Full stack developer in Nashville, TN.</p>
 
               <p>
                 Hey there{' '}
