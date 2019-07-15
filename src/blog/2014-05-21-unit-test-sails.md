@@ -19,7 +19,7 @@ Perhaps you may have much more experience with SailsJS and have way gone beyond 
 **Step 1:**
 Add the following dependencies to your project:
 
-```markup
+```bash
 npm install mocha --save-dev
 npm install assert --save-dev
 npm install sinon --save-dev
@@ -29,7 +29,7 @@ npm install grunt-mocha-istanbul --save-dev
 **Step 2:**
 Add a `/test` directory to the root directory of your application that mimics the format of the `/api` directory. Your new root directory structure should look something like this:
 
-```markup
+```
 /api
 /assets
 /config
@@ -133,13 +133,13 @@ Execute test
 
 Execute the following command on your Terminal:
 
-```
+```bash
 grunt test
 ```
 
 The feedback you will receive should be similar to the following:
 
-```
+```bash
 Running "mocha_istanbul:coverage" (mocha_istanbul) task
 
   ․

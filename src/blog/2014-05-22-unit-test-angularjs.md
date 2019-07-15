@@ -14,7 +14,7 @@ For the sake of simplicity I will be using <a href="http://yeoman.io" target="_b
 
 Let's get started! First things first, make sure you have <a href="http://gruntjs.com" target="_blank">GruntJS</a>, <a href="http://yeoman.io" target="_blank">Yeoman</a> and the <a href="https://github.com/yeoman/generator-angular" target="_blank">AngularJS Generator</a> all installed globally:
 
-```sh
+```bash
 npm install -g grunt-cli
 npm install -g yo
 npm install -g generator-angular

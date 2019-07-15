@@ -224,9 +224,10 @@ class Resume extends Component {
                   <div className="container">
                     <h4>{accomplishment.name}</h4>
                     <h5>
-                      {accomplishment.position}
-                      {' '}
-                      <small class="d-block d-lg-inline">{accomplishment.when}</small>
+                      {accomplishment.position}{' '}
+                      <small class="d-block d-lg-inline">
+                        {accomplishment.when}
+                      </small>
                     </h5>
                     <p>{accomplishment.description}</p>
                     <a

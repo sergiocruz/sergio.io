@@ -29,7 +29,13 @@ const NotFoundPage = () => (
 
     <div className="bg-light text-dark py-4">
       <div className="container pt-4 pb-0 mb-0">
-        <p className="lead">You reached a page that doesn&#39;t exist... the sadness <span role="img" aria-label="Crying emoji">😢</span>.</p>
+        <p className="lead">
+          You reached a page that doesn&#39;t exist... the sadness{' '}
+          <span role="img" aria-label="Crying emoji">
+            😢
+          </span>
+          .
+        </p>
       </div>
     </div>
   </Layout>

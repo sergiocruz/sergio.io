@@ -29,7 +29,9 @@ class Hero extends Component {
                       styles.heroAvatar,
                       'rounded-circle ml-4 my-2'
                     )}
-                    alt=""
+                    alt="Avatar of Sergio Cruz"
+                    height="90"
+                    width="90"
                   />
                 </h1>
 
@@ -46,7 +48,10 @@ class Hero extends Component {
                       'list-inline-item my-0 ml-2 mr-3'
                     )}
                   >
-                    <FontAwesomeIcon icon={['fas', 'star']} style={{ maxWidth: '15px' }} />
+                    <FontAwesomeIcon
+                      icon={['fas', 'star']}
+                      style={{ maxWidth: '15px' }}
+                    />
                   </span>
                   <span className="list-inline-item my-0">Speaker</span>
                   <span
@@ -55,7 +60,10 @@ class Hero extends Component {
                       'list-inline-item my-0 ml-2 mr-3'
                     )}
                   >
-                    <FontAwesomeIcon icon={['fas', 'star']} style={{ maxWidth: '15px' }} />
+                    <FontAwesomeIcon
+                      icon={['fas', 'star']}
+                      style={{ maxWidth: '15px' }}
+                    />
                   </span>
                   <span className="list-inline-item mb-0">Mentor</span>
                 </div>
