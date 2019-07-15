@@ -29,7 +29,9 @@ class Hero extends Component {
                       styles.heroAvatar,
                       'rounded-circle ml-4 my-2'
                     )}
-                    alt=""
+                    alt="Avatar of Sergio Cruz"
+                    height="90"
+                    width="90"
                   />
                 </h1>
 
