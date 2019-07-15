@@ -24,7 +24,7 @@ class Hero extends Component {
                 >
                   Sergio Cruz
                   <img
-                    src="https://pbs.twimg.com/profile_images/702647112815652866/AJi5Gajh_400x400.jpg"
+                    src="https://pbs.twimg.com/profile_images/1146850106953687040/-FvtCXYx.jpg"
                     className={classnames(
                       styles.heroAvatar,
                       'rounded-circle ml-4 my-2'
