@@ -36,7 +36,7 @@ Start by creating a [personal token on GitHub](https://github.com/settings/token
 
 ## Add an npm registry resolver to your local environment
 
-We're going to authenticate you into the GitHub Packages registry by using your GitHub username and the Personal Access Token you just created as the password. To do so, pull up your Terminal and follow these steps:
+We're going to authenticate you into the GitHub Packages Registry by using your GitHub username and the Personal Access Token you just created as the password. To do so, pull up your Terminal and follow these steps:
 
 * Run `npm login --registry=https://npm.pkg.github.com` and enter these options:
   * **Username**: Enter your GitHub username
