@@ -13,33 +13,35 @@ import Footer from '../components/Footer.astro';
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
         <div class="text-center">
           <div class="animate-fade-in">
-            <!-- Name + Avatar Block -->
-            <div class="flex items-center justify-center gap-4 mb-6">
+            <!-- Avatar positioned above name -->
+            <div class="mb-8">
               <img 
                 src="https://media.licdn.com/dms/image/v2/D4E03AQGMlGY1wb7kJg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1731368552829?e=1755734400&v=beta&t=qjZIbhWg8PC-P0dnDByjNJ2KEVuV0pUhU3Z7iZHgelU"
                 alt="Sergio Cruz"
-                class="w-16 h-16 rounded-full object-cover shadow-lg flex-shrink-0"
+                class="w-24 h-24 mx-auto rounded-full object-cover shadow-xl ring-4 ring-brand-accent/20"
               />
-              <h1 class="text-4xl sm:text-5xl font-serif font-semibold text-brand-primary dark:text-brand-light tracking-tight">
-                Sergio Cruz
-              </h1>
             </div>
             
+            <!-- Name Block -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-semibold text-brand-primary dark:text-brand-light tracking-tight mb-6">
+              Sergio Cruz
+            </h1>
+            
             <!-- Title Pills -->
-            <div class="flex flex-wrap justify-center gap-3 mb-6">
-              <span class="px-4 py-2 bg-brand-accent/20 text-brand-primary dark:text-brand-light rounded-full text-lg font-medium">
+            <div class="flex flex-wrap justify-center gap-3 mb-8">
+              <span class="px-4 py-2 bg-brand-accent/20 text-brand-primary dark:text-brand-light rounded-full text-lg font-medium font-sans">
                 Senior Engineering Leader
               </span>
-              <span class="px-4 py-2 bg-brand-accent/20 text-brand-primary dark:text-brand-light rounded-full text-lg font-medium">
+              <span class="px-4 py-2 bg-brand-accent/20 text-brand-primary dark:text-brand-light rounded-full text-lg font-medium font-sans">
                 Product Strategy
               </span>
-              <span class="px-4 py-2 bg-accent-warm/20 text-brand-primary dark:text-brand-light rounded-full text-lg font-medium">
+              <span class="px-4 py-2 bg-accent-warm/20 text-brand-primary dark:text-brand-light rounded-full text-lg font-medium font-sans">
                 Scaled Teams & Systems
               </span>
             </div>
             
             <!-- 1-sentence positioning -->
-            <p class="text-lg sm:text-xl text-brand-subtle dark:text-gray-300 mb-6 max-w-3xl mx-auto font-sans">
+            <p class="text-lg sm:text-xl text-brand-subtle dark:text-gray-300 mb-8 max-w-3xl mx-auto font-sans leading-relaxed">
               I help engineering teams deliver real product outcomes—and teach others how to do the same.
             </p>
             
