@@ -5,6 +5,16 @@ export default {
   theme: {
     extend: {
       colors: {
+        brand: {
+          light: '#F6F5F4',       // near-white canvas (light mode)
+          dark: '#121212',        // deep charcoal (dark mode)
+          primary: '#2A2A2A',     // rich graphite
+          accent: '#8C735B',      // muted bronze/gold (for CTA or details)
+          subtle: '#C8C1B8',      // soft taupe gray (borders, nav, muted text)
+          link: '#4D6EA8',        // classy deep blue
+          code: '#36313D',        // dark lavender-gray for code blocks
+        },
+        // Keep some legacy primary colors for gradual transition
         primary: {
           50: '#f0f7ff',
           100: '#e0efff',
@@ -12,31 +22,22 @@ export default {
           300: '#7cc4ff',
           400: '#36a5ff',
           500: '#0c87f0',
-          600: '#0369ce',
+          600: '#4D6EA8', // Updated to match brand.link
           700: '#0454a6',
           800: '#08468a',
           900: '#0d3a72',
           950: '#08254e',
         },
-        gray: {
-          50: '#fafbfc',
-          100: '#fffffc',
-          200: '#e9ecef',
-          300: '#d1d5db',
-          400: '#c1c7cd',
-          500: '#adb5bd',
-          600: '#6c757d',
-          700: '#495057',
-          800: '#373940',
-          900: '#1f2937',
-        },
-        // Accent colors from sergio.io
-        pink: '#ff0077',
-        green: '#9bff4a',
-        yellow: '#efff00',
+        // Accent colors for pills and highlights
+        accent: {
+          bronze: '#8C735B',
+          blue: '#4D6EA8',
+          warm: '#B8A082',
+        }
       },
       fontFamily: {
-        sans: ['Raleway', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        serif: ['Georgia', 'serif'],
         mono: ['JetBrains Mono', 'Consolas', 'monospace'],
       },
       animation: {
