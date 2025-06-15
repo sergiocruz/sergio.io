@@ -1,0 +1,216 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="Sergio Pereira - Software Engineer & Tech Lead">
+  <Navigation />
+  
+  <main class="pt-16">
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden bg-white dark:bg-gray-900">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32">
+        <div class="text-center">
+          <div class="animate-fade-in">
+            <h1 class="text-4xl sm:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+              Hi, I'm <span class="text-primary-600 dark:text-primary-400">Sergio</span>
+            </h1>
+            <p class="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
+              Software Engineer, Tech Lead, and Digital Creator passionate about building exceptional products and leading high-performing teams.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="/about" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
+                Learn More About Me
+              </a>
+              <a href="/contact" class="inline-flex items-center px-6 py-3 border border-gray-300 dark:border-gray-600 text-base font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
+                Get In Touch
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Background decoration -->
+      <div class="absolute inset-0 -z-10 overflow-hidden">
+        <svg class="absolute left-[max(50%,25rem)] top-0 h-[64rem] w-[128rem] -translate-x-1/2 stroke-gray-200 dark:stroke-gray-800 [mask-image:radial-gradient(64rem_64rem_at_top,white,transparent)]" aria-hidden="true">
+          <defs>
+            <pattern id="e813992c-7d03-4cc4-a2bd-151760b470a0" width="200" height="200" x="50%" y="-1" patternUnits="userSpaceOnUse">
+              <path d="M100 200V.5M.5 .5H200" fill="none" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" stroke-width="0" fill="url(#e813992c-7d03-4cc4-a2bd-151760b470a0)" />
+        </svg>
+      </div>
+    </section>
+
+    <!-- Featured Content -->
+    <section class="py-24 bg-gray-50 dark:bg-gray-800">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            Latest Insights
+          </h2>
+          <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Thoughts on software engineering, leadership, and building great products.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Featured Blog Post 1 -->
+          <article class="bg-white dark:bg-gray-900 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+            <div class="h-48 bg-gradient-to-br from-primary-400 to-primary-600"></div>
+            <div class="p-6">
+              <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-2">
+                <time datetime="2024-01-15">Jan 15, 2024</time>
+                <span class="mx-2">•</span>
+                <span>5 min read</span>
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                <a href="/blog/building-scalable-teams" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                  Building Scalable Engineering Teams
+                </a>
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                Lessons learned from scaling engineering teams from 5 to 50+ engineers while maintaining velocity and culture.
+              </p>
+              <a href="/blog/building-scalable-teams" class="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium transition-colors">
+                Read more →
+              </a>
+            </div>
+          </article>
+
+          <!-- Featured Blog Post 2 -->
+          <article class="bg-white dark:bg-gray-900 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+            <div class="h-48 bg-gradient-to-br from-green-400 to-blue-500"></div>
+            <div class="p-6">
+              <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-2">
+                <time datetime="2024-01-10">Jan 10, 2024</time>
+                <span class="mx-2">•</span>
+                <span>8 min read</span>
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                <a href="/blog/modern-react-patterns" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                  Modern React Patterns for 2024
+                </a>
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                Exploring the latest React patterns and best practices that are shaping how we build applications today.
+              </p>
+              <a href="/blog/modern-react-patterns" class="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium transition-colors">
+                Read more →
+              </a>
+            </div>
+          </article>
+
+          <!-- Featured Blog Post 3 -->
+          <article class="bg-white dark:bg-gray-900 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+            <div class="h-48 bg-gradient-to-br from-purple-400 to-pink-500"></div>
+            <div class="p-6">
+              <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-2">
+                <time datetime="2024-01-05">Jan 5, 2024</time>
+                <span class="mx-2">•</span>
+                <span>6 min read</span>
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                <a href="/blog/performance-optimization" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                  Web Performance Optimization
+                </a>
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                Practical strategies for optimizing web application performance and delivering exceptional user experiences.
+              </p>
+              <a href="/blog/performance-optimization" class="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium transition-colors">
+                Read more →
+              </a>
+            </div>
+          </article>
+        </div>
+        
+        <div class="text-center mt-12">
+          <a href="/blog" class="inline-flex items-center px-6 py-3 border border-gray-300 dark:border-gray-600 text-base font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
+            View All Posts
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills & Expertise -->
+    <section class="py-24 bg-white dark:bg-gray-900">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            Skills & Expertise
+          </h2>
+          <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Technologies and areas where I focus my energy and expertise.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="text-center p-6 rounded-lg bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+            <div class="w-12 h-12 mx-auto mb-4 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center">
+              <svg class="w-6 h-6 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Frontend Development</h3>
+            <p class="text-gray-600 dark:text-gray-300">React, TypeScript, Next.js, Tailwind CSS</p>
+          </div>
+          
+          <div class="text-center p-6 rounded-lg bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+            <div class="w-12 h-12 mx-auto mb-4 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center">
+              <svg class="w-6 h-6 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Backend Development</h3>
+            <p class="text-gray-600 dark:text-gray-300">Node.js, Python, PostgreSQL, Redis</p>
+          </div>
+          
+          <div class="text-center p-6 rounded-lg bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+            <div class="w-12 h-12 mx-auto mb-4 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center">
+              <svg class="w-6 h-6 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Team Leadership</h3>
+            <p class="text-gray-600 dark:text-gray-300">Engineering Management, Mentoring, Agile</p>
+          </div>
+          
+          <div class="text-center p-6 rounded-lg bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+            <div class="w-12 h-12 mx-auto mb-4 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center">
+              <svg class="w-6 h-6 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">System Architecture</h3>
+            <p class="text-gray-600 dark:text-gray-300">Microservices, AWS, Docker, Kubernetes</p>
+          </div>
+          
+          <div class="text-center p-6 rounded-lg bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+            <div class="w-12 h-12 mx-auto mb-4 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center">
+              <svg class="w-6 h-6 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Performance</h3>
+            <p class="text-gray-600 dark:text-gray-300">Optimization, Monitoring, Scalability</p>
+          </div>
+          
+          <div class="text-center p-6 rounded-lg bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+            <div class="w-12 h-12 mx-auto mb-4 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center">
+              <svg class="w-6 h-6 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Product Strategy</h3>
+            <p class="text-gray-600 dark:text-gray-300">Product Management, User Research, Analytics</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</BaseLayout>
