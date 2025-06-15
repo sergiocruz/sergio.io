@@ -10,24 +10,26 @@ import Footer from '../components/Footer.astro';
   <main class="pt-16">
     <!-- Hero Section -->
     <section class="relative overflow-hidden bg-brand-light dark:bg-brand-dark">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
         <div class="text-center">
           <div class="animate-fade-in">
             <!-- Avatar -->
-            <div class="mb-8">
-              <div class="w-24 h-24 mx-auto bg-gradient-to-br from-brand-accent to-accent-bronze rounded-full flex items-center justify-center text-white text-2xl font-bold">
-                SC
-              </div>
+            <div class="mb-6">
+              <img 
+                src="https://media.licdn.com/dms/image/v2/D4E03AQGMlGY1wb7kJg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1731368552829?e=1755734400&v=beta&t=qjZIbhWg8PC-P0dnDByjNJ2KEVuV0pUhU3Z7iZHgelU"
+                alt="Sergio Cruz"
+                class="w-20 h-20 mx-auto rounded-full object-cover shadow-lg"
+              />
             </div>
             
             <!-- Name + Title Block -->
-            <h1 class="text-4xl sm:text-6xl font-bold text-brand-primary dark:text-brand-light mb-4">
+            <h1 class="text-4xl sm:text-5xl font-bold text-brand-primary dark:text-brand-light mb-4">
               Sergio Cruz
             </h1>
             
             <!-- Title Pills -->
             <div class="flex flex-wrap justify-center gap-3 mb-6">
-              <span class="px-4 py-2 bg-brand-link/10 text-brand-link rounded-full text-lg font-medium">
+              <span class="px-4 py-2 bg-brand-accent/20 text-brand-primary dark:text-brand-light rounded-full text-lg font-medium">
                 Senior Engineering Leader
               </span>
               <span class="px-4 py-2 bg-brand-accent/20 text-brand-primary dark:text-brand-light rounded-full text-lg font-medium">
@@ -39,7 +41,7 @@ import Footer from '../components/Footer.astro';
             </div>
             
             <!-- 1-sentence positioning -->
-            <p class="text-lg sm:text-xl text-brand-subtle dark:text-gray-300 mb-8 max-w-3xl mx-auto">
+            <p class="text-lg sm:text-xl text-brand-subtle dark:text-gray-300 mb-6 max-w-3xl mx-auto">
               I help engineering teams deliver real product outcomes—and teach others how to do the same.
             </p>
             
@@ -70,9 +72,9 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- What I Do - 3 Column Summary -->
-    <section class="py-24 bg-white dark:bg-brand-primary">
+    <section class="py-16 bg-white dark:bg-brand-primary">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
+        <div class="text-center mb-12">
           <h2 class="text-3xl sm:text-4xl font-bold text-brand-primary dark:text-brand-light mb-4">
             What I Do
           </h2>
@@ -83,7 +85,7 @@ import Footer from '../components/Footer.astro';
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <!-- Engineering Leadership -->
-          <div class="text-center p-8 bg-brand-light dark:bg-brand-dark rounded-lg shadow-sm hover:shadow-md transition-shadow border border-brand-subtle/20">
+          <div class="text-center p-6 bg-brand-light dark:bg-brand-dark rounded-lg shadow-sm hover:shadow-md transition-shadow border border-brand-subtle/20">
             <div class="w-16 h-16 mx-auto mb-6 bg-brand-link/10 rounded-lg flex items-center justify-center">
               <svg class="w-8 h-8 text-brand-link" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -96,7 +98,7 @@ import Footer from '../components/Footer.astro';
           </div>
           
           <!-- Product Collaboration -->
-          <div class="text-center p-8 bg-brand-light dark:bg-brand-dark rounded-lg shadow-sm hover:shadow-md transition-shadow border border-brand-subtle/20">
+          <div class="text-center p-6 bg-brand-light dark:bg-brand-dark rounded-lg shadow-sm hover:shadow-md transition-shadow border border-brand-subtle/20">
             <div class="w-16 h-16 mx-auto mb-6 bg-brand-accent/20 rounded-lg flex items-center justify-center">
               <svg class="w-8 h-8 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364-.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
@@ -109,7 +111,7 @@ import Footer from '../components/Footer.astro';
           </div>
           
           <!-- Scaled Teams & Systems -->
-          <div class="text-center p-8 bg-brand-light dark:bg-brand-dark rounded-lg shadow-sm hover:shadow-md transition-shadow border border-brand-subtle/20">
+          <div class="text-center p-6 bg-brand-light dark:bg-brand-dark rounded-lg shadow-sm hover:shadow-md transition-shadow border border-brand-subtle/20">
             <div class="w-16 h-16 mx-auto mb-6 bg-accent-warm/20 rounded-lg flex items-center justify-center">
               <svg class="w-8 h-8 text-accent-warm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -125,9 +127,9 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- Featured Work -->
-    <section class="py-24 bg-brand-light dark:bg-brand-dark">
+    <section class="py-16 bg-brand-light dark:bg-brand-dark">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
+        <div class="text-center mb-12">
           <h2 class="text-3xl sm:text-4xl font-bold text-brand-primary dark:text-brand-light mb-4">
             Featured Work
           </h2>
@@ -210,9 +212,9 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- Recent Writing -->
-    <section class="py-24 bg-white dark:bg-brand-primary">
+    <section class="py-16 bg-white dark:bg-brand-primary">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
+        <div class="text-center mb-12">
           <h2 class="text-3xl sm:text-4xl font-bold text-brand-primary dark:text-brand-light mb-4">
             Recent Writing
           </h2>
@@ -283,7 +285,7 @@ import Footer from '../components/Footer.astro';
           </article>
         </div>
         
-        <div class="text-center mt-12">
+        <div class="text-center mt-10">
           <a href="/blog" class="inline-flex items-center px-6 py-3 border border-brand-subtle text-base font-medium rounded-md text-brand-primary dark:text-brand-light bg-transparent hover:bg-brand-subtle/10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent transition-colors">
             View All Articles
           </a>
@@ -292,9 +294,9 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- Trusted By / Logos -->
-    <section class="py-16 bg-brand-light dark:bg-brand-dark">
+    <section class="py-12 bg-brand-light dark:bg-brand-dark">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
+        <div class="text-center mb-8">
           <h2 class="text-2xl font-bold text-brand-primary dark:text-brand-light mb-4">
             Trusted By
           </h2>
@@ -330,12 +332,12 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- Short About + CTA -->
-    <section class="py-24 bg-brand-primary text-brand-light">
+    <section class="py-16 bg-brand-primary text-brand-light">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-3xl font-bold mb-6">
           Ready to Learn More?
         </h2>
-        <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+        <p class="text-xl text-gray-300 mb-6 max-w-2xl mx-auto">
           I'm a builder, coach, and lifelong learner. From startup scrappiness to scaled systems, I've helped teams level up how they work and what they ship.
         </p>
         <a href="/about" class="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-brand-primary bg-brand-light hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent transition-colors">
