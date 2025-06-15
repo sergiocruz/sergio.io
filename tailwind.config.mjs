@@ -10,7 +10,8 @@ export default {
           dark: '#121212',        // deep charcoal (dark mode)
           primary: '#2A2A2A',     // rich graphite
           accent: '#8C735B',      // muted bronze/gold (for CTA or details)
-          subtle: '#C8C1B8',      // soft taupe gray (borders, nav, muted text)
+          subtle: '#6B7280',      // Updated: darker gray for better contrast
+          'subtle-light': '#9CA3AF', // Lighter version for less important text
           link: '#4D6EA8',        // classy deep blue
           code: '#36313D',        // dark lavender-gray for code blocks
         },
