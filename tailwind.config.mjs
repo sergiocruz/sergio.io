@@ -38,7 +38,7 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
-        serif: ['Georgia', 'serif'],
+        serif: ['Playfair Display', 'Georgia', 'serif'],
         mono: ['JetBrains Mono', 'Consolas', 'monospace'],
       },
       animation: {
