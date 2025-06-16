@@ -10,7 +10,7 @@ import Footer from '../components/Footer.astro';
   <main class="pt-16">
     <!-- Hero Section -->
     <section class="relative overflow-hidden bg-brand-light dark:bg-brand-dark">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-48">
         <div class="text-center">
           <div class="animate-fade-in">
             <!-- Avatar positioned above name -->
@@ -22,10 +22,13 @@ import Footer from '../components/Footer.astro';
               />
             </div>
             
-            <!-- Name Block -->
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-semibold text-brand-primary dark:text-brand-light tracking-tight mb-6">
-              Sergio Cruz
-            </h1>
+            <!-- Name Block with accent underline -->
+            <div class="mb-6">
+              <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-semibold text-brand-primary dark:text-brand-light tracking-tight">
+                Sergio Cruz
+              </h1>
+              <div class="border-b-2 border-brand-accent w-16 mx-auto mt-4"></div>
+            </div>
             
             <!-- Title Pills -->
             <div class="flex flex-wrap justify-center gap-3 mb-8">
@@ -41,16 +44,24 @@ import Footer from '../components/Footer.astro';
             </div>
             
             <!-- 1-sentence positioning -->
-            <p class="text-lg sm:text-xl text-brand-subtle dark:text-gray-300 mb-10 max-w-3xl mx-auto font-sans leading-relaxed">
+            <p class="text-lg sm:text-xl text-brand-subtle dark:text-brand-light mb-10 max-w-3xl mx-auto font-sans leading-relaxed">
               I help engineering teams deliver real product outcomes—and teach others how to do the same.
             </p>
             
-            <!-- Primary CTA buttons - Improved mobile layout -->
+            <!-- Primary CTA buttons - Enhanced with better hover states -->
             <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md sm:max-w-none mx-auto">
-              <a href="/blog" class="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-brand-accent hover:bg-accent-bronze focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent transition-colors font-sans">
+              <a 
+                href="/blog" 
+                class="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-brand-accent hover:bg-accent-bronze focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent transition-colors duration-200 font-sans"
+                aria-label="Read my articles about engineering leadership and product strategy"
+              >
                 Read My Articles
               </a>
-              <a href="/talks-and-publications" class="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-8 py-3 border border-brand-subtle text-base font-medium rounded-md text-brand-primary dark:text-brand-light bg-transparent hover:bg-brand-subtle/10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent transition-colors font-sans">
+              <a 
+                href="/talks-and-publications" 
+                class="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-8 py-3 border border-brand-subtle text-base font-medium rounded-md text-brand-primary dark:text-brand-light bg-transparent hover:bg-brand-accent hover:text-white hover:border-brand-accent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent transition-colors duration-200 font-sans"
+                aria-label="View my talks, publications, and professional work"
+              >
                 View My Work
               </a>
             </div>
@@ -130,9 +141,9 @@ import Footer from '../components/Footer.astro';
     <section class="py-16 bg-brand-light dark:bg-brand-dark">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
-          <h2 class="text-3xl sm:text-4xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-4 tracking-tight">
+          <h3 class="text-3xl sm:text-4xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-4 tracking-tight">
             Featured Work
-          </h2>
+          </h3>
           <p class="text-lg text-brand-subtle dark:text-gray-300 max-w-2xl mx-auto font-sans">
             Highlights from my courses, talks, and contributions to the engineering community.
           </p>
@@ -150,9 +161,9 @@ import Footer from '../components/Footer.astro';
               <div class="flex items-center mb-3">
                 <span class="bg-brand-link/10 text-brand-link px-3 py-1 rounded-full text-sm font-medium font-sans">🎓 Pluralsight</span>
               </div>
-              <h3 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-3">
+              <h4 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-3">
                 Engineering Management Processes & Tools
-              </h3>
+              </h4>
               <p class="text-brand-subtle dark:text-gray-300 mb-4 font-sans">
                 Learn how to lead modern engineering teams—from CI/CD to observability
               </p>
@@ -173,9 +184,9 @@ import Footer from '../components/Footer.astro';
               <div class="flex items-center mb-3">
                 <span class="bg-brand-accent/20 text-brand-primary dark:text-brand-light px-3 py-1 rounded-full text-sm font-medium font-sans">🎤 ReactConf</span>
               </div>
-              <h3 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-3">
+              <h4 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-3">
                 Building High-Performance Teams
-              </h3>
+              </h4>
               <p class="text-brand-subtle dark:text-gray-300 mb-4 font-sans">
                 Strategies for scaling engineering teams while maintaining velocity and culture
               </p>
@@ -196,9 +207,9 @@ import Footer from '../components/Footer.astro';
               <div class="flex items-center mb-3">
                 <span class="bg-accent-warm/20 text-brand-primary dark:text-brand-light px-3 py-1 rounded-full text-sm font-medium font-sans">📝 IEEE Software</span>
               </div>
-              <h3 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-3">
+              <h4 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-3">
                 Scaling Engineering Teams
-              </h3>
+              </h4>
               <p class="text-brand-subtle dark:text-gray-300 mb-4 font-sans">
                 Lessons from high-growth startups on building and scaling engineering organizations
               </p>
@@ -215,9 +226,9 @@ import Footer from '../components/Footer.astro';
     <section class="py-16 bg-white dark:bg-brand-primary">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
-          <h2 class="text-3xl sm:text-4xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-4 tracking-tight">
+          <h3 class="text-3xl sm:text-4xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-4 tracking-tight">
             Recent Writing
-          </h2>
+          </h3>
           <p class="text-lg text-brand-subtle dark:text-gray-300 max-w-2xl mx-auto font-sans">
             Latest thoughts on engineering leadership, product strategy, and building great teams.
           </p>
@@ -230,11 +241,11 @@ import Footer from '../components/Footer.astro';
               <div class="flex items-center text-sm text-brand-subtle-light dark:text-gray-400 mb-3 font-sans">
                 <time datetime="2024-01-15">January 15, 2024</time>
               </div>
-              <h3 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-3">
+              <h4 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-3">
                 <a href="/blog/building-scalable-teams" class="hover:text-brand-link transition-colors">
                   Building Scalable Engineering Teams
                 </a>
-              </h3>
+              </h4>
               <p class="text-brand-subtle dark:text-gray-300 mb-4 font-sans">
                 Lessons learned from scaling engineering teams from 5 to 50+ engineers while maintaining velocity and culture.
               </p>
@@ -250,11 +261,11 @@ import Footer from '../components/Footer.astro';
               <div class="flex items-center text-sm text-brand-subtle-light dark:text-gray-400 mb-3 font-sans">
                 <time datetime="2024-01-10">January 10, 2024</time>
               </div>
-              <h3 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-3">
+              <h4 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-3">
                 <a href="/blog/modern-react-patterns" class="hover:text-brand-link transition-colors">
                   Modern React Patterns for 2024
                 </a>
-              </h3>
+              </h4>
               <p class="text-brand-subtle dark:text-gray-300 mb-4 font-sans">
                 Exploring the latest React patterns and best practices that are shaping how we build applications today.
               </p>
@@ -270,11 +281,11 @@ import Footer from '../components/Footer.astro';
               <div class="flex items-center text-sm text-brand-subtle-light dark:text-gray-400 mb-3 font-sans">
                 <time datetime="2024-01-05">January 5, 2024</time>
               </div>
-              <h3 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-3">
+              <h4 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-3">
                 <a href="/blog/performance-optimization" class="hover:text-brand-link transition-colors">
                   Web Performance Optimization
                 </a>
-              </h3>
+              </h4>
               <p class="text-brand-subtle dark:text-gray-300 mb-4 font-sans">
                 Practical strategies for optimizing web application performance and delivering exceptional user experiences.
               </p>
@@ -297,9 +308,9 @@ import Footer from '../components/Footer.astro';
     <section class="py-12 bg-brand-light dark:bg-brand-dark">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-8">
-          <h2 class="text-2xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-4">
+          <h3 class="text-2xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-4">
             Trusted By
-          </h2>
+          </h3>
           <p class="text-brand-subtle dark:text-gray-300 font-sans">
             Companies, platforms, and conferences I've worked with
           </p>
@@ -334,9 +345,9 @@ import Footer from '../components/Footer.astro';
     <!-- Short About + CTA -->
     <section class="py-16 bg-brand-primary text-brand-light">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl font-serif font-semibold mb-6">
+        <h3 class="text-3xl font-serif font-semibold mb-6">
           Ready to Learn More?
-        </h2>
+        </h3>
         <p class="text-xl text-gray-300 mb-6 max-w-2xl mx-auto font-sans">
           I'm a builder, coach, and lifelong learner. From startup scrappiness to scaled systems, I've helped teams level up how they work and what they ship.
         </p>
