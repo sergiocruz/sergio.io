@@ -10,10 +10,7 @@ export default defineConfig({
     sitemap()
   ],
   vite: {
-    plugins: [tailwindcss()],
-    css: {
-      transformer: 'postcss'
-    }
+    plugins: [tailwindcss()]
   },
   output: 'static',
   build: {
