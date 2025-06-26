@@ -1,16 +1,56 @@
 @import "tailwindcss";
 
+/* Custom CSS variables for brand colors */
+@theme {
+  --color-brand-light: #F6F5F4;
+  --color-brand-dark: #121212;
+  --color-brand-primary: #2A2A2A;
+  --color-brand-accent: #8C735B;
+  --color-brand-subtle: #6B7280;
+  --color-brand-subtle-light: #9CA3AF;
+  --color-brand-link: #4D6EA8;
+  --color-brand-code: #36313D;
+  
+  --color-primary-50: #f0f7ff;
+  --color-primary-100: #e0efff;
+  --color-primary-200: #b9dfff;
+  --color-primary-300: #7cc4ff;
+  --color-primary-400: #36a5ff;
+  --color-primary-500: #0c87f0;
+  --color-primary-600: #4D6EA8;
+  --color-primary-700: #0454a6;
+  --color-primary-800: #08468a;
+  --color-primary-900: #0d3a72;
+  --color-primary-950: #08254e;
+  
+  --color-accent-bronze: #8C735B;
+  --color-accent-blue: #4D6EA8;
+  --color-accent-warm: #B8A082;
+  
+  --color-green: #10b981;
+  --color-pink: #ec4899;
+  --color-yellow: #f59e0b;
+  
+  --font-family-sans: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-family-serif: 'Playfair Display', Georgia, serif;
+  --font-family-mono: 'JetBrains Mono', Consolas, monospace;
+  
+  --animate-fade-in: fadeIn 0.5s ease-in-out;
+  --animate-slide-up: slideUp 0.6s ease-out;
+  --animate-bounce-subtle: bounceSubtle 2s infinite;
+}
+
 /* Ensure fonts are properly loaded */
 body {
-  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-family-sans);
 }
 
 .font-serif {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-family-serif);
 }
 
 .font-mono {
-  font-family: 'JetBrains Mono', Consolas, monospace;
+  font-family: var(--font-family-mono);
 }
 
 /* Custom animations */
@@ -30,13 +70,105 @@ body {
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.5s ease-in-out;
+  animation: var(--animate-fade-in);
 }
 
 .animate-slide-up {
-  animation: slideUp 0.6s ease-out;
+  animation: var(--animate-slide-up);
 }
 
 .animate-bounce-subtle {
-  animation: bounceSubtle 2s infinite;
+  animation: var(--animate-bounce-subtle);
+}
+
+/* Custom utility classes for brand colors */
+.bg-brand-light { background-color: var(--color-brand-light); }
+.bg-brand-dark { background-color: var(--color-brand-dark); }
+.bg-brand-primary { background-color: var(--color-brand-primary); }
+.bg-brand-accent { background-color: var(--color-brand-accent); }
+.bg-brand-subtle { background-color: var(--color-brand-subtle); }
+.bg-brand-link { background-color: var(--color-brand-link); }
+
+.text-brand-light { color: var(--color-brand-light); }
+.text-brand-dark { color: var(--color-brand-dark); }
+.text-brand-primary { color: var(--color-brand-primary); }
+.text-brand-accent { color: var(--color-brand-accent); }
+.text-brand-subtle { color: var(--color-brand-subtle); }
+.text-brand-subtle-light { color: var(--color-brand-subtle-light); }
+.text-brand-link { color: var(--color-brand-link); }
+
+.border-brand-accent { border-color: var(--color-brand-accent); }
+.border-brand-subtle { border-color: var(--color-brand-subtle); }
+
+.hover\:text-brand-link:hover { color: var(--color-brand-link); }
+.hover\:bg-brand-accent:hover { background-color: var(--color-brand-accent); }
+
+.dark .dark\:bg-brand-dark { background-color: var(--color-brand-dark); }
+.dark .dark\:bg-brand-primary { background-color: var(--color-brand-primary); }
+.dark .dark\:text-brand-light { color: var(--color-brand-light); }
+
+/* Accent color utilities */
+.bg-accent-bronze { background-color: var(--color-accent-bronze); }
+.bg-accent-blue { background-color: var(--color-accent-blue); }
+.bg-accent-warm { background-color: var(--color-accent-warm); }
+
+.text-accent-bronze { color: var(--color-accent-bronze); }
+.text-accent-blue { color: var(--color-accent-blue); }
+.text-accent-warm { color: var(--color-accent-warm); }
+
+.hover\:bg-accent-bronze:hover { background-color: var(--color-accent-bronze); }
+.hover\:text-accent-blue:hover { color: var(--color-accent-blue); }
+
+/* Primary color utilities */
+.bg-primary-50 { background-color: var(--color-primary-50); }
+.bg-primary-100 { background-color: var(--color-primary-100); }
+.bg-primary-200 { background-color: var(--color-primary-200); }
+.bg-primary-300 { background-color: var(--color-primary-300); }
+.bg-primary-400 { background-color: var(--color-primary-400); }
+.bg-primary-500 { background-color: var(--color-primary-500); }
+.bg-primary-600 { background-color: var(--color-primary-600); }
+.bg-primary-700 { background-color: var(--color-primary-700); }
+.bg-primary-800 { background-color: var(--color-primary-800); }
+.bg-primary-900 { background-color: var(--color-primary-900); }
+.bg-primary-950 { background-color: var(--color-primary-950); }
+
+.text-primary-600 { color: var(--color-primary-600); }
+.text-primary-700 { color: var(--color-primary-700); }
+.text-primary-800 { color: var(--color-primary-800); }
+.text-primary-900 { color: var(--color-primary-900); }
+
+.border-primary-200 { border-color: var(--color-primary-200); }
+.border-primary-600 { border-color: var(--color-primary-600); }
+.border-primary-800 { border-color: var(--color-primary-800); }
+
+.hover\:bg-primary-700:hover { background-color: var(--color-primary-700); }
+.hover\:text-primary-300:hover { color: var(--color-primary-300); }
+.hover\:text-primary-400:hover { color: var(--color-primary-400); }
+.hover\:text-primary-600:hover { color: var(--color-primary-600); }
+.hover\:text-primary-700:hover { color: var(--color-primary-700); }
+
+.dark .dark\:bg-primary-900 { background-color: var(--color-primary-900); }
+.dark .dark\:text-primary-200 { color: var(--color-primary-200); }
+.dark .dark\:text-primary-400 { color: var(--color-primary-400); }
+.dark .dark\:border-primary-800 { border-color: var(--color-primary-800); }
+
+/* Additional color utilities */
+.bg-green\/20 { background-color: rgb(16 185 129 / 0.2); }
+.text-green { color: var(--color-green); }
+.dark .dark\:text-green { color: var(--color-green); }
+
+.bg-pink\/20 { background-color: rgb(236 72 153 / 0.2); }
+.text-pink { color: var(--color-pink); }
+.dark .dark\:text-pink { color: var(--color-pink); }
+
+.bg-yellow\/20 { background-color: rgb(245 158 11 / 0.2); }
+.text-yellow { color: var(--color-yellow); }
+
+/* Ring utilities for focus states */
+.focus\:ring-brand-accent:focus {
+  --tw-ring-color: var(--color-brand-accent);
+}
+
+.focus\:ring-primary-500:focus {
+  --tw-ring-color: var(--color-primary-500);
 }
