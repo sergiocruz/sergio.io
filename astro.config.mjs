@@ -11,13 +11,6 @@ export default defineConfig({
   ],
   vite: {
     plugins: [tailwindcss()],
-    css: {
-      preprocessorOptions: {
-        css: {
-          additionalData: `@import "./src/styles/global.css";`
-        }
-      }
-    }
   },
   output: 'static',
   build: {
