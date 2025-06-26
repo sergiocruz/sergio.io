@@ -1,7 +1,6 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
-import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://sergio.io',
@@ -10,9 +9,8 @@ export default defineConfig({
     sitemap()
   ],
   vite: {
-    plugins: [tailwindcss()],
     css: {
-      transformer: 'postcss',
+      transformer: 'postcss'
     }
   },
   output: 'static',
