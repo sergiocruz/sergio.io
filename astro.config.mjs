@@ -11,6 +11,9 @@ export default defineConfig({
   ],
   vite: {
     plugins: [tailwindcss()],
+    css: {
+      transformer: 'postcss',
+    }
   },
   output: 'static',
   build: {
