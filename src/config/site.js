@@ -6,7 +6,7 @@ export const SITE = {
   
   // Social Media Links
   social: {
-    twitter: "https://twitter.com/hashtagserg",
+    twitter: "https://x.com/hashtagserg",
     github: "https://github.com/sergiocruz",
     linkedin: "https://linkedin.com/in/sergiorlcruz",
     email: "hello@sergio.io"
