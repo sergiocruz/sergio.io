@@ -1,7 +1,5 @@
 @config "../../tailwind.config.js";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 .prose {
   @apply text-gray-700 dark:text-gray-300;
