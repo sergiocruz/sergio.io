@@ -51,7 +51,7 @@ export const SITE: SiteConfig = {
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
     { name: "Blog", href: "/blog" },
-    { name: "Talks & Publications", href: "/talks-and-publications" },
+    { name: "Featured Work", href: "/featured-work" },
     { name: "Resume", href: "/resume" }
   ],
   
