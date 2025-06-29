@@ -1,15 +1,17 @@
 import { useState, useEffect } from 'react';
 
-export default function ThemeToggle() {
-  const [theme, setTheme] = useState('light');
+type Theme = 'light' | 'dark';
+
+export default function ThemeToggle(): JSX.Element {
+  const [theme, setTheme] = useState<Theme>('light');
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') || 'light';
+    const savedTheme = (localStorage.getItem('theme') as Theme) || 'light';
     setTheme(savedTheme);
   }, []);
 
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
+  const toggleTheme = (): void => {
+    const newTheme: Theme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
     localStorage.setItem('theme', newTheme);
     

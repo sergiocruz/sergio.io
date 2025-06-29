@@ -1,4 +1,38 @@
-export const SITE = {
+export interface NavigationItem {
+  name: string;
+  href: string;
+}
+
+export interface SocialLinks {
+  twitter: string;
+  github: string;
+  linkedin: string;
+  email: string;
+}
+
+export interface BrandInfo {
+  name: string;
+  tagline: string;
+}
+
+export interface FooterInfo {
+  description: string;
+  copyright: string;
+}
+
+export interface SiteConfig {
+  title: string;
+  description: string;
+  author: string;
+  url: string;
+  social: SocialLinks;
+  navigation: NavigationItem[];
+  brand: BrandInfo;
+  defaultImage: string;
+  footer: FooterInfo;
+}
+
+export const SITE: SiteConfig = {
   title: "Sergio Cruz - Senior Engineering Leader | Product Strategy | Scaled Teams & Systems",
   description: "I help engineering teams deliver real product outcomes—and teach others how to do the same.",
   author: "Sergio Cruz",
