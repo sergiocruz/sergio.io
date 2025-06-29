@@ -33,6 +33,6 @@ export const SITE = {
   // Footer
   footer: {
     description: "Software Engineer, Tech Lead, and Digital Creator sharing insights about technology, leadership, and building great products.",
-    copyright: "Sergio Pereira. All rights reserved."
+    copyright: "Sergio Cruz. All rights reserved."
   }
 };
