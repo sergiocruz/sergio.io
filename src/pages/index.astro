@@ -1,7 +1,24 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
+
+// Get recent blog posts for the homepage
+const allPosts = await getCollection('blog');
+const recentPosts = allPosts
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+// Format date function
+const formatDate = (date: Date) => {
+  return new Intl.DateTimeFormat('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  }).format(date);
+};
 ---
 
 <BaseLayout title="Sergio Cruz - Senior Engineering Leader | Product Strategy | Scaled Teams & Systems">
@@ -235,65 +252,30 @@ import Footer from '../components/Footer.astro';
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Blog Post 1 -->
-          <article class="bg-brand-light dark:bg-brand-dark rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden border border-brand-subtle/20">
-            <div class="p-6">
-              <div class="flex items-center text-sm text-brand-subtle-light dark:text-gray-400 mb-3 font-sans">
-                <time datetime="2024-01-15">January 15, 2024</time>
-              </div>
-              <h4 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-3">
-                <a href="/blog/building-scalable-teams" class="hover:text-brand-link transition-colors">
-                  Building Scalable Engineering Teams
-                </a>
-              </h4>
-              <p class="text-brand-subtle dark:text-gray-300 mb-4 font-sans">
-                Lessons learned from scaling engineering teams from 5 to 50+ engineers while maintaining velocity and culture.
-              </p>
-              <a href="/blog/building-scalable-teams" class="text-brand-link hover:text-accent-blue font-medium font-sans">
-                Read More →
-              </a>
-            </div>
-          </article>
 
-          <!-- Blog Post 2 -->
-          <article class="bg-brand-light dark:bg-brand-dark rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden border border-brand-subtle/20">
-            <div class="p-6">
-              <div class="flex items-center text-sm text-brand-subtle-light dark:text-gray-400 mb-3 font-sans">
-                <time datetime="2024-01-10">January 10, 2024</time>
-              </div>
-              <h4 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-3">
-                <a href="/blog/modern-react-patterns" class="hover:text-brand-link transition-colors">
-                  Modern React Patterns for 2024
-                </a>
-              </h4>
-              <p class="text-brand-subtle dark:text-gray-300 mb-4 font-sans">
-                Exploring the latest React patterns and best practices that are shaping how we build applications today.
-              </p>
-              <a href="/blog/modern-react-patterns" class="text-brand-link hover:text-accent-blue font-medium font-sans">
-                Read More →
-              </a>
-            </div>
-          </article>
 
-          <!-- Blog Post 3 -->
-          <article class="bg-brand-light dark:bg-brand-dark rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden border border-brand-subtle/20">
-            <div class="p-6">
-              <div class="flex items-center text-sm text-brand-subtle-light dark:text-gray-400 mb-3 font-sans">
-                <time datetime="2024-01-05">January 5, 2024</time>
-              </div>
-              <h4 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-3">
-                <a href="/blog/performance-optimization" class="hover:text-brand-link transition-colors">
-                  Web Performance Optimization
+          {recentPosts.map((post) => (
+            <article class="bg-brand-light dark:bg-brand-dark rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden border border-brand-subtle/20">
+              <div class="p-6">
+                <div class="flex items-center text-sm text-brand-subtle-light dark:text-gray-400 mb-3 font-sans">
+                  <time datetime={post.data.pubDate.toISOString()}>
+                    {formatDate(post.data.pubDate)}
+                  </time>
+                </div>
+                <h4 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-3">
+                  <a href={`/blog/${post.slug}`} class="hover:text-brand-link transition-colors">
+                    {post.data.title}
+                  </a>
+                </h4>
+                <p class="text-brand-subtle dark:text-gray-300 mb-4 font-sans">
+                  {post.data.description}
+                </p>
+                <a href={`/blog/${post.slug}`} class="text-brand-link hover:text-accent-blue font-medium font-sans">
+                  Read More →
                 </a>
-              </h4>
-              <p class="text-brand-subtle dark:text-gray-300 mb-4 font-sans">
-                Practical strategies for optimizing web application performance and delivering exceptional user experiences.
-              </p>
-              <a href="/blog/performance-optimization" class="text-brand-link hover:text-accent-blue font-medium font-sans">
-                Read More →
-              </a>
-            </div>
-          </article>
+              </div>
+            </article>
+          ))}
         </div>
         
         <div class="text-center mt-10">

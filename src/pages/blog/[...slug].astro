@@ -1,0 +1,192 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navigation from '../../components/Navigation.astro';
+import Footer from '../../components/Footer.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+
+type Props = CollectionEntry<'blog'>;
+
+const post = Astro.props;
+const { Content } = await post.render();
+
+// Format date
+const formatDate = (date: Date) => {
+  return new Intl.DateTimeFormat('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  }).format(date);
+};
+---
+
+<BaseLayout title={post.data.title} description={post.data.description}>
+  <Navigation />
+  
+  <main class="pt-16">
+    <!-- Article Header -->
+    <article class="bg-white dark:bg-gray-900">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <header class="mb-12">
+          <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
+            <time datetime={post.data.pubDate.toISOString()}>
+              {formatDate(post.data.pubDate)}
+            </time>
+            {post.data.readingTime && (
+              <>
+                <span class="mx-2">•</span>
+                <span>{post.data.readingTime}</span>
+              </>
+            )}
+            <span class="mx-2">•</span>
+            <span>By {post.data.author}</span>
+          </div>
+          
+          <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+            {post.data.title}
+          </h1>
+          
+          <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
+            {post.data.description}
+          </p>
+          
+          {post.data.tags && post.data.tags.length > 0 && (
+            <div class="flex flex-wrap gap-2 mt-6">
+              {post.data.tags.map((tag) => (
+                <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-sm rounded-full">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+        </header>
+        
+        <!-- Article Content -->
+        <div class="prose prose-lg dark:prose-invert max-w-none">
+          <Content />
+        </div>
+        
+        <!-- Article Footer -->
+        <footer class="mt-16 pt-8 border-t border-gray-200 dark:border-gray-700">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+              <img 
+                src="https://media.licdn.com/dms/image/v2/D4E03AQGMlGY1wb7kJg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1731368552829?e=1755734400&v=beta&t=qjZIbhWg8PC-P0dnDByjNJ2KEVuV0pUhU3Z7iZHgelU"
+                alt="Sergio Cruz"
+                class="w-12 h-12 rounded-full"
+              />
+              <div>
+                <p class="font-semibold text-gray-900 dark:text-white">{post.data.author}</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Senior Engineering Leader</p>
+              </div>
+            </div>
+            
+            <div class="flex space-x-4">
+              <a href="https://twitter.com/intent/tweet?url={Astro.url}&text={post.data.title}" 
+                 class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+                <span class="sr-only">Share on X</span>
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </a>
+              <a href="https://www.linkedin.com/sharing/share-offsite/?url={Astro.url}" 
+                 class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+                <span class="sr-only">Share on LinkedIn</span>
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" clip-rule="evenodd" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </article>
+    
+    <!-- Related Posts / Back to Blog -->
+    <section class="bg-gray-50 dark:bg-gray-800 py-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+          Want to Read More?
+        </h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-8">
+          Check out more articles on software engineering, leadership, and building great products.
+        </p>
+        <a href="/blog" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
+          ← Back to Blog
+        </a>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</BaseLayout>
+
+<style>
+  .prose {
+    @apply text-gray-700 dark:text-gray-300;
+  }
+  
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4 {
+    @apply text-gray-900 dark:text-white font-bold;
+  }
+  
+  .prose h2 {
+    @apply text-2xl mt-12 mb-6;
+  }
+  
+  .prose h3 {
+    @apply text-xl mt-8 mb-4;
+  }
+  
+  .prose h4 {
+    @apply text-lg mt-6 mb-3;
+  }
+  
+  .prose p {
+    @apply mb-6 leading-relaxed;
+  }
+  
+  .prose ul,
+  .prose ol {
+    @apply mb-6 space-y-2;
+  }
+  
+  .prose li {
+    @apply leading-relaxed;
+  }
+  
+  .prose blockquote {
+    @apply border-l-4 border-primary-300 dark:border-primary-700 pl-6 py-2 my-6 italic text-gray-600 dark:text-gray-400;
+  }
+  
+  .prose code {
+    @apply bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-sm font-mono text-primary-600 dark:text-primary-400;
+  }
+  
+  .prose pre {
+    @apply bg-gray-900 text-gray-100 p-6 rounded-lg overflow-x-auto my-6;
+  }
+  
+  .prose pre code {
+    @apply bg-transparent p-0 text-inherit;
+  }
+  
+  .prose a {
+    @apply text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 underline;
+  }
+  
+  .prose strong {
+    @apply font-semibold text-gray-900 dark:text-white;
+  }
+</style>
+</BaseLayout>
