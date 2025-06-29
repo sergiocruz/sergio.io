@@ -91,6 +91,7 @@ const formatDate = (date: Date) => {
             
             <div class="flex space-x-4">
               <a href="https://twitter.com/intent/tweet?url={Astro.url}&text={post.data.title}" 
+                 target="_blank" rel="noopener noreferrer"
                  class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
                 <span class="sr-only">Share on X</span>
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -98,6 +99,7 @@ const formatDate = (date: Date) => {
                 </svg>
               </a>
               <a href="https://www.linkedin.com/sharing/share-offsite/?url={Astro.url}" 
+                 target="_blank" rel="noopener noreferrer"
                  class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
                 <span class="sr-only">Share on LinkedIn</span>
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
