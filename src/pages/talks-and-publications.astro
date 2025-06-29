@@ -1,10 +1,11 @@
 ---
+import { SITE } from '../config/site.js';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<BaseLayout title="Talks & Publications - Sergio Pereira" description="Speaking engagements, conference talks, and publications by Sergio Pereira.">
+<BaseLayout title={`Talks & Publications - ${SITE.author}`} description={`Speaking engagements, conference talks, and publications by ${SITE.author}.`}>
   <Navigation />
   
   <main class="pt-16">

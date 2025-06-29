@@ -1,4 +1,5 @@
 ---
+import { SITE } from '../config/site.js';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
@@ -20,7 +21,7 @@ const formatDate = (date: Date) => {
 };
 ---
 
-<BaseLayout title="Blog - Sergio Pereira" description="Thoughts on software engineering, leadership, and building great products.">
+<BaseLayout title={`Blog - ${SITE.author}`} description="Thoughts on software engineering, leadership, and building great products.">
   <Navigation />
   
   <main class="pt-16">

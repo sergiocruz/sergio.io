@@ -1,4 +1,5 @@
 ---
+import { SITE } from '../config/site.js';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
@@ -21,7 +22,7 @@ const formatDate = (date: Date) => {
 };
 ---
 
-<BaseLayout title="Sergio Cruz - Senior Engineering Leader | Product Strategy | Scaled Teams & Systems">
+<BaseLayout title={SITE.title}>
   <Navigation />
   
   <main class="pt-16">

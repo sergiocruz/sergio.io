@@ -1,4 +1,5 @@
 ---
+import { SITE } from '../config/site.js';
 import ThemeToggle from './ThemeToggle.jsx';
 ---
 
@@ -7,29 +8,19 @@ import ThemeToggle from './ThemeToggle.jsx';
     <div class="flex justify-between items-center h-16">
       <!-- Logo -->
       <div class="flex-shrink-0">
-        <a href="/" class="text-xl font-bold text-gray-900 dark:text-white hover:text-brand-link dark:hover:text-brand-link transition-colors">
-          sergio.io
+        <a href={SITE.navigation[0].href} class="text-xl font-bold text-gray-900 dark:text-white hover:text-brand-link dark:hover:text-brand-link transition-colors">
+          {SITE.brand.name}
         </a>
       </div>
       
       <!-- Desktop Navigation -->
       <div class="hidden md:block">
         <div class="ml-10 flex items-baseline space-x-8">
-          <a href="/" class="text-gray-700 dark:text-gray-300 hover:text-brand-link dark:hover:text-brand-link px-3 py-2 text-sm font-medium transition-colors">
-            Home
-          </a>
-          <a href="/about" class="text-gray-700 dark:text-gray-300 hover:text-brand-link dark:hover:text-brand-link px-3 py-2 text-sm font-medium transition-colors">
-            About
-          </a>
-          <a href="/blog" class="text-gray-700 dark:text-gray-300 hover:text-brand-link dark:hover:text-brand-link px-3 py-2 text-sm font-medium transition-colors">
-            Blog
-          </a>
-          <a href="/talks-and-publications" class="text-gray-700 dark:text-gray-300 hover:text-brand-link dark:hover:text-brand-link px-3 py-2 text-sm font-medium transition-colors">
-            Talks & Publications
-          </a>
-          <a href="/resume" class="text-gray-700 dark:text-gray-300 hover:text-brand-link dark:hover:text-brand-link px-3 py-2 text-sm font-medium transition-colors">
-            Resume
-          </a>
+          {SITE.navigation.map(item => (
+            <a href={item.href} class="text-gray-700 dark:text-gray-300 hover:text-brand-link dark:hover:text-brand-link px-3 py-2 text-sm font-medium transition-colors">
+              {item.name}
+            </a>
+          ))}
         </div>
       </div>
       
@@ -53,11 +44,11 @@ import ThemeToggle from './ThemeToggle.jsx';
   <!-- Mobile menu -->
   <div class="mobile-menu hidden md:hidden">
     <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
-      <a href="/" class="text-gray-700 dark:text-gray-300 hover:text-brand-link dark:hover:text-brand-link block px-3 py-2 text-base font-medium transition-colors">Home</a>
-      <a href="/about" class="text-gray-700 dark:text-gray-300 hover:text-brand-link dark:hover:text-brand-link block px-3 py-2 text-base font-medium transition-colors">About</a>
-      <a href="/blog" class="text-gray-700 dark:text-gray-300 hover:text-brand-link dark:hover:text-brand-link block px-3 py-2 text-base font-medium transition-colors">Blog</a>
-      <a href="/talks-and-publications" class="text-gray-700 dark:text-gray-300 hover:text-brand-link dark:hover:text-brand-link block px-3 py-2 text-base font-medium transition-colors">Talks & Publications</a>
-      <a href="/resume" class="text-gray-700 dark:text-gray-300 hover:text-brand-link dark:hover:text-brand-link block px-3 py-2 text-base font-medium transition-colors">Resume</a>
+      {SITE.navigation.map(item => (
+        <a href={item.href} class="text-gray-700 dark:text-gray-300 hover:text-brand-link dark:hover:text-brand-link block px-3 py-2 text-base font-medium transition-colors">
+          {item.name}
+        </a>
+      ))}
     </div>
   </div>
 </nav>

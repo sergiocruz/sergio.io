@@ -1,10 +1,11 @@
 ---
+import { SITE } from '../config/site.js';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<BaseLayout title="About - Sergio Pereira" description="Learn more about Sergio Pereira, Software Engineer and Tech Lead with over 10 years of experience building scalable products and leading high-performing teams.">
+<BaseLayout title={`About - ${SITE.author}`} description={`Learn more about ${SITE.author}, Software Engineer and Tech Lead with over 10 years of experience building scalable products and leading high-performing teams.`}>
   <Navigation />
   
   <main class="pt-16">
