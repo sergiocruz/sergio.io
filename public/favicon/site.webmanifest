@@ -1,5 +1,5 @@
 {
-  "name": "Sergio Cruz - Engineering Leader",
+  "name": "sergio.io",
   "short_name": "sergio.io",
   "icons": [
     {
@@ -15,8 +15,7 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#2A2A2A",
-  "background_color": "#F6F5F4",
-  "display": "standalone",
-  "start_url": "/"
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone"
 }
