@@ -119,60 +119,64 @@ const accomplishments = [
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-2xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-8">Professional Experience</h2>
         
-        <div class="space-y-10">
-          {resumeData.experience.map((company, index) => (
-            <div class:list={[
-              'border-l-4 pl-6 relative',
-              index === 0 ? 'border-primary-600' : 'border-gray-300 dark:border-gray-600',
-              index === 2 ? 'preview-experience' : '',
-              index >= 3 ? 'older-experience' : ''
-            ]}>
-              <div class="mb-4">
-                <h3 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light">{company.company}</h3>
-                <p class="text-brand-accent dark:text-brand-accent font-semibold mb-1">{company.location}</p>
-                <span class="text-sm text-gray-500 dark:text-gray-400">{getCompanyDateRange(company, index >= 2)}</span>
-              </div>
+        <!-- Relative wrapper for gradient overlay positioning -->
+        <div class="relative">
+          <div class="space-y-10">
+            {resumeData.experience.map((company, index) => (
+              <div class:list={{
+                'border-l-4': true,
+                'pl-6': true,
+                'relative': true,
+                'border-primary-600': index === 0,
+                'border-gray-300': index !== 0,
+                'dark:border-gray-600': index !== 0,
+                'older-experience': index >= 2
+              }}>
+                <div class="mb-4">
+                  <h3 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light">{company.company}</h3>
+                  <p class="text-brand-accent dark:text-brand-accent font-semibold mb-1">{company.location}</p>
+                  <span class="text-sm text-gray-500 dark:text-gray-400">{getCompanyDateRange(company, index >= 2)}</span>
+                </div>
 
-              {company.roles ? (
-                // Multiple roles for this company
-                <div class="space-y-6">
-                  {company.roles.map(role => (
-                    <div class="ml-4 border-l-2 border-gray-200 dark:border-gray-700 pl-4">
-                      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                        <h4 class="text-lg font-serif font-semibold text-brand-primary dark:text-brand-light">{role.title}</h4>
-                        <span class="text-sm text-gray-500 dark:text-gray-400">{index >= 2 ? `${formatDateYearsOnly(role.start_date)} - ${formatDateYearsOnly(role.end_date)}` : `${formatDate(role.start_date)} - ${formatDate(role.end_date)}`}</span>
+                {company.roles ? (
+                  // Multiple roles for this company
+                  <div class="space-y-6">
+                    {company.roles.map(role => (
+                      <div class="ml-4 border-l-2 border-gray-200 dark:border-gray-700 pl-4">
+                        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                          <h4 class="text-lg font-serif font-semibold text-brand-primary dark:text-brand-light">{role.title}</h4>
+                          <span class="text-sm text-gray-500 dark:text-gray-400">{index >= 2 ? `${formatDateYearsOnly(role.start_date)} - ${formatDateYearsOnly(role.end_date)}` : `${formatDate(role.start_date)} - ${formatDate(role.end_date)}`}</span>
+                        </div>
+                        <ul class="text-brand-subtle dark:text-gray-300 space-y-2 mb-4">
+                          {role.responsibilities.map(responsibility => (
+                            <li>• {responsibility}</li>
+                          ))}
+                        </ul>
                       </div>
-                      <ul class="text-brand-subtle dark:text-gray-300 space-y-2 mb-4">
-                        {role.responsibilities.map(responsibility => (
-                          <li>• {responsibility}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                // Single role for this company
-                <div>
-                  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                    <h4 class="text-lg font-serif font-semibold text-brand-primary dark:text-brand-light">{company.title}</h4>
-                    <span class="text-sm text-gray-500 dark:text-gray-400">{index >= 2 ? `${formatDateYearsOnly(company.start_date)} - ${formatDateYearsOnly(company.end_date)}` : `${formatDate(company.start_date)} - ${formatDate(company.end_date)}`}</span>
-                  </div>
-                  <ul class="text-brand-subtle dark:text-gray-300 space-y-2 mb-4">
-                    {company.responsibilities.map(responsibility => (
-                      <li>• {responsibility}</li>
                     ))}
-                  </ul>
-                </div>
-              )}
-            </div>
-            
-            {/* Render gradient overlay directly on the preview experience */}
-            {index === 2 && (
-              <div class="absolute inset-0 z-10 pointer-events-none rounded-lg" id="previewGradientOverlay">
-                <div class="gradient-fade"></div>
+                  </div>
+                ) : (
+                  // Single role for this company
+                  <div>
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                      <h4 class="text-lg font-serif font-semibold text-brand-primary dark:text-brand-light">{company.title}</h4>
+                      <span class="text-sm text-gray-500 dark:text-gray-400">{index >= 2 ? `${formatDateYearsOnly(company.start_date)} - ${formatDateYearsOnly(company.end_date)}` : `${formatDate(company.start_date)} - ${formatDate(company.end_date)}`}</span>
+                    </div>
+                    <ul class="text-brand-subtle dark:text-gray-300 space-y-2 mb-4">
+                      {company.responsibilities.map(responsibility => (
+                        <li>• {responsibility}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
-            )}
-          ))}
+            ))}
+          </div>
+          
+          <!-- Gradient overlay positioned absolutely outside the loop -->
+          <div class="absolute inset-x-0 bottom-0 h-60 pointer-events-none rounded-b-lg z-10" id="previewGradientOverlay">
+            <div class="gradient-fade"></div>
+          </div>
           
           <!-- Show More/Less Button -->
           <div class="text-center pt-6">
@@ -233,11 +237,12 @@ const accomplishments = [
       toggleButton?.addEventListener('click', function() {
         isExpanded = !isExpanded;
         
+        // Toggle older experience visibility using class-based approach
         olderExperience.forEach(element => {
           if (isExpanded) {
-            element.style.display = 'block';
+            element.classList.add('is-visible');
           } else {
-            element.style.display = 'none';
+            element.classList.remove('is-visible');
           }
         });
         
@@ -269,6 +274,11 @@ const accomplishments = [
     /* Hide older experience by default - no JS required */
     .older-experience {
       display: none;
+    }
+    
+    /* Show older experience when visible class is added */
+    .older-experience.is-visible {
+      display: block;
     }
     
     .gradient-fade {
