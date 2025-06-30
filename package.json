@@ -1,13 +1,17 @@
 {
-  "name": "sergio-io-clone",
+  "name": "sergio-io",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui"
   },
   "dependencies": {
     "@astrojs/react": "^4.3.0",
@@ -20,5 +24,8 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "tailwindcss": "^4.1.11"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0"
   }
 }
