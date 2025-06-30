@@ -20,8 +20,18 @@ const formatDate = (dateString: string) => {
   return `${monthNames[month]} ${year}`;
 };
 
+// Helper function to format dates - years only for older companies
+const formatDateYearsOnly = (dateString: string) => {
+  if (!dateString) return '';
+  if (dateString === 'Present') return 'Present';
+
+  // Extract year from "Month Year" format
+  const parts = dateString.split(' ');
+  return parts[parts.length - 1]; // Get the year part
+};
+
 // Helper to get overall date range for a company
-const getCompanyDateRange = (company: typeof resumeData.experience[0]) => {
+const getCompanyDateRange = (company: typeof resumeData.experience[0], yearOnlyMode: boolean = false) => {
   let firstStartDate: Date | null = null;
   let lastEndDate: Date | null = null;
 
@@ -45,10 +55,16 @@ const getCompanyDateRange = (company: typeof resumeData.experience[0]) => {
 
   if (!firstStartDate || !lastEndDate) return '';
 
-  const formattedFirstStartDate = formatDate(firstStartDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' }).replace(',', ''));
-  const formattedLastEndDate = lastEndDate.getFullYear() === new Date().getFullYear() && lastEndDate.getMonth() === new Date().getMonth() ? 'Present' : formatDate(lastEndDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' }).replace(',', ''));
+  if (yearOnlyMode) {
+    const firstYear = firstStartDate.getFullYear().toString();
+    const lastYear = lastEndDate.getFullYear() === new Date().getFullYear() && lastEndDate.getMonth() === new Date().getMonth() ? 'Present' : lastEndDate.getFullYear().toString();
+    return `${firstYear} - ${lastYear}`;
+  } else {
+    const formattedFirstStartDate = formatDate(firstStartDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' }).replace(',', ''));
+    const formattedLastEndDate = lastEndDate.getFullYear() === new Date().getFullYear() && lastEndDate.getMonth() === new Date().getMonth() ? 'Present' : formatDate(lastEndDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' }).replace(',', ''));
+    return `${formattedFirstStartDate} - ${formattedLastEndDate}`;
+  }
 
-  return `${formattedFirstStartDate} - ${formattedLastEndDate}`;
 };
 
 // Community accomplishments (additional data not in LinkedIn JSON)
@@ -56,14 +72,14 @@ const accomplishments = [
   {
     "name": "Orlando Devs, Inc.",
     "position": "President",
-    "when": "2016 - March 2018",
+    "when": "2016 - 2018",
     "description": "Nonprofit focused on improving the quality of life of Software Professionals in Central Florida. The organization accompanies a community of over 3,000 members who actively engage both in person and online.",
     "url": "https://orlandodevs.com/"
   },
   {
     "name": "OrlandoJS",
     "position": "Co-organizer",
-    "when": "2015 - March 2018",
+    "when": "2015 - 2018",
     "description": "Tech meetup in Orlando that covers all things JavaScript and meets on a monthly basis.",
     "url": "https://meetup.com/OrlandoJS/"
   }
@@ -105,13 +121,13 @@ const accomplishments = [
         
         <div class="space-y-10">
           {resumeData.experience.map((company, index) => (
-            <div class="border-l-4 pl-6" class:list={[
+            <div class={`border-l-4 pl-6 ${index >= 2 ? 'older-experience hidden' : ''}`} class:list={[
               index === 0 ? 'border-primary-600' : 'border-gray-300 dark:border-gray-600'
             ]}>
               <div class="mb-4">
                 <h3 class="text-xl font-bold text-brand-primary dark:text-brand-light">{company.company}</h3>
                 <p class="text-brand-accent dark:text-brand-accent font-semibold mb-1">{company.location}</p>
-                <span class="text-sm text-gray-500 dark:text-gray-400">{getCompanyDateRange(company)}</span>
+                <span class="text-sm text-gray-500 dark:text-gray-400">{getCompanyDateRange(company, index >= 2)}</span>
               </div>
 
               {company.roles ? (
@@ -121,7 +137,7 @@ const accomplishments = [
                     <div class="ml-4 border-l-2 border-gray-200 dark:border-gray-700 pl-4">
                       <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
                         <h4 class="text-lg font-bold text-brand-primary dark:text-brand-light">{role.title}</h4>
-                        <span class="text-sm text-gray-500 dark:text-gray-400">{formatDate(role.start_date)} - {formatDate(role.end_date)}</span>
+                        <span class="text-sm text-gray-500 dark:text-gray-400">{index >= 2 ? `${formatDateYearsOnly(role.start_date)} - ${formatDateYearsOnly(role.end_date)}` : `${formatDate(role.start_date)} - ${formatDate(role.end_date)}`}</span>
                       </div>
                       <ul class="text-brand-subtle dark:text-gray-300 space-y-2 mb-4">
                         {role.responsibilities.map(responsibility => (
@@ -136,7 +152,7 @@ const accomplishments = [
                 <div>
                   <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
                     <h4 class="text-lg font-bold text-brand-primary dark:text-brand-light">{company.title}</h4>
-                    <span class="text-sm text-gray-500 dark:text-gray-400">{formatDate(company.start_date)} - {formatDate(company.end_date)}</span>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">{index >= 2 ? `${formatDateYearsOnly(company.start_date)} - ${formatDateYearsOnly(company.end_date)}` : `${formatDate(company.start_date)} - ${formatDate(company.end_date)}`}</span>
                   </div>
                   <ul class="text-brand-subtle dark:text-gray-300 space-y-2 mb-4">
                     {company.responsibilities.map(responsibility => (
@@ -147,6 +163,19 @@ const accomplishments = [
               )}
             </div>
           ))}
+          
+          <!-- Show More/Less Button -->
+          <div class="text-center pt-6">
+            <button 
+              id="toggleOlderExperience"
+              class="inline-flex items-center px-6 py-3 border border-brand-subtle text-base font-medium rounded-md text-brand-primary dark:text-brand-light bg-transparent hover:bg-brand-subtle/10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent transition-colors"
+            >
+              <span id="toggleText">Show Earlier Experience</span>
+              <svg id="toggleIcon" class="ml-2 w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -182,4 +211,39 @@ const accomplishments = [
   </main>
   
   <Footer />
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggleButton = document.getElementById('toggleOlderExperience');
+      const toggleText = document.getElementById('toggleText');
+      const toggleIcon = document.getElementById('toggleIcon');
+      const olderExperience = document.querySelectorAll('.older-experience');
+      
+      let isExpanded = false;
+      
+      toggleButton?.addEventListener('click', function() {
+        isExpanded = !isExpanded;
+        
+        olderExperience.forEach(element => {
+          if (isExpanded) {
+            element.classList.remove('hidden');
+          } else {
+            element.classList.add('hidden');
+          }
+        });
+        
+        if (toggleText) {
+          toggleText.textContent = isExpanded ? 'Show Less Experience' : 'Show Earlier Experience';
+        }
+        
+        if (toggleIcon) {
+          if (isExpanded) {
+            toggleIcon.style.transform = 'rotate(180deg)';
+          } else {
+            toggleIcon.style.transform = 'rotate(0deg)';
+          }
+        }
+      });
+    });
+  </script>
 </BaseLayout>
