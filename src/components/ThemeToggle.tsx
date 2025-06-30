@@ -62,7 +62,7 @@ export default function ThemeToggle(): JSX.Element {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
+      className="p-2 rounded-lg bg-brand-subtle/20 dark:bg-brand-subtle/20 text-brand-subtle dark:text-gray-300 hover:bg-brand-subtle/30 dark:hover:bg-brand-subtle/30 transition-colors duration-200"
       aria-label="Toggle theme"
     >
       {theme === 'light' ? (
