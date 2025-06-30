@@ -36,6 +36,23 @@ export default {
         green: '#10b981',
         pink: '#ec4899',
         yellow: '#f59e0b',
+        blue: {
+          400: '#60a5fa',
+          500: '#3b82f6',
+          600: '#2563eb',
+        },
+        purple: {
+          600: '#9333ea',
+        },
+        orange: {
+          400: '#fb923c',
+        },
+        red: {
+          500: '#ef4444',
+        },
+        teal: {
+          400: '#2dd4bf',
+        },
         
         // Transparent overlay colors for video backgrounds
         'primary-400-overlay': 'rgba(54, 165, 255, 0.75)',
