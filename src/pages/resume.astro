@@ -140,27 +140,30 @@ const formatDateRange = (startDate: string, endDate: string) => {
   return `${formatDate(startDate)} - ${formatDate(endDate)}`;
 };
 
-// Flatten all positions from all companies into a single chronological list
-const allPositions = linkedInData.experience.flatMap(company => {
-  // Handle companies with roles array
+// Helper function to get the overall date range for a company
+const getCompanyDateRange = (company: any) => {
   if (company.roles) {
-    return company.roles.map(role => ({
-      title: role.title,
-      company: company.company,
-      when: formatDateRange(role.start_date, role.end_date),
-      activity: role.responsibilities
-    }));
+    // Find earliest start date and latest end date
+    const startDates = company.roles.map(role => role.start_date);
+    const endDates = company.roles.map(role => role.end_date);
+    
+    // Convert to comparable format for sorting
+    const parseDate = (dateStr: string) => {
+      if (dateStr === 'Present') return new Date();
+      const [month, year] = dateStr.split(' ');
+      const monthNum = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                       'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].indexOf(month);
+      return new Date(parseInt(year), monthNum);
+    };
+    
+    const sortedStartDates = startDates.sort((a, b) => parseDate(a).getTime() - parseDate(b).getTime());
+    const sortedEndDates = endDates.sort((a, b) => parseDate(b).getTime() - parseDate(a).getTime());
+    
+    return formatDateRange(sortedStartDates[0], sortedEndDates[0]);
+  } else {
+    return formatDateRange(company.start_date, company.end_date);
   }
-  // Handle companies with direct role properties
-  else {
-    return [{
-      title: company.title,
-      company: company.company,
-      when: formatDateRange(company.start_date, company.end_date),
-      activity: company.responsibilities
-    }];
-  }
-});
+};
 
 // Community accomplishments (from previous data since not in LinkedIn JSON)
 const accomplishments = [
@@ -239,19 +242,50 @@ const education = [
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">Professional Experience</h2>
         
-        <div class="space-y-8">
-          {allPositions.map((position, index) => (
-            <div class={`border-l-4 ${index < 3 ? 'border-primary-600' : 'border-gray-300 dark:border-gray-600'} pl-6`}>
-              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white">{position.title}</h3>
-                <span class="text-sm text-gray-500 dark:text-gray-400">{position.when}</span>
+        <div class="space-y-10">
+          {linkedInData.experience.map((company, companyIndex) => (
+            <div class={`border-l-4 ${companyIndex < 2 ? 'border-primary-600' : 'border-gray-300 dark:border-gray-600'} pl-6`}>
+              <!-- Company Header -->
+              <div class="mb-6">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                  <h3 class="text-2xl font-bold text-gray-900 dark:text-white">{company.company}</h3>
+                  <span class="text-sm text-gray-500 dark:text-gray-400">{getCompanyDateRange(company)}</span>
+                </div>
+                <p class="text-gray-600 dark:text-gray-300 font-medium">{company.location}</p>
               </div>
-              <p class="text-primary-600 dark:text-primary-400 font-semibold mb-3">{position.company}</p>
-              <ul class="text-gray-600 dark:text-gray-300 space-y-2">
-                {position.activity.map((item) => (
-                  <li>• {item}</li>
-                ))}
-              </ul>
+
+              <!-- Roles within Company -->
+              <div class="space-y-6">
+                {company.roles ? (
+                  <!-- Multiple roles at this company -->
+                  company.roles.map((role, roleIndex) => (
+                    <div class="ml-4 border-l-2 border-gray-200 dark:border-gray-700 pl-4">
+                      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                        <h4 class="text-lg font-semibold text-gray-900 dark:text-white">{role.title}</h4>
+                        <span class="text-sm text-gray-500 dark:text-gray-400">{formatDateRange(role.start_date, role.end_date)}</span>
+                      </div>
+                      <ul class="text-gray-600 dark:text-gray-300 space-y-2">
+                        {role.responsibilities.map((responsibility) => (
+                          <li>• {responsibility}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))
+                ) : (
+                  <!-- Single role at this company -->
+                  <div class="ml-4">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                      <h4 class="text-lg font-semibold text-gray-900 dark:text-white">{company.title}</h4>
+                      <span class="text-sm text-gray-500 dark:text-gray-400">{formatDateRange(company.start_date, company.end_date)}</span>
+                    </div>
+                    <ul class="text-gray-600 dark:text-gray-300 space-y-2">
+                      {company.responsibilities.map((responsibility) => (
+                        <li>• {responsibility}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
             </div>
           ))}
         </div>
