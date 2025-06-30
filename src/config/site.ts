@@ -43,7 +43,7 @@ export const SITE: SiteConfig = {
     twitter: "https://x.com/hashtagserg",
     github: "https://github.com/sergiocruz",
     linkedin: "https://linkedin.com/in/sergiorlcruz",
-    email: "hello@sergio.io"
+    email: "hi@sergio.io"
   },
   
   // Navigation
