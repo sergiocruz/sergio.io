@@ -40,11 +40,6 @@ export default function ThemeToggle(): JSX.Element {
     return () => mediaQuery.removeEventListener('change', handleChange);
   }, [mounted]);
 
-  // Don't render until we're mounted to prevent hydration mismatch
-  useEffect(() => {
-    setTheme(savedTheme);
-  }, []);
-
   const toggleTheme = (): void => {
     const newTheme: Theme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
