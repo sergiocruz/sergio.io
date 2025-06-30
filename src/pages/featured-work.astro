@@ -10,20 +10,10 @@ const allCourses = await getCollection('courses');
 const allVideos = await getCollection('videos');
 const allPublications = await getCollection('publications');
 
-// Filter for featured content and sort by date (newest first)
-const featuredCourses = allCourses
-  .filter(course => course.data.featured)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-const featuredVideos = allVideos
-  .filter(video => video.data.featured)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-const featuredPublications = allPublications
-  .filter(publication => publication.data.featured)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-
-// Sort all videos by date for the speaking section
-const allVideosSorted = allVideos.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-const allPublicationsSorted = allPublications.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+// Filter for featured content
+const featuredCourses = allCourses.filter(course => course.data.featured);
+const featuredVideos = allVideos.filter(video => video.data.featured);
+const featuredPublications = allPublications.filter(publication => publication.data.featured);
 
 // Format date function
 const formatDate = (date: Date) => {
@@ -130,7 +120,7 @@ const getGradientClass = (index: number, type: string) => {
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {allVideosSorted.map((video, index) => (
+          {allVideos.map((video, index) => (
             <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
               <div class={`h-48 bg-gradient-to-br ${getGradientClass(index, 'video')} relative`}>
                 <div class="absolute inset-0 flex items-center justify-center">
@@ -192,7 +182,7 @@ const getGradientClass = (index: number, type: string) => {
         </div>
         
         <div class="space-y-8">
-          {allPublicationsSorted.map((publication) => (
+          {allPublications.map((publication) => (
             <div class="bg-white dark:bg-gray-900 rounded-lg p-8 hover:shadow-lg transition-shadow duration-300">
               <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
                 <div class="flex-1">

@@ -21,7 +21,6 @@ const courses = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    date: z.date(),
     platform: z.string(),
     link: z.string(),
     featured: z.boolean().default(false),

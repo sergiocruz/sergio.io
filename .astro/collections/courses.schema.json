@@ -10,22 +10,6 @@
         "description": {
           "type": "string"
         },
-        "date": {
-          "anyOf": [
-            {
-              "type": "string",
-              "format": "date-time"
-            },
-            {
-              "type": "string",
-              "format": "date"
-            },
-            {
-              "type": "integer",
-              "format": "unix-time"
-            }
-          ]
-        },
         "platform": {
           "type": "string"
         },
@@ -46,7 +30,6 @@
       "required": [
         "title",
         "description",
-        "date",
         "platform",
         "link"
       ],
