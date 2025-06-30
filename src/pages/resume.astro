@@ -119,67 +119,63 @@ const accomplishments = [
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-2xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-8">Professional Experience</h2>
         
-        <!-- Experience Container with max-height control -->
-        <div id="experienceContainer" class="relative overflow-hidden" style="max-height: 400px;">
-          <div class="space-y-10">
-            {resumeData.experience.map((company, index) => (
-              <div class:list={{
-                'border-l-4': true,
-                'pl-6': true,
-                'relative': true,
-                'border-primary-600': index === 0,
-                'border-gray-300': index !== 0,
-                'dark:border-gray-600': index !== 0
-              }}>
-                <div class="mb-4">
-                  <h3 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light">{company.company}</h3>
-                  <p class="text-brand-accent dark:text-brand-accent font-semibold mb-1">{company.location}</p>
-                  <span class="text-sm text-gray-500 dark:text-gray-400">{getCompanyDateRange(company, index >= 2)}</span>
-                </div>
-
-                {company.roles ? (
-                  // Multiple roles for this company
-                  <div class="space-y-6">
-                    {company.roles.map(role => (
-                      <div class="ml-4 border-l-2 border-gray-200 dark:border-gray-700 pl-4">
-                        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                          <h4 class="text-lg font-serif font-semibold text-brand-primary dark:text-brand-light">{role.title}</h4>
-                          <span class="text-sm text-gray-500 dark:text-gray-400">{index >= 2 ? `${formatDateYearsOnly(role.start_date)} - ${formatDateYearsOnly(role.end_date)}` : `${formatDate(role.start_date)} - ${formatDate(role.end_date)}`}</span>
-                        </div>
-                        <ul class="text-brand-subtle dark:text-gray-300 space-y-2 mb-4">
-                          {role.responsibilities.map(responsibility => (
-                            <li>• {responsibility}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  // Single role for this company
-                  <div>
-                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                      <h4 class="text-lg font-serif font-semibold text-brand-primary dark:text-brand-light">{company.title}</h4>
-                      <span class="text-sm text-gray-500 dark:text-gray-400">{index >= 2 ? `${formatDateYearsOnly(company.start_date)} - ${formatDateYearsOnly(company.end_date)}` : `${formatDate(company.start_date)} - ${formatDate(company.end_date)}`}</span>
-                    </div>
-                    <ul class="text-brand-subtle dark:text-gray-300 space-y-2 mb-4">
-                      {company.responsibilities.map(responsibility => (
-                        <li>• {responsibility}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
+        <div class="space-y-10">
+          {resumeData.experience.map((company, index) => (
+            <div class:list={{
+              'border-l-4': true,
+              'pl-6': true,
+              'relative': true,
+              'border-primary-600': index === 0,
+              'border-gray-300': index !== 0,
+              'dark:border-gray-600': index !== 0,
+              'older-experience': index >= 3,
+              'transition-all': true,
+              'duration-300': true,
+              'ease-in-out': true
+            }}>
+              <div class="mb-4">
+                <h3 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light">{company.company}</h3>
+                <p class="text-brand-accent dark:text-brand-accent font-semibold mb-1">{company.location}</p>
+                <span class="text-sm text-gray-500 dark:text-gray-400">{getCompanyDateRange(company, index >= 2)}</span>
               </div>
-            ))}
-          </div>
-          
-          <!-- Gradient overlay positioned absolutely -->
-          <div class="absolute inset-x-0 bottom-0 h-60 pointer-events-none rounded-b-lg z-10" id="previewGradientOverlay">
-            <div class="gradient-fade"></div>
-          </div>
+
+              {company.roles ? (
+                // Multiple roles for this company
+                <div class="space-y-6">
+                  {company.roles.map(role => (
+                    <div class="ml-4 border-l-2 border-gray-200 dark:border-gray-700 pl-4">
+                      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                        <h4 class="text-lg font-serif font-semibold text-brand-primary dark:text-brand-light">{role.title}</h4>
+                        <span class="text-sm text-gray-500 dark:text-gray-400">{index >= 2 ? `${formatDateYearsOnly(role.start_date)} - ${formatDateYearsOnly(role.end_date)}` : `${formatDate(role.start_date)} - ${formatDate(role.end_date)}`}</span>
+                      </div>
+                      <ul class="text-brand-subtle dark:text-gray-300 space-y-2 mb-4">
+                        {role.responsibilities.map(responsibility => (
+                          <li>• {responsibility}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                // Single role for this company
+                <div>
+                  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                    <h4 class="text-lg font-serif font-semibold text-brand-primary dark:text-brand-light">{company.title}</h4>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">{index >= 2 ? `${formatDateYearsOnly(company.start_date)} - ${formatDateYearsOnly(company.end_date)}` : `${formatDate(company.start_date)} - ${formatDate(company.end_date)}`}</span>
+                  </div>
+                  <ul class="text-brand-subtle dark:text-gray-300 space-y-2 mb-4">
+                    {company.responsibilities.map(responsibility => (
+                      <li>• {responsibility}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          ))}
         </div>
         
-        <!-- Show More/Less Button with higher z-index -->
-        <div class="text-center pt-6 relative z-20">
+        <!-- Show More/Less Button -->
+        <div class="text-center pt-8">
           <button 
             id="toggleOlderExperience"
             class="inline-flex items-center px-6 py-3 border border-brand-subtle text-base font-medium rounded-md text-brand-primary dark:text-brand-light bg-transparent hover:bg-brand-subtle/10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent transition-colors"
@@ -228,34 +224,39 @@ const accomplishments = [
       const toggleButton = document.getElementById('toggleOlderExperience');
       const toggleText = document.getElementById('toggleText');
       const toggleIcon = document.getElementById('toggleIcon');
-      const experienceContainer = document.getElementById('experienceContainer');
-      const previewGradient = document.getElementById('previewGradientOverlay');
+      const olderExperienceElements = document.querySelectorAll('.older-experience');
       
       let isExpanded = false;
+      
+      // Initially hide older experience
+      olderExperienceElements.forEach(element => {
+        element.style.maxHeight = '0';
+        element.style.opacity = '0';
+        element.style.overflow = 'hidden';
+        element.style.marginTop = '0';
+        element.style.marginBottom = '0';
+      });
       
       toggleButton?.addEventListener('click', function() {
         isExpanded = !isExpanded;
         
-        if (experienceContainer) {
+        olderExperienceElements.forEach(element => {
           if (isExpanded) {
-            // Expand to show all content
-            experienceContainer.style.maxHeight = 'none';
-            experienceContainer.style.overflow = 'visible';
+            // Show older experience
+            element.style.maxHeight = '1000px'; // Large enough to show content
+            element.style.opacity = '1';
+            element.style.overflow = 'visible';
+            element.style.marginTop = '2.5rem'; // space-y-10 equivalent
+            element.style.marginBottom = '0';
           } else {
-            // Collapse to show limited content
-            experienceContainer.style.maxHeight = '400px';
-            experienceContainer.style.overflow = 'hidden';
+            // Hide older experience
+            element.style.maxHeight = '0';
+            element.style.opacity = '0';
+            element.style.overflow = 'hidden';
+            element.style.marginTop = '0';
+            element.style.marginBottom = '0';
           }
-        }
-        
-        // Toggle gradient visibility
-        if (previewGradient) {
-          if (isExpanded) {
-            previewGradient.classList.add('hidden');
-          } else {
-            previewGradient.classList.remove('hidden');
-          }
-        }
+        });
         
         if (toggleText) {
           toggleText.textContent = isExpanded ? 'Show Less Experience' : 'Show Earlier Experience';
@@ -273,31 +274,8 @@ const accomplishments = [
   </script>
   
   <style>
-    .gradient-fade {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 60%;
-      background: linear-gradient(
-        to bottom,
-        transparent 0%,
-        rgba(246, 245, 244, 0.7) 40%,
-        rgba(246, 245, 244, 0.95) 80%,
-        rgb(246, 245, 244) 100%
-      );
-      border-radius: 0 0 0.5rem 0.5rem;
-    }
-    
-    /* Dark mode gradient */
-    .dark .gradient-fade {
-      background: linear-gradient(
-        to bottom,
-        transparent 0%,
-        rgba(18, 18, 18, 0.7) 40%,
-        rgba(18, 18, 18, 0.95) 80%,
-        rgb(18, 18, 18) 100%
-      );
+    .older-experience {
+      transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, margin 0.3s ease-in-out;
     }
   </style>
 </BaseLayout>
