@@ -26,6 +26,7 @@
     "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
-    "@playwright/test": "^1.40.0"
+    "@playwright/test": "^1.40.0",
+    "ts-node": "^10.9.2"
   }
 }
