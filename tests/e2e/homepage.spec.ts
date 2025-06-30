@@ -35,10 +35,12 @@ test.describe('Homepage', () => {
   test('what I do section displays three main areas', async ({ page }) => {
     await page.goto('/');
     
-    // Check the three main areas
-    await expect(page.getByText('🧭 Engineering Leadership')).toBeVisible();
-    await expect(page.getByText('🧪 Product Strategy')).toBeVisible();
-    await expect(page.getByText('📊 Scaled Teams & Systems')).toBeVisible();
+    // Find the "What I Do" section first, then look for the three areas within it
+    const whatIDoSection = page.getByRole('heading', { name: 'What I Do' }).locator('..');
+    
+    await expect(whatIDoSection.getByText('🧭 Engineering Leadership')).toBeVisible();
+    await expect(whatIDoSection.getByText('🧪 Product Strategy')).toBeVisible();
+    await expect(whatIDoSection.getByText('📊 Scaled Teams & Systems')).toBeVisible();
   });
 
   test('navigation works correctly', async ({ page }) => {
