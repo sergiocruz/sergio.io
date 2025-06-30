@@ -121,7 +121,7 @@ const accomplishments = [
         
         <div class="space-y-10">
           {resumeData.experience.map((company, index) => (
-            <div class={`border-l-4 pl-6 ${index === 2 ? 'preview-experience' : ''} ${index >= 3 ? 'older-experience hidden' : ''}`} class:list={[
+            <div class={`border-l-4 pl-6 relative ${index === 2 ? 'preview-experience' : ''} ${index >= 3 ? 'older-experience' : ''}`} class:list={[
               index === 0 ? 'border-primary-600' : 'border-gray-300 dark:border-gray-600'
             ]}>
               <div class="mb-4">
@@ -162,12 +162,14 @@ const accomplishments = [
                 </div>
               )}
             </div>
+            
+            {/* Render gradient overlay directly on the preview experience */}
+            {index === 2 && (
+              <div class="preview-gradient-overlay">
+                <div class="gradient-fade"></div>
+              </div>
+            )}
           ))}
-          
-          <!-- Gradient overlay for preview experience -->
-          <div id="previewOverlay" class="preview-overlay pointer-events-none">
-            <div class="gradient-fade"></div>
-          </div>
           
           <!-- Show More/Less Button -->
           <div class="text-center pt-6">
@@ -221,50 +223,27 @@ const accomplishments = [
       const toggleText = document.getElementById('toggleText');
       const toggleIcon = document.getElementById('toggleIcon');
       const olderExperience = document.querySelectorAll('.older-experience');
-      const previewExperience = document.querySelector('.preview-experience');
-      const previewOverlay = document.getElementById('previewOverlay');
+      const previewGradient = document.querySelector('.preview-gradient-overlay');
       
       let isExpanded = false;
-      
-      // Position the overlay over the preview experience
-      function positionOverlay() {
-        if (previewExperience && previewOverlay && !isExpanded) {
-          const rect = previewExperience.getBoundingClientRect();
-          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-          
-          previewOverlay.style.position = 'absolute';
-          previewOverlay.style.top = (rect.top + scrollTop) + 'px';
-          previewOverlay.style.left = rect.left + 'px';
-          previewOverlay.style.width = rect.width + 'px';
-          previewOverlay.style.height = rect.height + 'px';
-          previewOverlay.style.pointerEvents = 'none';
-        }
-      }
-      
-      // Initial positioning
-      setTimeout(positionOverlay, 100);
-      
-      // Reposition on window resize
-      window.addEventListener('resize', positionOverlay);
       
       toggleButton?.addEventListener('click', function() {
         isExpanded = !isExpanded;
         
         olderExperience.forEach(element => {
           if (isExpanded) {
-            element.classList.remove('hidden');
+            element.style.display = 'block';
           } else {
-            element.classList.add('hidden');
+            element.style.display = 'none';
           }
         });
         
-        // Toggle overlay visibility
-        if (previewOverlay) {
+        // Toggle gradient visibility
+        if (previewGradient) {
           if (isExpanded) {
-            previewOverlay.style.display = 'none';
+            previewGradient.style.display = 'none';
           } else {
-            previewOverlay.style.display = 'block';
-            setTimeout(positionOverlay, 50); // Reposition after content changes
+            previewGradient.style.display = 'block';
           }
         }
         
@@ -284,9 +263,21 @@ const accomplishments = [
   </script>
   
   <style>
-    .preview-overlay {
+    /* Hide older experience by default - no JS required */
+    .older-experience {
+      display: none;
+    }
+    
+    /* Gradient overlay positioned relative to its parent */
+    .preview-gradient-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       z-index: 1;
-      border-radius: 0.5rem; /* Match the company card border radius */
+      pointer-events: none;
+      border-radius: 0.5rem;
     }
     
     .gradient-fade {
@@ -302,9 +293,10 @@ const accomplishments = [
         rgba(246, 245, 244, 0.95) 80%,
         rgb(246, 245, 244) 100%
       );
-      border-radius: 0 0 0.5rem 0.5rem; /* Match bottom border radius */
+      border-radius: 0 0 0.5rem 0.5rem;
     }
     
+    /* Dark mode gradient */
     .dark .gradient-fade {
       background: linear-gradient(
         to bottom,
