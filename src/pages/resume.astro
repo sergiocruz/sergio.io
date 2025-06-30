@@ -168,7 +168,7 @@ const accomplishments = [
             
             {/* Render gradient overlay directly on the preview experience */}
             {index === 2 && (
-              <div class="preview-gradient-overlay">
+              <div class="absolute inset-0 z-10 pointer-events-none rounded-lg" id="previewGradientOverlay">
                 <div class="gradient-fade"></div>
               </div>
             )}
@@ -226,7 +226,7 @@ const accomplishments = [
       const toggleText = document.getElementById('toggleText');
       const toggleIcon = document.getElementById('toggleIcon');
       const olderExperience = document.querySelectorAll('.older-experience');
-      const previewGradient = document.querySelector('.preview-gradient-overlay');
+      const previewGradient = document.getElementById('previewGradientOverlay');
       
       let isExpanded = false;
       
@@ -244,9 +244,9 @@ const accomplishments = [
         // Toggle gradient visibility
         if (previewGradient) {
           if (isExpanded) {
-            previewGradient.style.display = 'none';
+            previewGradient.classList.add('hidden');
           } else {
-            previewGradient.style.display = 'block';
+            previewGradient.classList.remove('hidden');
           }
         }
         
@@ -269,18 +269,6 @@ const accomplishments = [
     /* Hide older experience by default - no JS required */
     .older-experience {
       display: none;
-    }
-    
-    /* Gradient overlay positioned relative to its parent */
-    .preview-gradient-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 1;
-      pointer-events: none;
-      border-radius: 0.5rem;
     }
     
     .gradient-fade {
