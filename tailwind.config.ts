@@ -36,6 +36,14 @@ export default {
         green: '#10b981',
         pink: '#ec4899',
         yellow: '#f59e0b',
+        
+        // Transparent overlay colors for video backgrounds
+        'primary-400-overlay': 'rgba(54, 165, 255, 0.75)',
+        'primary-500-overlay': 'rgba(12, 135, 240, 0.75)',
+        'primary-600-overlay': 'rgba(77, 110, 168, 0.75)',
+        'green-overlay': 'rgba(16, 185, 129, 0.75)',
+        'pink-overlay': 'rgba(236, 72, 153, 0.75)',
+        'yellow-overlay': 'rgba(245, 158, 11, 0.75)',
       },
       fontFamily: {
         sans: ['Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
