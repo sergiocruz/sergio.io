@@ -98,14 +98,12 @@ const education = [
           Senior engineering leader with experience scaling teams, shaping product strategy, and delivering reliable systems.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/downloads/cruzresume.pdf" target="_blank" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
           <a href="/downloads/cruzresume.pdf" target="_blank" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-brand-accent hover:bg-accent-bronze focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent transition-colors">
             <svg class="mr-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
             Download PDF
           </a>
-          <a href="mailto:hi@sergio.io" class="inline-flex items-center px-6 py-3 border border-gray-300 dark:border-gray-600 text-base font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
           <a href="mailto:hi@sergio.io" class="inline-flex items-center px-6 py-3 border border-gray-300 dark:border-gray-600 text-base font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent transition-colors">
             Contact Me
           </a>
@@ -138,7 +136,6 @@ const education = [
                         <h4 class="text-lg font-bold text-brand-primary dark:text-brand-light">{role.title}</h4>
                         <span class="text-sm text-gray-500 dark:text-gray-400">{formatDate(role.start_date)} - {formatDate(role.end_date)}</span>
                       </div>
-                      <ul class="text-gray-600 dark:text-gray-300 space-y-2 mb-4">
                       <ul class="text-brand-subtle dark:text-gray-300 space-y-2 mb-4">
                         {role.responsibilities.map(responsibility => (
                           <li>• {responsibility}</li>
@@ -154,7 +151,6 @@ const education = [
                     <h4 class="text-lg font-bold text-brand-primary dark:text-brand-light">{company.title}</h4>
                     <span class="text-sm text-gray-500 dark:text-gray-400">{formatDate(company.start_date)} - {formatDate(company.end_date)}</span>
                   </div>
-                  <ul class="text-gray-600 dark:text-gray-300 space-y-2 mb-4">
                   <ul class="text-brand-subtle dark:text-gray-300 space-y-2 mb-4">
                     {company.responsibilities.map(responsibility => (
                       <li>• {responsibility}</li>
@@ -179,14 +175,12 @@ const education = [
               <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
                 <div class="flex items-center gap-2">
                   <h3 class="text-lg font-bold text-brand-primary dark:text-brand-light">{accomplishment.name}</h3>
-                  <span class="text-primary-600 dark:text-primary-400 font-medium">• {accomplishment.position}</span>
                   <span class="text-brand-accent dark:text-brand-accent font-medium">• {accomplishment.position}</span>
                 </div>
                 <span class="text-sm text-gray-500 dark:text-gray-400">{accomplishment.when}</span>
               </div>
               <p class="text-brand-subtle dark:text-gray-300 mb-2">{accomplishment.description}</p>
               {accomplishment.url && (
-                <a href={accomplishment.url} target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 text-sm font-medium">
                 <a href={accomplishment.url} target="_blank" rel="noopener noreferrer" class="text-brand-link dark:text-brand-link hover:text-accent-blue dark:hover:text-accent-blue text-sm font-medium">
                   Visit Website →
                 </a>
