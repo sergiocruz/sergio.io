@@ -12,6 +12,7 @@ const blog = defineCollection({
     draft: z.boolean().default(false),
     author: z.string().default('Sergio Cruz'),
     readingTime: z.string().optional(),
+    slug: z.string().optional(),
   }),
 });
 
