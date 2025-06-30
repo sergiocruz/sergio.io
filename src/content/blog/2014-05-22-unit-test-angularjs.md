@@ -139,7 +139,7 @@ Total 4.1s
 
 If everything ran successfuly for you as it did for me, you will notice that a directory called `coverage` was generated in the root of your application. Open the html file that was generated in your browser and it should look something like this:
 
-![](../images/blog/2014-05-22-04-49-33-pm.png)
+![](/images/blog/2014-05-22-04-49-33-pm.png)
 <br />
 *File location: `coverage/PhantomJS(...)/index.html`*
 
