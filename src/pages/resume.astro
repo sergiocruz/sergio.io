@@ -4,228 +4,195 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 
-// Resume data from JSON
-const resumeData = {
+// Resume data from LinkedIn JSON
+const linkedInData = {
+  "name": "Sergio Cruz",
+  "title": "Senior Engineering Leader | Product Strategy | Scaled Teams & Systems",
   "experience": [
     {
       "company": "Ramsey Solutions",
-      "positions": [
+      "location": "Franklin, Tennessee, United States",
+      "roles": [
         {
-          "title": "Sr. Director of Software Engineering, RamseyTrusted Protections",
-          "when": "March 2024 - Present",
-          "activity": [
-            "Coach and develop engineering managers to lead healthy, high-performing teams that deliver with clarity, accountability, and technical excellence.",
-            "Review and guide senior-level IC promotions across the engineering org, ensuring consistency and clarity in advancement standards.",
-            "Developed and deployed training for engineering interviewers to improve hiring quality and raise bar alignment across teams.",
-            "Partner with cross-functional executives to clarify engineering's role in product discovery and elevate its impact early in the product lifecycle.",
-            "Helped shape company-wide engineering leveling standards by contributing to growth plans used in hiring, performance, and promotion."
+          "title": "Senior Director of Software Engineering",
+          "start_date": "Mar 2024",
+          "end_date": "Present",
+          "responsibilities": [
+            "Coach and develop engineering managers to lead healthy, high-performing teams.",
+            "Review and guide senior-level IC promotions across the engineering org.",
+            "Develop and deploy interviewer training to improve hiring quality.",
+            "Collaborate with executives to clarify engineering's role in product discovery.",
+            "Contribute to company-wide engineering leveling standards."
           ]
         },
         {
-          "title": "Director of Software Engineering, RamseyTrusted Protections",
-          "when": "March 2021 - March 2024",
-          "activity": [
-            "Led the engineering function within a 40+ person business unit, aligning product delivery, architectural decisions, and team growth with strategic company outcomes.",
-            "Expanded org to 15+ engineers, test engineers, tech leads, and engineering managers.",
-            "Drove standardization of engineering practices across squads, including CI/CD implementation, testing maturity, and architectural alignment.",
-            "Served on the business unit leadership team, using the EOS model for quarterly/annual planning and aligning technology with business priorities.",
-            "Championed adoption of the OKR framework across teams to drive ownership and outcome-focused delivery.",
-            "Partnered with leaders in product, marketing, creative, and data to improve the customer experience and align team efforts to measurable business outcomes."
+          "title": "Director of Software Engineering",
+          "start_date": "Mar 2021",
+          "end_date": "Mar 2024",
+          "responsibilities": [
+            "Led engineering for a 40+ person business unit.",
+            "Grew the org to 15+ engineers and leaders.",
+            "Standardized practices across squads (CI/CD, testing, architecture).",
+            "Used the EOS model for business and tech alignment.",
+            "Implemented OKRs to drive ownership and outcomes.",
+            "Partnered across functions to improve customer experience."
           ]
         },
         {
-          "title": "Associate Director of Software Engineering, Frontman",
-          "when": "March 2019 - March 2021",
-          "activity": [
-            "Served as a player-coach, leading two cross-functional squads delivering customer-facing products and internal tooling across the business unit.",
-            "Scaled the engineering team from 2 to 8 engineers in 18 months to support 3× revenue growth, driving hiring strategy and custom onboarding experiences.",
-            "Introduced modern technology stacks to improve delivery velocity and team satisfaction.",
-            "Created and led structured growth plans through 6-month reviews and weekly 1:1s, helping ICs advance their careers and performance.",
-            "Championed engineering best practices through team-wide book studies and enforced coding standards that improved collaboration and maintainability.",
-            "Collaborated with marketing and product counterparts on customer-facing products, participating in strategic planning and go-to-market execution."
+          "title": "Associate Director of Software Engineering",
+          "start_date": "Mar 2019",
+          "end_date": "Mar 2021",
+          "responsibilities": [
+            "Led two cross-functional squads delivering products and tools.",
+            "Scaled team from 2 to 8 engineers to support 3× revenue growth.",
+            "Introduced modern tech stacks.",
+            "Led structured growth plans and career development."
           ]
         }
       ]
     },
     {
       "company": "Trazi Ventures",
-      "positions": [
-        {
-          "title": "Engineering Manager",
-          "when": "May 2017 - March 2019",
-          "activity": [
-            "I was the first technical hire build a consumer-facing app in the public data space.",
-            "Collaborated with technical co-founder to scale product to handle 7-digit monthly signups, translating into 8-digit annual revenue.",
-            "Attracted, recruited and hired top-talent for the technical team to further scale product.",
-            "Created and enforced engineering standards to ensure code consistency.",
-            "Actively contributed to code-base, ran code-reviews and provided technical guidance to software engineers.",
-            "Conducted 1:1's and reviews to create career growth plans for direct reports.",
-            "Tech stack: REST APIs and SPAs using AWS, Laravel, Node.js, React, MySQL, MongoDB."
-          ]
-        }
+      "location": "Orlando, Florida Area",
+      "title": "Engineering Manager",
+      "start_date": "May 2017",
+      "end_date": "Mar 2019",
+      "responsibilities": [
+        "First technical hire building consumer-facing app.",
+        "Scaled product to handle 7-digit monthly signups and 8-digit revenue.",
+        "Hired and mentored technical team.",
+        "Defined engineering standards, reviewed code, and led technical growth."
       ]
     },
     {
       "company": "Pluralsight",
-      "positions": [
+      "location": "Orlando, Florida Area",
+      "roles": [
         {
-          "title": "Lead UI Engineer",
-          "when": "Dec 2016 - May 2017",
-          "activity": [
-            "The lead of the UI efforts for my engineering team",
-            "Created and maintained Single Page Applications",
-            "Integrated apps with enterprise systems (domain-driven design)"
+          "title": "Tech Lead",
+          "start_date": "Dec 2016",
+          "end_date": "May 2017",
+          "responsibilities": [
+            "Led UI efforts for engineering squad.",
+            "Built SPAs and integrated with enterprise systems."
           ]
         },
         {
-          "title": "Course Engineer",
-          "when": "Apr 2015 - Dec 2016",
-          "activity": [
-            "Focused on CodeSchool.com brand",
-            "Wrote tests to make users' code run proprietary courses platform",
-            "Produced and presented content for courses on technologies such as React & Angular (v.2+)",
-            "Spoke at conferences sharing insight into the software development industry"
+          "title": "Software Engineer",
+          "start_date": "Apr 2015",
+          "end_date": "Dec 2016",
+          "responsibilities": [
+            "Built Code School course builder in Ruby on Rails.",
+            "Used Docker for secure code sandboxes.",
+            "Created and presented content on Node.js, React, Angular.",
+            "Spoke at industry conferences."
           ]
         }
       ]
     },
     {
-      "company": "GotChosen",
-      "positions": [
-        {
-          "title": "Sr. UI Engineer",
-          "when": "Jul 2014 - Apr 2015",
-          "activity": [
-            "Developed large-scale JavaScript application using AngularJS",
-            "Integrated application with in-house API using OAuth",
-            "Assisted the API team to produce good RESTful standards"
-          ]
-        }
+      "company": "GotChosen, Inc.",
+      "location": "Orlando, Florida Area",
+      "title": "Sr. Software Engineer",
+      "start_date": "Jul 2014",
+      "end_date": "Apr 2015",
+      "responsibilities": [
+        "Built dynamic social media app using Angular.",
+        "Integrated with in-house API using OAuth.",
+        "Contributed to REST API standards."
       ]
     },
     {
       "company": "TravelClick",
-      "positions": [
-        {
-          "title": "Software Engineer",
-          "when": "Feb 2014 - Jul 2014 (Short-Term Contract)",
-          "activity": [
-            "Created User Interfaces from strict requirements with Yeoman, AngularJS and Semantic UI",
-            "Hybrid phone applications using Ionic Framework",
-            "Extended existing proprietary PHP framework to support Restful APIs",
-            "Unit tested PHP and JavaScript code"
-          ]
-        }
+      "title": "Software Engineer",
+      "start_date": "Feb 2014",
+      "end_date": "Jul 2014",
+      "responsibilities": [
+        "Developed enterprise-grade travel software."
       ]
     },
     {
-      "company": "Givted",
-      "positions": [
-        {
-          "title": "Software Engineer",
-          "when": "Nov 2012 - Feb 2014",
-          "activity": [
-            "Full stack developer, primarily used Zend Framework & AngularJS",
-            "Managed A/B and user research tests in order to optimize UI/UX, resulting in increased conversions",
-            "Managed design contests involving more than 30 designers at a time.",
-            "Implemented new workflow processes including GruntJS, Sass",
-            "Responsive design slicing with strict cross-browser compatibility requirements (>IE8)"
-          ]
-        }
+      "company": "GIVTED",
+      "title": "Software Engineer",
+      "start_date": "Nov 2012",
+      "end_date": "Feb 2014",
+      "responsibilities": [
+        "First engineering hire for consumer product.",
+        "Built end-to-end gift-giving experience."
       ]
-    },
-    {
-      "company": "RGI Marketing",
-      "positions": [
-        {
-          "title": "Full Stack Developer",
-          "when": "Nov 2011 - Nov 2012",
-          "activity": [
-            "Developed websites using ModX, Drupal and Wordpress",
-            "Developed marketing system that generated thousands of leads using multiple top-level domain names to generate thousands of websites with many different themes, uncountable numbers of pages; which were based on synonym spun articles, geo-location, etc. This SEO system was built with the LAMP Stack, serving dynamic top-level domain names. We also experimented with many different forms of caching including APC, MongoDB, Redis, Memcached, and even flat files",
-            "Built CRM system that enabled the sales team to manage the leads that were captured from the SEO system, with features such as e-mail auto-responders, call back and events alerts, lead-capturing reports, graphs, etc."
-          ]
-        }
-      ]
-    },
-    {
-      "company": "Blue Palm Hotel",
-      "positions": [
-        {
-          "title": "Full Stack Developer",
-          "when": "May 2009 - Jul 2010",
-          "activity": [
-            "Developed a web-based reservation system that worked in 4 different languages: English, Spanish, Portuguese and French",
-            "The reservation system included an administration panel that enabled hotel administrators to tweak room prices as needed throughout the year",
-            "They were also able to manage the reservations that came in, and to generate reports to control what marketing campaigns worked best",
-            "The whole package was built using PHP and MySQL as the backend engine, and (x)HTML, CSS and Javascript on the frontend"
-          ]
-        }
-      ]
-    },
-    {
-      "company": "Self Employed",
-      "positions": [
-        {
-          "title": "Freelance developer and IT Consultant",
-          "when": "Dec 2007 - May 2009",
-          "activity": [
-            "Assisted many businesses around the Central Florida area by developing websites and web-apps, designing flyers, posters and business cards, managing Windows networks and repairing computers and laptops. Software used: Adobe Creative Suite (Photoshop, Fireworks, Illustrator, Dreamweaver and Flash), Corel Draw, NuSphere PhpED."
-          ]
-        }
-      ]
-    },
-    {
-      "company": "Brazilian National Biodiesel Magazine",
-      "positions": [
-        {
-          "title": "Full Stack Developer",
-          "when": "Jul 2006 - May 2007",
-          "activity": [
-            "Responsible the magazine's complete web presence by developing and maintaining their website, ecommerce store, e-mail newsletters and SEO.",
-            "Website included a custom CMS that enabled magazine writers to post articles directly into the website. CMS, ecommerce store, and newsletter manager were all built from the ground up using PHP and MySQL."
-          ]
-        }
-      ]
-    }
-  ],
-  "accomplishments": [
-    {
-      "name": "Orlando Devs, Inc.",
-      "position": "President",
-      "when": "2016 - March 2018",
-      "description": "Nonprofit focused on improving the quality of life of Software Professionals in Central Florida. The organization accompanies a community of over 3,000 members who actively engage both in person and online.",
-      "url": "https://orlandodevs.com/"
-    },
-    {
-      "name": "OrlandoJS",
-      "position": "Co-organizer",
-      "when": "2015 - March 2018",
-      "description": "Tech meetup in Orlando that covers all things JavaScript and meets on a monthly basis.",
-      "url": "https://meetup.com/OrlandoJS/"
-    }
-  ],
-  "education": [
-    {
-      "name": "University of Central Florida",
-      "when": "2013-2015",
-      "degree": "Bachelor's in Computer Science (Incomplete)"
-    },
-    {
-      "name": "Valencia Community College",
-      "when": "2010-2013",
-      "degree": "Associate of Arts"
     }
   ]
 };
 
+// Helper function to format dates
+const formatDateRange = (startDate: string, endDate: string) => {
+  const formatDate = (date: string) => {
+    if (date === 'Present') return 'Present';
+    const [month, year] = date.split(' ');
+    const monthNames = {
+      'Jan': 'January', 'Feb': 'February', 'Mar': 'March', 'Apr': 'April',
+      'May': 'May', 'Jun': 'June', 'Jul': 'July', 'Aug': 'August',
+      'Sep': 'September', 'Oct': 'October', 'Nov': 'November', 'Dec': 'December'
+    };
+    return `${monthNames[month]} ${year}`;
+  };
+  
+  return `${formatDate(startDate)} - ${formatDate(endDate)}`;
+};
+
 // Flatten all positions from all companies into a single chronological list
-const allPositions = resumeData.experience.flatMap(company => 
-  company.positions.map(position => ({
-    ...position,
-    company: company.company
-  }))
-);
+const allPositions = linkedInData.experience.flatMap(company => {
+  // Handle companies with roles array
+  if (company.roles) {
+    return company.roles.map(role => ({
+      title: role.title,
+      company: company.company,
+      when: formatDateRange(role.start_date, role.end_date),
+      activity: role.responsibilities
+    }));
+  }
+  // Handle companies with direct role properties
+  else {
+    return [{
+      title: company.title,
+      company: company.company,
+      when: formatDateRange(company.start_date, company.end_date),
+      activity: company.responsibilities
+    }];
+  }
+});
+
+// Community accomplishments (from previous data since not in LinkedIn JSON)
+const accomplishments = [
+  {
+    "name": "Orlando Devs, Inc.",
+    "position": "President",
+    "when": "2016 - March 2018",
+    "description": "Nonprofit focused on improving the quality of life of Software Professionals in Central Florida. The organization accompanies a community of over 3,000 members who actively engage both in person and online.",
+    "url": "https://orlandodevs.com/"
+  },
+  {
+    "name": "OrlandoJS",
+    "position": "Co-organizer",
+    "when": "2015 - March 2018",
+    "description": "Tech meetup in Orlando that covers all things JavaScript and meets on a monthly basis.",
+    "url": "https://meetup.com/OrlandoJS/"
+  }
+];
+
+// Education (from previous data since not in LinkedIn JSON)
+const education = [
+  {
+    "name": "University of Central Florida",
+    "when": "2013-2015",
+    "degree": "Bachelor's in Computer Science (Incomplete)"
+  },
+  {
+    "name": "Valencia Community College", 
+    "when": "2010-2013",
+    "degree": "Associate of Arts"
+  }
+];
 ---
 
 <BaseLayout title={`Resume - ${SITE.author}`} description={`Professional resume and experience of ${SITE.author}, Senior Engineering Leader with over 15 years of experience.`}>
@@ -239,7 +206,7 @@ const allPositions = resumeData.experience.flatMap(company =>
           Resume
         </h1>
         <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
-          Senior Engineering Leader with over 15 years of experience building scalable products, leading high-performing teams, and driving engineering excellence.
+          Senior Engineering Leader with over 12 years of experience building scalable products, leading high-performing teams, and driving engineering excellence.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="/sergio-cruz-resume.pdf" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">
@@ -261,7 +228,7 @@ const allPositions = resumeData.experience.flatMap(company =>
         <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Professional Summary</h2>
         <div class="prose prose-lg dark:prose-invert max-w-none">
           <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
-            Senior Engineering Leader with over 15 years of experience building and scaling engineering organizations from startup to enterprise levels. Proven track record of leading teams from 2 to 40+ engineers while driving technical excellence, product outcomes, and business growth. Expert in modern web technologies, system architecture, and engineering management practices. Passionate about developing engineering talent, establishing scalable processes, and creating inclusive engineering cultures that deliver measurable business impact.
+            Senior Engineering Leader with over 12 years of experience building and scaling engineering organizations from startup to enterprise levels. Proven track record of leading teams from 2 to 40+ engineers while driving technical excellence, product outcomes, and business growth. Expert in modern web technologies, system architecture, and engineering management practices. Passionate about developing engineering talent, establishing scalable processes, and creating inclusive engineering cultures that deliver measurable business impact.
           </p>
         </div>
       </div>
@@ -297,7 +264,7 @@ const allPositions = resumeData.experience.flatMap(company =>
         <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">Community Involvement & Leadership</h2>
         
         <div class="space-y-6">
-          {resumeData.accomplishments.map((accomplishment) => (
+          {accomplishments.map((accomplishment) => (
             <div class="border-l-4 border-primary-600 pl-6">
               <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
                 <div class="flex items-center gap-2">
@@ -331,7 +298,7 @@ const allPositions = resumeData.experience.flatMap(company =>
                 <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-sm rounded-full">Engineering Management</span>
                 <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-sm rounded-full">Team Scaling</span>
                 <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-sm rounded-full">Technical Strategy</span>
-                <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-sm rounded-full">Product Strategy</span>
+                <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-sm rounded-full">Product Discovery</span>
                 <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-sm rounded-full">OKRs & EOS</span>
               </div>
             </div>
@@ -345,7 +312,7 @@ const allPositions = resumeData.experience.flatMap(company =>
                 <span class="px-3 py-1 bg-green/20 text-gray-800 dark:text-green text-sm rounded-full">TypeScript</span>
                 <span class="px-3 py-1 bg-green/20 text-gray-800 dark:text-green text-sm rounded-full">JavaScript</span>
                 <span class="px-3 py-1 bg-green/20 text-gray-800 dark:text-green text-sm rounded-full">Angular</span>
-                <span class="px-3 py-1 bg-green/20 text-gray-800 dark:text-green text-sm rounded-full">Vue.js</span>
+                <span class="px-3 py-1 bg-green/20 text-gray-800 dark:text-green text-sm rounded-full">Ruby on Rails</span>
               </div>
             </div>
           </div>
@@ -357,8 +324,8 @@ const allPositions = resumeData.experience.flatMap(company =>
                 <span class="px-3 py-1 bg-pink/20 text-gray-800 dark:text-pink text-sm rounded-full">Node.js</span>
                 <span class="px-3 py-1 bg-pink/20 text-gray-800 dark:text-pink text-sm rounded-full">PHP</span>
                 <span class="px-3 py-1 bg-pink/20 text-gray-800 dark:text-pink text-sm rounded-full">AWS</span>
-                <span class="px-3 py-1 bg-pink/20 text-gray-800 dark:text-pink text-sm rounded-full">MySQL</span>
-                <span class="px-3 py-1 bg-pink/20 text-gray-800 dark:text-pink text-sm rounded-full">MongoDB</span>
+                <span class="px-3 py-1 bg-pink/20 text-gray-800 dark:text-pink text-sm rounded-full">Docker</span>
+                <span class="px-3 py-1 bg-pink/20 text-gray-800 dark:text-pink text-sm rounded-full">CI/CD</span>
               </div>
             </div>
           </div>
@@ -372,7 +339,7 @@ const allPositions = resumeData.experience.flatMap(company =>
         <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">Education & Certifications</h2>
         
         <div class="space-y-6">
-          {resumeData.education.map((edu, index) => (
+          {education.map((edu, index) => (
             <div class={`border-l-4 ${index === 0 ? 'border-primary-600' : 'border-gray-300 dark:border-gray-600'} pl-6`}>
               <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
                 <h3 class="text-lg font-bold text-gray-900 dark:text-white">{edu.degree}</h3>
