@@ -2,7 +2,7 @@
 
 Personal website and blog for Sergio Cruz, Senior Engineering Leader. Built with Astro, React, TypeScript, and Tailwind CSS.
 
-🌐 **Live Site**: [https://sergiocruz.github.io/sergio.io/](https://sergiocruz.github.io/sergio.io/)
+🌐 **Live Site**: [https://sergio.io/](https://sergio.io/)
 
 ## 🛠️ Tech Stack
 
