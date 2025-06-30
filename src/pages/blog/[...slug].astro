@@ -19,6 +19,9 @@ type Props = CollectionEntry<'blog'>;
 const post = Astro.props;
 const { Content } = await post.render();
 
+// Use heroImage for Open Graph if available, otherwise fall back to site default
+const ogImage = post.data.heroImage || undefined;
+
 // Format date
 const formatDate = (date: Date) => {
   return new Intl.DateTimeFormat('en-US', {
@@ -29,7 +32,7 @@ const formatDate = (date: Date) => {
 };
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description}>
+<BaseLayout title={post.data.title} description={post.data.description} image={ogImage}>
   <Navigation />
   
   <main class="pt-16">
