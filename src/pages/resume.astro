@@ -205,14 +205,11 @@ const education = [
         
         <div class="space-y-6">
           {education.map((edu, index) => (
-            <div class={`border-l-4 ${index === 0 ? 'border-primary-600' : 'border-gray-300 dark:border-gray-600'} pl-6`}>
-            <div class={`border-l-4 ${index === 0 ? 'border-brand-accent' : 'border-gray-300 dark:border-gray-600'} pl-6`}>
             <div class={`border-l-4 ${index === 0 ? 'border-brand-accent' : 'border-gray-300 dark:border-gray-600'} pl-6`}>
               <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
                 <h3 class="text-lg font-bold text-brand-primary dark:text-brand-light">{edu.degree}</h3>
                 <span class="text-sm text-gray-500 dark:text-gray-400">{edu.when}</span>
               </div>
-              <p class="text-primary-600 dark:text-primary-400 font-semibold">{edu.name}</p>
               <p class="text-brand-accent dark:text-brand-accent font-semibold">{edu.name}</p>
             </div>
           ))}
