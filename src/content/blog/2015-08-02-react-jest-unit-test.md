@@ -1,7 +1,10 @@
 ---
-path: "/blog/reactjs-unit-test-and-code-coverage-with-jest"
-date: "2015-08-02"
 title: "React unit test and code coverage with Jest and Istanbul"
+description: "Complete guide to setting up React unit testing with Jest and generating code coverage reports. Learn how to configure Jest for React components and write effective tests."
+date: "2015-08-02"
+tags: ["react", "jest", "unit-testing", "code-coverage", "javascript"]
+readingTime: "5 min read"
+slug: "reactjs-unit-test-and-code-coverage-with-jest"
 ---
 
 The recommended testing framework for [React](https://reactjs.org/) is [Jest](https://jestjs.io/). When I wrote this post getting a testing environment setup was not easy at all. So I decided to write this article describing some basic steps.

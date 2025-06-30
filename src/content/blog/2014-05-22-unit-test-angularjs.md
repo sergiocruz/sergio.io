@@ -2,7 +2,7 @@
 title: "AngularJS unit test and code coverage with Yeoman, Karma, Jasmine and PhantomJS"
 description: "Learn how to generate code coverage reports for AngularJS apps scaffolded with Yeoman. This step-by-step guide helps developers improve test quality and maintainability using tools like Karma and Istanbul."
 date: 2014-05-22
-tags: ["sailsjs", "unit-testing", "mocha"]
+tags: ["angularjs", "unit-testing", "karma", "jasmine", "phantomjs", "yeoman"]
 readingTime: "5 min read"
 slug: "angularjs-how-to-generate-code-coverage-for-yeoman-scaffolded-apps"
 ---

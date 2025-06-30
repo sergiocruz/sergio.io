@@ -1,7 +1,10 @@
 ---
-path: "/blog/add-meta-data-to-your-restangular-responses"
-date: "2015-04-15"
 title: "Add meta data to your Restangular responses"
+description: "Learn how to extract and use metadata from RESTful API responses when using Restangular. This guide shows how to handle both data and meta objects in your AngularJS application."
+date: "2015-04-15"
+tags: ["restangular", "angularjs", "api", "metadata", "rest"]
+readingTime: "4 min read"
+slug: "add-meta-data-to-your-restangular-responses"
 ---
 
 I love <a href="https://github.com/mgonto/restangular" target="_blank" rel="noopener noreferrer">Restangular</a> and all the functionality it provides, and its API is amazing! Big shout out to <a href="https://twitter.com/mgonto" target="_blank" rel="noopener noreferrer">@mgonto</a> whom I had the pleasure to meet and chat with in person at <a href="http://ng-conf.org" target="_blank" rel="noopener noreferrer">ng-conf 2015</a>!

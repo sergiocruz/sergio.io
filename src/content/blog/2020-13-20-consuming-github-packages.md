@@ -1,7 +1,10 @@
 ---
-path: "/blog/consuming-private-libraries-from-github-packages"
-date: "2020-12-20"
 title: "Consume private libraries from GitHub Packages using npm or yarn"
+description: "Step-by-step guide to consuming private JavaScript libraries from GitHub Packages Registry using npm or yarn. Learn how to set up authentication and configure your projects."
+date: "2020-12-20"
+tags: ["github-packages", "npm", "yarn", "private-packages", "javascript"]
+readingTime: "6 min read"
+slug: "consuming-private-libraries-from-github-packages"
 ---
 
 The first time I tried consuming a private JavaScript library from the [GitHub Packages Registry](https://docs.github.com/en/free-pro-team@latest/packages/quickstart), I had to navigate through a handful of webpages and wrangle a bunch of information together before I was able to run a simple npm or yarn install. That's why I'm excited to put all the information you need in a simple-to-follow article. Please note that this article assumes you're running an unix operating system.

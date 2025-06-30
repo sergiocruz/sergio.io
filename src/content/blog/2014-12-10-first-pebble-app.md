@@ -1,7 +1,10 @@
 ---
-path: "/blog/how-i-published-my-first-app-to-the-pebble-appstore"
-date: "2014-12-10"
 title: "How I published my first app to the Pebble Appstore"
+description: "A step-by-step guide to publishing your first Pebble smartwatch app to the Pebble Appstore. Learn about the submission process and common gotchas for iOS users."
+date: "2014-12-10"
+tags: ["pebble", "smartwatch", "app-development", "app-store"]
+readingTime: "3 min read"
+slug: "how-i-published-my-first-app-to-the-pebble-appstore"
 ---
 
 Publishing <a href="https://apps.getpebble.com/applications/53b0d17bb9bff87a3e000077" target="_blank" rel="noopener noreferrer">Coffee Finder</a> to the Pebble Appstore was quick and painless! The whole process only took about 10 minutes. <sup>1</sup>
