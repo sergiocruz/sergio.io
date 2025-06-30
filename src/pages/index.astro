@@ -236,7 +236,7 @@ const getTypeInfo = (type: string, item: any) => {
           {allFeaturedWork.map((item) => {
             const typeInfo = getTypeInfo(item.type, item);
             const linkText = item.type === 'course' ? 'View Course →' : 
-                           item.type === 'video' ? 'Watch Talk →' : 
+                           item.type === 'video' ? 'Watch Video →' : 
                            'Read Article →';
             const linkUrl = item.type === 'course' ? item.data.link :
                           item.type === 'video' ? (item.data.link || '#') :
