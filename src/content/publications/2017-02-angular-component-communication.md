@@ -5,7 +5,7 @@ date: 2017-02-01
 type: "Technical Article"
 publisher: "InfoQ"
 link: "https://www.infoq.com/articles/angular-component-communication"
-featured: true
+featured: false
 ---
 
 A comprehensive guide to component communication patterns in Angular, covering the various ways components can share data and coordinate behavior in modern Angular applications.

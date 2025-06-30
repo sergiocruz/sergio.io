@@ -5,7 +5,7 @@ date: 2016-04-01
 type: "Online Course"
 publisher: "Pluralsight Courses"
 link: "https://www.pluralsight.com/courses/code-school-powering-up-with-react"
-featured: true
+featured: false
 ---
 
 A comprehensive online course introducing developers to React's component-based architecture and modern frontend development patterns.
