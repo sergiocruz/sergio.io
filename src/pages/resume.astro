@@ -141,7 +141,7 @@ const accomplishments = [
                 // Multiple roles for this company
                 <div class="space-y-6">
                   {company.roles.map(role => (
-                    <div class="ml-4 border-l-2 border-gray-200 dark:border-gray-700 pl-4">
+                    <div class="ml-4 border-l-2 border-gray-200 pl-4">
                       <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
                         <h4 class="text-lg font-serif font-semibold text-brand-primary dark:text-brand-light">{role.title}</h4>
                         <span class="text-sm text-gray-500 dark:text-gray-400">{index >= 2 ? `${formatDateYearsOnly(role.start_date)} - ${formatDateYearsOnly(role.end_date)}` : `${formatDate(role.start_date)} - ${formatDate(role.end_date)}`}</span>
