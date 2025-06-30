@@ -4,7 +4,7 @@ description: "@femontanha bate um papo com o @hashtagserg. Ele nos conta sobre s
 date: 2016-09-01
 type: "Podcast"
 publisher: "Devnaestrada"
-link: "https://devnaestrada.com.br/2016/09/30/entrevista-sergio-cruz.html"
+link: "https://youtu.be/vLq1FLYnCkU?si=ETTph4tVstBvzHxB"
 featured: false
 ---
 
