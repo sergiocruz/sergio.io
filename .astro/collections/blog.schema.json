@@ -10,7 +10,7 @@
         "description": {
           "type": "string"
         },
-        "date": {
+        "pubDate": {
           "anyOf": [
             {
               "type": "string",
@@ -73,7 +73,7 @@
       "required": [
         "title",
         "description",
-        "date"
+        "pubDate"
       ],
       "additionalProperties": false
     }
