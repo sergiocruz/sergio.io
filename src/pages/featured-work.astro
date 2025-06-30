@@ -1,8 +1,52 @@
 ---
 import { SITE } from '../config/site.ts';
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
+
+// Get all featured work content
+const allCourses = await getCollection('courses');
+const allVideos = await getCollection('videos');
+const allPublications = await getCollection('publications');
+
+// Filter for featured content
+const featuredCourses = allCourses.filter(course => course.data.featured);
+const featuredVideos = allVideos.filter(video => video.data.featured);
+const featuredPublications = allPublications.filter(publication => publication.data.featured);
+
+// Format date function
+const formatDate = (date: Date) => {
+  return new Intl.DateTimeFormat('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  }).format(date);
+};
+
+// Get gradient classes for different content types
+const getGradientClass = (index: number, type: string) => {
+  const gradients = {
+    course: [
+      'from-brand-link to-accent-blue',
+      'from-brand-accent to-accent-bronze'
+    ],
+    video: [
+      'from-primary-400 to-primary-600',
+      'from-green to-primary-500',
+      'from-pink to-primary-600',
+      'from-yellow to-primary-500'
+    ],
+    publication: [
+      'from-primary-400 to-primary-600',
+      'from-green to-primary-500',
+      'from-pink to-primary-600'
+    ]
+  };
+  
+  const typeGradients = gradients[type] || gradients.video;
+  return typeGradients[index % typeGradients.length];
+};
 ---
 
 <BaseLayout title={`Featured Work - ${SITE.author}`} description={`Speaking engagements, conference talks, and publications by ${SITE.author}.`}>
@@ -34,51 +78,31 @@ import Footer from '../components/Footer.astro';
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <!-- Course 1 -->
-          <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-            <div class="h-48 bg-gradient-to-br from-brand-link to-accent-blue flex items-center justify-center">
-              <svg class="w-16 h-16 text-white opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-              </svg>
-            </div>
-            <div class="p-6">
-              <div class="flex items-center mb-3">
-                <span class="bg-brand-link/10 text-brand-link px-3 py-1 rounded-full text-sm font-medium font-sans">🎓 Pluralsight</span>
+          {featuredCourses.map((course, index) => (
+            <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+              <div class={`h-48 bg-gradient-to-br ${getGradientClass(index, 'course')} flex items-center justify-center`}>
+                <svg class="w-16 h-16 text-white opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
               </div>
-              <h3 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-3">
-                Engineering Management Processes & Tools
-              </h3>
-              <p class="text-brand-subtle dark:text-gray-300 mb-4 font-sans">
-                Learn how to lead modern engineering teams—from CI/CD to observability, this course covers the essential processes and tools.
-              </p>
-              <a href="#" class="text-brand-link hover:text-accent-blue font-medium font-sans">
-                View Course →
-              </a>
-            </div>
-          </div>
-
-          <!-- Course 2 -->
-          <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-            <div class="h-48 bg-gradient-to-br from-brand-accent to-accent-bronze flex items-center justify-center">
-              <svg class="w-16 h-16 text-white opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-            <div class="p-6">
-              <div class="flex items-center mb-3">
-                <span class="bg-brand-accent/20 text-brand-primary dark:text-brand-light px-3 py-1 rounded-full text-sm font-medium font-sans">🎯 Workshop Series</span>
+              <div class="p-6">
+                <div class="flex items-center mb-3">
+                  <span class="bg-brand-link/10 text-brand-link px-3 py-1 rounded-full text-sm font-medium font-sans">
+                    {course.data.icon} {course.data.platform}
+                  </span>
+                </div>
+                <h3 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-3">
+                  {course.data.title}
+                </h3>
+                <p class="text-brand-subtle dark:text-gray-300 mb-4 font-sans">
+                  {course.data.description}
+                </p>
+                <a href={course.data.link} target="_blank" rel="noopener noreferrer" class="text-brand-link hover:text-accent-blue font-medium font-sans">
+                  View Course →
+                </a>
               </div>
-              <h3 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-3">
-                From IC to Engineering Leader
-              </h3>
-              <p class="text-brand-subtle dark:text-gray-300 mb-4 font-sans">
-                A comprehensive workshop series for engineers transitioning into leadership roles, covering team dynamics, technical decision-making, and more.
-              </p>
-              <a href="#" class="text-brand-link hover:text-accent-blue font-medium font-sans">
-                Learn More →
-              </a>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
@@ -96,121 +120,51 @@ import Footer from '../components/Footer.astro';
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <!-- Talk 1 -->
-          <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-            <div class="h-48 bg-gradient-to-br from-primary-400 to-primary-600 relative">
-              <div class="absolute inset-0 flex items-center justify-center">
-                <svg class="w-16 h-16 text-white opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-                </svg>
+          {allVideos.map((video, index) => (
+            <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+              <div class={`h-48 bg-gradient-to-br ${getGradientClass(index, 'video')} relative`}>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  {video.data.type === 'Keynote' ? (
+                    <svg class="w-16 h-16 text-white opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  ) : video.data.type === 'Workshop' ? (
+                    <svg class="w-16 h-16 text-white opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  ) : (
+                    <svg class="w-16 h-16 text-white opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                    </svg>
+                  )}
+                </div>
+              </div>
+              <div class="p-6">
+                <div class="flex items-center justify-between mb-4">
+                  <span class="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full text-sm font-medium">
+                    {video.data.type}
+                  </span>
+                  <span class="text-gray-500 dark:text-gray-400 text-sm">
+                    {formatDate(video.data.date)}
+                  </span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                  {video.data.title}
+                </h3>
+                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                  {video.data.description}
+                </p>
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-gray-500 dark:text-gray-400">{video.data.venue}</span>
+                  {video.data.link && (
+                    <a href={video.data.link} target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium">
+                      {video.data.type === 'Meetup' ? 'View Slides' : video.data.type === 'Keynote' ? 'Watch Keynote' : 'Watch Talk'} →
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
-            <div class="p-6">
-              <div class="flex items-center justify-between mb-4">
-                <span class="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full text-sm font-medium">Conference</span>
-                <span class="text-gray-500 dark:text-gray-400 text-sm">2024</span>
-              </div>
-              <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                Building High-Performance Engineering Teams
-              </h3>
-              <p class="text-gray-600 dark:text-gray-300 mb-4">
-                A deep dive into the strategies and practices that enable engineering teams to scale effectively while maintaining quality and velocity.
-              </p>
-              <div class="flex items-center justify-between">
-                <span class="text-sm text-gray-500 dark:text-gray-400">ReactConf 2024</span>
-                <a href="#" class="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium">
-                  Watch Talk →
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Talk 2 -->
-          <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-            <div class="h-48 bg-gradient-to-br from-green to-primary-500 relative">
-              <div class="absolute inset-0 flex items-center justify-center">
-                <svg class="w-16 h-16 text-white opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364-.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                </svg>
-              </div>
-            </div>
-            <div class="p-6">
-              <div class="flex items-center justify-between mb-4">
-                <span class="bg-green/20 text-gray-800 dark:text-green px-3 py-1 rounded-full text-sm font-medium">Meetup</span>
-                <span class="text-gray-500 dark:text-gray-400 text-sm">2024</span>
-              </div>
-              <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                Modern React Patterns and Performance
-              </h3>
-              <p class="text-gray-600 dark:text-gray-300 mb-4">
-                Exploring the latest React patterns, hooks, and performance optimization techniques for building scalable applications.
-              </p>
-              <div class="flex items-center justify-between">
-                <span class="text-sm text-gray-500 dark:text-gray-400">Nashville JS</span>
-                <a href="#" class="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium">
-                  View Slides →
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Talk 3 -->
-          <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-            <div class="h-48 bg-gradient-to-br from-pink to-primary-600 relative">
-              <div class="absolute inset-0 flex items-center justify-center">
-                <svg class="w-16 h-16 text-white opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-              </div>
-            </div>
-            <div class="p-6">
-              <div class="flex items-center justify-between mb-4">
-                <span class="bg-pink/20 text-gray-800 dark:text-pink px-3 py-1 rounded-full text-sm font-medium">Workshop</span>
-                <span class="text-gray-500 dark:text-gray-400 text-sm">2023</span>
-              </div>
-              <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                Engineering Leadership Workshop
-              </h3>
-              <p class="text-gray-600 dark:text-gray-300 mb-4">
-                A hands-on workshop covering the transition from individual contributor to engineering leader, including team dynamics and technical decision-making.
-              </p>
-              <div class="flex items-center justify-between">
-                <span class="text-sm text-gray-500 dark:text-gray-400">TechLeaders Summit</span>
-                <a href="#" class="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium">
-                  Learn More →
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Talk 4 -->
-          <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-            <div class="h-48 bg-gradient-to-br from-yellow to-primary-500 relative">
-              <div class="absolute inset-0 flex items-center justify-center">
-                <svg class="w-16 h-16 text-gray-800 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-            </div>
-            <div class="p-6">
-              <div class="flex items-center justify-between mb-4">
-                <span class="bg-yellow/20 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">Keynote</span>
-                <span class="text-gray-500 dark:text-gray-400 text-sm">2023</span>
-              </div>
-              <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                The Future of Web Development
-              </h3>
-              <p class="text-gray-600 dark:text-gray-300 mb-4">
-                Keynote presentation exploring emerging trends in web development, from edge computing to AI-powered development tools.
-              </p>
-              <div class="flex items-center justify-between">
-                <span class="text-sm text-gray-500 dark:text-gray-400">WebDev Conference</span>
-                <a href="#" class="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium">
-                  Watch Keynote →
-                </a>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
@@ -228,83 +182,39 @@ import Footer from '../components/Footer.astro';
         </div>
         
         <div class="space-y-8">
-          <!-- Publication 1 -->
-          <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-8 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
-              <div class="flex-1">
-                <div class="flex items-center mb-3">
-                  <span class="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full text-sm font-medium mr-3">Technical Article</span>
-                  <span class="text-gray-500 dark:text-gray-400 text-sm">Published in IEEE Software</span>
+          {allPublications.map((publication) => (
+            <div class="bg-white dark:bg-gray-900 rounded-lg p-8 hover:shadow-lg transition-shadow duration-300">
+              <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                <div class="flex-1">
+                  <div class="flex items-center mb-3">
+                    <span class="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full text-sm font-medium mr-3">
+                      {publication.data.type}
+                    </span>
+                    <span class="text-gray-500 dark:text-gray-400 text-sm">
+                      Published in {publication.data.publisher}
+                    </span>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                    {publication.data.title}
+                  </h3>
+                  <p class="text-gray-600 dark:text-gray-300 mb-4">
+                    {publication.data.description}
+                  </p>
+                  <div class="text-sm text-gray-500 dark:text-gray-400">
+                    Published on {formatDate(publication.data.date)}
+                  </div>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                  Scaling Engineering Teams: Lessons from High-Growth Startups
-                </h3>
-                <p class="text-gray-600 dark:text-gray-300 mb-4">
-                  A comprehensive analysis of scaling challenges and solutions based on real-world experience leading engineering teams through rapid growth phases.
-                </p>
-              </div>
-              <div class="lg:ml-8 lg:flex-shrink-0">
-                <a href="#" class="inline-flex items-center text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium">
-                  Read Article
-                  <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </a>
+                <div class="lg:ml-8 lg:flex-shrink-0 mt-4 lg:mt-0">
+                  <a href={publication.data.link} target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium">
+                    {publication.data.type === 'Book Chapter' ? 'View Book' : publication.data.type === 'Tutorial Series' ? 'View Series' : 'Read Article'}
+                    <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-
-          <!-- Publication 2 -->
-          <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-8 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
-              <div class="flex-1">
-                <div class="flex items-center mb-3">
-                  <span class="bg-green/20 text-gray-800 dark:text-green px-3 py-1 rounded-full text-sm font-medium mr-3">Tutorial Series</span>
-                  <span class="text-gray-500 dark:text-gray-400 text-sm">Dev.to</span>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                  Modern React Architecture: A Complete Guide
-                </h3>
-                <p class="text-gray-600 dark:text-gray-300 mb-4">
-                  A 10-part tutorial series covering modern React architecture patterns, state management, and performance optimization techniques.
-                </p>
-              </div>
-              <div class="lg:ml-8 lg:flex-shrink-0">
-                <a href="#" class="inline-flex items-center text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium">
-                  View Series
-                  <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Publication 3 -->
-          <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-8 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
-              <div class="flex-1">
-                <div class="flex items-center mb-3">
-                  <span class="bg-pink/20 text-gray-800 dark:text-pink px-3 py-1 rounded-full text-sm font-medium mr-3">Book Chapter</span>
-                  <span class="text-gray-500 dark:text-gray-400 text-sm">O'Reilly Media</span>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                  "Engineering Leadership in the Digital Age"
-                </h3>
-                <p class="text-gray-600 dark:text-gray-300 mb-4">
-                  Contributing author to "The Modern Engineering Manager" - a comprehensive guide covering the evolving role of engineering leadership.
-                </p>
-              </div>
-              <div class="lg:ml-8 lg:flex-shrink-0">
-                <a href="#" class="inline-flex items-center text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium">
-                  View Book
-                  <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
