@@ -27,7 +27,9 @@ const allFeaturedWork = [
   ...featuredCourses.map(item => ({ ...item, type: 'course' })),
   ...featuredVideos.map(item => ({ ...item, type: 'video' })),
   ...featuredPublications.map(item => ({ ...item, type: 'publication' }))
-].slice(0, 3);
+]
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
 
 // Format date function
 const formatDate = (date: Date) => {
