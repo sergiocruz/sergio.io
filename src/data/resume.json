@@ -1,0 +1,138 @@
+{
+  "name": "Sergio Cruz",
+  "title": "Senior Engineering Leader | Product Strategy | Scaled Teams & Systems",
+  "experience": [
+    {
+      "company": "Ramsey Solutions",
+      "location": "Franklin, Tennessee, United States",
+      "roles": [
+        {
+          "title": "Senior Director of Software Engineering",
+          "start_date": "Mar 2024",
+          "end_date": "Present",
+          "duration": "1 yr 4 mos",
+          "responsibilities": [
+            "Coach and develop engineering managers to lead healthy, high-performing teams.",
+            "Review and guide senior-level IC promotions across the engineering org.",
+            "Develop and deploy interviewer training to improve hiring quality.",
+            "Collaborate with executives to clarify engineering's role in product discovery.",
+            "Contribute to company-wide engineering leveling standards."
+          ],
+          "skills": ["Product Discovery", "Engineering Leadership"]
+        },
+        {
+          "title": "Director of Software Engineering",
+          "start_date": "Mar 2021",
+          "end_date": "Mar 2024",
+          "duration": "3 yrs 1 mo",
+          "responsibilities": [
+            "Led engineering for a 40+ person business unit.",
+            "Grew the org to 15+ engineers and leaders.",
+            "Standardized practices across squads (CI/CD, testing, architecture).",
+            "Used the EOS model for business and tech alignment.",
+            "Implemented OKRs to drive ownership and outcomes.",
+            "Partnered across functions to improve customer experience."
+          ],
+          "skills": ["Technical Direction", "Product Discovery", "Agile Environment", "Engineering Leadership"]
+        },
+        {
+          "title": "Associate Director of Software Engineering",
+          "start_date": "Mar 2019",
+          "end_date": "Mar 2021",
+          "duration": "2 yrs 1 mo",
+          "responsibilities": [
+            "Led two cross-functional squads delivering products and tools.",
+            "Scaled team from 2 to 8 engineers to support 3× revenue growth.",
+            "Introduced modern tech stacks.",
+            "Led structured growth plans and career development."
+          ]
+        }
+      ]
+    },
+    {
+      "company": "Trazi Ventures",
+      "location": "Orlando, Florida Area",
+      "title": "Engineering Manager",
+      "start_date": "May 2017",
+      "end_date": "Mar 2019",
+      "duration": "1 yr 11 mos",
+      "responsibilities": [
+        "First technical hire building consumer-facing app.",
+        "Scaled product to handle 7-digit monthly signups and 8-digit revenue.",
+        "Hired and mentored technical team.",
+        "Defined engineering standards, reviewed code, and led technical growth."
+      ],
+      "tech_stack": ["AWS", "Laravel", "Node.js", "React", "MySQL", "MongoDB"],
+      "skills": ["Technical Direction", "Agile Environment", "Engineering Leadership"]
+    },
+    {
+      "company": "Pluralsight",
+      "location": "Orlando, Florida Area",
+      "roles": [
+        {
+          "title": "Tech Lead",
+          "start_date": "Dec 2016",
+          "end_date": "May 2017",
+          "duration": "6 mos",
+          "responsibilities": [
+            "Led UI efforts for engineering squad.",
+            "Built SPAs and integrated with enterprise systems."
+          ],
+          "skills": ["Agile Environment"]
+        },
+        {
+          "title": "Software Engineer",
+          "start_date": "Apr 2015",
+          "end_date": "Dec 2016",
+          "duration": "1 yr 9 mos",
+          "responsibilities": [
+            "Built Code School course builder in Ruby on Rails.",
+            "Used Docker for secure code sandboxes.",
+            "Created and presented content on Node.js, React, Angular.",
+            "Spoke at industry conferences."
+          ],
+          "skills": ["Agile Environment"]
+        }
+      ]
+    },
+    {
+      "company": "GotChosen, Inc.",
+      "location": "Orlando, Florida Area",
+      "title": "Sr. Software Engineer",
+      "start_date": "Jul 2014",
+      "end_date": "Apr 2015",
+      "duration": "10 mos",
+      "responsibilities": [
+        "Built dynamic social media app using Angular.",
+        "Integrated with in-house API using OAuth.",
+        "Contributed to REST API standards."
+      ],
+      "skills": ["Agile Environment"]
+    },
+    {
+      "company": "TravelClick",
+      "title": "Software Engineer",
+      "start_date": "Feb 2014",
+      "end_date": "Jul 2014",
+      "duration": "6 mos",
+      "responsibilities": [
+        "Developed enterprise-grade travel software."
+      ],
+      "tech_stack": ["PHP", "Java", "Bootstrap", "Angular"],
+      "skills": ["Agile Environment"]
+    },
+    {
+      "company": "GIVTED",
+      "title": "Software Engineer",
+      "start_date": "Nov 2012",
+      "end_date": "Feb 2014",
+      "duration": "1 yr 4 mos",
+      "responsibilities": [
+        "First engineering hire for consumer product.",
+        "Built end-to-end gift-giving experience."
+      ],
+      "tech_stack": ["AWS", "MVC PHP (Zend Framework)", "MySQL", "Angular", "Facebook API"],
+      "skills": ["Agile Environment"]
+    }
+  ]
+}
