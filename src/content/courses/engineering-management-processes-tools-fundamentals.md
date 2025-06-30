@@ -1,0 +1,21 @@
+---
+title: "Engineering Management Processes & Tools: Fundamentals"
+description: "Master the fundamentals of engineering management processes and tools. Learn how to implement effective workflows, choose the right tools, and establish processes that scale with your team."
+platform: "Pluralsight"
+link: "https://www.pluralsight.com/courses/engineering-management-processes-tools-fundamentals"
+featured: true
+icon: "⚙️"
+---
+
+A foundational course for engineering managers covering the essential processes and tools needed to build and manage high-performing engineering teams effectively.
+
+## What You'll Learn
+
+- Fundamental engineering management processes
+- Tool selection and evaluation frameworks
+- Workflow optimization strategies
+- Team process implementation
+- Scaling processes as teams grow
+- Measuring process effectiveness
+
+This course provides practical guidance for new and experienced engineering managers looking to establish robust processes and select the right tools for their teams.
