@@ -1,7 +1,7 @@
 ---
 title: "Unit testing Sails JS: How to mock SailsJS Services in Controllers"
 description: "Learn how to mock SailsJS services when unit testing controllers. This guide shows you how to lift Sails in tests and properly stub services using Sinon for effective testing."
-date: "2014-05-23"
+date: 2014-05-23
 tags: ["sailsjs", "unit-testing", "mocking", "sinon", "services"]
 readingTime: "6 min read"
 slug: "unit-testing-sails-js-how-to-mock-sailsjs-services-in-controllers"

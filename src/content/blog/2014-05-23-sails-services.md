@@ -1,7 +1,7 @@
 ---
 title: "SailsJS Services: What they are and how to use them"
 description: "Learn what SailsJS Services are and how to use them in your controllers. Services are reusable pieces of business logic that can be shared across your application."
-date: "2014-05-23"
+date: 2014-05-23
 tags: ["sailsjs", "services", "mvc", "business-logic"]
 readingTime: "4 min read"
 slug: "sailsjs-services-how-to-use-them-in-your-controllers"

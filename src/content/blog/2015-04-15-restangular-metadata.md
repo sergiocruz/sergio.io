@@ -1,7 +1,7 @@
 ---
 title: "Add meta data to your Restangular responses"
 description: "Learn how to extract and use metadata from RESTful API responses when using Restangular. This guide shows how to handle both data and meta objects in your AngularJS application."
-date: "2015-04-15"
+date: 2015-04-15
 tags: ["restangular", "angularjs", "api", "metadata", "rest"]
 readingTime: "4 min read"
 slug: "add-meta-data-to-your-restangular-responses"

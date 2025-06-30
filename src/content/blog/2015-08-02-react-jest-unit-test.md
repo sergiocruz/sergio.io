@@ -1,7 +1,7 @@
 ---
 title: "React unit test and code coverage with Jest and Istanbul"
 description: "Complete guide to setting up React unit testing with Jest and generating code coverage reports. Learn how to configure Jest for React components and write effective tests."
-date: "2015-08-02"
+date: 2015-08-02
 tags: ["react", "jest", "unit-testing", "code-coverage", "javascript"]
 readingTime: "5 min read"
 slug: "reactjs-unit-test-and-code-coverage-with-jest"

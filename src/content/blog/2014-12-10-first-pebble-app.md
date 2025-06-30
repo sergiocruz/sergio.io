@@ -1,7 +1,7 @@
 ---
 title: "How I published my first app to the Pebble Appstore"
 description: "A step-by-step guide to publishing your first Pebble smartwatch app to the Pebble Appstore. Learn about the submission process and common gotchas for iOS users."
-date: "2014-12-10"
+date: 2014-12-10
 tags: ["pebble", "smartwatch", "app-development", "app-store"]
 readingTime: "3 min read"
 slug: "how-i-published-my-first-app-to-the-pebble-appstore"

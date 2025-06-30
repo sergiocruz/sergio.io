@@ -1,7 +1,7 @@
 ---
 title: "Consume private libraries from GitHub Packages using npm or yarn"
 description: "Step-by-step guide to consuming private JavaScript libraries from GitHub Packages Registry using npm or yarn. Learn how to set up authentication and configure your projects."
-date: "2020-12-20"
+date: 2020-12-20
 tags: ["github-packages", "npm", "yarn", "private-packages", "javascript"]
 readingTime: "6 min read"
 slug: "consuming-private-libraries-from-github-packages"
