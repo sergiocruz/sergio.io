@@ -47,17 +47,17 @@ const formatDate = (date: Date) => {
           {posts.map((post) => (
             <article class="bg-brand-light dark:bg-brand-dark rounded-lg shadow-md overflow-hidden border border-brand-subtle/20">
               <div class="p-8">
-                <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
+                <div class="flex flex-wrap items-center gap-2 sm:gap-0 text-sm text-gray-500 dark:text-gray-400 mb-4">
                   <time datetime={post.data.date.toISOString()}>
                     {formatDate(post.data.date)}
                   </time>
                   {post.data.readingTime && (
                     <>
-                      <span class="mx-2">•</span>
+                      <span class="mx-1 sm:mx-2">•</span>
                       <span>{post.data.readingTime}</span>
                     </>
                   )}
-                  <span class="mx-2">•</span>
+                  <span class="mx-1 sm:mx-2">•</span>
                   {post.data.tags && post.data.tags.length > 0 && (
                     <span class="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 px-2 py-1 rounded-full text-xs font-medium">
                       {post.data.tags[0]}
