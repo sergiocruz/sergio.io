@@ -10,7 +10,10 @@ export default defineConfig({
     sitemap()
   ],
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    optimizeDeps: {
+      timeout: 300000
+    }
   },
   output: 'static',
   build: {
