@@ -12,6 +12,23 @@ const recentPosts = allPosts
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 3);
 
+// Get featured work content
+const allCourses = await getCollection('courses');
+const allVideos = await getCollection('videos');
+const allPublications = await getCollection('publications');
+
+// Filter for featured content and combine into a single array
+const featuredCourses = allCourses.filter(course => course.data.featured);
+const featuredVideos = allVideos.filter(video => video.data.featured);
+const featuredPublications = allPublications.filter(publication => publication.data.featured);
+
+// Combine all featured items and limit to 3 for homepage
+const allFeaturedWork = [
+  ...featuredCourses.map(item => ({ ...item, type: 'course' })),
+  ...featuredVideos.map(item => ({ ...item, type: 'video' })),
+  ...featuredPublications.map(item => ({ ...item, type: 'publication' }))
+].slice(0, 3);
+
 // Format date function
 const formatDate = (date: Date) => {
   return new Intl.DateTimeFormat('en-US', {
@@ -19,6 +36,36 @@ const formatDate = (date: Date) => {
     month: 'long',
     day: 'numeric',
   }).format(date);
+};
+
+// Get appropriate icon and label for content type
+const getTypeInfo = (type: string, item: any) => {
+  switch (type) {
+    case 'course':
+      return {
+        icon: item.data.icon || '🎓',
+        label: item.data.platform,
+        gradient: 'from-brand-link to-accent-blue'
+      };
+    case 'video':
+      return {
+        icon: item.data.type === 'Keynote' ? '🎤' : item.data.type === 'Workshop' ? '👥' : '📹',
+        label: item.data.venue,
+        gradient: 'from-brand-accent to-accent-bronze'
+      };
+    case 'publication':
+      return {
+        icon: '📝',
+        label: item.data.publisher,
+        gradient: 'from-accent-warm to-brand-accent'
+      };
+    default:
+      return {
+        icon: '📄',
+        label: 'Featured',
+        gradient: 'from-brand-subtle to-brand-accent'
+      };
+  }
 };
 ---
 
@@ -168,74 +215,53 @@ const formatDate = (date: Date) => {
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Pluralsight Course -->
-          <div class="bg-white dark:bg-brand-primary rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-brand-subtle/20">
-            <div class="h-48 bg-gradient-to-br from-brand-link to-accent-blue flex items-center justify-center">
-              <svg class="w-16 h-16 text-white opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-              </svg>
-            </div>
-            <div class="p-6">
-              <div class="flex items-center mb-3">
-                <span class="bg-brand-link/10 text-brand-link px-3 py-1 rounded-full text-sm font-medium font-sans">🎓 Pluralsight</span>
+          {allFeaturedWork.map((item) => {
+            const typeInfo = getTypeInfo(item.type, item);
+            const linkText = item.type === 'course' ? 'View Course →' : 
+                           item.type === 'video' ? 'Watch Talk →' : 
+                           'Read Article →';
+            const linkUrl = item.type === 'course' ? item.data.link :
+                          item.type === 'video' ? (item.data.link || '#') :
+                          item.data.link;
+            
+            return (
+              <div class="bg-white dark:bg-brand-primary rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-brand-subtle/20">
+                <div class={`h-48 bg-gradient-to-br ${typeInfo.gradient} flex items-center justify-center`}>
+                  <div class="text-6xl opacity-80">
+                    {typeInfo.icon}
+                  </div>
+                </div>
+                <div class="p-6">
+                  <div class="flex items-center mb-3">
+                    <span class="bg-brand-link/10 text-brand-link px-3 py-1 rounded-full text-sm font-medium font-sans">
+                      {typeInfo.icon} {typeInfo.label}
+                    </span>
+                  </div>
+                  <h4 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-3">
+                    {item.data.title}
+                  </h4>
+                  <p class="text-brand-subtle dark:text-gray-300 mb-4 font-sans">
+                    {item.data.description}
+                  </p>
+                  <a href={linkUrl} target="_blank" rel="noopener noreferrer" class="text-brand-link hover:text-accent-blue font-medium font-sans">
+                    {linkText}
+                  </a>
+                </div>
               </div>
-              <h4 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-3">
-                Engineering Management Processes & Tools
-              </h4>
-              <p class="text-brand-subtle dark:text-gray-300 mb-4 font-sans">
-                Learn how to lead modern engineering teams—from CI/CD to observability
-              </p>
-              <a href="#" class="text-brand-link hover:text-accent-blue font-medium font-sans">
-                View Course →
-              </a>
-            </div>
+            );
+          })}
+        </div>
+        
+        {allFeaturedWork.length === 0 && (
+          <div class="text-center text-gray-500 dark:text-gray-400">
+            <p>No featured work available at the moment.</p>
           </div>
-
-          <!-- Conference Talk -->
-          <div class="bg-white dark:bg-brand-primary rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-brand-subtle/20">
-            <div class="h-48 bg-gradient-to-br from-brand-accent to-accent-bronze flex items-center justify-center">
-              <svg class="w-16 h-16 text-white opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-              </svg>
-            </div>
-            <div class="p-6">
-              <div class="flex items-center mb-3">
-                <span class="bg-brand-accent/20 text-brand-primary dark:text-brand-light px-3 py-1 rounded-full text-sm font-medium font-sans">🎤 ReactConf</span>
-              </div>
-              <h4 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-3">
-                Building High-Performance Teams
-              </h4>
-              <p class="text-brand-subtle dark:text-gray-300 mb-4 font-sans">
-                Strategies for scaling engineering teams while maintaining velocity and culture
-              </p>
-              <a href="#" class="text-brand-link hover:text-accent-blue font-medium font-sans">
-                Watch Talk →
-              </a>
-            </div>
-          </div>
-
-          <!-- Article -->
-          <div class="bg-white dark:bg-brand-primary rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-brand-subtle/20">
-            <div class="h-48 bg-gradient-to-br from-accent-warm to-brand-accent flex items-center justify-center">
-              <svg class="w-16 h-16 text-white opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-            </div>
-            <div class="p-6">
-              <div class="flex items-center mb-3">
-                <span class="bg-accent-warm/20 text-brand-primary dark:text-brand-light px-3 py-1 rounded-full text-sm font-medium font-sans">📝 IEEE Software</span>
-              </div>
-              <h4 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-3">
-                Scaling Engineering Teams
-              </h4>
-              <p class="text-brand-subtle dark:text-gray-300 mb-4 font-sans">
-                Lessons from high-growth startups on building and scaling engineering organizations
-              </p>
-              <a href="#" class="text-brand-link hover:text-accent-blue font-medium font-sans">
-                Read Article →
-              </a>
-            </div>
-          </div>
+        )}
+        
+        <div class="text-center mt-10">
+          <a href="/featured-work" class="inline-flex items-center px-6 py-3 border border-brand-subtle text-base font-medium rounded-md text-brand-primary dark:text-brand-light bg-transparent hover:bg-brand-subtle/10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent transition-colors font-sans">
+            View All Featured Work →
+          </a>
         </div>
       </div>
     </section>
