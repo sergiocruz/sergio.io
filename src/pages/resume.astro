@@ -69,19 +69,6 @@ const accomplishments = [
   }
 ];
 
-// Education (additional data not in LinkedIn JSON)
-const education = [
-  {
-    "name": "University of Central Florida",
-    "when": "2013-2015",
-    "degree": "Bachelor's in Computer Science (Incomplete)"
-  },
-  {
-    "name": "Valencia Community College", 
-    "when": "2010-2013",
-    "degree": "Associate of Arts"
-  }
-];
 ---
 
 <BaseLayout title={`Resume - ${SITE.author}`} description={`Professional resume and experience of ${SITE.author}, Senior Engineering Leader with over 12 years of experience.`}>
@@ -192,24 +179,6 @@ const education = [
     </section>
 
 
-    <!-- Education -->
-    <section class="bg-white dark:bg-brand-primary py-16">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl font-bold text-brand-primary dark:text-brand-light mb-8">Education</h2>
-        
-        <div class="space-y-6">
-          {education.map((edu, index) => (
-            <div class={`border-l-4 ${index === 0 ? 'border-brand-accent' : 'border-gray-300 dark:border-gray-600'} pl-6`}>
-              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                <h3 class="text-lg font-bold text-brand-primary dark:text-brand-light">{edu.degree}</h3>
-                <span class="text-sm text-gray-500 dark:text-gray-400">{edu.when}</span>
-              </div>
-              <p class="text-brand-accent dark:text-brand-accent font-semibold">{edu.name}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
   </main>
   
   <Footer />
