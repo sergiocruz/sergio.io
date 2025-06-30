@@ -34,7 +34,7 @@ const formatDate = (date: Date) => {
   
   <main class="pt-16">
     <!-- Article Header -->
-    <article class="bg-white dark:bg-gray-900">
+    <article class="bg-brand-light dark:bg-brand-dark">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <header class="mb-12">
           <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
@@ -52,10 +52,11 @@ const formatDate = (date: Date) => {
           </div>
           
           <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+          <h1 class="text-4xl sm:text-5xl font-bold text-brand-primary dark:text-brand-light mb-6 leading-tight">
             {post.data.title}
           </h1>
           
-          <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
+          <p class="text-xl text-brand-subtle dark:text-gray-300 leading-relaxed">
             {post.data.description}
           </p>
           
@@ -114,12 +115,12 @@ const formatDate = (date: Date) => {
     </article>
     
     <!-- Related Posts / Back to Blog -->
-    <section class="bg-gray-50 dark:bg-gray-800 py-16">
+    <section class="bg-white dark:bg-brand-primary py-16">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+        <h3 class="text-2xl font-bold text-brand-primary dark:text-brand-light mb-6">
           Want to Read More?
         </h3>
-        <p class="text-gray-600 dark:text-gray-300 mb-8">
+        <p class="text-brand-subtle dark:text-gray-300 mb-8">
           Check out more articles on software engineering, leadership, and building great products.
         </p>
         <a href="/blog" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors">

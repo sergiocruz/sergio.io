@@ -26,26 +26,26 @@ const formatDate = (date: Date) => {
   
   <main class="pt-16">
     <!-- Hero Section -->
-    <section class="bg-white dark:bg-gray-900 py-24">
+    <section class="bg-brand-light dark:bg-brand-dark py-24">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+        <h1 class="text-4xl sm:text-5xl font-bold text-brand-primary dark:text-brand-light mb-6">
           Blog
         </h1>
-        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        <p class="text-xl text-brand-subtle dark:text-gray-300 max-w-2xl mx-auto">
           Thoughts on software engineering, leadership, and building great products.
         </p>
       </div>
     </section>
 
     <!-- Blog Posts -->
-    <section class="bg-gray-50 dark:bg-gray-800 py-24">
+    <section class="bg-white dark:bg-brand-primary py-24">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="space-y-12">
 
 
 
           {posts.map((post) => (
-            <article class="bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden">
+            <article class="bg-brand-light dark:bg-brand-dark rounded-lg shadow-md overflow-hidden border border-brand-subtle/20">
               <div class="p-8">
                 <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
                   <time datetime={post.data.date.toISOString()}>
@@ -65,14 +65,14 @@ const formatDate = (date: Date) => {
                   )}
                 </div>
                 <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                  <a href={`/blog/${post.slug}`} class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                  <a href={`/blog/${post.slug}`} class="text-brand-primary dark:text-brand-light hover:text-brand-link transition-colors">
                     {post.data.title}
                   </a>
                 </h2>
-                <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                <p class="text-brand-subtle dark:text-gray-300 mb-6 leading-relaxed">
                   {post.data.description}
                 </p>
-                <a href={`/blog/${post.slug}`} class="inline-flex items-center text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium transition-colors">
+                <a href={`/blog/${post.slug}`} class="inline-flex items-center text-brand-link dark:text-primary-400 hover:text-accent-blue dark:hover:text-primary-300 font-medium transition-colors">
                   Read full article
                   <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />

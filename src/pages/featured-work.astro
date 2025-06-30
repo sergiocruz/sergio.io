@@ -72,32 +72,32 @@ const getGradientClass = (index: number, type: string) => {
   
   <main class="pt-16">
     <!-- Hero Section -->
-    <section class="bg-white dark:bg-gray-900 py-24">
+    <section class="bg-brand-light dark:bg-brand-dark py-24">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+        <h1 class="text-4xl sm:text-5xl font-bold text-brand-primary dark:text-brand-light mb-6">
           Featured Work
         </h1>
-        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+        <p class="text-xl text-brand-subtle dark:text-gray-300 max-w-3xl mx-auto">
           Sharing knowledge through speaking engagements, conference talks, written publications, and courses on software engineering and leadership.
         </p>
       </div>
     </section>
 
     <!-- Courses & Educational Content -->
-    <section class="bg-gray-50 dark:bg-gray-800 py-24">
+    <section class="bg-white dark:bg-brand-primary py-24">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 class="text-3xl font-bold text-brand-primary dark:text-brand-light mb-4">
             Courses & Educational Content
           </h2>
-          <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p class="text-lg text-brand-subtle dark:text-gray-300 max-w-2xl mx-auto">
             Educational content and courses helping engineers and leaders level up their skills.
           </p>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           {featuredCourses.map((course, index) => (
-            <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+            <div class="bg-brand-light dark:bg-brand-dark rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-brand-subtle/20">
               <div class={`h-48 bg-gradient-to-br ${getGradientClass(index, 'course')} flex items-center justify-center`}>
                 <svg class="w-16 h-16 text-white opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -126,20 +126,20 @@ const getGradientClass = (index: number, type: string) => {
     </section>
 
     <!-- Speaking Engagements -->
-    <section class="bg-white dark:bg-gray-900 py-24">
+    <section class="bg-brand-light dark:bg-brand-dark py-24">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 class="text-3xl font-bold text-brand-primary dark:text-brand-light mb-4">
             Speaking Engagements
           </h2>
-          <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p class="text-lg text-brand-subtle dark:text-gray-300 max-w-2xl mx-auto">
             I regularly speak at conferences, meetups, and corporate events about software engineering, team leadership, and building great products.
           </p>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {videosWithThumbnails.map((video, index) => (
-            <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+            <div class="bg-white dark:bg-brand-primary rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-brand-subtle/20">
               <div 
                 class={`h-48 relative overflow-hidden bg-cover bg-center ${video.validatedThumbnailUrl ? '' : `bg-gradient-to-br ${getGradientClass(index, 'video')}`}`}
                 style={video.validatedThumbnailUrl ? `background-image: url(${video.validatedThumbnailUrl});` : ''}
@@ -197,20 +197,20 @@ const getGradientClass = (index: number, type: string) => {
     </section>
 
     <!-- Publications -->
-    <section class="bg-gray-50 dark:bg-gray-800 py-24">
+    <section class="bg-white dark:bg-brand-primary py-24">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 class="text-3xl font-bold text-brand-primary dark:text-brand-light mb-4">
             Publications & Articles
           </h2>
-          <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p class="text-lg text-brand-subtle dark:text-gray-300 max-w-2xl mx-auto">
             Written contributions to the software engineering community through articles, tutorials, and technical publications.
           </p>
         </div>
         
         <div class="space-y-8">
           {allPublications.map((publication) => (
-            <div class="bg-white dark:bg-gray-900 rounded-lg p-8 hover:shadow-lg transition-shadow duration-300">
+            <div class="bg-brand-light dark:bg-brand-dark rounded-lg p-8 hover:shadow-lg transition-shadow duration-300 border border-brand-subtle/20">
               <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
                 <div class="flex-1">
                   <div class="flex items-center mb-3">
@@ -221,10 +221,10 @@ const getGradientClass = (index: number, type: string) => {
                       Published in {publication.data.publisher}
                     </span>
                   </div>
-                  <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                  <h3 class="text-xl font-bold text-brand-primary dark:text-brand-light mb-3">
                     {publication.data.title}
                   </h3>
-                  <p class="text-gray-600 dark:text-gray-300 mb-4">
+                  <p class="text-brand-subtle dark:text-gray-300 mb-4">
                     {publication.data.description}
                   </p>
                   <div class="text-sm text-gray-500 dark:text-gray-400">
