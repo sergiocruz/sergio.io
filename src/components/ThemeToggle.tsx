@@ -3,10 +3,45 @@ import { useState, useEffect } from 'react';
 type Theme = 'light' | 'dark';
 
 export default function ThemeToggle(): JSX.Element {
+  // Initialize with light, but will be updated immediately in useEffect
   const [theme, setTheme] = useState<Theme>('light');
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const savedTheme = (localStorage.getItem('theme') as Theme) || 'light';
+    // Get the current theme (should already be set by BaseLayout)
+    const currentTheme = (localStorage.getItem('theme') as Theme) || 'light';
+    setTheme(currentTheme);
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+    
+    // Sync with system preference changes (optional enhancement)
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleChange = (e: MediaQueryListEvent) => {
+      // Only auto-update if user hasn't manually set a preference
+      // You can remove this if you want manual preference to always override
+      const hasUserPreference = localStorage.getItem('theme');
+      if (!hasUserPreference) {
+        const newTheme: Theme = e.matches ? 'dark' : 'light';
+        setTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        if (newTheme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      }
+    };
+    
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, [mounted]);
+
+  // Don't render until we're mounted to prevent hydration mismatch
+  useEffect(() => {
     setTheme(savedTheme);
   }, []);
 
@@ -21,6 +56,13 @@ export default function ThemeToggle(): JSX.Element {
       document.documentElement.classList.remove('dark');
     }
   };
+
+  // Prevent hydration mismatch by not rendering until mounted
+  if (!mounted) {
+    return (
+      <div className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 w-9 h-9"></div>
+    );
+  }
 
   return (
     <button

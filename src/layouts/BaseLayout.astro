@@ -62,23 +62,35 @@ const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site);
     
     <!-- Theme Script -->
     <script is:inline>
-      const theme = (() => {
+      // Theme detection: respects user override, falls back to system preference
+      const getInitialTheme = () => {
+        // First: Check if user has manually set a preference
         if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
           return localStorage.getItem('theme');
         }
+        
+        // Second: Check system preference
         if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
           return 'dark';
         }
+        
+        // Third: Default to light mode
         return 'light';
-      })();
+      };
       
+      const theme = getInitialTheme();
+      
+      // Apply theme immediately to prevent flash
       if (theme === 'light') {
         document.documentElement.classList.remove('dark');
       } else {
         document.documentElement.classList.add('dark');
       }
       
-      window.localStorage.setItem('theme', theme);
+      // Save the determined theme (this will be the system preference if no user override exists)
+      if (typeof localStorage !== 'undefined') {
+        localStorage.setItem('theme', theme);
+      }
     </script>
   </head>
   <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
