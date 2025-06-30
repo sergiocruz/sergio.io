@@ -66,7 +66,7 @@ export const SITE: SiteConfig = {
   
   // Footer
   footer: {
-    description: "Software Engineer, Tech Lead, and Digital Creator sharing insights about technology, leadership, and building great products.",
+    description: "Senior engineering leader scaling teams, shaping systems, and shipping software people actually want to use.",
     copyright: "Sergio Cruz. All rights reserved."
   }
 };
