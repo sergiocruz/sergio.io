@@ -119,8 +119,8 @@ const accomplishments = [
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-2xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-8">Professional Experience</h2>
         
-        <!-- Relative wrapper for gradient overlay positioning -->
-        <div class="relative">
+        <!-- Experience Container with max-height control -->
+        <div id="experienceContainer" class="relative overflow-hidden" style="max-height: 400px;">
           <div class="space-y-10">
             {resumeData.experience.map((company, index) => (
               <div class:list={{
@@ -129,8 +129,7 @@ const accomplishments = [
                 'relative': true,
                 'border-primary-600': index === 0,
                 'border-gray-300': index !== 0,
-                'dark:border-gray-600': index !== 0,
-                'older-experience': index >= 2
+                'dark:border-gray-600': index !== 0
               }}>
                 <div class="mb-4">
                   <h3 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light">{company.company}</h3>
@@ -173,23 +172,23 @@ const accomplishments = [
             ))}
           </div>
           
-          <!-- Gradient overlay positioned absolutely outside the loop -->
+          <!-- Gradient overlay positioned absolutely -->
           <div class="absolute inset-x-0 bottom-0 h-60 pointer-events-none rounded-b-lg z-10" id="previewGradientOverlay">
             <div class="gradient-fade"></div>
           </div>
-          
-          <!-- Show More/Less Button -->
-          <div class="text-center pt-6">
-            <button 
-              id="toggleOlderExperience"
-              class="inline-flex items-center px-6 py-3 border border-brand-subtle text-base font-medium rounded-md text-brand-primary dark:text-brand-light bg-transparent hover:bg-brand-subtle/10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent transition-colors"
-            >
-              <span id="toggleText">Show Earlier Experience</span>
-              <svg id="toggleIcon" class="ml-2 w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-          </div>
+        </div>
+        
+        <!-- Show More/Less Button with higher z-index -->
+        <div class="text-center pt-6 relative z-20">
+          <button 
+            id="toggleOlderExperience"
+            class="inline-flex items-center px-6 py-3 border border-brand-subtle text-base font-medium rounded-md text-brand-primary dark:text-brand-light bg-transparent hover:bg-brand-subtle/10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent transition-colors"
+          >
+            <span id="toggleText">Show Earlier Experience</span>
+            <svg id="toggleIcon" class="ml-2 w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
         </div>
       </div>
     </section>
@@ -229,7 +228,7 @@ const accomplishments = [
       const toggleButton = document.getElementById('toggleOlderExperience');
       const toggleText = document.getElementById('toggleText');
       const toggleIcon = document.getElementById('toggleIcon');
-      const olderExperience = document.querySelectorAll('.older-experience');
+      const experienceContainer = document.getElementById('experienceContainer');
       const previewGradient = document.getElementById('previewGradientOverlay');
       
       let isExpanded = false;
@@ -237,14 +236,17 @@ const accomplishments = [
       toggleButton?.addEventListener('click', function() {
         isExpanded = !isExpanded;
         
-        // Toggle older experience visibility using class-based approach
-        olderExperience.forEach(element => {
+        if (experienceContainer) {
           if (isExpanded) {
-            element.classList.add('is-visible');
+            // Expand to show all content
+            experienceContainer.style.maxHeight = 'none';
+            experienceContainer.style.overflow = 'visible';
           } else {
-            element.classList.remove('is-visible');
+            // Collapse to show limited content
+            experienceContainer.style.maxHeight = '400px';
+            experienceContainer.style.overflow = 'hidden';
           }
-        });
+        }
         
         // Toggle gradient visibility
         if (previewGradient) {
@@ -271,16 +273,6 @@ const accomplishments = [
   </script>
   
   <style>
-    /* Hide older experience by default - no JS required */
-    .older-experience {
-      display: none;
-    }
-    
-    /* Show older experience when visible class is added */
-    .older-experience.is-visible {
-      display: block;
-    }
-    
     .gradient-fade {
       position: absolute;
       bottom: 0;
