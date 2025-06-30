@@ -94,7 +94,6 @@ const accomplishments = [
     <!-- Hero Section -->
     <section class="bg-brand-light dark:bg-brand-dark py-24">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-4xl sm:text-5xl font-bold text-brand-primary dark:text-brand-light mb-6">
         <h1 class="text-4xl sm:text-5xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-6">
           Resume
         </h1>
@@ -118,7 +117,6 @@ const accomplishments = [
     <!-- Experience -->
     <section class="bg-white dark:bg-brand-primary py-16">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl font-bold text-brand-primary dark:text-brand-light mb-8">Professional Experience</h2>
         <h2 class="text-2xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-8">Professional Experience</h2>
         
         <div class="space-y-10">
@@ -127,7 +125,6 @@ const accomplishments = [
               index === 0 ? 'border-primary-600' : 'border-gray-300 dark:border-gray-600'
             ]}>
               <div class="mb-4">
-                <h3 class="text-xl font-bold text-brand-primary dark:text-brand-light">{company.company}</h3>
                 <h3 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light">{company.company}</h3>
                 <p class="text-brand-accent dark:text-brand-accent font-semibold mb-1">{company.location}</p>
                 <span class="text-sm text-gray-500 dark:text-gray-400">{getCompanyDateRange(company, index >= 2)}</span>
@@ -139,7 +136,6 @@ const accomplishments = [
                   {company.roles.map(role => (
                     <div class="ml-4 border-l-2 border-gray-200 dark:border-gray-700 pl-4">
                       <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                        <h4 class="text-lg font-bold text-brand-primary dark:text-brand-light">{role.title}</h4>
                         <h4 class="text-lg font-serif font-semibold text-brand-primary dark:text-brand-light">{role.title}</h4>
                         <span class="text-sm text-gray-500 dark:text-gray-400">{index >= 2 ? `${formatDateYearsOnly(role.start_date)} - ${formatDateYearsOnly(role.end_date)}` : `${formatDate(role.start_date)} - ${formatDate(role.end_date)}`}</span>
                       </div>
@@ -155,7 +151,6 @@ const accomplishments = [
                 // Single role for this company
                 <div>
                   <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                    <h4 class="text-lg font-bold text-brand-primary dark:text-brand-light">{company.title}</h4>
                     <h4 class="text-lg font-serif font-semibold text-brand-primary dark:text-brand-light">{company.title}</h4>
                     <span class="text-sm text-gray-500 dark:text-gray-400">{index >= 2 ? `${formatDateYearsOnly(company.start_date)} - ${formatDateYearsOnly(company.end_date)}` : `${formatDate(company.start_date)} - ${formatDate(company.end_date)}`}</span>
                   </div>
@@ -193,7 +188,6 @@ const accomplishments = [
     <!-- Community Involvement & Leadership -->
     <section class="bg-brand-light dark:bg-brand-dark py-16">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl font-bold text-brand-primary dark:text-brand-light mb-8">Community Involvement & Leadership</h2>
         <h2 class="text-2xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-8">Community Involvement & Leadership</h2>
         
         <div class="space-y-6">
@@ -201,7 +195,6 @@ const accomplishments = [
             <div class="border-l-4 border-primary-600 pl-6">
               <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
                 <div class="flex items-center gap-2">
-                  <h3 class="text-lg font-bold text-brand-primary dark:text-brand-light">{accomplishment.name}</h3>
                   <h3 class="text-lg font-serif font-semibold text-brand-primary dark:text-brand-light">{accomplishment.name}</h3>
                   <span class="text-brand-accent dark:text-brand-accent font-medium">• {accomplishment.position}</span>
                 </div>
@@ -218,8 +211,6 @@ const accomplishments = [
         </div>
       </div>
     </section>
-
-
   </main>
   
   <Footer />
