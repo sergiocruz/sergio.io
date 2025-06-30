@@ -38,8 +38,8 @@ const formatDate = (date: Date) => {
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <header class="mb-12">
           <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
-            <time datetime={post.data.pubDate.toISOString()}>
-              {formatDate(post.data.pubDate)}
+            <time datetime={post.data.date.toISOString()}>
+              {formatDate(post.data.date)}
             </time>
             {post.data.readingTime && (
               <>

@@ -9,7 +9,7 @@ import Footer from '../components/Footer.astro';
 const allPosts = await getCollection('blog');
 const recentPosts = allPosts
   .filter(post => !post.data.draft)
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 3);
 
 // Format date function
@@ -259,8 +259,8 @@ const formatDate = (date: Date) => {
             <article class="bg-brand-light dark:bg-brand-dark rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden border border-brand-subtle/20">
               <div class="p-6">
                 <div class="flex items-center text-sm text-brand-subtle-light dark:text-gray-400 mb-3 font-sans">
-                  <time datetime={post.data.pubDate.toISOString()}>
-                    {formatDate(post.data.pubDate)}
+                  <time datetime={post.data.date.toISOString()}>
+                    {formatDate(post.data.date)}
                   </time>
                 </div>
                 <h4 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-3">
