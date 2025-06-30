@@ -1,0 +1,23 @@
+---
+title: "Product Management for Engineering Managers"
+description: "Bridge the gap between engineering and product management. Learn essential product skills that engineering managers need to drive successful outcomes and collaborate effectively with product teams."
+platform: "Pluralsight"
+link: "https://www.pluralsight.com/courses/product-management-engineering-managers"
+featured: true
+icon: "🎯"
+---
+
+Essential product management skills for engineering managers who need to work closely with product teams and drive product outcomes while managing technical teams.
+
+## What You'll Learn
+
+- Product strategy fundamentals for engineers
+- Collaboration techniques with product managers
+- User-centered thinking and customer empathy
+- Roadmap planning and prioritization
+- Data-driven decision making
+- Balancing technical debt and feature development
+- Product discovery and validation techniques
+- Stakeholder communication and alignment
+
+This course helps engineering managers develop the product mindset needed to bridge technical and business requirements effectively, ensuring engineering teams deliver maximum value to users and the business.
