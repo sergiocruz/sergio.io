@@ -1,7 +1,7 @@
 ---
 import { SITE } from '../config/site.ts';
 import { getCollection } from 'astro:content';
-import { getYouTubeVideoId, getYouTubeThumbnailUrl } from '../utils/youtube.ts';
+import { getYouTubeVideoId, getYouTubeThumbnailFallbackCSS } from '../utils/youtube.ts';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
@@ -129,13 +129,13 @@ const getGradientClass = (index: number, type: string) => {
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {allVideos.map((video, index) => {
               const videoId = video.data.link ? getYouTubeVideoId(video.data.link) : null;
-              const youtubeThumbnailUrl = videoId ? getYouTubeThumbnailUrl(videoId) : '';
+              const youtubeThumbnailCSS = videoId ? getYouTubeThumbnailFallbackCSS(videoId) : '';
               
               return (
                 <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                   <div 
                     class="h-48 relative overflow-hidden bg-cover bg-center bg-gray-200 dark:bg-gray-700"
-                    style={youtubeThumbnailUrl ? `background-image: url(${youtubeThumbnailUrl});` : ''}
+                    style={youtubeThumbnailCSS ? `background-image: ${youtubeThumbnailCSS};` : ''}
                   >
                     {/* Gradient Overlay */}
                     <div class={`absolute inset-0 bg-gradient-to-br ${getGradientClass(index, 'video-overlay')}`}></div>

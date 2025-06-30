@@ -33,8 +33,25 @@ export function getYouTubeVideoId(url: string): string | null {
 }
 
 /**
+ * Generate comprehensive YouTube thumbnail URLs with fallbacks
+ * Returns an object with multiple quality options
+ */
+export function getYouTubeThumbnailUrls(videoId: string) {
+  if (!videoId) return { primary: '', fallback: '', standard: '' };
+  
+  return {
+    // Highest quality (1280x720) - not always available
+    primary: `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`,
+    // High quality (480x360) - more reliable
+    fallback: `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`,
+    // Standard quality (120x90) - always available
+    standard: `https://img.youtube.com/vi/${videoId}/default.jpg`
+  };
+}
+
+/**
  * Generate YouTube thumbnail URL from video ID
- * Uses maxresdefault for high quality, falls back to hqdefault if needed
+ * Uses maxresdefault for high quality (kept for backward compatibility)
  */
 export function getYouTubeThumbnailUrl(videoId: string): string {
   if (!videoId) return '';
@@ -44,11 +61,15 @@ export function getYouTubeThumbnailUrl(videoId: string): string {
 }
 
 /**
- * Generate fallback YouTube thumbnail URL
- * Uses hqdefault (480x360) as a more reliable fallback
+ * Generate a CSS background-image string with fallbacks
+ * This creates a comma-separated list of background images that the browser
+ * will try in order, falling back to the next if one fails to load
  */
-export function getYouTubeThumbnailFallbackUrl(videoId: string): string {
+export function getYouTubeThumbnailFallbackCSS(videoId: string): string {
   if (!videoId) return '';
   
-  return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+  const urls = getYouTubeThumbnailUrls(videoId);
+  
+  // CSS will try these in order - if maxresdefault fails, it tries hqdefault, then default
+  return `url(${urls.primary}), url(${urls.fallback}), url(${urls.standard})`;
 }
