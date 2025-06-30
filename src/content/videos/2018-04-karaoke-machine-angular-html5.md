@@ -5,7 +5,7 @@ date: 2018-04-01
 type: "Conference"
 venue: "ngconf 2018"
 link: "https://youtu.be/WHMyaTy7PME"
-featured: true
+featured: false
 ---
 
 An innovative conference presentation showcasing the power of modern web technologies by building a fully functional karaoke machine application.

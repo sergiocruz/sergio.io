@@ -5,7 +5,7 @@ date: 2017-04-01
 type: "Conference"
 venue: "ngconf 2017"
 link: "https://youtu.be/FFhJSkI35U8"
-featured: true
+featured: false
 ---
 
 A comprehensive conference presentation detailing real-world experiences helping development teams navigate the complex process of upgrading from AngularJS to Angular.

@@ -5,7 +5,7 @@ date: 2022-08-01
 type: "Interview"
 venue: "Exponent YouTube"
 link: "https://youtu.be/5Qf5sOqRuLk"
-featured: false
+featured: true
 ---
 
 A focused discussion on the essential skills that separate effective engineering managers from the rest, covering both technical and interpersonal competencies.

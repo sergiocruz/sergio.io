@@ -5,7 +5,7 @@ date: 2022-09-01
 type: "Interview"
 venue: "Exponent YouTube"
 link: "https://youtu.be/_QUuOJK--nM"
-featured: true
+featured: false
 ---
 
 An in-depth conversation exploring the essential qualities and skills that define exceptional technical leadership in modern engineering organizations.
