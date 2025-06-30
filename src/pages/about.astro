@@ -10,171 +10,258 @@ import Footer from '../components/Footer.astro';
   
   <main class="pt-16">
     <!-- Hero Section -->
-    <section class="bg-brand-light dark:bg-brand-dark py-24">
+    <section class="bg-brand-light dark:bg-brand-dark py-20">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 class="text-4xl sm:text-5xl font-bold text-brand-primary dark:text-brand-light mb-6">
-            About Me
-          </h1>
-          <p class="text-xl text-brand-subtle dark:text-gray-300 max-w-3xl mx-auto">
-            I'm a passionate software engineer and tech lead with over 10 years of experience building scalable products and leading high-performing teams.
-          </p>
+        <h1 class="text-4xl sm:text-5xl font-bold text-brand-primary dark:text-brand-light mb-6">
+          About Me
+        </h1>
+        <p class="text-xl text-brand-subtle dark:text-gray-300 max-w-3xl mx-auto">
+          Senior engineering leader with experience scaling teams, shaping product strategy, and delivering reliable systems.
+        </p>
       </div>
     </section>
 
-    <!-- About Content -->
-    <section class="bg-white dark:bg-brand-primary py-24">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-start">
+    <!-- About Content with Photo -->
+    <section class="bg-white dark:bg-brand-primary py-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
           <!-- Profile Image -->
-          <div class="md:col-span-1">
-            <div class="aspect-square rounded-2xl shadow-lg overflow-hidden max-w-sm mx-auto md:max-w-none">
-              <img 
-                src="https://media.licdn.com/dms/image/v2/D4E03AQGMlGY1wb7kJg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1731368552829?e=1755734400&v=beta&t=qjZIbhWg8PC-P0dnDByjNJ2KEVuV0pUhU3Z7iZHgelU"
-                alt="Sergio Cruz"
-                class="w-full h-full object-cover"
-              />
+          <div class="lg:col-span-4">
+            <div class="relative max-w-sm mx-auto lg:max-w-none">
+              <div class="aspect-square rounded-2xl shadow-lg overflow-hidden">
+                <img 
+                  src="https://media.licdn.com/dms/image/v2/D4E03AQGMlGY1wb7kJg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1731368552829?e=1755734400&v=beta&t=qjZIbhWg8PC-P0dnDByjNJ2KEVuV0pUhU3Z7iZHgelU"
+                  alt="Sergio Cruz"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <!-- Decorative element -->
+              <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-brand-accent/20 rounded-full -z-10"></div>
             </div>
           </div>
           
           <!-- Content -->
-          <div class="md:col-span-2 space-y-6">
-            <div class="prose prose-lg dark:prose-invert max-w-none">
-  <p class="text-brand-subtle dark:text-gray-300 leading-relaxed">
-    I'm a Senior Engineering Leader with nearly a decade of experience growing teams, mentoring managers, and shipping software people actually want to use. I've helped scale our team 5x, shape company-wide career frameworks, and lead initiatives that drive both user value and business impact.
-  </p>
-  
-  <p class="text-brand-subtle dark:text-gray-300 leading-relaxed">
-    I work cross-functionally with product, design, marketing, and sales to define strategy, set priorities, and deliver outcomes—not just outputs. From enabling product-led growth to modernizing legacy systems, I focus on building scalable systems and empowering teams to do their best work.
-  </p>
-  
-  <p class="text-brand-subtle dark:text-gray-300 leading-relaxed">
-    I stay close to the craft—reviewing code, prototyping when needed, and guiding technical decisions with long-term maintainability in mind. I believe great leadership blends clarity, empathy, and high standards—and I’m passionate about building teams where all three thrive.
-  </p>
-</div>
+          <div class="lg:col-span-8 space-y-6">
+            <div class="space-y-6 text-lg leading-relaxed">
+              <p class="text-brand-subtle dark:text-gray-300">
+                I'm a Senior Engineering Leader with nearly a decade of experience growing teams, mentoring managers, and shipping software people actually want to use. I've helped scale our team 5x, shape company-wide career frameworks, and lead initiatives that drive both user value and business impact.
+              </p>
+              
+              <p class="text-brand-subtle dark:text-gray-300">
+                I work cross-functionally with product, design, marketing, and sales to define strategy, set priorities, and deliver outcomes—not just outputs. From enabling product-led growth to modernizing legacy systems, I focus on building scalable systems and empowering teams to do their best work.
+              </p>
+              
+              <p class="text-brand-subtle dark:text-gray-300">
+                I stay close to the craft—reviewing code, prototyping when needed, and guiding technical decisions with long-term maintainability in mind. I believe great leadership blends clarity, empathy, and high standards—and I'm passionate about building teams where all three thrive.
+              </p>
+            </div>
 
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8 pt-8 border-t border-brand-subtle/20">
+              <div class="text-center">
+                <div class="text-2xl font-bold text-brand-primary dark:text-brand-light mb-1">9+</div>
+                <div class="text-sm text-brand-subtle dark:text-gray-400">Years Leading Teams</div>
+              </div>
+              <div class="text-center">
+                <div class="text-2xl font-bold text-brand-primary dark:text-brand-light mb-1">50+</div>
+                <div class="text-sm text-brand-subtle dark:text-gray-400">Engineers Mentored</div>
+              </div>
+              <div class="text-center">
+                <div class="text-2xl font-bold text-brand-primary dark:text-brand-light mb-1">15+</div>
+                <div class="text-sm text-brand-subtle dark:text-gray-400">Conference Talks</div>
+              </div>
+              <div class="text-center">
+                <div class="text-2xl font-bold text-brand-primary dark:text-brand-light mb-1">3</div>
+                <div class="text-sm text-brand-subtle dark:text-gray-400">Published Courses</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Experience Timeline -->
-    <section class="bg-brand-light dark:bg-brand-dark py-24">
+    <!-- Core Expertise -->
+    <section class="bg-brand-light dark:bg-brand-dark py-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-brand-primary dark:text-brand-light mb-4">
+            What I Do Best
+          </h2>
+          <p class="text-lg text-brand-subtle dark:text-gray-300 max-w-2xl mx-auto">
+            Three core areas where I focus my energy and create the most impact.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="text-center p-8 bg-white dark:bg-brand-primary rounded-xl shadow-sm border border-brand-subtle/20 hover:shadow-md transition-shadow">
+            <div class="w-16 h-16 mx-auto mb-6 bg-brand-accent/20 rounded-xl flex items-center justify-center">
+              <svg class="w-8 h-8 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-brand-primary dark:text-brand-light mb-4">Engineering Leadership</h3>
+            <p class="text-brand-subtle dark:text-gray-300">
+              I've led high-performing teams from startup scale to enterprise, growing engineers and EMs alike while maintaining velocity and culture.
+            </p>
+          </div>
+          
+          <div class="text-center p-8 bg-white dark:bg-brand-primary rounded-xl shadow-sm border border-brand-subtle/20 hover:shadow-md transition-shadow">
+            <div class="w-16 h-16 mx-auto mb-6 bg-brand-accent/20 rounded-xl flex items-center justify-center">
+              <svg class="w-8 h-8 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364-.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-brand-primary dark:text-brand-light mb-4">Product Strategy</h3>
+            <p class="text-brand-subtle dark:text-gray-300">
+              I bridge product and engineering to ship meaningful outcomes—especially when stakes are high and the path forward isn't obvious.
+            </p>
+          </div>
+          
+          <div class="text-center p-8 bg-white dark:bg-brand-primary rounded-xl shadow-sm border border-brand-subtle/20 hover:shadow-md transition-shadow">
+            <div class="w-16 h-16 mx-auto mb-6 bg-brand-accent/20 rounded-xl flex items-center justify-center">
+              <svg class="w-8 h-8 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-brand-primary dark:text-brand-light mb-4">Scaled Systems</h3>
+            <p class="text-brand-subtle dark:text-gray-300">
+              I architect systems and processes that enable teams to scale efficiently while maintaining quality and developer experience.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Professional Journey -->
+    <section class="bg-white dark:bg-brand-primary py-20">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-brand-primary dark:text-brand-light text-center mb-16">
-          Professional Journey
-        </h2>
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-brand-primary dark:text-brand-light mb-4">
+            Professional Journey
+          </h2>
+          <p class="text-lg text-brand-subtle dark:text-gray-300">
+            Key milestones in my career and the impact I've made along the way.
+          </p>
+        </div>
         
         <div class="space-y-12">
           <!-- Experience Item -->
           <div class="relative pl-8 border-l-2 border-primary-200 dark:border-primary-800">
             <div class="absolute -left-2 top-0 w-4 h-4 bg-primary-600 rounded-full"></div>
-            <div class="bg-brand-light dark:bg-brand-dark p-6 rounded-lg shadow-md border border-brand-subtle/20">
+            <div class="bg-brand-light dark:bg-brand-dark p-6 rounded-lg shadow-sm border border-brand-subtle/20">
               <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
-                <h3 class="text-xl font-semibold text-brand-primary dark:text-brand-light">Senior Engineering Manager</h3>
-                <span class="text-sm text-gray-500 dark:text-gray-400">2022 - Present</span>
+                <h3 class="text-xl font-semibold text-brand-primary dark:text-brand-light">Senior Director of Software Engineering</h3>
+                <span class="text-sm text-gray-500 dark:text-gray-400">2024 - Present</span>
               </div>
-              <p class="text-primary-600 dark:text-primary-400 font-medium mb-3">TechCorp Inc.</p>
-              <p class="text-brand-subtle dark:text-gray-300">
-                Leading a team of 15+ engineers across multiple product areas. Responsible for technical strategy, team growth, and delivery of features used by millions of users. Implemented new processes that improved team velocity by 40%.
+              <p class="text-primary-600 dark:text-primary-400 font-medium mb-3">Ramsey Solutions</p>
+              <p class="text-brand-subtle dark:text-gray-300 mb-4">
+                Coach and develop engineering managers to lead healthy, high-performing teams. Guide senior-level IC promotions and collaborate with executives to clarify engineering's role in product discovery.
               </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-sm rounded-full">Leadership Development</span>
+                <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-sm rounded-full">Product Discovery</span>
+              </div>
             </div>
           </div>
           
           <!-- Experience Item -->
           <div class="relative pl-8 border-l-2 border-primary-200 dark:border-primary-800">
             <div class="absolute -left-2 top-0 w-4 h-4 bg-primary-600 rounded-full"></div>
-            <div class="bg-brand-light dark:bg-brand-dark p-6 rounded-lg shadow-md border border-brand-subtle/20">
+            <div class="bg-brand-light dark:bg-brand-dark p-6 rounded-lg shadow-sm border border-brand-subtle/20">
               <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
-                <h3 class="text-xl font-semibold text-brand-primary dark:text-brand-light">Tech Lead</h3>
-                <span class="text-sm text-gray-500 dark:text-gray-400">2020 - 2022</span>
+                <h3 class="text-xl font-semibold text-brand-primary dark:text-brand-light">Director of Software Engineering</h3>
+                <span class="text-sm text-gray-500 dark:text-gray-400">2021 - 2024</span>
               </div>
-              <p class="text-primary-600 dark:text-primary-400 font-medium mb-3">TechCorp Inc.</p>
-              <p class="text-brand-subtle dark:text-gray-300">
-                Led the technical direction for the core platform team. Architected and implemented a new microservices infrastructure that improved system reliability by 99.9% uptime. Mentored junior engineers and established coding standards.
+              <p class="text-primary-600 dark:text-primary-400 font-medium mb-3">Ramsey Solutions</p>
+              <p class="text-brand-subtle dark:text-gray-300 mb-4">
+                Led engineering for a 40+ person business unit. Grew the org to 15+ engineers and implemented OKRs to drive ownership and outcomes. Standardized practices across squads.
               </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-green/20 text-gray-800 dark:text-green text-sm rounded-full">Team Scaling</span>
+                <span class="px-3 py-1 bg-green/20 text-gray-800 dark:text-green text-sm rounded-full">Process Implementation</span>
+                <span class="px-3 py-1 bg-green/20 text-gray-800 dark:text-green text-sm rounded-full">OKRs</span>
+              </div>
             </div>
           </div>
           
           <!-- Experience Item -->
           <div class="relative pl-8 border-l-2 border-primary-200 dark:border-primary-800">
             <div class="absolute -left-2 top-0 w-4 h-4 bg-primary-600 rounded-full"></div>
-            <div class="bg-brand-light dark:bg-brand-dark p-6 rounded-lg shadow-md border border-brand-subtle/20">
+            <div class="bg-brand-light dark:bg-brand-dark p-6 rounded-lg shadow-sm border border-brand-subtle/20">
               <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
-                <h3 class="text-xl font-semibold text-brand-primary dark:text-brand-light">Senior Software Engineer</h3>
-                <span class="text-sm text-gray-500 dark:text-gray-400">2018 - 2020</span>
+                <h3 class="text-xl font-semibold text-brand-primary dark:text-brand-light">Engineering Manager</h3>
+                <span class="text-sm text-gray-500 dark:text-gray-400">2017 - 2019</span>
               </div>
-              <p class="text-primary-600 dark:text-primary-400 font-medium mb-3">StartupXYZ</p>
-              <p class="text-brand-subtle dark:text-gray-300">
-                Built the initial product from ground up using React and Node.js. Scaled the platform to handle 100k+ daily active users. Implemented CI/CD pipelines and established development best practices for the growing engineering team.
+              <p class="text-primary-600 dark:text-primary-400 font-medium mb-3">Trazi Ventures</p>
+              <p class="text-brand-subtle dark:text-gray-300 mb-4">
+                First technical hire building consumer-facing app. Scaled product to handle 7-digit monthly signups and 8-digit revenue. Hired and mentored technical team.
               </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-pink/20 text-gray-800 dark:text-pink text-sm rounded-full">Startup Experience</span>
+                <span class="px-3 py-1 bg-pink/20 text-gray-800 dark:text-pink text-sm rounded-full">High Scale</span>
+                <span class="px-3 py-1 bg-pink/20 text-gray-800 dark:text-pink text-sm rounded-full">Team Building</span>
+              </div>
             </div>
           </div>
-          
-          <!-- Experience Item -->
-          <div class="relative pl-8">
-            <div class="absolute -left-2 top-0 w-4 h-4 bg-gray-300 dark:bg-gray-600 rounded-full"></div>
-            <div class="bg-brand-light dark:bg-brand-dark p-6 rounded-lg shadow-md border border-brand-subtle/20">
-              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
-                <h3 class="text-xl font-semibold text-brand-primary dark:text-brand-light">Software Engineer</h3>
-                <span class="text-sm text-gray-500 dark:text-gray-400">2015 - 2018</span>
-              </div>
-              <p class="text-primary-600 dark:text-primary-400 font-medium mb-3">BigTech Solutions</p>
-              <p class="text-brand-subtle dark:text-gray-300">
-                Developed and maintained enterprise web applications using Java and Angular. Collaborated with cross-functional teams to deliver features on time and within budget. Gained experience in agile methodologies and software architecture.
-              </p>
-            </div>
-          </div>
+        </div>
+        
+        <div class="text-center mt-12">
+          <a href="/resume" class="inline-flex items-center px-6 py-3 border border-brand-subtle text-base font-medium rounded-md text-brand-primary dark:text-brand-light bg-transparent hover:bg-brand-subtle/10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent transition-colors">
+            View Full Resume
+            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- Values & Philosophy -->
-    <section class="bg-brand-light dark:bg-brand-dark py-24">
+    <!-- Leadership Philosophy -->
+    <section class="bg-brand-light dark:bg-brand-dark py-20">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
           <h2 class="text-3xl font-bold text-brand-primary dark:text-brand-light mb-4">
-            My Leadership Values
+            My Leadership Philosophy
           </h2>
           <p class="text-lg text-brand-subtle dark:text-gray-300 max-w-2xl mx-auto">
-            The principles that guide my approach to engineering and leadership.
+            The principles that guide how I approach engineering leadership and team building.
           </p>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="text-center p-6 bg-white dark:bg-brand-primary rounded-lg shadow-sm border border-brand-subtle/20">
-            <div class="w-16 h-16 mx-auto mb-6 bg-brand-accent/20 rounded-full flex items-center justify-center">
-              <svg class="w-8 h-8 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="p-8 bg-white dark:bg-brand-primary rounded-xl shadow-sm border border-brand-subtle/20">
+            <div class="w-12 h-12 mb-6 bg-brand-accent/20 rounded-lg flex items-center justify-center">
+              <svg class="w-6 h-6 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
             </div>
             <h3 class="text-xl font-semibold text-brand-primary dark:text-brand-light mb-4">Shared Ownership</h3>
             <p class="text-brand-subtle dark:text-gray-300">
-              I believe the best teams are built on trust, not control. I empower people to take real ownership of their work. Whether that's engineers owning quality or managers owning outcomes. When everyone feels responsible, we move faster, grow stronger, and build better.
+              The best teams are built on trust, not control. I empower people to take real ownership of their work—whether engineers owning quality or managers owning outcomes.
             </p>
           </div>
           
-          <div class="text-center p-6 bg-white dark:bg-brand-primary rounded-lg shadow-sm border border-brand-subtle/20">
-            <div class="w-16 h-16 mx-auto mb-6 bg-brand-accent/20 rounded-full flex items-center justify-center">
-              <svg class="w-8 h-8 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="p-8 bg-white dark:bg-brand-primary rounded-xl shadow-sm border border-brand-subtle/20">
+            <div class="w-12 h-12 mb-6 bg-brand-accent/20 rounded-lg flex items-center justify-center">
+              <svg class="w-6 h-6 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
             <h3 class="text-xl font-semibold text-brand-primary dark:text-brand-light mb-4">Craft with Purpose</h3>
             <p class="text-brand-subtle dark:text-gray-300">
-              I care deeply about building things well. I hold a high bar for code quality, system design, and thoughtful engineering. Not because of perfectionism, but because the craft matters. At the same time, I value practical solutions that balance quality, speed, and impact.
+              I care deeply about building things well and hold a high bar for code quality and system design. Not for perfectionism, but because the craft matters for long-term success.
             </p>
           </div>
           
-          <div class="text-center p-6 bg-white dark:bg-brand-primary rounded-lg shadow-sm border border-brand-subtle/20">
-            <div class="w-16 h-16 mx-auto mb-6 bg-brand-accent/20 rounded-full flex items-center justify-center">
-              <svg class="w-8 h-8 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="p-8 bg-white dark:bg-brand-primary rounded-xl shadow-sm border border-brand-subtle/20">
+            <div class="w-12 h-12 mb-6 bg-brand-accent/20 rounded-lg flex items-center justify-center">
+              <svg class="w-6 h-6 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
             <h3 class="text-xl font-semibold text-brand-primary dark:text-brand-light mb-4">Cross-Functional Partnership</h3>
             <p class="text-brand-subtle dark:text-gray-300">
-              Great products come from strong collaboration. I work to break down silos between engineering, product, and design so everyone is solving problems together. When we align early and often, we build things people actually want to use.
+              Great products come from strong collaboration. I work to break down silos so engineering, product, and design solve problems together from the start.
             </p>
           </div>
         </div>
