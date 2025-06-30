@@ -127,8 +127,7 @@ const getGradientClass = (index: number, type: string) => {
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {allVideos.map((video, index) => (
-            {(() => {
+          {allVideos.map((video, index) => {
               const videoId = video.data.link ? getYouTubeVideoId(video.data.link) : null;
               const youtubeThumbnailUrl = videoId ? getYouTubeThumbnailUrl(videoId) : '';
               
@@ -184,8 +183,7 @@ const getGradientClass = (index: number, type: string) => {
                   </div>
                 </div>
               );
-            })()}
-          ))}
+          })}
         </div>
       </div>
     </section>
