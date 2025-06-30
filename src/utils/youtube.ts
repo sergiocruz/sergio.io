@@ -1,3 +1,5 @@
+import sizeOf from 'image-size';
+
 /**
  * YouTube utility functions for extracting video IDs and generating thumbnail URLs
  */
@@ -51,4 +53,45 @@ export function getYouTubeThumbnailFallbackUrl(videoId: string): string {
   if (!videoId) return '';
   
   return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+}
+
+/**
+ * Validate YouTube thumbnail by checking if it's a real image (not a placeholder)
+ * Returns the best available thumbnail URL or null if no valid thumbnail is found
+ */
+export async function getValidatedYouTubeThumbnailUrl(videoUrl: string): Promise<string | null> {
+  const videoId = getYouTubeVideoId(videoUrl);
+  if (!videoId) return null;
+
+  // Try maxresdefault first (1280x720)
+  const maxResUrl = getYouTubeThumbnailUrl(videoId);
+  const maxResResult = await validateThumbnail(maxResUrl, 1280, 720);
+  if (maxResResult) return maxResUrl;
+
+  // Fallback to hqdefault (480x360)
+  const hqUrl = getYouTubeThumbnailFallbackUrl(videoId);
+  const hqResult = await validateThumbnail(hqUrl, 480, 360);
+  if (hqResult) return hqUrl;
+
+  // No valid thumbnail found
+  return null;
+}
+
+/**
+ * Validate a thumbnail URL by fetching it and checking dimensions
+ */
+async function validateThumbnail(url: string, expectedWidth: number, expectedHeight: number): Promise<boolean> {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) return false;
+
+    const buffer = await response.arrayBuffer();
+    const dimensions = sizeOf(new Uint8Array(buffer));
+
+    // Check if dimensions match expected values for real thumbnails
+    return dimensions.width === expectedWidth && dimensions.height === expectedHeight;
+  } catch (error) {
+    console.warn(`Failed to validate thumbnail ${url}:`, error);
+    return false;
+  }
 }
