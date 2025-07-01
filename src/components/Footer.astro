@@ -3,18 +3,18 @@ import { SITE } from '../config/site.ts';
 ---
 
 <footer
-  class="border-t border-brand-subtle/30 bg-brand-light dark:border-brand-subtle/50 dark:bg-brand-dark"
+  class="border-brand-subtle/30 bg-brand-light dark:border-brand-subtle/50 dark:bg-brand-dark border-t"
 >
   <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
       <!-- Brand -->
       <div class="col-span-1 md:col-span-2">
         <div class="flex items-center">
-          <span class="text-xl font-bold text-brand-primary dark:text-brand-light"
+          <span class="text-brand-primary dark:text-brand-light text-xl font-bold"
             >{SITE.brand.name}</span
           >
         </div>
-        <p class="mt-4 max-w-md text-brand-subtle dark:text-gray-400">
+        <p class="text-brand-subtle mt-4 max-w-md dark:text-gray-400">
           {SITE.footer.description}
         </p>
         <div class="mt-6 flex space-x-6">
@@ -22,7 +22,7 @@ import { SITE } from '../config/site.ts';
             href={SITE.social.twitter}
             target="_blank"
             rel="noopener noreferrer"
-            class="text-gray-400 transition-colors hover:text-brand-accent dark:hover:text-gray-300"
+            class="hover:text-brand-accent text-gray-400 transition-colors dark:hover:text-gray-300"
           >
             <span class="sr-only">X (formerly Twitter)</span>
             <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -35,7 +35,7 @@ import { SITE } from '../config/site.ts';
             href={SITE.social.github}
             target="_blank"
             rel="noopener noreferrer"
-            class="text-gray-400 transition-colors hover:text-brand-accent dark:hover:text-gray-300"
+            class="hover:text-brand-accent text-gray-400 transition-colors dark:hover:text-gray-300"
           >
             <span class="sr-only">GitHub</span>
             <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -49,7 +49,7 @@ import { SITE } from '../config/site.ts';
             href={SITE.social.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            class="text-gray-400 transition-colors hover:text-brand-accent dark:hover:text-gray-300"
+            class="hover:text-brand-accent text-gray-400 transition-colors dark:hover:text-gray-300"
           >
             <span class="sr-only">LinkedIn</span>
             <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -65,7 +65,7 @@ import { SITE } from '../config/site.ts';
       <!-- Quick Links -->
       <div class="md:justify-self-end">
         <h3
-          class="text-sm font-semibold uppercase tracking-wider text-brand-primary dark:text-brand-light"
+          class="text-brand-primary dark:text-brand-light text-sm font-semibold tracking-wider uppercase"
         >
           Quick Links
         </h3>
@@ -77,7 +77,7 @@ import { SITE } from '../config/site.ts';
                 <li>
                   <a
                     href={item.href}
-                    class="text-base text-brand-subtle transition-colors hover:text-brand-primary dark:text-gray-400 dark:hover:text-brand-light"
+                    class="text-brand-subtle hover:text-brand-primary dark:hover:text-brand-light text-base transition-colors dark:text-gray-400"
                   >
                     {item.name}
                   </a>
@@ -88,7 +88,7 @@ import { SITE } from '../config/site.ts';
       </div>
     </div>
 
-    <div class="mt-12 border-t border-brand-subtle/30 pt-8 dark:border-brand-subtle/50">
+    <div class="border-brand-subtle/30 dark:border-brand-subtle/50 mt-12 border-t pt-8">
       <p class="text-center text-base text-gray-500 dark:text-gray-400">
         &copy; {new Date().getFullYear()}
         {SITE.footer.copyright}

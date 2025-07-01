@@ -21,78 +21,92 @@ const formatDate = (date: Date) => {
 };
 ---
 
-<BaseLayout title={`Blog - ${SITE.author}`} description="Thoughts on software engineering, leadership, and building great products.">
+<BaseLayout
+  title={`Blog - ${SITE.author}`}
+  description="Thoughts on software engineering, leadership, and building great products."
+>
   <Navigation />
-  
+
   <main class="pt-16">
     <!-- Hero Section -->
     <section class="bg-brand-light dark:bg-brand-dark py-24">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-4xl sm:text-5xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-6">
+      <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+        <h1
+          class="text-brand-primary dark:text-brand-light mb-6 font-serif text-4xl font-semibold sm:text-5xl"
+        >
           Blog
         </h1>
-        <p class="text-xl text-brand-subtle dark:text-gray-300 max-w-2xl mx-auto">
+        <p class="text-brand-subtle mx-auto max-w-2xl text-xl dark:text-gray-300">
           Thoughts on software engineering, leadership, and building great products.
         </p>
       </div>
     </section>
 
     <!-- Blog Posts -->
-    <section class="bg-white dark:bg-brand-primary py-24">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="dark:bg-brand-primary bg-white py-24">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <div class="space-y-12">
+          {
+            posts.map(post => (
+              <article class="bg-brand-light dark:bg-brand-dark border-brand-subtle/20 overflow-hidden rounded-lg border shadow-md">
+                <div class="p-8">
+                  <div class="mb-4 flex flex-col gap-2 text-sm text-gray-500 sm:flex-row sm:items-center sm:gap-0 dark:text-gray-400">
+                    {/* Date and reading time stay together */}
+                    <div class="flex items-center">
+                      <time datetime={post.data.date.toISOString()}>
+                        {formatDate(post.data.date)}
+                      </time>
+                      {post.data.readingTime && (
+                        <>
+                          <span class="mx-2">•</span>
+                          <span>{post.data.readingTime}</span>
+                        </>
+                      )}
+                    </div>
 
-
-
-          {posts.map((post) => (
-            <article class="bg-brand-light dark:bg-brand-dark rounded-lg shadow-md overflow-hidden border border-brand-subtle/20">
-              <div class="p-8">
-                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-0 text-sm text-gray-500 dark:text-gray-400 mb-4">
-                  <!-- Date and reading time stay together -->
-                  <div class="flex items-center">
-                    <time datetime={post.data.date.toISOString()}>
-                      {formatDate(post.data.date)}
-                    </time>
-                    {post.data.readingTime && (
+                    {/* Tag appears on separate line on mobile, same line on larger screens */}
+                    {post.data.tags && post.data.tags.length > 0 && (
                       <>
-                        <span class="mx-2">•</span>
-                        <span>{post.data.readingTime}</span>
+                        <span class="mx-2 hidden sm:inline">•</span>
+                        <span class="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 rounded-full px-2 py-1 text-xs font-medium">
+                          {post.data.tags[0]}
+                        </span>
                       </>
                     )}
                   </div>
-                  
-                  <!-- Tag appears on separate line on mobile, same line on larger screens -->
-                  {post.data.tags && post.data.tags.length > 0 && (
-                    <>
-                      <span class="hidden sm:inline mx-2">•</span>
-                      <span class="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 px-2 py-1 rounded-full text-xs font-medium">
-                        {post.data.tags[0]}
-                      </span>
-                    </>
-                  )}
-                </div>
-                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                  <a href={`/blog/${post.slug}`} class="text-brand-primary dark:text-brand-light hover:text-brand-link transition-colors">
-                    {post.data.title}
+                  <h2 class="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
+                    <a
+                      href={`/blog/${post.slug}`}
+                      class="text-brand-primary dark:text-brand-light hover:text-brand-link transition-colors"
+                    >
+                      {post.data.title}
+                    </a>
+                  </h2>
+                  <p class="text-brand-subtle mb-6 leading-relaxed dark:text-gray-300">
+                    {post.data.description}
+                  </p>
+                  <a
+                    href={`/blog/${post.slug}`}
+                    class="text-brand-link dark:text-primary-400 hover:text-accent-blue dark:hover:text-primary-300 inline-flex items-center font-medium transition-colors"
+                  >
+                    Read full article
+                    <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
+                    </svg>
                   </a>
-                </h2>
-                <p class="text-brand-subtle dark:text-gray-300 mb-6 leading-relaxed">
-                  {post.data.description}
-                </p>
-                <a href={`/blog/${post.slug}`} class="inline-flex items-center text-brand-link dark:text-primary-400 hover:text-accent-blue dark:hover:text-primary-300 font-medium transition-colors">
-                  Read full article
-                  <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </a>
-              </div>
-            </article>
-          ))}
+                </div>
+              </article>
+            ))
+          }
         </div>
-
       </div>
     </section>
   </main>
-  
+
   <Footer />
 </BaseLayout>

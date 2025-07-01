@@ -13,14 +13,14 @@ import Footer from '../components/Footer.astro';
 
   <main class="pt-16">
     <!-- Hero Section -->
-    <section class="bg-brand-light py-24 dark:bg-brand-dark">
+    <section class="bg-brand-light dark:bg-brand-dark py-24">
       <div class="mx-auto max-w-6xl px-4 text-center sm:px-6 lg:px-8">
         <h1
-          class="mb-6 font-serif text-4xl font-semibold text-brand-primary dark:text-brand-light sm:text-5xl"
+          class="text-brand-primary dark:text-brand-light mb-6 font-serif text-4xl font-semibold sm:text-5xl"
         >
           Projects
         </h1>
-        <p class="mx-auto max-w-3xl text-xl text-brand-subtle dark:text-gray-300">
+        <p class="text-brand-subtle mx-auto max-w-3xl text-xl dark:text-gray-300">
           A showcase of projects I've built, contributed to, and open source work that I'm
           passionate about.
         </p>
@@ -28,18 +28,18 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- Featured Projects -->
-    <section class="bg-white py-24 dark:bg-brand-primary">
+    <section class="dark:bg-brand-primary bg-white py-24">
       <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 gap-12 lg:grid-cols-2">
           <!-- Project 1 -->
           <div
-            class="overflow-hidden rounded-lg border border-brand-subtle/20 bg-brand-light shadow-lg dark:bg-brand-dark"
+            class="border-brand-subtle/20 bg-brand-light dark:bg-brand-dark overflow-hidden rounded-lg border shadow-lg"
           >
-            <div class="h-48 bg-gradient-to-br from-primary-400 to-primary-600"></div>
+            <div class="from-primary-400 to-primary-600 h-48 bg-gradient-to-br"></div>
             <div class="p-8">
               <div class="mb-4 flex items-center justify-between">
                 <h3
-                  class="font-serif text-2xl font-semibold text-brand-primary dark:text-brand-light"
+                  class="text-brand-primary dark:text-brand-light font-serif text-2xl font-semibold"
                 >
                   DevTools Pro
                 </h3>
@@ -70,7 +70,7 @@ import Footer from '../components/Footer.astro';
                   </a>
                 </div>
               </div>
-              <p class="mb-6 leading-relaxed text-brand-subtle dark:text-gray-300">
+              <p class="text-brand-subtle mb-6 leading-relaxed dark:text-gray-300">
                 A comprehensive suite of developer tools built with React and TypeScript. Features
                 include JSON formatter, API testing, regex builder, and more. Used by 50k+
                 developers worldwide.
@@ -108,13 +108,13 @@ import Footer from '../components/Footer.astro';
 
           <!-- Project 2 -->
           <div
-            class="overflow-hidden rounded-lg border border-brand-subtle/20 bg-brand-light shadow-lg dark:bg-brand-dark"
+            class="border-brand-subtle/20 bg-brand-light dark:bg-brand-dark overflow-hidden rounded-lg border shadow-lg"
           >
-            <div class="from-green-400 h-48 bg-gradient-to-br to-blue-500"></div>
+            <div class="h-48 bg-gradient-to-br from-green-400 to-blue-500"></div>
             <div class="p-8">
               <div class="mb-4 flex items-center justify-between">
                 <h3
-                  class="font-serif text-2xl font-semibold text-brand-primary dark:text-brand-light"
+                  class="text-brand-primary dark:text-brand-light font-serif text-2xl font-semibold"
                 >
                   React Performance Kit
                 </h3>
@@ -145,26 +145,26 @@ import Footer from '../components/Footer.astro';
                   </a>
                 </div>
               </div>
-              <p class="mb-6 leading-relaxed text-brand-subtle dark:text-gray-300">
+              <p class="text-brand-subtle mb-6 leading-relaxed dark:text-gray-300">
                 A collection of React hooks and utilities for performance optimization. Includes
                 virtualization, memoization helpers, and performance monitoring tools. Downloaded
                 100k+ times monthly.
               </p>
               <div class="mb-6 flex flex-wrap gap-2">
                 <span
-                  class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full px-3 py-1 text-sm"
+                  class="rounded-full bg-green-100 px-3 py-1 text-sm text-green-800 dark:bg-green-900 dark:text-green-200"
                   >React</span
                 >
                 <span
-                  class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full px-3 py-1 text-sm"
+                  class="rounded-full bg-green-100 px-3 py-1 text-sm text-green-800 dark:bg-green-900 dark:text-green-200"
                   >TypeScript</span
                 >
                 <span
-                  class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full px-3 py-1 text-sm"
+                  class="rounded-full bg-green-100 px-3 py-1 text-sm text-green-800 dark:bg-green-900 dark:text-green-200"
                   >Jest</span
                 >
                 <span
-                  class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full px-3 py-1 text-sm"
+                  class="rounded-full bg-green-100 px-3 py-1 text-sm text-green-800 dark:bg-green-900 dark:text-green-200"
                   >Rollup</span
                 >
               </div>
@@ -183,13 +183,13 @@ import Footer from '../components/Footer.astro';
 
           <!-- Project 3 -->
           <div
-            class="overflow-hidden rounded-lg border border-brand-subtle/20 bg-brand-light shadow-lg dark:bg-brand-dark"
+            class="border-brand-subtle/20 bg-brand-light dark:bg-brand-dark overflow-hidden rounded-lg border shadow-lg"
           >
-            <div class="to-pink-500 h-48 bg-gradient-to-br from-purple-400"></div>
+            <div class="h-48 bg-gradient-to-br from-purple-400 to-pink-500"></div>
             <div class="p-8">
               <div class="mb-4 flex items-center justify-between">
                 <h3
-                  class="font-serif text-2xl font-semibold text-brand-primary dark:text-brand-light"
+                  class="text-brand-primary dark:text-brand-light font-serif text-2xl font-semibold"
                 >
                   API Gateway
                 </h3>
@@ -207,7 +207,7 @@ import Footer from '../components/Footer.astro';
                   </a>
                 </div>
               </div>
-              <p class="mb-6 leading-relaxed text-brand-subtle dark:text-gray-300">
+              <p class="text-brand-subtle mb-6 leading-relaxed dark:text-gray-300">
                 A lightweight, high-performance API gateway built with Node.js. Features rate
                 limiting, authentication, load balancing, and request/response transformation.
                 Handles 10k+ requests per second.
@@ -245,13 +245,13 @@ import Footer from '../components/Footer.astro';
 
           <!-- Project 4 -->
           <div
-            class="overflow-hidden rounded-lg border border-brand-subtle/20 bg-brand-light shadow-lg dark:bg-brand-dark"
+            class="border-brand-subtle/20 bg-brand-light dark:bg-brand-dark overflow-hidden rounded-lg border shadow-lg"
           >
-            <div class="from-yellow-400 h-48 bg-gradient-to-br to-orange-500"></div>
+            <div class="h-48 bg-gradient-to-br from-yellow-400 to-orange-500"></div>
             <div class="p-8">
               <div class="mb-4 flex items-center justify-between">
                 <h3
-                  class="font-serif text-2xl font-semibold text-brand-primary dark:text-brand-light"
+                  class="text-brand-primary dark:text-brand-light font-serif text-2xl font-semibold"
                 >
                   Code Review Bot
                 </h3>
@@ -282,26 +282,26 @@ import Footer from '../components/Footer.astro';
                   </a>
                 </div>
               </div>
-              <p class="mb-6 leading-relaxed text-brand-subtle dark:text-gray-300">
+              <p class="text-brand-subtle mb-6 leading-relaxed dark:text-gray-300">
                 An AI-powered GitHub Action that automatically reviews pull requests for code
                 quality, security issues, and best practices. Integrates with popular linting tools
                 and provides actionable feedback.
               </p>
               <div class="mb-6 flex flex-wrap gap-2">
                 <span
-                  class="bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded-full px-3 py-1 text-sm"
+                  class="rounded-full bg-yellow-100 px-3 py-1 text-sm text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200"
                   >Python</span
                 >
                 <span
-                  class="bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded-full px-3 py-1 text-sm"
+                  class="rounded-full bg-yellow-100 px-3 py-1 text-sm text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200"
                   >GitHub Actions</span
                 >
                 <span
-                  class="bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded-full px-3 py-1 text-sm"
+                  class="rounded-full bg-yellow-100 px-3 py-1 text-sm text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200"
                   >OpenAI</span
                 >
                 <span
-                  class="bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded-full px-3 py-1 text-sm"
+                  class="rounded-full bg-yellow-100 px-3 py-1 text-sm text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200"
                   >Docker</span
                 >
               </div>
@@ -322,21 +322,21 @@ import Footer from '../components/Footer.astro';
         <!-- Open Source Contributions -->
         <div class="mt-24">
           <h2
-            class="mb-16 text-center font-serif text-3xl font-semibold text-brand-primary dark:text-brand-light"
+            class="text-brand-primary dark:text-brand-light mb-16 text-center font-serif text-3xl font-semibold"
           >
             Open Source Contributions
           </h2>
 
           <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             <div
-              class="rounded-lg border border-brand-subtle/20 bg-brand-light p-6 shadow-md dark:bg-brand-dark"
+              class="border-brand-subtle/20 bg-brand-light dark:bg-brand-dark rounded-lg border p-6 shadow-md"
             >
               <h3
-                class="mb-2 font-serif text-lg font-semibold text-brand-primary dark:text-brand-light"
+                class="text-brand-primary dark:text-brand-light mb-2 font-serif text-lg font-semibold"
               >
                 React
               </h3>
-              <p class="mb-4 text-sm text-brand-subtle dark:text-gray-300">
+              <p class="text-brand-subtle mb-4 text-sm dark:text-gray-300">
                 Contributed performance improvements and bug fixes to React core.
               </p>
               <div class="flex items-center text-sm text-gray-500 dark:text-gray-400">
@@ -347,14 +347,14 @@ import Footer from '../components/Footer.astro';
             </div>
 
             <div
-              class="rounded-lg border border-brand-subtle/20 bg-brand-light p-6 shadow-md dark:bg-brand-dark"
+              class="border-brand-subtle/20 bg-brand-light dark:bg-brand-dark rounded-lg border p-6 shadow-md"
             >
               <h3
-                class="mb-2 font-serif text-lg font-semibold text-brand-primary dark:text-brand-light"
+                class="text-brand-primary dark:text-brand-light mb-2 font-serif text-lg font-semibold"
               >
                 Next.js
               </h3>
-              <p class="mb-4 text-sm text-brand-subtle dark:text-gray-300">
+              <p class="text-brand-subtle mb-4 text-sm dark:text-gray-300">
                 Added new features and documentation improvements to Next.js framework.
               </p>
               <div class="flex items-center text-sm text-gray-500 dark:text-gray-400">
@@ -365,14 +365,14 @@ import Footer from '../components/Footer.astro';
             </div>
 
             <div
-              class="rounded-lg border border-brand-subtle/20 bg-brand-light p-6 shadow-md dark:bg-brand-dark"
+              class="border-brand-subtle/20 bg-brand-light dark:bg-brand-dark rounded-lg border p-6 shadow-md"
             >
               <h3
-                class="mb-2 font-serif text-lg font-semibold text-brand-primary dark:text-brand-light"
+                class="text-brand-primary dark:text-brand-light mb-2 font-serif text-lg font-semibold"
               >
                 TypeScript
               </h3>
-              <p class="mb-4 text-sm text-brand-subtle dark:text-gray-300">
+              <p class="text-brand-subtle mb-4 text-sm dark:text-gray-300">
                 Contributed type definitions and compiler improvements.
               </p>
               <div class="flex items-center text-sm text-gray-500 dark:text-gray-400">

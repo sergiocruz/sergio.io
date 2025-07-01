@@ -123,14 +123,14 @@ const accomplishments = [
 
   <main class="pt-16">
     <!-- Hero Section -->
-    <section class="bg-brand-light py-24 dark:bg-brand-dark">
+    <section class="bg-brand-light dark:bg-brand-dark py-24">
       <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
         <h1
-          class="mb-6 font-serif text-4xl font-semibold text-brand-primary dark:text-brand-light sm:text-5xl"
+          class="text-brand-primary dark:text-brand-light mb-6 font-serif text-4xl font-semibold sm:text-5xl"
         >
           Resume
         </h1>
-        <p class="mx-auto mb-8 max-w-2xl text-xl text-brand-subtle dark:text-gray-300">
+        <p class="text-brand-subtle mx-auto mb-8 max-w-2xl text-xl dark:text-gray-300">
           Senior engineering leader with experience scaling teams, shaping product strategy, and
           delivering reliable systems.
         </p>
@@ -138,7 +138,7 @@ const accomplishments = [
           <a
             href="/downloads/cruzresume.pdf"
             target="_blank"
-            class="inline-flex items-center rounded-md border border-transparent bg-brand-accent px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-accent-bronze focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2 sm:px-6 sm:text-base"
+            class="bg-brand-accent hover:bg-accent-bronze focus:ring-brand-accent inline-flex items-center rounded-md border border-transparent px-4 py-3 text-sm font-medium text-white transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none sm:px-6 sm:text-base"
           >
             <svg class="mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
@@ -152,7 +152,7 @@ const accomplishments = [
           </a>
           <a
             href="mailto:hi@sergio.io"
-            class="inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700 sm:px-6 sm:text-base"
+            class="focus:ring-brand-accent inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 focus:ring-2 focus:ring-offset-2 focus:outline-none sm:px-6 sm:text-base dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
           >
             Contact Me
           </a>
@@ -161,9 +161,9 @@ const accomplishments = [
     </section>
 
     <!-- Experience -->
-    <section class="bg-white py-16 dark:bg-brand-primary">
+    <section class="dark:bg-brand-primary bg-white py-16">
       <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <h2 class="mb-8 font-serif text-2xl font-semibold text-brand-primary dark:text-brand-light">
+        <h2 class="text-brand-primary dark:text-brand-light mb-8 font-serif text-2xl font-semibold">
           Professional Experience
         </h2>
 
@@ -183,10 +183,10 @@ const accomplishments = [
                 }}
               >
                 <div class="mb-4">
-                  <h3 class="font-serif text-xl font-semibold text-brand-primary dark:text-brand-light">
+                  <h3 class="text-brand-primary dark:text-brand-light font-serif text-xl font-semibold">
                     {company.company}
                   </h3>
-                  <p class="mb-1 font-semibold text-brand-accent dark:text-brand-accent">
+                  <p class="text-brand-accent dark:text-brand-accent mb-1 font-semibold">
                     {company.location}
                   </p>
                   <span class="text-sm text-gray-500 dark:text-gray-400">
@@ -200,7 +200,7 @@ const accomplishments = [
                     {company.roles.map(role => (
                       <div class="ml-4 border-l-2 border-gray-200 pl-4">
                         <div class="mb-2 flex flex-col sm:flex-row sm:items-center sm:justify-between">
-                          <h4 class="font-serif text-lg font-semibold text-brand-primary dark:text-brand-light">
+                          <h4 class="text-brand-primary dark:text-brand-light font-serif text-lg font-semibold">
                             {role.title}
                           </h4>
                           <span class="text-sm text-gray-500 dark:text-gray-400">
@@ -209,7 +209,7 @@ const accomplishments = [
                               : `${formatDate(role.start_date)} - ${formatDate(role.end_date)}`}
                           </span>
                         </div>
-                        <ul class="mb-4 space-y-2 text-brand-subtle dark:text-gray-300">
+                        <ul class="text-brand-subtle mb-4 space-y-2 dark:text-gray-300">
                           {role.responsibilities.map(responsibility => (
                             <li>• {responsibility}</li>
                           ))}
@@ -221,7 +221,7 @@ const accomplishments = [
                   // Single role for this company
                   <div>
                     <div class="mb-2 flex flex-col sm:flex-row sm:items-center sm:justify-between">
-                      <h4 class="font-serif text-lg font-semibold text-brand-primary dark:text-brand-light">
+                      <h4 class="text-brand-primary dark:text-brand-light font-serif text-lg font-semibold">
                         {company.title}
                       </h4>
                       <span class="text-sm text-gray-500 dark:text-gray-400">
@@ -230,7 +230,7 @@ const accomplishments = [
                           : `${formatDate(company.start_date)} - ${formatDate(company.end_date)}`}
                       </span>
                     </div>
-                    <ul class="mb-4 space-y-2 text-brand-subtle dark:text-gray-300">
+                    <ul class="text-brand-subtle mb-4 space-y-2 dark:text-gray-300">
                       {company.responsibilities.map(responsibility => (
                         <li>• {responsibility}</li>
                       ))}
@@ -246,7 +246,7 @@ const accomplishments = [
         <div class="pt-8 text-center">
           <button
             id="toggleOlderExperience"
-            class="inline-flex items-center rounded-md border border-brand-subtle bg-transparent px-6 py-3 text-base font-medium text-brand-primary transition-colors hover:bg-brand-subtle/10 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2 dark:text-brand-light"
+            class="border-brand-subtle text-brand-primary hover:bg-brand-subtle/10 focus:ring-brand-accent dark:text-brand-light inline-flex items-center rounded-md border bg-transparent px-6 py-3 text-base font-medium transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none"
           >
             <span id="toggleText">Show Earlier Experience</span>
             <svg
@@ -268,9 +268,9 @@ const accomplishments = [
     </section>
 
     <!-- Community Involvement & Leadership -->
-    <section class="bg-brand-light py-16 dark:bg-brand-dark">
+    <section class="bg-brand-light dark:bg-brand-dark py-16">
       <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <h2 class="mb-8 font-serif text-2xl font-semibold text-brand-primary dark:text-brand-light">
+        <h2 class="text-brand-primary dark:text-brand-light mb-8 font-serif text-2xl font-semibold">
           Community Involvement & Leadership
         </h2>
 
@@ -280,10 +280,10 @@ const accomplishments = [
               <div class="border-l-4 border-gray-300 pl-6">
                 <div class="mb-2 flex flex-col sm:flex-row sm:items-center sm:justify-between">
                   <div class="flex items-center gap-2">
-                    <h3 class="font-serif text-lg font-semibold text-brand-primary dark:text-brand-light">
+                    <h3 class="text-brand-primary dark:text-brand-light font-serif text-lg font-semibold">
                       {accomplishment.name}
                     </h3>
-                    <span class="font-medium text-brand-accent dark:text-brand-accent">
+                    <span class="text-brand-accent dark:text-brand-accent font-medium">
                       • {accomplishment.position}
                     </span>
                   </div>
@@ -291,7 +291,7 @@ const accomplishments = [
                     {accomplishment.when}
                   </span>
                 </div>
-                <p class="mb-2 text-brand-subtle dark:text-gray-300">
+                <p class="text-brand-subtle mb-2 dark:text-gray-300">
                   {accomplishment.description}
                 </p>
                 {accomplishment.url && (
@@ -299,7 +299,7 @@ const accomplishments = [
                     href={accomplishment.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="text-sm font-medium text-brand-link hover:text-accent-blue dark:text-brand-link dark:hover:text-accent-blue"
+                    class="text-brand-link hover:text-accent-blue dark:text-brand-link dark:hover:text-accent-blue text-sm font-medium"
                   >
                     Visit Website →
                   </a>

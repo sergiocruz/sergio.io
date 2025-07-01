@@ -97,6 +97,7 @@ const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site);
     </script>
 
     <!-- prettier-ignore-start -->
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XMY4ZPQD30"></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
@@ -108,6 +109,7 @@ const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site);
       gtag('config', 'G-XMY4ZPQD30');
     </script>
 
+    <!-- Fullstory -->
     <script is:inline>
       window['_fs_host'] = 'fullstory.com';
       window['_fs_script'] = 'edge.fullstory.com/s/fs.js';
@@ -264,7 +266,7 @@ const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site);
     <!-- prettier-ignore-end -->
   </head>
   <body
-    class="bg-brand-light text-brand-primary transition-colors duration-300 dark:bg-brand-dark dark:text-brand-light"
+    class="bg-brand-light text-brand-primary dark:bg-brand-dark dark:text-brand-light transition-colors duration-300"
   >
     <slot />
   </body>

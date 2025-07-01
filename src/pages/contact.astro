@@ -13,15 +13,15 @@ import Footer from '../components/Footer.astro';
 
   <main class="pt-16">
     <!-- Hero Section -->
-    <section class="bg-brand-light py-24 dark:bg-brand-dark">
+    <section class="bg-brand-light dark:bg-brand-dark py-24">
       <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-        <h1 class="mb-6 text-4xl font-bold text-brand-primary dark:text-brand-light sm:text-5xl">
+        <h1 class="text-brand-primary dark:text-brand-light mb-6 text-4xl font-bold sm:text-5xl">
           <h1
-            class="mb-6 font-serif text-4xl font-semibold text-brand-primary dark:text-brand-light sm:text-5xl"
+            class="text-brand-primary dark:text-brand-light mb-6 font-serif text-4xl font-semibold sm:text-5xl"
           >
             Get In Touch
           </h1>
-          <p class="mx-auto max-w-2xl text-xl text-brand-subtle dark:text-gray-300">
+          <p class="text-brand-subtle mx-auto max-w-2xl text-xl dark:text-gray-300">
             I'm always interested in hearing about new opportunities, speaking engagements, or just
             connecting with fellow engineers.
           </p>
@@ -29,16 +29,16 @@ import Footer from '../components/Footer.astro';
       </div>
 
       <!-- Contact Form & Info -->
-      <section class="bg-white py-24 dark:bg-brand-primary">
+      <section class="dark:bg-brand-primary bg-white py-24">
         <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div class="grid grid-cols-1 gap-12 lg:grid-cols-2">
             <!-- Contact Form -->
             <div
-              class="rounded-lg border border-brand-subtle/20 bg-brand-light p-8 shadow-lg dark:bg-brand-dark"
+              class="border-brand-subtle/20 bg-brand-light dark:bg-brand-dark rounded-lg border p-8 shadow-lg"
             >
-              <h2 class="mb-6 text-2xl font-bold text-brand-primary dark:text-brand-light">
+              <h2 class="text-brand-primary dark:text-brand-light mb-6 text-2xl font-bold">
                 <h2
-                  class="mb-6 font-serif text-2xl font-semibold text-brand-primary dark:text-brand-light"
+                  class="text-brand-primary dark:text-brand-light mb-6 font-serif text-2xl font-semibold"
                 >
                   Send me a message
                 </h2>
@@ -47,7 +47,7 @@ import Footer from '../components/Footer.astro';
                   <div>
                     <label
                       for="name"
-                      class="mb-2 block text-sm font-medium text-brand-subtle dark:text-gray-300"
+                      class="text-brand-subtle mb-2 block text-sm font-medium dark:text-gray-300"
                     >
                       Name
                     </label>
@@ -56,7 +56,7 @@ import Footer from '../components/Footer.astro';
                       id="name"
                       name="name"
                       required
-                      class="w-full rounded-md border border-brand-subtle/30 px-4 py-3 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-accent dark:border-gray-600 dark:bg-brand-primary dark:text-brand-light"
+                      class="border-brand-subtle/30 focus:ring-brand-accent dark:bg-brand-primary dark:text-brand-light w-full rounded-md border px-4 py-3 transition-colors focus:ring-2 focus:outline-none dark:border-gray-600"
                       placeholder="Your name"
                     />
                   </div>
@@ -64,7 +64,7 @@ import Footer from '../components/Footer.astro';
                   <div>
                     <label
                       for="email"
-                      class="mb-2 block text-sm font-medium text-brand-subtle dark:text-gray-300"
+                      class="text-brand-subtle mb-2 block text-sm font-medium dark:text-gray-300"
                     >
                       Email
                     </label>
@@ -73,7 +73,7 @@ import Footer from '../components/Footer.astro';
                       id="email"
                       name="email"
                       required
-                      class="w-full rounded-md border border-brand-subtle/30 px-4 py-3 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-accent dark:border-gray-600 dark:bg-brand-primary dark:text-brand-light"
+                      class="border-brand-subtle/30 focus:ring-brand-accent dark:bg-brand-primary dark:text-brand-light w-full rounded-md border px-4 py-3 transition-colors focus:ring-2 focus:outline-none dark:border-gray-600"
                       placeholder="your.email@example.com"
                     />
                   </div>
@@ -81,7 +81,7 @@ import Footer from '../components/Footer.astro';
                   <div>
                     <label
                       for="subject"
-                      class="mb-2 block text-sm font-medium text-brand-subtle dark:text-gray-300"
+                      class="text-brand-subtle mb-2 block text-sm font-medium dark:text-gray-300"
                     >
                       Subject
                     </label>
@@ -89,7 +89,7 @@ import Footer from '../components/Footer.astro';
                       id="subject"
                       name="subject"
                       required
-                      class="w-full rounded-md border border-brand-subtle/30 px-4 py-3 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-accent dark:border-gray-600 dark:bg-brand-primary dark:text-brand-light"
+                      class="border-brand-subtle/30 focus:ring-brand-accent dark:bg-brand-primary dark:text-brand-light w-full rounded-md border px-4 py-3 transition-colors focus:ring-2 focus:outline-none dark:border-gray-600"
                     >
                       <option value="">Select a subject</option>
                       <option value="speaking">Speaking Opportunity</option>
@@ -103,7 +103,7 @@ import Footer from '../components/Footer.astro';
                   <div>
                     <label
                       for="message"
-                      class="mb-2 block text-sm font-medium text-brand-subtle dark:text-gray-300"
+                      class="text-brand-subtle mb-2 block text-sm font-medium dark:text-gray-300"
                     >
                       Message
                     </label>
@@ -112,14 +112,14 @@ import Footer from '../components/Footer.astro';
                       name="message"
                       rows="6"
                       required
-                      class="w-full resize-none rounded-md border border-brand-subtle/30 px-4 py-3 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-accent dark:border-gray-600 dark:bg-brand-primary dark:text-brand-light"
+                      class="border-brand-subtle/30 focus:ring-brand-accent dark:bg-brand-primary dark:text-brand-light w-full resize-none rounded-md border px-4 py-3 transition-colors focus:ring-2 focus:outline-none dark:border-gray-600"
                       placeholder="Tell me about your project, opportunity, or how I can help..."
                     ></textarea>
                   </div>
 
                   <button
                     type="submit"
-                    class="w-full rounded-md bg-brand-accent px-6 py-3 font-medium text-white transition-colors hover:bg-accent-bronze focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2"
+                    class="bg-brand-accent hover:bg-accent-bronze focus:ring-brand-accent w-full rounded-md px-6 py-3 font-medium text-white transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none"
                   >
                     Send Message
                   </button>
@@ -130,11 +130,11 @@ import Footer from '../components/Footer.astro';
               <div class="space-y-8">
                 <!-- Contact Methods -->
                 <div
-                  class="rounded-lg border border-brand-subtle/20 bg-brand-light p-8 shadow-lg dark:bg-brand-dark"
+                  class="border-brand-subtle/20 bg-brand-light dark:bg-brand-dark rounded-lg border p-8 shadow-lg"
                 >
-                  <h3 class="mb-6 text-xl font-bold text-brand-primary dark:text-brand-light">
+                  <h3 class="text-brand-primary dark:text-brand-light mb-6 text-xl font-bold">
                     <h3
-                      class="mb-6 font-serif text-xl font-semibold text-brand-primary dark:text-brand-light"
+                      class="text-brand-primary dark:text-brand-light mb-6 font-serif text-xl font-semibold"
                     >
                       Other ways to reach me
                     </h3>
@@ -143,7 +143,7 @@ import Footer from '../components/Footer.astro';
                       <div class="flex items-start">
                         <div class="flex-shrink-0">
                           <svg
-                            class="mt-1 h-6 w-6 text-primary-600 dark:text-primary-400"
+                            class="text-primary-600 dark:text-primary-400 mt-1 h-6 w-6"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -157,11 +157,11 @@ import Footer from '../components/Footer.astro';
                           </svg>
                         </div>
                         <div class="ml-4">
-                          <h4 class="text-lg font-medium text-brand-primary dark:text-brand-light">
+                          <h4 class="text-brand-primary dark:text-brand-light text-lg font-medium">
                             Email
                           </h4>
                           <h4
-                            class="font-serif text-lg font-medium text-brand-primary dark:text-brand-light"
+                            class="text-brand-primary dark:text-brand-light font-serif text-lg font-medium"
                           >
                             Email
                           </h4>
@@ -172,7 +172,7 @@ import Footer from '../components/Footer.astro';
                       <div class="flex items-start">
                         <div class="flex-shrink-0">
                           <svg
-                            class="mt-1 h-6 w-6 text-primary-600 dark:text-primary-400"
+                            class="text-primary-600 dark:text-primary-400 mt-1 h-6 w-6"
                             fill="currentColor"
                             viewBox="0 0 24 24"
                           >
@@ -182,11 +182,11 @@ import Footer from '../components/Footer.astro';
                           </svg>
                         </div>
                         <div class="ml-4">
-                          <h4 class="text-lg font-medium text-brand-primary dark:text-brand-light">
+                          <h4 class="text-brand-primary dark:text-brand-light text-lg font-medium">
                             Twitter
                           </h4>
                           <h4
-                            class="font-serif text-lg font-medium text-brand-primary dark:text-brand-light"
+                            class="text-brand-primary dark:text-brand-light font-serif text-lg font-medium"
                           >
                             Twitter
                           </h4>
@@ -197,7 +197,7 @@ import Footer from '../components/Footer.astro';
                       <div class="flex items-start">
                         <div class="flex-shrink-0">
                           <svg
-                            class="mt-1 h-6 w-6 text-primary-600 dark:text-primary-400"
+                            class="text-primary-600 dark:text-primary-400 mt-1 h-6 w-6"
                             fill="currentColor"
                             viewBox="0 0 24 24"
                           >
@@ -208,11 +208,11 @@ import Footer from '../components/Footer.astro';
                           </svg>
                         </div>
                         <div class="ml-4">
-                          <h4 class="text-lg font-medium text-brand-primary dark:text-brand-light">
+                          <h4 class="text-brand-primary dark:text-brand-light text-lg font-medium">
                             LinkedIn
                           </h4>
                           <h4
-                            class="font-serif text-lg font-medium text-brand-primary dark:text-brand-light"
+                            class="text-brand-primary dark:text-brand-light font-serif text-lg font-medium"
                           >
                             LinkedIn
                           </h4>
@@ -226,29 +226,29 @@ import Footer from '../components/Footer.astro';
 
                   <!-- Availability -->
                   <div
-                    class="rounded-lg border border-brand-subtle/20 bg-brand-light p-8 shadow-lg dark:bg-brand-dark"
+                    class="border-brand-subtle/20 bg-brand-light dark:bg-brand-dark rounded-lg border p-8 shadow-lg"
                   >
-                    <h3 class="mb-4 text-xl font-bold text-brand-primary dark:text-brand-light">
+                    <h3 class="text-brand-primary dark:text-brand-light mb-4 text-xl font-bold">
                       <h3
-                        class="mb-4 font-serif text-xl font-semibold text-brand-primary dark:text-brand-light"
+                        class="text-brand-primary dark:text-brand-light mb-4 font-serif text-xl font-semibold"
                       >
                         Current Availability
                       </h3>
                       <div class="space-y-4">
                         <div class="flex items-center">
-                          <div class="bg-green-500 mr-3 h-3 w-3 rounded-full"></div>
+                          <div class="mr-3 h-3 w-3 rounded-full bg-green-500"></div>
                           <span class="text-brand-subtle dark:text-gray-300"
                             >Available for speaking engagements</span
                           >
                         </div>
                         <div class="flex items-center">
-                          <div class="bg-yellow-500 mr-3 h-3 w-3 rounded-full"></div>
+                          <div class="mr-3 h-3 w-3 rounded-full bg-yellow-500"></div>
                           <span class="text-brand-subtle dark:text-gray-300"
                             >Limited consulting availability</span
                           >
                         </div>
                         <div class="flex items-center">
-                          <div class="bg-green-500 mr-3 h-3 w-3 rounded-full"></div>
+                          <div class="mr-3 h-3 w-3 rounded-full bg-green-500"></div>
                           <span class="text-brand-subtle dark:text-gray-300"
                             >Open to mentoring opportunities</span
                           >
@@ -257,10 +257,10 @@ import Footer from '../components/Footer.astro';
                     </h3>
 
                     <!-- Response Time -->
-                    <div class="rounded-lg bg-brand-accent/10 p-6 dark:bg-brand-accent/20">
+                    <div class="bg-brand-accent/10 dark:bg-brand-accent/20 rounded-lg p-6">
                       <div class="flex items-center">
                         <svg
-                          class="mr-3 h-6 w-6 text-brand-accent dark:text-brand-accent"
+                          class="text-brand-accent dark:text-brand-accent mr-3 h-6 w-6"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -272,10 +272,10 @@ import Footer from '../components/Footer.astro';
                             d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                         <div>
-                          <h4 class="font-medium text-brand-primary dark:text-brand-light">
+                          <h4 class="text-brand-primary dark:text-brand-light font-medium">
                             Response Time
                           </h4>
-                          <p class="text-sm text-brand-subtle dark:text-gray-300">
+                          <p class="text-brand-subtle text-sm dark:text-gray-300">
                             I typically respond within 24-48 hours
                           </p>
                         </div>

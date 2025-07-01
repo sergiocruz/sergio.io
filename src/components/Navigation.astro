@@ -4,7 +4,7 @@ import ThemeToggle from './ThemeToggle.tsx';
 ---
 
 <nav
-  class="fixed left-0 right-0 top-0 z-50 border-b border-brand-subtle/30 bg-brand-light/80 backdrop-blur-md dark:border-brand-subtle/50 dark:bg-brand-dark/80"
+  class="border-brand-subtle/30 bg-brand-light/80 dark:border-brand-subtle/50 dark:bg-brand-dark/80 fixed top-0 right-0 left-0 z-50 border-b backdrop-blur-md"
 >
   <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
     <div class="flex h-16 items-center justify-between">
@@ -12,7 +12,7 @@ import ThemeToggle from './ThemeToggle.tsx';
       <div class="flex-shrink-0">
         <a
           href={SITE.navigation[0].href}
-          class="text-xl font-bold text-brand-primary transition-colors hover:text-brand-link dark:text-brand-light dark:hover:text-brand-link"
+          class="text-brand-primary hover:text-brand-link dark:text-brand-light dark:hover:text-brand-link text-xl font-bold transition-colors"
         >
           {SITE.brand.name}
         </a>
@@ -25,7 +25,7 @@ import ThemeToggle from './ThemeToggle.tsx';
             SITE.navigation.map(item => (
               <a
                 href={item.href}
-                class="px-3 py-2 text-sm font-medium text-brand-subtle transition-colors hover:text-brand-link dark:text-gray-300 dark:hover:text-brand-link"
+                class="text-brand-subtle hover:text-brand-link dark:hover:text-brand-link px-3 py-2 text-sm font-medium transition-colors dark:text-gray-300"
               >
                 {item.name}
               </a>
@@ -42,7 +42,7 @@ import ThemeToggle from './ThemeToggle.tsx';
         <div class="md:hidden">
           <button
             type="button"
-            class="mobile-menu-button ml-4 p-2 text-brand-subtle transition-colors hover:text-brand-link focus:text-brand-link focus:outline-none dark:text-gray-300 dark:hover:text-brand-link dark:focus:text-brand-link"
+            class="mobile-menu-button text-brand-subtle hover:text-brand-link focus:text-brand-link dark:hover:text-brand-link dark:focus:text-brand-link ml-4 p-2 transition-colors focus:outline-none dark:text-gray-300"
             aria-controls="mobile-menu"
             aria-expanded="false"
           >
@@ -70,13 +70,13 @@ import ThemeToggle from './ThemeToggle.tsx';
   <!-- Mobile menu -->
   <div class="mobile-menu hidden md:hidden">
     <div
-      class="space-y-1 border-t border-brand-subtle/30 bg-brand-light px-2 pb-3 pt-2 dark:border-brand-subtle/50 dark:bg-brand-dark sm:px-3"
+      class="border-brand-subtle/30 bg-brand-light dark:border-brand-subtle/50 dark:bg-brand-dark space-y-1 border-t px-2 pt-2 pb-3 sm:px-3"
     >
       {
         SITE.navigation.map(item => (
           <a
             href={item.href}
-            class="block px-3 py-2 text-base font-medium text-brand-subtle transition-colors hover:text-brand-link dark:text-gray-300 dark:hover:text-brand-link"
+            class="text-brand-subtle hover:text-brand-link dark:hover:text-brand-link block px-3 py-2 text-base font-medium transition-colors dark:text-gray-300"
           >
             {item.name}
           </a>
