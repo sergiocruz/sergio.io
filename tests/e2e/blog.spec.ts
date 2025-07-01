@@ -77,7 +77,11 @@ test.describe('Blog', () => {
   test('blog posts have proper metadata', async ({ page }) => {
     await page.goto('/blog');
 
+    // Wait for all article cards to appear
+    await page.locator('article').last().waitFor();
+
     const lastArticle = page.locator('article').last();
+    console.log(await lastArticle.innerHTML());
 
     // Check that posts have dates and reading time
     await expect(lastArticle.getByText('May 20, 2014')).toBeVisible();
