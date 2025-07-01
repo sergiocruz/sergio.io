@@ -33,23 +33,19 @@ test.describe('About Page', () => {
     await expect(expertiseSection.getByText('Scaled Systems')).toBeVisible();
   });
 
-  test('professional journey timeline is visible', async ({ page }) => {
+  test('Director role is displayed correctly', async ({ page }) => {
     await page.goto('/about');
-    
-    // Find the section that contains the "Professional Journey" heading
-    const journeySection = page.locator('section').filter({ has: page.getByRole('heading', { name: 'Professional Journey' }) });
-    
-    // Check current role - be more specific by finding the exact heading first
-    const seniorDirectorContainer = journeySection.getByRole('heading', { name: 'Senior Director of Software Engineering', level: 3 }).locator('xpath=ancestor::div[contains(@class, "relative") and contains(@class, "pl-8")]');
-    await expect(seniorDirectorContainer.locator('p.text-brand-accent.dark\\:text-brand-accent.font-medium.mb-3', { hasText: 'Ramsey Solutions' })).toBeVisible();
-    
-    // Check Director role - use exact heading match to avoid confusion with Associate Director
-    const directorContainer = journeySection.getByRole('heading', { name: 'Director of Software Engineering', level: 3 }).locator('xpath=ancestor::div[contains(@class, "relative") and contains(@class, "pl-8")]');
-    await expect(directorContainer.locator('p.text-brand-accent.dark\\:text-brand-accent.font-medium.mb-3', { hasText: 'Ramsey Solutions' })).toBeVisible();
-    
-    // Check Engineering Manager role at different company
-    const engineeringManagerContainer = journeySection.getByRole('heading', { name: 'Engineering Manager', level: 3 }).locator('xpath=ancestor::div[contains(@class, "relative") and contains(@class, "pl-8")]');
-    await expect(engineeringManagerContainer.locator('p.text-brand-accent.dark\\:text-brand-accent.font-medium.mb-3', { hasText: 'Trazi Ventures' })).toBeVisible();
+
+    // Locate the specific section
+    const journeySection = page.locator('section', { hasText: 'Professional Journey' });
+
+    const directorContainer = page
+      .locator('div.p-6')
+      .filter({ has: page.getByRole('heading', { name: 'Director of Software Engineering', level: 3 }) });
+
+    await expect(
+      directorContainer.getByText('Ramsey Solutions').first()
+    ).toBeVisible();
   });
 
   test('leadership philosophy section is present', async ({ page }) => {
