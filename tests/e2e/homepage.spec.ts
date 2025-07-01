@@ -32,8 +32,8 @@ test.describe('Homepage', () => {
     await expect(page.getByText('I help engineering teams deliver real product outcomes—and teach others how to do the same.')).toBeVisible();
     
     // Check CTA buttons are present
-    await expect(page.getByRole('link', { name: 'Read My Articles' })).toBeVisible();
-    await expect(page.getByRole('link', { name: 'View My Work' })).toBeVisible();
+    await expect(page.locator('a[href="/blog"]').getByText('Read My Articles')).toBeVisible();
+    await expect(page.locator('a[href="/talks-and-publications"]').getByText('View My Work')).toBeVisible();
   });
 
   test('what I do section displays three main areas', async ({ page }) => {
