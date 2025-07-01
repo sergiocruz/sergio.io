@@ -94,7 +94,7 @@ test.describe('Featured Work Page', () => {
 
     // Check resume link
     const resumeLink = page.getByRole('link', { name: 'View Speaker Bio' });
-    await expect(resumeLink).toHaveAttribute('href', '/resume');
+    await expect(resumeLink).toHaveAttribute('href', '/about');
   });
 
   test('page content is accessible', async ({ page }) => {
