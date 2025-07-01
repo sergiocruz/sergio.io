@@ -43,11 +43,9 @@ test.describe('About Page', () => {
     // Locate the specific section
     const journeySection = page.locator('section', { hasText: 'Professional Journey' });
 
-    const directorContainer = page
-      .locator('div.p-6')
-      .filter({
-        has: page.getByRole('heading', { name: 'Director of Software Engineering', level: 3 }),
-      });
+    const directorContainer = page.locator('div.p-6').filter({
+      has: page.getByRole('heading', { name: 'Director of Software Engineering', level: 3 }),
+    });
 
     await expect(directorContainer.getByText('Ramsey Solutions').first()).toBeVisible();
   });
