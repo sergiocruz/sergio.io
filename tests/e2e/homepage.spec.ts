@@ -51,7 +51,7 @@ test.describe('Homepage', () => {
     await page.goto('/');
     
     // Test navigation to blog page
-    await page.getByRole('link', { name: 'Blog' }).click();
+    await page.locator('nav').getByRole('link', { name: 'Blog' }).click();
     await expect(page).toHaveURL('/blog');
     await expect(page.getByRole('heading', { name: 'Blog' })).toBeVisible();
   });
@@ -83,6 +83,6 @@ test.describe('Homepage', () => {
     
     // Mobile menu should now be visible
     const mobileMenu = page.locator('.mobile-menu');
-    await expect(mobileMenu).not.toHaveClass(/hidden/);
+    await expect(mobileMenu).not.toHaveClass('hidden');
   });
 });

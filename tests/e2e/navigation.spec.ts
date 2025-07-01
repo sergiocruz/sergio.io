@@ -5,22 +5,22 @@ test.describe('Site Navigation', () => {
     await page.goto('/');
     
     // Test Blog navigation
-    await page.getByRole('link', { name: 'Blog' }).click();
+    await page.locator('nav').getByRole('link', { name: 'Blog' }).click();
     await expect(page).toHaveURL('/blog');
     await expect(page.getByRole('heading', { name: 'Blog' })).toBeVisible();
     
     // Test About navigation
-    await page.getByRole('link', { name: 'About' }).click();
+    await page.locator('nav').getByRole('link', { name: 'About' }).click();
     await expect(page).toHaveURL('/about');
     await expect(page.getByRole('heading', { name: 'About Me' })).toBeVisible();
     
     // Test Featured Work navigation
-    await page.getByRole('link', { name: 'Featured Work' }).click();
+    await page.locator('nav').getByRole('link', { name: 'Featured Work' }).click();
     await expect(page).toHaveURL('/featured-work');
     await expect(page.getByRole('heading', { name: 'Featured Work' })).toBeVisible();
     
     // Test Resume navigation
-    await page.getByRole('link', { name: 'Resume' }).click();
+    await page.locator('nav').getByRole('link', { name: 'Resume' }).click();
     await expect(page).toHaveURL('/resume');
     await expect(page.getByRole('heading', { name: 'Resume' })).toBeVisible();
   });
@@ -70,8 +70,8 @@ test.describe('Site Navigation', () => {
     
     // Check social media links
     const twitterLink = page.locator('footer a[href*="twitter.com"], footer a[href*="x.com"]');
-    const githubLink = page.locator('footer a[href*="github.com"]');
-    const linkedinLink = page.locator('footer a[href*="linkedin.com"]');
+    const githubLink = page.locator('footer').getByRole('link', { name: 'GitHub' });
+    const linkedinLink = page.locator('footer').getByRole('link', { name: 'LinkedIn' });
     
     await expect(twitterLink).toBeVisible();
     await expect(githubLink).toBeVisible();
@@ -96,7 +96,7 @@ test.describe('Site Navigation', () => {
     await mobileMenuButton.click();
     
     // Mobile menu should now be visible
-    await expect(mobileMenu).not.toHaveClass(/hidden/);
+    await expect(mobileMenu).not.toHaveClass('hidden');
     
     // Test mobile navigation links
     const mobileBlogLink = mobileMenu.getByRole('link', { name: 'Blog' });
@@ -121,14 +121,14 @@ test.describe('Site Navigation', () => {
     await page.goto('/');
     
     // Navigation should be visible on homepage
-    await expect(page.getByRole('link', { name: 'Blog' })).toBeVisible();
+    await expect(page.locator('nav').getByRole('link', { name: 'Blog' })).toBeVisible();
     
     // Navigate to different page
     await page.goto('/about');
     
     // Navigation should still be visible
-    await expect(page.getByRole('link', { name: 'Blog' })).toBeVisible();
-    await expect(page.getByRole('link', { name: 'Featured Work' })).toBeVisible();
+    await expect(page.locator('nav').getByRole('link', { name: 'Blog' })).toBeVisible();
+    await expect(page.locator('nav').getByRole('link', { name: 'Featured Work' })).toBeVisible();
   });
 
   test('sticky navigation works on scroll', async ({ page }) => {
