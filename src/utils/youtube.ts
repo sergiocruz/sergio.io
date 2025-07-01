@@ -13,20 +13,20 @@ import sizeOf from 'image-size';
  */
 export function getYouTubeVideoId(url: string): string | null {
   if (!url) return null;
-  
+
   try {
     const urlObj = new URL(url);
-    
+
     // Handle youtu.be format
     if (urlObj.hostname === 'youtu.be') {
       return urlObj.pathname.slice(1); // Remove leading slash
     }
-    
+
     // Handle youtube.com format
     if (urlObj.hostname.includes('youtube.com')) {
       return urlObj.searchParams.get('v');
     }
-    
+
     return null;
   } catch (error) {
     console.warn('Invalid YouTube URL:', url);
@@ -40,7 +40,7 @@ export function getYouTubeVideoId(url: string): string | null {
  */
 export function getYouTubeThumbnailUrl(videoId: string): string {
   if (!videoId) return '';
-  
+
   // Use maxresdefault for highest quality (1280x720)
   return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 }
@@ -51,7 +51,7 @@ export function getYouTubeThumbnailUrl(videoId: string): string {
  */
 export function getYouTubeThumbnailFallbackUrl(videoId: string): string {
   if (!videoId) return '';
-  
+
   return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
 }
 
@@ -80,7 +80,11 @@ export async function getValidatedYouTubeThumbnailUrl(videoUrl: string): Promise
 /**
  * Validate a thumbnail URL by fetching it and checking dimensions
  */
-async function validateThumbnail(url: string, expectedWidth: number, expectedHeight: number): Promise<boolean> {
+async function validateThumbnail(
+  url: string,
+  expectedWidth: number,
+  expectedHeight: number
+): Promise<boolean> {
   try {
     const response = await fetch(url);
     if (!response.ok) return false;

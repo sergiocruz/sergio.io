@@ -115,9 +115,7 @@
       "start_date": "Feb 2014",
       "end_date": "Jul 2014",
       "duration": "6 mos",
-      "responsibilities": [
-        "Developed enterprise-grade travel software."
-      ],
+      "responsibilities": ["Developed enterprise-grade travel software."],
       "tech_stack": ["PHP", "Java", "Bootstrap", "Angular"],
       "skills": ["Agile Environment"]
     },
@@ -127,10 +125,7 @@
       "start_date": "Nov 2012",
       "end_date": "Feb 2014",
       "duration": "1 yr 4 mos",
-      "responsibilities": [
-        "First engineering hire for consumer product.",
-        "Built end-to-end gift-giving experience."
-      ],
+      "responsibilities": ["First engineering hire for consumer product.", "Built end-to-end gift-giving experience."],
       "tech_stack": ["AWS", "MVC PHP (Zend Framework)", "MySQL", "Angular", "Facebook API"],
       "skills": ["Agile Environment"]
     }

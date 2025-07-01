@@ -26,7 +26,7 @@ const featuredPublications = allPublications.filter(publication => publication.d
 const allFeaturedWork = [
   ...featuredCourses.map(item => ({ ...item, type: 'course' })),
   ...featuredVideos.map(item => ({ ...item, type: 'video' })),
-  ...featuredPublications.map(item => ({ ...item, type: 'publication' }))
+  ...featuredPublications.map(item => ({ ...item, type: 'publication' })),
 ]
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 3);
@@ -49,23 +49,24 @@ const getTypeInfo = (type: string, item: any) => {
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
         </svg>`,
         smallLabelText: item.data.platform,
-        gradient: 'from-blue-400 to-purple-600'
+        gradient: 'from-blue-400 to-purple-600',
       };
     case 'video':
       return {
-        largeIconSvg: item.data.type === 'Keynote' ? 
-          `<svg class="w-16 h-16 text-white opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        largeIconSvg:
+          item.data.type === 'Keynote'
+            ? `<svg class="w-16 h-16 text-white opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-          </svg>` : 
-          item.data.type === 'Workshop' ? 
-          `<svg class="w-16 h-16 text-white opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          </svg>`
+            : item.data.type === 'Workshop'
+              ? `<svg class="w-16 h-16 text-white opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-          </svg>` : 
-          `<svg class="w-16 h-16 text-white opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          </svg>`
+              : `<svg class="w-16 h-16 text-white opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
           </svg>`,
         smallLabelText: item.data.venue,
-        gradient: 'from-green to-blue-500'
+        gradient: 'from-green to-blue-500',
       };
     case 'publication':
       return {
@@ -73,7 +74,7 @@ const getTypeInfo = (type: string, item: any) => {
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
         </svg>`,
         smallLabelText: item.data.publisher,
-        gradient: 'from-orange-400 to-red-500'
+        gradient: 'from-orange-400 to-red-500',
       };
     default:
       return {
@@ -81,7 +82,7 @@ const getTypeInfo = (type: string, item: any) => {
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
         </svg>`,
         smallLabelText: 'Featured',
-        gradient: 'from-brand-subtle to-brand-accent'
+        gradient: 'from-brand-subtle to-brand-accent',
       };
   }
 };
@@ -89,60 +90,71 @@ const getTypeInfo = (type: string, item: any) => {
 
 <BaseLayout title={SITE.title}>
   <Navigation />
-  
+
   <main class="pt-16">
     <!-- Hero Section -->
     <section class="relative overflow-hidden bg-brand-light dark:bg-brand-dark">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-48">
+      <div class="mx-auto max-w-6xl px-4 py-32 sm:px-6 md:py-48 lg:px-8">
         <div class="text-center">
           <div class="animate-fade-in">
             <!-- Avatar positioned above name -->
             <div class="mb-8">
-              <img 
+              <img
                 src="https://media.licdn.com/dms/image/v2/D4E03AQGMlGY1wb7kJg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1731368552829?e=1755734400&v=beta&t=qjZIbhWg8PC-P0dnDByjNJ2KEVuV0pUhU3Z7iZHgelU"
                 alt="Sergio Cruz"
-                class="w-24 h-24 mx-auto rounded-full object-cover shadow-xl ring-4 ring-brand-accent/20"
+                class="mx-auto h-24 w-24 rounded-full object-cover shadow-xl ring-4 ring-brand-accent/20"
               />
             </div>
-            
+
             <!-- Name Block with accent underline -->
             <div class="mb-6">
-              <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-semibold text-brand-primary dark:text-brand-light tracking-tight">
+              <h1
+                class="font-serif text-4xl font-semibold tracking-tight text-brand-primary dark:text-brand-light sm:text-5xl lg:text-6xl"
+              >
                 Sergio Cruz
               </h1>
-              <div class="border-b-2 border-brand-accent w-16 mx-auto mt-4"></div>
+              <div class="mx-auto mt-4 w-16 border-b-2 border-brand-accent"></div>
             </div>
-            
+
             <!-- Title Pills -->
-            <div class="flex flex-wrap justify-center gap-3 mb-8">
-              <span class="px-4 py-2 bg-brand-accent/20 text-brand-primary dark:text-brand-light rounded-full text-lg font-medium font-sans">
+            <div class="mb-8 flex flex-wrap justify-center gap-3">
+              <span
+                class="rounded-full bg-brand-accent/20 px-4 py-2 font-sans text-lg font-medium text-brand-primary dark:text-brand-light"
+              >
                 Senior Engineering Leader
               </span>
-              <span class="px-4 py-2 bg-brand-accent/20 text-brand-primary dark:text-brand-light rounded-full text-lg font-medium font-sans">
+              <span
+                class="rounded-full bg-brand-accent/20 px-4 py-2 font-sans text-lg font-medium text-brand-primary dark:text-brand-light"
+              >
                 Product Strategy
               </span>
-              <span class="px-4 py-2 bg-accent-warm/20 text-brand-primary dark:text-brand-light rounded-full text-lg font-medium font-sans">
+              <span
+                class="rounded-full bg-accent-warm/20 px-4 py-2 font-sans text-lg font-medium text-brand-primary dark:text-brand-light"
+              >
                 Scaled Teams & Systems
               </span>
             </div>
-            
+
             <!-- 1-sentence positioning -->
-            <p class="text-lg sm:text-xl text-brand-subtle dark:text-brand-light mb-10 max-w-3xl mx-auto font-sans leading-relaxed">
-              I help engineering teams deliver real product outcomes—and teach others how to do the same.
+            <p
+              class="mx-auto mb-10 max-w-3xl font-sans text-lg leading-relaxed text-brand-subtle dark:text-brand-light sm:text-xl"
+            >
+              I help engineering teams deliver real product outcomes—and teach others how to do the
+              same.
             </p>
-            
+
             <!-- Primary CTA buttons - Enhanced with better hover states -->
-            <div class="flex flex-row gap-3 justify-center mx-auto">
-              <a 
-                href="/blog" 
-                class="inline-flex items-center justify-center px-4 sm:px-8 py-3 border border-transparent text-sm sm:text-base font-medium rounded-md text-white bg-brand-accent hover:bg-accent-bronze focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent transition-colors duration-200 font-sans"
+            <div class="mx-auto flex flex-row justify-center gap-3">
+              <a
+                href="/blog"
+                class="inline-flex items-center justify-center rounded-md border border-transparent bg-brand-accent px-4 py-3 font-sans text-sm font-medium text-white transition-colors duration-200 hover:bg-accent-bronze focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2 sm:px-8 sm:text-base"
                 aria-label="Read my articles about engineering leadership and product strategy"
               >
                 Read My Articles
               </a>
-              <a 
-                href="/talks-and-publications" 
-                class="inline-flex items-center justify-center px-4 sm:px-8 py-3 border border-brand-subtle text-sm sm:text-base font-medium rounded-md text-brand-primary dark:text-brand-light bg-transparent hover:bg-brand-accent hover:text-white hover:border-brand-accent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent transition-colors duration-200 font-sans"
+              <a
+                href="/talks-and-publications"
+                class="inline-flex items-center justify-center rounded-md border border-brand-subtle bg-transparent px-4 py-3 font-sans text-sm font-medium text-brand-primary transition-colors duration-200 hover:border-brand-accent hover:bg-brand-accent hover:text-white focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2 dark:text-brand-light sm:px-8 sm:text-base"
                 aria-label="View my talks, publications, and professional work"
               >
                 View My Work
@@ -151,69 +163,142 @@ const getTypeInfo = (type: string, item: any) => {
           </div>
         </div>
       </div>
-      
+
       <!-- Background decoration -->
       <div class="absolute inset-0 -z-10 overflow-hidden">
-        <svg class="absolute left-[max(50%,25rem)] top-0 h-[64rem] w-[128rem] -translate-x-1/2 stroke-brand-subtle/30 [mask-image:radial-gradient(64rem_64rem_at_top,white,transparent)]" aria-hidden="true">
+        <svg
+          class="absolute left-[max(50%,25rem)] top-0 h-[64rem] w-[128rem] -translate-x-1/2 stroke-brand-subtle/30 [mask-image:radial-gradient(64rem_64rem_at_top,white,transparent)]"
+          aria-hidden="true"
+        >
           <defs>
-            <pattern id="e813992c-7d03-4cc4-a2bd-151760b470a0" width="200" height="200" x="50%" y="-1" patternUnits="userSpaceOnUse">
-              <path d="M100 200V.5M.5 .5H200" fill="none" />
+            <pattern
+              id="e813992c-7d03-4cc4-a2bd-151760b470a0"
+              width="200"
+              height="200"
+              x="50%"
+              y="-1"
+              patternUnits="userSpaceOnUse"
+            >
+              <path d="M100 200V.5M.5 .5H200" fill="none"></path>
             </pattern>
           </defs>
-          <rect width="100%" height="100%" stroke-width="0" fill="url(#e813992c-7d03-4cc4-a2bd-151760b470a0)" />
+          <rect
+            width="100%"
+            height="100%"
+            stroke-width="0"
+            fill="url(#e813992c-7d03-4cc4-a2bd-151760b470a0)"></rect>
         </svg>
       </div>
     </section>
 
     <!-- What I Do - 3 Column Summary -->
-    <section class="py-16 bg-white dark:bg-brand-primary">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl sm:text-4xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-4 tracking-tight">
+    <section class="bg-white py-16 dark:bg-brand-primary">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="mb-12 text-center">
+          <h2
+            class="mb-4 font-serif text-3xl font-semibold tracking-tight text-brand-primary dark:text-brand-light sm:text-4xl"
+          >
             What I Do
           </h2>
-          <p class="text-lg text-brand-subtle dark:text-gray-300 max-w-2xl mx-auto font-sans">
+          <p class="mx-auto max-w-2xl font-sans text-lg text-brand-subtle dark:text-gray-300">
             Three core areas where I focus my energy and expertise to drive meaningful impact.
           </p>
         </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
           <!-- Engineering Leadership -->
-          <div class="text-center p-6 bg-brand-light dark:bg-brand-dark rounded-lg shadow-sm hover:shadow-md transition-shadow border border-brand-subtle/20">
-            <div class="w-16 h-16 mx-auto mb-6 bg-brand-accent/20 rounded-lg flex items-center justify-center">
-              <svg class="w-8 h-8 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+          <div
+            class="rounded-lg border border-brand-subtle/20 bg-brand-light p-6 text-center shadow-sm transition-shadow hover:shadow-md dark:bg-brand-dark"
+          >
+            <div
+              class="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-lg bg-brand-accent/20"
+            >
+              <svg
+                class="h-8 w-8 text-brand-accent"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                ></path>
               </svg>
             </div>
-            <h3 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-4">🧭 Engineering Leadership</h3>
-            <p class="text-brand-subtle dark:text-gray-300 font-sans">
-              I've led high-performing teams from startup scale to enterprise, growing engineers and EMs alike.
+            <h3
+              class="mb-4 font-serif text-xl font-semibold text-brand-primary dark:text-brand-light"
+            >
+              🧭 Engineering Leadership
+            </h3>
+            <p class="font-sans text-brand-subtle dark:text-gray-300">
+              I've led high-performing teams from startup scale to enterprise, growing engineers and
+              EMs alike.
             </p>
           </div>
-          
+
           <!-- Product Collaboration -->
-          <div class="text-center p-6 bg-brand-light dark:bg-brand-dark rounded-lg shadow-sm hover:shadow-md transition-shadow border border-brand-subtle/20">
-            <div class="w-16 h-16 mx-auto mb-6 bg-brand-accent/20 rounded-lg flex items-center justify-center">
-              <svg class="w-8 h-8 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364-.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+          <div
+            class="rounded-lg border border-brand-subtle/20 bg-brand-light p-6 text-center shadow-sm transition-shadow hover:shadow-md dark:bg-brand-dark"
+          >
+            <div
+              class="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-lg bg-brand-accent/20"
+            >
+              <svg
+                class="h-8 w-8 text-brand-accent"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9.663 17h4.673M12 3v1m6.364-.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                ></path>
               </svg>
             </div>
-            <h3 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-4">🧪 Product Strategy</h3>
-            <p class="text-brand-subtle dark:text-gray-300 font-sans">
-              I bridge product and engineering to ship meaningful outcomes—especially when stakes are high.
+            <h3
+              class="mb-4 font-serif text-xl font-semibold text-brand-primary dark:text-brand-light"
+            >
+              🧪 Product Strategy
+            </h3>
+            <p class="font-sans text-brand-subtle dark:text-gray-300">
+              I bridge product and engineering to ship meaningful outcomes—especially when stakes
+              are high.
             </p>
           </div>
-          
+
           <!-- Scaled Teams & Systems -->
-          <div class="text-center p-6 bg-brand-light dark:bg-brand-dark rounded-lg shadow-sm hover:shadow-md transition-shadow border border-brand-subtle/20">
-            <div class="w-16 h-16 mx-auto mb-6 bg-brand-accent/20 rounded-lg flex items-center justify-center">
-              <svg class="w-8 h-8 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+          <div
+            class="rounded-lg border border-brand-subtle/20 bg-brand-light p-6 text-center shadow-sm transition-shadow hover:shadow-md dark:bg-brand-dark"
+          >
+            <div
+              class="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-lg bg-brand-accent/20"
+            >
+              <svg
+                class="h-8 w-8 text-brand-accent"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                ></path>
               </svg>
             </div>
-            <h3 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-4">📊 Scaled Teams & Systems</h3>
-            <p class="text-brand-subtle dark:text-gray-300 font-sans">
-              I architect systems and processes that enable teams to scale efficiently while maintaining quality.
+            <h3
+              class="mb-4 font-serif text-xl font-semibold text-brand-primary dark:text-brand-light"
+            >
+              📊 Scaled Teams & Systems
+            </h3>
+            <p class="font-sans text-brand-subtle dark:text-gray-300">
+              I architect systems and processes that enable teams to scale efficiently while
+              maintaining quality.
             </p>
           </div>
         </div>
@@ -221,61 +306,83 @@ const getTypeInfo = (type: string, item: any) => {
     </section>
 
     <!-- Featured Work -->
-    <section class="py-16 bg-brand-light dark:bg-brand-dark">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h3 class="text-3xl sm:text-4xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-4 tracking-tight">
+    <section class="bg-brand-light py-16 dark:bg-brand-dark">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="mb-12 text-center">
+          <h3
+            class="mb-4 font-serif text-3xl font-semibold tracking-tight text-brand-primary dark:text-brand-light sm:text-4xl"
+          >
             Featured Work
           </h3>
-          <p class="text-lg text-brand-subtle dark:text-gray-300 max-w-2xl mx-auto font-sans">
+          <p class="mx-auto max-w-2xl font-sans text-lg text-brand-subtle dark:text-gray-300">
             Highlights from my courses, talks, and contributions to the engineering community.
           </p>
         </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {allFeaturedWork.map((item) => {
-            const typeInfo = getTypeInfo(item.type, item);
-            const linkText = item.type === 'course' ? 'View Course →' : 
-                           item.type === 'video' ? 'Watch Video →' : 
-                           'Read Article →';
-            const linkUrl = item.type === 'course' ? item.data.link :
-                          item.type === 'video' ? (item.data.link || '#') :
-                          item.data.link;
-            
-            return (
-              <div class="bg-white dark:bg-brand-primary rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-brand-subtle/20">
-                <div class={`h-48 bg-gradient-to-br ${typeInfo.gradient} flex items-center justify-center`}>
-                  <div set:html={typeInfo.largeIconSvg}></div>
-                </div>
-                <div class="p-6">
-                  <div class="flex items-center mb-3">
-                    <span class="bg-brand-link/10 text-brand-link px-3 py-1 rounded-full text-sm font-medium font-sans">
-                      {typeInfo.smallLabelText}
-                    </span>
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {
+            allFeaturedWork.map(item => {
+              const typeInfo = getTypeInfo(item.type, item);
+              const linkText =
+                item.type === 'course'
+                  ? 'View Course →'
+                  : item.type === 'video'
+                    ? 'Watch Video →'
+                    : 'Read Article →';
+              const linkUrl =
+                item.type === 'course'
+                  ? item.data.link
+                  : item.type === 'video'
+                    ? item.data.link || '#'
+                    : item.data.link;
+
+              return (
+                <div class="overflow-hidden rounded-lg border border-brand-subtle/20 bg-white transition-shadow duration-300 hover:shadow-lg dark:bg-brand-primary">
+                  <div
+                    class={`h-48 bg-gradient-to-br ${typeInfo.gradient} flex items-center justify-center`}
+                  >
+                    <div set:html={typeInfo.largeIconSvg} />
                   </div>
-                  <h4 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-3">
-                    {item.data.title}
-                  </h4>
-                  <p class="text-brand-subtle dark:text-gray-300 mb-4 font-sans">
-                    {item.data.description}
-                  </p>
-                  <a href={linkUrl} target="_blank" rel="noopener noreferrer" class="text-brand-link hover:text-accent-blue font-medium font-sans">
-                    {linkText}
-                  </a>
+                  <div class="p-6">
+                    <div class="mb-3 flex items-center">
+                      <span class="rounded-full bg-brand-link/10 px-3 py-1 font-sans text-sm font-medium text-brand-link">
+                        {typeInfo.smallLabelText}
+                      </span>
+                    </div>
+                    <h4 class="mb-3 font-serif text-xl font-semibold text-brand-primary dark:text-brand-light">
+                      {item.data.title}
+                    </h4>
+                    <p class="mb-4 font-sans text-brand-subtle dark:text-gray-300">
+                      {item.data.description}
+                    </p>
+                    <a
+                      href={linkUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="font-sans font-medium text-brand-link hover:text-accent-blue"
+                    >
+                      {linkText}
+                    </a>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })
+          }
         </div>
-        
-        {allFeaturedWork.length === 0 && (
-          <div class="text-center text-gray-500 dark:text-gray-400">
-            <p>No featured work available at the moment.</p>
-          </div>
-        )}
-        
-        <div class="text-center mt-10">
-          <a href="/featured-work" class="inline-flex items-center px-6 py-3 border border-brand-subtle text-base font-medium rounded-md text-brand-primary dark:text-brand-light bg-transparent hover:bg-brand-subtle/10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent transition-colors font-sans">
+
+        {
+          allFeaturedWork.length === 0 && (
+            <div class="text-center text-gray-500 dark:text-gray-400">
+              <p>No featured work available at the moment.</p>
+            </div>
+          )
+        }
+
+        <div class="mt-10 text-center">
+          <a
+            href="/featured-work"
+            class="inline-flex items-center rounded-md border border-brand-subtle bg-transparent px-6 py-3 font-sans text-base font-medium text-brand-primary transition-colors hover:bg-brand-subtle/10 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2 dark:text-brand-light"
+          >
             View All Featured Work →
           </a>
         </div>
@@ -283,46 +390,54 @@ const getTypeInfo = (type: string, item: any) => {
     </section>
 
     <!-- Recent Writing -->
-    <section class="py-16 bg-white dark:bg-brand-primary">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h3 class="text-3xl sm:text-4xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-4 tracking-tight">
+    <section class="bg-white py-16 dark:bg-brand-primary">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="mb-12 text-center">
+          <h3
+            class="mb-4 font-serif text-3xl font-semibold tracking-tight text-brand-primary dark:text-brand-light sm:text-4xl"
+          >
             Recent Writing
           </h3>
-          <p class="text-lg text-brand-subtle dark:text-gray-300 max-w-2xl mx-auto font-sans">
+          <p class="mx-auto max-w-2xl font-sans text-lg text-brand-subtle dark:text-gray-300">
             Latest thoughts on engineering leadership, product strategy, and building great teams.
           </p>
         </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-
-          {recentPosts.map((post) => (
-            <article class="bg-brand-light dark:bg-brand-dark rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden border border-brand-subtle/20">
-              <div class="p-6">
-                <div class="flex items-center text-sm text-brand-subtle-light dark:text-gray-400 mb-3 font-sans">
-                  <time datetime={post.data.date.toISOString()}>
-                    {formatDate(post.data.date)}
-                  </time>
-                </div>
-                <h4 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-3">
-                  <a href={`/blog/${post.slug}`} class="hover:text-brand-link transition-colors">
-                    {post.data.title}
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {
+            recentPosts.map(post => (
+              <article class="overflow-hidden rounded-lg border border-brand-subtle/20 bg-brand-light shadow-sm transition-shadow duration-300 hover:shadow-md dark:bg-brand-dark">
+                <div class="p-6">
+                  <div class="mb-3 flex items-center font-sans text-sm text-brand-subtle-light dark:text-gray-400">
+                    <time datetime={post.data.date.toISOString()}>
+                      {formatDate(post.data.date)}
+                    </time>
+                  </div>
+                  <h4 class="mb-3 font-serif text-xl font-semibold text-brand-primary dark:text-brand-light">
+                    <a href={`/blog/${post.slug}`} class="transition-colors hover:text-brand-link">
+                      {post.data.title}
+                    </a>
+                  </h4>
+                  <p class="mb-4 font-sans text-brand-subtle dark:text-gray-300">
+                    {post.data.description}
+                  </p>
+                  <a
+                    href={`/blog/${post.slug}`}
+                    class="font-sans font-medium text-brand-link hover:text-accent-blue"
+                  >
+                    Read More →
                   </a>
-                </h4>
-                <p class="text-brand-subtle dark:text-gray-300 mb-4 font-sans">
-                  {post.data.description}
-                </p>
-                <a href={`/blog/${post.slug}`} class="text-brand-link hover:text-accent-blue font-medium font-sans">
-                  Read More →
-                </a>
-              </div>
-            </article>
-          ))}
+                </div>
+              </article>
+            ))
+          }
         </div>
-        
-        <div class="text-center mt-10">
-          <a href="/blog" class="inline-flex items-center px-6 py-3 border border-brand-subtle text-base font-medium rounded-md text-brand-primary dark:text-brand-light bg-transparent hover:bg-brand-subtle/10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent transition-colors font-sans">
+
+        <div class="mt-10 text-center">
+          <a
+            href="/blog"
+            class="inline-flex items-center rounded-md border border-brand-subtle bg-transparent px-6 py-3 font-sans text-base font-medium text-brand-primary transition-colors hover:bg-brand-subtle/10 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2 dark:text-brand-light"
+          >
             View All Articles
           </a>
         </div>
@@ -330,37 +445,39 @@ const getTypeInfo = (type: string, item: any) => {
     </section>
 
     <!-- Trusted By / Logos -->
-    <section class="py-12 bg-brand-light dark:bg-brand-dark">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-8">
-          <h3 class="text-2xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-4">
+    <section class="bg-brand-light py-12 dark:bg-brand-dark">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="mb-8 text-center">
+          <h3
+            class="mb-4 font-serif text-2xl font-semibold text-brand-primary dark:text-brand-light"
+          >
             Trusted By
           </h3>
-          <p class="text-brand-subtle dark:text-gray-300 font-sans">
+          <p class="font-sans text-brand-subtle dark:text-gray-300">
             Companies, platforms, and conferences I've worked with
           </p>
         </div>
-        
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-60">
+
+        <div class="grid grid-cols-2 items-center gap-8 opacity-60 md:grid-cols-4">
           <!-- Company/Platform logos would go here -->
           <div class="text-center">
-            <div class="h-12 bg-brand-subtle/20 rounded flex items-center justify-center">
-              <span class="text-brand-subtle font-semibold font-sans">Ramsey Solutions</span>
+            <div class="flex h-12 items-center justify-center rounded bg-brand-subtle/20">
+              <span class="font-sans font-semibold text-brand-subtle">Ramsey Solutions</span>
             </div>
           </div>
           <div class="text-center">
-            <div class="h-12 bg-brand-subtle/20 rounded flex items-center justify-center">
-              <span class="text-brand-subtle font-semibold font-sans">Pluralsight</span>
+            <div class="flex h-12 items-center justify-center rounded bg-brand-subtle/20">
+              <span class="font-sans font-semibold text-brand-subtle">Pluralsight</span>
             </div>
           </div>
           <div class="text-center">
-            <div class="h-12 bg-brand-subtle/20 rounded flex items-center justify-center">
-              <span class="text-brand-subtle font-semibold font-sans">ng-conf</span>
+            <div class="flex h-12 items-center justify-center rounded bg-brand-subtle/20">
+              <span class="font-sans font-semibold text-brand-subtle">ng-conf</span>
             </div>
           </div>
           <div class="text-center">
-            <div class="h-12 bg-brand-subtle/20 rounded flex items-center justify-center">
-              <span class="text-brand-subtle font-semibold font-sans">O'Reilly</span>
+            <div class="flex h-12 items-center justify-center rounded bg-brand-subtle/20">
+              <span class="font-sans font-semibold text-brand-subtle">O'Reilly</span>
             </div>
           </div>
         </div>
@@ -368,20 +485,22 @@ const getTypeInfo = (type: string, item: any) => {
     </section>
 
     <!-- Short About + CTA -->
-    <section class="py-16 bg-brand-primary text-brand-light">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h3 class="text-3xl font-serif font-semibold mb-6">
-          Ready to Learn More?
-        </h3>
-        <p class="text-xl text-gray-300 mb-6 max-w-2xl mx-auto font-sans">
-          I'm a builder, coach, and lifelong learner. From startup scrappiness to scaled systems, I've helped teams level up how they work and what they ship.
+    <section class="bg-brand-primary py-16 text-brand-light">
+      <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+        <h3 class="mb-6 font-serif text-3xl font-semibold">Ready to Learn More?</h3>
+        <p class="mx-auto mb-6 max-w-2xl font-sans text-xl text-gray-300">
+          I'm a builder, coach, and lifelong learner. From startup scrappiness to scaled systems,
+          I've helped teams level up how they work and what they ship.
         </p>
-        <a href="/about" class="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-brand-primary bg-brand-light hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent transition-colors font-sans">
+        <a
+          href="/about"
+          class="inline-flex items-center rounded-md border border-transparent bg-brand-light px-8 py-3 font-sans text-base font-medium text-brand-primary transition-colors hover:bg-white focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2"
+        >
           Learn More About Me →
         </a>
       </div>
     </section>
   </main>
-  
+
   <Footer />
 </BaseLayout>

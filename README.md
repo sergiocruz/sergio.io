@@ -1,15 +1,19 @@
 # sergio.io
 
-Personal website and blog for Sergio Cruz, Senior Engineering Leader. Built with Astro, React, TypeScript, and Tailwind CSS.
+Personal website and blog for Sergio Cruz, Senior Engineering Leader. Built with
+Astro, React, TypeScript, and Tailwind CSS.
 
 🌐 **Live Site**: [https://sergio.io/](https://sergio.io/)
 
 ## 🛠️ Tech Stack
 
-- **Framework**: [Astro](https://astro.build/) - Static site generator with component islands
+- **Framework**: [Astro](https://astro.build/) - Static site generator with
+  component islands
 - **UI Library**: [React](https://reactjs.org/) - For interactive components
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
-- **Language**: [TypeScript](https://www.typescriptlang.org/) - Type-safe JavaScript
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS
+  framework
+- **Language**: [TypeScript](https://www.typescriptlang.org/) - Type-safe
+  JavaScript
 - **Testing**: [Playwright](https://playwright.dev/) - End-to-end testing
 - **Deployment**: GitHub Pages via GitHub Actions
 - **Content**: Markdown-based content collections
@@ -18,23 +22,26 @@ Personal website and blog for Sergio Cruz, Senior Engineering Leader. Built with
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm or yarn
 
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/sergiocruz/sergio.io.git
    cd sergio.io
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Start development server**
+
    ```bash
    npm run dev
    ```
@@ -48,15 +55,15 @@ Personal website and blog for Sergio Cruz, Senior Engineering Leader. Built with
 
 ### Available Scripts
 
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start development server with hot reload |
-| `npm run start` | Alias for `npm run dev` |
-| `npm run build` | Build for production |
-| `npm run preview` | Preview production build locally |
-| `npm run test` | Run all Playwright tests |
-| `npm run test:headed` | Run tests with browser UI visible |
-| `npm run test:ui` | Run tests in interactive UI mode |
+| Command               | Description                              |
+| --------------------- | ---------------------------------------- |
+| `npm run dev`         | Start development server with hot reload |
+| `npm run start`       | Alias for `npm run dev`                  |
+| `npm run build`       | Build for production                     |
+| `npm run preview`     | Preview production build locally         |
+| `npm run test`        | Run all Playwright tests                 |
+| `npm run test:headed` | Run tests with browser UI visible        |
+| `npm run test:ui`     | Run tests in interactive UI mode         |
 
 ### Development Workflow
 
@@ -105,12 +112,12 @@ Create a new `.md` file in `src/content/blog/`:
 
 ```markdown
 ---
-title: "Your Post Title"
-description: "Brief description of the post"
+title: 'Your Post Title'
+description: 'Brief description of the post'
 date: 2025-01-20
-tags: ["tag1", "tag2"]
-readingTime: "5 min read"
-slug: "your-post-slug"
+tags: ['tag1', 'tag2']
+readingTime: '5 min read'
+slug: 'your-post-slug'
 ---
 
 # Your content here
@@ -131,6 +138,7 @@ Each content type has its own schema defined in `src/content.config.ts`.
 This project uses a design system built with Tailwind CSS:
 
 #### Brand Colors
+
 - `brand-light`: Light background (#F6F5F4)
 - `brand-dark`: Dark background (#121212)
 - `brand-primary`: Primary text (#2A2A2A)
@@ -138,11 +146,13 @@ This project uses a design system built with Tailwind CSS:
 - `brand-link`: Link color (#4D6EA8)
 
 #### Typography
+
 - **Headings**: Playfair Display (serif)
 - **Body**: Inter (sans-serif)
 - **Code**: System monospace
 
 #### Best Practices
+
 - Use semantic HTML elements
 - Ensure proper color contrast ratios
 - Follow responsive design principles
@@ -166,6 +176,7 @@ npm run test:ui
 ### Test Coverage
 
 The test suite covers:
+
 - **Homepage**: Navigation, hero section, theme toggle
 - **Blog**: Post listing, individual posts, sharing
 - **About**: Profile sections, timeline, statistics
@@ -182,13 +193,16 @@ import { test, expect } from '@playwright/test';
 
 test('homepage loads correctly', async ({ page }) => {
   await page.goto('/');
-  await expect(page.getByRole('heading', { name: 'Sergio Cruz' })).toBeVisible();
+  await expect(
+    page.getByRole('heading', { name: 'Sergio Cruz' })
+  ).toBeVisible();
 });
 ```
 
 ### Cross-Browser Testing
 
 Tests run on:
+
 - **Desktop**: Chrome, Firefox, Safari
 - **Mobile**: Chrome (Pixel 5), Safari (iPhone 12)
 
@@ -201,6 +215,7 @@ npm run build
 ```
 
 This creates a `dist/` directory with:
+
 - Optimized HTML, CSS, and JavaScript
 - Compressed images and assets
 - Static files ready for deployment
@@ -216,6 +231,7 @@ Serves the production build locally at `http://localhost:4321`.
 ### Build Optimization
 
 The build process automatically:
+
 - Minifies CSS and JavaScript
 - Optimizes images
 - Generates sitemap
@@ -229,6 +245,7 @@ The build process automatically:
 The site automatically deploys to GitHub Pages when you:
 
 1. **Push to main branch**
+
    ```bash
    git push origin main
    ```
@@ -258,11 +275,13 @@ You can also trigger deployment manually:
 To use a custom domain:
 
 1. Add a `CNAME` file to the `public/` directory:
+
    ```
    yourdomain.com
    ```
 
 2. Configure DNS records with your domain provider:
+
    ```
    CNAME www yourusername.github.io
    ```
@@ -292,6 +311,7 @@ To use a custom domain:
 ### Commit Convention
 
 Use conventional commits:
+
 - `feat:` New features
 - `fix:` Bug fixes
 - `docs:` Documentation changes
@@ -314,6 +334,7 @@ The project uses these configuration files:
 ### Site Configuration
 
 Edit `src/config/site.ts` to update:
+
 - Site title and description
 - Navigation menu items
 - Social media links
@@ -322,6 +343,7 @@ Edit `src/config/site.ts` to update:
 ### Content Collections
 
 Content types are defined in `src/content.config.ts`:
+
 - Blog posts schema
 - Course information
 - Video/speaking content
@@ -332,6 +354,7 @@ Content types are defined in `src/content.config.ts`:
 ### Lighthouse Scores
 
 The site aims for:
+
 - **Performance**: 95+
 - **Accessibility**: 95+
 - **Best Practices**: 95+
@@ -351,6 +374,7 @@ The site aims for:
 ### Common Issues
 
 **Development server won't start**
+
 ```bash
 # Clear node_modules and reinstall
 rm -rf node_modules package-lock.json
@@ -358,6 +382,7 @@ npm install
 ```
 
 **Tests failing locally**
+
 ```bash
 # Ensure the preview server is running
 npm run build
@@ -367,12 +392,14 @@ npm test
 ```
 
 **Build errors**
+
 ```bash
 # Check TypeScript errors
 npx tsc --noEmit
 ```
 
 **Styling issues**
+
 ```bash
 # Rebuild Tailwind CSS
 npm run build
@@ -386,7 +413,8 @@ npm run build
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
+for details.
 
 ---
 

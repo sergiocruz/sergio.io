@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss';
 
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
@@ -14,7 +14,7 @@ export default {
         'brand-subtle-light': '#9CA3AF',
         'brand-link': '#4D6EA8',
         'brand-code': '#36313D',
-        
+
         primary: {
           50: '#f0f7ff',
           100: '#e0efff',
@@ -28,11 +28,11 @@ export default {
           900: '#0d3a72',
           950: '#08254e',
         },
-        
+
         'accent-bronze': '#8C735B',
         'accent-blue': '#4D6EA8',
         'accent-warm': '#B8A082',
-        
+
         green: '#10b981',
         pink: '#ec4899',
         yellow: '#f59e0b',
@@ -53,7 +53,7 @@ export default {
         teal: {
           400: '#2dd4bf',
         },
-        
+
         // Transparent overlay colors for video backgrounds
         'primary-400-overlay': 'rgba(54, 165, 255, 0.75)',
         'primary-500-overlay': 'rgba(12, 135, 240, 0.75)',
@@ -89,4 +89,4 @@ export default {
     },
   },
   plugins: [],
-} satisfies Config
+} satisfies Config;

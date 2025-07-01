@@ -13,9 +13,18 @@ const formatDate = (dateString: string) => {
   // Parse "Month Year" format
   const [month, year] = dateString.split(' ');
   const monthNames = {
-    'Jan': 'Jan', 'Feb': 'Feb', 'Mar': 'Mar', 'Apr': 'Apr',
-    'May': 'May', 'Jun': 'Jun', 'Jul': 'Jul', 'Aug': 'Aug',
-    'Sep': 'Sep', 'Oct': 'Oct', 'Nov': 'Nov', 'Dec': 'Dec'
+    Jan: 'Jan',
+    Feb: 'Feb',
+    Mar: 'Mar',
+    Apr: 'Apr',
+    May: 'May',
+    Jun: 'Jun',
+    Jul: 'Jul',
+    Aug: 'Aug',
+    Sep: 'Sep',
+    Oct: 'Oct',
+    Nov: 'Nov',
+    Dec: 'Dec',
   };
   return `${monthNames[month]} ${year}`;
 };
@@ -31,7 +40,10 @@ const formatDateYearsOnly = (dateString: string) => {
 };
 
 // Helper to get overall date range for a company
-const getCompanyDateRange = (company: typeof resumeData.experience[0], yearOnlyMode: boolean = false) => {
+const getCompanyDateRange = (
+  company: (typeof resumeData.experience)[0],
+  yearOnlyMode: boolean = false
+) => {
   let firstStartDate: Date | null = null;
   let lastEndDate: Date | null = null;
 
@@ -57,57 +69,91 @@ const getCompanyDateRange = (company: typeof resumeData.experience[0], yearOnlyM
 
   if (yearOnlyMode) {
     const firstYear = firstStartDate.getFullYear().toString();
-    const lastYear = lastEndDate.getFullYear() === new Date().getFullYear() && lastEndDate.getMonth() === new Date().getMonth() ? 'Present' : lastEndDate.getFullYear().toString();
+    const lastYear =
+      lastEndDate.getFullYear() === new Date().getFullYear() &&
+      lastEndDate.getMonth() === new Date().getMonth()
+        ? 'Present'
+        : lastEndDate.getFullYear().toString();
     return `${firstYear} - ${lastYear}`;
   } else {
-    const formattedFirstStartDate = formatDate(firstStartDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' }).replace(',', ''));
-    const formattedLastEndDate = lastEndDate.getFullYear() === new Date().getFullYear() && lastEndDate.getMonth() === new Date().getMonth() ? 'Present' : formatDate(lastEndDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' }).replace(',', ''));
+    const formattedFirstStartDate = formatDate(
+      firstStartDate
+        .toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
+        .replace(',', '')
+    );
+    const formattedLastEndDate =
+      lastEndDate.getFullYear() === new Date().getFullYear() &&
+      lastEndDate.getMonth() === new Date().getMonth()
+        ? 'Present'
+        : formatDate(
+            lastEndDate
+              .toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
+              .replace(',', '')
+          );
     return `${formattedFirstStartDate} - ${formattedLastEndDate}`;
   }
-
 };
 
 // Community accomplishments (additional data not in LinkedIn JSON)
 const accomplishments = [
   {
-    "name": "Orlando Devs, Inc.",
-    "position": "President",
-    "when": "2016 - 2018",
-    "description": "Nonprofit focused on improving the quality of life of Software Professionals in Central Florida. The organization accompanies a community of over 3,000 members who actively engage both in person and online.",
-    "url": "https://orlandodevs.com/"
+    name: 'Orlando Devs, Inc.',
+    position: 'President',
+    when: '2016 - 2018',
+    description:
+      'Nonprofit focused on improving the quality of life of Software Professionals in Central Florida. The organization accompanies a community of over 3,000 members who actively engage both in person and online.',
+    url: 'https://orlandodevs.com/',
   },
   {
-    "name": "OrlandoJS",
-    "position": "Co-organizer",
-    "when": "2015 - 2018",
-    "description": "Tech meetup in Orlando that covers all things JavaScript and meets on a monthly basis.",
-    "url": "https://meetup.com/OrlandoJS/"
-  }
+    name: 'OrlandoJS',
+    position: 'Co-organizer',
+    when: '2015 - 2018',
+    description:
+      'Tech meetup in Orlando that covers all things JavaScript and meets on a monthly basis.',
+    url: 'https://meetup.com/OrlandoJS/',
+  },
 ];
-
 ---
 
-<BaseLayout title={`Resume - ${SITE.author}`} description={`Professional resume and experience of ${SITE.author}, Senior Engineering Leader with over 12 years of experience.`}>
+<BaseLayout
+  title={`Resume - ${SITE.author}`}
+  description={`Professional resume and experience of ${SITE.author}, Senior Engineering Leader with over 12 years of experience.`}
+>
   <Navigation />
-  
+
   <main class="pt-16">
     <!-- Hero Section -->
-    <section class="bg-brand-light dark:bg-brand-dark py-24">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-4xl sm:text-5xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-6">
+    <section class="bg-brand-light py-24 dark:bg-brand-dark">
+      <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+        <h1
+          class="mb-6 font-serif text-4xl font-semibold text-brand-primary dark:text-brand-light sm:text-5xl"
+        >
           Resume
         </h1>
-        <p class="text-xl text-brand-subtle dark:text-gray-300 max-w-2xl mx-auto mb-8">
-          Senior engineering leader with experience scaling teams, shaping product strategy, and delivering reliable systems.
+        <p class="mx-auto mb-8 max-w-2xl text-xl text-brand-subtle dark:text-gray-300">
+          Senior engineering leader with experience scaling teams, shaping product strategy, and
+          delivering reliable systems.
         </p>
-        <div class="flex flex-row gap-3 sm:gap-4 justify-center">
-          <a href="/downloads/cruzresume.pdf" target="_blank" class="inline-flex items-center px-4 sm:px-6 py-3 border border-transparent text-sm sm:text-base font-medium rounded-md text-white bg-brand-accent hover:bg-accent-bronze focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent transition-colors">
-            <svg class="mr-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        <div class="flex flex-row justify-center gap-3 sm:gap-4">
+          <a
+            href="/downloads/cruzresume.pdf"
+            target="_blank"
+            class="inline-flex items-center rounded-md border border-transparent bg-brand-accent px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-accent-bronze focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2 sm:px-6 sm:text-base"
+          >
+            <svg class="mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              ></path>
             </svg>
             Download PDF
           </a>
-          <a href="mailto:hi@sergio.io" class="inline-flex items-center px-4 sm:px-6 py-3 border border-gray-300 dark:border-gray-600 text-sm sm:text-base font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent transition-colors">
+          <a
+            href="mailto:hi@sergio.io"
+            class="inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700 sm:px-6 sm:text-base"
+          >
             Contact Me
           </a>
         </div>
@@ -115,72 +161,106 @@ const accomplishments = [
     </section>
 
     <!-- Experience -->
-    <section class="bg-white dark:bg-brand-primary py-16">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-8">Professional Experience</h2>
-        
-        <div class="space-y-10">
-          {resumeData.experience.map((company, index) => (
-            <div class:list={{
-              'border-l-4': true,
-              'pl-6': true,
-              'relative': true,
-              'border-gray-300': true,
-              'older-experience': index >= 3,
-              'transition-all': true,
-              'duration-300': true,
-              'ease-in-out': true
-            }}>
-              <div class="mb-4">
-                <h3 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light">{company.company}</h3>
-                <p class="text-brand-accent dark:text-brand-accent font-semibold mb-1">{company.location}</p>
-                <span class="text-sm text-gray-500 dark:text-gray-400">{getCompanyDateRange(company, index >= 2)}</span>
-              </div>
+    <section class="bg-white py-16 dark:bg-brand-primary">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <h2 class="mb-8 font-serif text-2xl font-semibold text-brand-primary dark:text-brand-light">
+          Professional Experience
+        </h2>
 
-              {company.roles ? (
-                // Multiple roles for this company
-                <div class="space-y-6">
-                  {company.roles.map(role => (
-                    <div class="ml-4 border-l-2 border-gray-200 pl-4">
-                      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                        <h4 class="text-lg font-serif font-semibold text-brand-primary dark:text-brand-light">{role.title}</h4>
-                        <span class="text-sm text-gray-500 dark:text-gray-400">{index >= 2 ? `${formatDateYearsOnly(role.start_date)} - ${formatDateYearsOnly(role.end_date)}` : `${formatDate(role.start_date)} - ${formatDate(role.end_date)}`}</span>
+        <div class="space-y-10">
+          {
+            resumeData.experience.map((company, index) => (
+              <div
+                class:list={{
+                  'border-l-4': true,
+                  'pl-6': true,
+                  relative: true,
+                  'border-gray-300': true,
+                  'older-experience': index >= 3,
+                  'transition-all': true,
+                  'duration-300': true,
+                  'ease-in-out': true,
+                }}
+              >
+                <div class="mb-4">
+                  <h3 class="font-serif text-xl font-semibold text-brand-primary dark:text-brand-light">
+                    {company.company}
+                  </h3>
+                  <p class="mb-1 font-semibold text-brand-accent dark:text-brand-accent">
+                    {company.location}
+                  </p>
+                  <span class="text-sm text-gray-500 dark:text-gray-400">
+                    {getCompanyDateRange(company, index >= 2)}
+                  </span>
+                </div>
+
+                {company.roles ? (
+                  // Multiple roles for this company
+                  <div class="space-y-6">
+                    {company.roles.map(role => (
+                      <div class="ml-4 border-l-2 border-gray-200 pl-4">
+                        <div class="mb-2 flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                          <h4 class="font-serif text-lg font-semibold text-brand-primary dark:text-brand-light">
+                            {role.title}
+                          </h4>
+                          <span class="text-sm text-gray-500 dark:text-gray-400">
+                            {index >= 2
+                              ? `${formatDateYearsOnly(role.start_date)} - ${formatDateYearsOnly(role.end_date)}`
+                              : `${formatDate(role.start_date)} - ${formatDate(role.end_date)}`}
+                          </span>
+                        </div>
+                        <ul class="mb-4 space-y-2 text-brand-subtle dark:text-gray-300">
+                          {role.responsibilities.map(responsibility => (
+                            <li>• {responsibility}</li>
+                          ))}
+                        </ul>
                       </div>
-                      <ul class="text-brand-subtle dark:text-gray-300 space-y-2 mb-4">
-                        {role.responsibilities.map(responsibility => (
-                          <li>• {responsibility}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                // Single role for this company
-                <div>
-                  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                    <h4 class="text-lg font-serif font-semibold text-brand-primary dark:text-brand-light">{company.title}</h4>
-                    <span class="text-sm text-gray-500 dark:text-gray-400">{index >= 2 ? `${formatDateYearsOnly(company.start_date)} - ${formatDateYearsOnly(company.end_date)}` : `${formatDate(company.start_date)} - ${formatDate(company.end_date)}`}</span>
-                  </div>
-                  <ul class="text-brand-subtle dark:text-gray-300 space-y-2 mb-4">
-                    {company.responsibilities.map(responsibility => (
-                      <li>• {responsibility}</li>
                     ))}
-                  </ul>
-                </div>
-              )}
-            </div>
-          ))}
+                  </div>
+                ) : (
+                  // Single role for this company
+                  <div>
+                    <div class="mb-2 flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                      <h4 class="font-serif text-lg font-semibold text-brand-primary dark:text-brand-light">
+                        {company.title}
+                      </h4>
+                      <span class="text-sm text-gray-500 dark:text-gray-400">
+                        {index >= 2
+                          ? `${formatDateYearsOnly(company.start_date)} - ${formatDateYearsOnly(company.end_date)}`
+                          : `${formatDate(company.start_date)} - ${formatDate(company.end_date)}`}
+                      </span>
+                    </div>
+                    <ul class="mb-4 space-y-2 text-brand-subtle dark:text-gray-300">
+                      {company.responsibilities.map(responsibility => (
+                        <li>• {responsibility}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            ))
+          }
         </div>
-        
+
         <!-- Show More/Less Button -->
-        <div class="text-center pt-8">
-          <button 
+        <div class="pt-8 text-center">
+          <button
             id="toggleOlderExperience"
-            class="inline-flex items-center px-6 py-3 border border-brand-subtle text-base font-medium rounded-md text-brand-primary dark:text-brand-light bg-transparent hover:bg-brand-subtle/10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent transition-colors"
+            class="inline-flex items-center rounded-md border border-brand-subtle bg-transparent px-6 py-3 text-base font-medium text-brand-primary transition-colors hover:bg-brand-subtle/10 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2 dark:text-brand-light"
           >
             <span id="toggleText">Show Earlier Experience</span>
-            <svg id="toggleIcon" class="ml-2 w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            <svg
+              id="toggleIcon"
+              class="ml-2 h-4 w-4 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"></path>
             </svg>
           </button>
         </div>
@@ -188,44 +268,61 @@ const accomplishments = [
     </section>
 
     <!-- Community Involvement & Leadership -->
-    <section class="bg-brand-light dark:bg-brand-dark py-16">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-8">Community Involvement & Leadership</h2>
-        
+    <section class="bg-brand-light py-16 dark:bg-brand-dark">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <h2 class="mb-8 font-serif text-2xl font-semibold text-brand-primary dark:text-brand-light">
+          Community Involvement & Leadership
+        </h2>
+
         <div class="space-y-6">
-          {accomplishments.map((accomplishment) => (
-            <div class="border-l-4 border-gray-300 pl-6">
-              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                <div class="flex items-center gap-2">
-                  <h3 class="text-lg font-serif font-semibold text-brand-primary dark:text-brand-light">{accomplishment.name}</h3>
-                  <span class="text-brand-accent dark:text-brand-accent font-medium">• {accomplishment.position}</span>
+          {
+            accomplishments.map(accomplishment => (
+              <div class="border-l-4 border-gray-300 pl-6">
+                <div class="mb-2 flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                  <div class="flex items-center gap-2">
+                    <h3 class="font-serif text-lg font-semibold text-brand-primary dark:text-brand-light">
+                      {accomplishment.name}
+                    </h3>
+                    <span class="font-medium text-brand-accent dark:text-brand-accent">
+                      • {accomplishment.position}
+                    </span>
+                  </div>
+                  <span class="text-sm text-gray-500 dark:text-gray-400">
+                    {accomplishment.when}
+                  </span>
                 </div>
-                <span class="text-sm text-gray-500 dark:text-gray-400">{accomplishment.when}</span>
+                <p class="mb-2 text-brand-subtle dark:text-gray-300">
+                  {accomplishment.description}
+                </p>
+                {accomplishment.url && (
+                  <a
+                    href={accomplishment.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-sm font-medium text-brand-link hover:text-accent-blue dark:text-brand-link dark:hover:text-accent-blue"
+                  >
+                    Visit Website →
+                  </a>
+                )}
               </div>
-              <p class="text-brand-subtle dark:text-gray-300 mb-2">{accomplishment.description}</p>
-              {accomplishment.url && (
-                <a href={accomplishment.url} target="_blank" rel="noopener noreferrer" class="text-brand-link dark:text-brand-link hover:text-accent-blue dark:hover:text-accent-blue text-sm font-medium">
-                  Visit Website →
-                </a>
-              )}
-            </div>
-          ))}
+            ))
+          }
         </div>
       </div>
     </section>
   </main>
-  
+
   <Footer />
-  
+
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const toggleButton = document.getElementById('toggleOlderExperience');
       const toggleText = document.getElementById('toggleText');
       const toggleIcon = document.getElementById('toggleIcon');
       const olderExperienceElements = document.querySelectorAll('.older-experience');
-      
+
       let isExpanded = false;
-      
+
       // Initially hide older experience
       olderExperienceElements.forEach(element => {
         element.style.maxHeight = '0';
@@ -234,10 +331,10 @@ const accomplishments = [
         element.style.marginTop = '0';
         element.style.marginBottom = '0';
       });
-      
-      toggleButton?.addEventListener('click', function() {
+
+      toggleButton?.addEventListener('click', function () {
         isExpanded = !isExpanded;
-        
+
         olderExperienceElements.forEach(element => {
           if (isExpanded) {
             // Show older experience
@@ -255,11 +352,11 @@ const accomplishments = [
             element.style.marginBottom = '0';
           }
         });
-        
+
         if (toggleText) {
           toggleText.textContent = isExpanded ? 'Show Less Experience' : 'Show Earlier Experience';
         }
-        
+
         if (toggleIcon) {
           if (isExpanded) {
             toggleIcon.style.transform = 'rotate(180deg)';
@@ -270,10 +367,13 @@ const accomplishments = [
       });
     });
   </script>
-  
+
   <style>
     .older-experience {
-      transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, margin 0.3s ease-in-out;
+      transition:
+        max-height 0.3s ease-in-out,
+        opacity 0.3s ease-in-out,
+        margin 0.3s ease-in-out;
     }
   </style>
 </BaseLayout>
