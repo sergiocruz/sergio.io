@@ -101,25 +101,25 @@ const getGradientClass = (index: number, type: string) => {
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           {featuredCourses.map((course, index) => (
-            <div class="bg-brand-light dark:bg-brand-dark rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-brand-subtle/20 h-full">
+            <div class="bg-brand-light dark:bg-brand-dark rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-brand-subtle/20">
               <div class={`h-48 bg-gradient-to-br ${getGradientClass(index, 'course')} flex items-center justify-center`}>
                 <svg class="w-16 h-16 text-white opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                 </svg>
               </div>
-              <div class="flex flex-col flex-grow p-6">
-                <div class="flex items-center">
+              <div class="p-6">
+                <div class="flex items-center mb-3">
                   <span class="bg-brand-link/10 text-brand-link px-3 py-1 rounded-full text-sm font-medium font-sans">
                     {course.data.icon} {course.data.platform}
                   </span>
                 </div>
-                <h3 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light mt-3">
+                <h3 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-3">
                   {course.data.title}
                 </h3>
-                <p class="text-brand-subtle dark:text-gray-300 my-4 font-sans">
+                <p class="text-brand-subtle dark:text-gray-300 mb-4 font-sans">
                   {course.data.description}
                 </p>
-                <a href={course.data.link} target="_blank" rel="noopener noreferrer" class="text-brand-link hover:text-accent-blue font-medium font-sans mt-auto">
+                <a href={course.data.link} target="_blank" rel="noopener noreferrer" class="text-brand-link hover:text-accent-blue font-medium font-sans">
                   View Course →
                 </a>
               </div>
@@ -144,7 +144,7 @@ const getGradientClass = (index: number, type: string) => {
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {videosWithThumbnails.map((video, index) => (
-            <div class="bg-white dark:bg-brand-primary rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-brand-subtle/20 h-full">
+            <div class="bg-white dark:bg-brand-primary rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-brand-subtle/20">
               <div 
                 class={`h-48 relative overflow-hidden bg-cover bg-center ${video.validatedThumbnailUrl ? '' : `bg-gradient-to-br ${getGradientClass(index, 'video')}`}`}
                 style={video.validatedThumbnailUrl ? `background-image: url(${video.validatedThumbnailUrl});` : ''}
@@ -171,8 +171,8 @@ const getGradientClass = (index: number, type: string) => {
                   )}
                 </div>
               </div>
-              <div class="flex flex-col flex-grow p-6">
-                <div class="flex items-center justify-between">
+              <div class="p-6">
+                <div class="flex items-center justify-between mb-4">
                   <span class="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full text-sm font-medium">
                     {video.data.type}
                   </span>
@@ -180,13 +180,13 @@ const getGradientClass = (index: number, type: string) => {
                     {formatDate(video.data.date)}
                   </span>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mt-4">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
                   {video.data.title}
                 </h3>
-                <p class="text-gray-600 dark:text-gray-300 my-4">
+                <p class="text-gray-600 dark:text-gray-300 mb-4">
                   {video.data.description}
                 </p>
-                <div class="flex items-center justify-between mt-auto">
+                <div class="flex items-center justify-between">
                   <span class="text-sm text-gray-500 dark:text-gray-400">{video.data.venue}</span>
                   {video.data.link && (
                     <a href={video.data.link} target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium">
@@ -216,10 +216,10 @@ const getGradientClass = (index: number, type: string) => {
         
         <div class="space-y-8">
           {allPublications.map((publication) => (
-            <div class="bg-brand-light dark:bg-brand-dark rounded-lg p-8 hover:shadow-lg transition-shadow duration-300 border border-brand-subtle/20 flex flex-col h-full">
-              <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between flex-grow">
+            <div class="bg-brand-light dark:bg-brand-dark rounded-lg p-8 hover:shadow-lg transition-shadow duration-300 border border-brand-subtle/20">
+              <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
                 <div class="flex-1">
-                  <div class="flex items-center">
+                  <div class="flex items-center mb-3">
                     <span class="bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full text-sm font-medium mr-3">
                       {publication.data.type}
                     </span>
@@ -228,19 +228,17 @@ const getGradientClass = (index: number, type: string) => {
                     </span>
                   </div>
                   <h3 class="text-xl font-bold text-brand-primary dark:text-brand-light mb-3">
-                  <h3 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light mt-3">
+                  <h3 class="text-xl font-serif font-semibold text-brand-primary dark:text-brand-light mb-3">
                     {publication.data.title}
                   </h3>
-                  <p class="text-brand-subtle dark:text-gray-300 my-4">
+                  <p class="text-brand-subtle dark:text-gray-300 mb-4">
                     {publication.data.description}
                   </p>
-                  <div class="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                  <div class="text-sm text-gray-500 dark:text-gray-400">
                     Published on {formatDate(publication.data.date)}
                   </div>
                 </div>
-              </div>
-              <div class="lg:ml-8 lg:flex-shrink-0 mt-auto">
-                <div class="lg:text-right">
+                <div class="lg:ml-8 lg:flex-shrink-0 mt-4 lg:mt-0">
                   <a href={publication.data.link} target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium">
                     {publication.data.type === 'Book Chapter' ? 'View Book' : publication.data.type === 'Tutorial Series' ? 'View Series' : 'Read Article'}
                     <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
