@@ -16,9 +16,12 @@ const featuredCourses = allCourses.filter(course => course.data.featured);
 const featuredVideos = allVideos.filter(video => video.data.featured);
 const featuredPublications = allPublications.filter(publication => publication.data.featured);
 
+// Sort videos by date descending (newest first)
+const sortedVideos = allVideos.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
 // Validate YouTube thumbnails at build time
 const videosWithThumbnails = await Promise.all(
-  allVideos.map(async video => {
+  sortedVideos.map(async video => {
     const thumbnailUrl = video.data.link
       ? await getValidatedYouTubeThumbnailUrl(video.data.link)
       : null;
