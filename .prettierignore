@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build outputs
+dist/
+.astro/
+
+# Generated files
+.env
+.env.local
+.env.production
+
+# Test outputs
+tests/output/
+playwright-report/
+test-results/
+
+# Cache directories
+.cache/
+.parcel-cache/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Static assets that shouldn't be formatted
+public/images/
+public/downloads/
+public/favicon*
+public/*.png
+public/*.jpg
+public/*.ico
+public/*.svg
+public/*.webp
+
+# Config files that should maintain specific formatting
+.github/
