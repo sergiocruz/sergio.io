@@ -46,3 +46,6 @@ public/*.webp
 
 # Config files that should maintain specific formatting
 .github/
+
+# Analytics Ignore
+src/components/Analytics.astro
