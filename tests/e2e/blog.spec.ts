@@ -33,8 +33,8 @@ test.describe('Blog', () => {
     // Check that the post content is visible
     await expect(page.locator('.prose')).toBeVisible();
     
-    // Check author information
-    await expect(page.getByText('Sergio Cruz')).toBeVisible();
+    // Check author information - be more specific to avoid the strict mode violation
+    await expect(page.getByText('By Sergio Cruz')).toBeVisible();
     
     // Check that code blocks are rendered
     const codeBlocks = page.locator('pre code');

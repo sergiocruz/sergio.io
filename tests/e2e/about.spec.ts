@@ -25,8 +25,8 @@ test.describe('About Page', () => {
   test('core expertise section displays three areas', async ({ page }) => {
     await page.goto('/about');
     
-    // Find the "What I Do Best" section first, then look for the three areas within it
-    const expertiseSection = page.getByRole('heading', { name: 'What I Do Best' }).locator('..');
+    // Find the section that contains the "What I Do Best" heading
+    const expertiseSection = page.locator('section').filter({ has: page.getByRole('heading', { name: 'What I Do Best' }) });
     
     await expect(expertiseSection.getByText('Engineering Leadership')).toBeVisible();
     await expect(expertiseSection.getByText('Product Strategy')).toBeVisible();
@@ -36,20 +36,17 @@ test.describe('About Page', () => {
   test('professional journey timeline is visible', async ({ page }) => {
     await page.goto('/about');
     
-    // Find the Professional Journey section first
-    const journeySection = page.getByRole('heading', { name: 'Professional Journey' }).locator('..');
+    // Find the section that contains the "Professional Journey" heading
+    const journeySection = page.locator('section').filter({ has: page.getByRole('heading', { name: 'Professional Journey' }) });
     
-    // Check current role - find the specific job title container, then check for company name within it
-    const seniorDirectorContainer = journeySection.getByText('Senior Director of Software Engineering').locator('..');
-    await expect(seniorDirectorContainer.getByText('Ramsey Solutions')).toBeVisible();
+    // Check current role - look for the timeline item containing this role
+    await expect(journeySection.locator('div.relative.pl-8').filter({ hasText: 'Senior Director of Software Engineering' }).getByText('Ramsey Solutions')).toBeVisible();
     
     // Check other roles within the journey section
-    const directorContainer = journeySection.getByText('Director of Software Engineering').locator('..');
-    await expect(directorContainer.getByText('Ramsey Solutions')).toBeVisible();
+    await expect(journeySection.locator('div.relative.pl-8').filter({ hasText: 'Director of Software Engineering' }).getByText('Ramsey Solutions')).toBeVisible();
     
     // Check Engineering Manager role at different company
-    const managerContainer = journeySection.getByText('Engineering Manager').locator('..');
-    await expect(managerContainer.getByText('Trazi Ventures')).toBeVisible();
+    await expect(journeySection.locator('div.relative.pl-8').filter({ hasText: 'Engineering Manager' }).getByText('Trazi Ventures')).toBeVisible();
   });
 
   test('leadership philosophy section is present', async ({ page }) => {
@@ -58,8 +55,8 @@ test.describe('About Page', () => {
     // Check leadership philosophy heading
     await expect(page.getByRole('heading', { name: 'My Leadership Philosophy' })).toBeVisible();
     
-    // Find the philosophy section and check the three points within it
-    const philosophySection = page.getByRole('heading', { name: 'My Leadership Philosophy' }).locator('..');
+    // Find the section that contains the "My Leadership Philosophy" heading
+    const philosophySection = page.locator('section').filter({ has: page.getByRole('heading', { name: 'My Leadership Philosophy' }) });
     
     await expect(philosophySection.getByText('Shared Ownership')).toBeVisible();
     await expect(philosophySection.getByText('Craft with Purpose')).toBeVisible();

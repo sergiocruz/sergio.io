@@ -94,9 +94,8 @@ test.describe('Featured Work Page', () => {
   test('page content is accessible', async ({ page }) => {
     await page.goto('/featured-work');
     
-    // Check that all main headings have proper hierarchy
-    const headings = page.locator('h1, h2, h3');
-    await expect(headings.first()).toBeVisible();
+    // Check the main heading specifically instead of relying on first() which can be ambiguous
+    await expect(page.getByRole('heading', { name: 'Featured Work', level: 1 })).toBeVisible();
     
     // Check that images have alt text (if any)
     const images = page.locator('img[src]');

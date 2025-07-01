@@ -39,8 +39,8 @@ test.describe('Homepage', () => {
   test('what I do section displays three main areas', async ({ page }) => {
     await page.goto('/');
     
-    // Find the "What I Do" section first, then look for the three areas within it
-    const whatIDoSection = page.getByRole('heading', { name: 'What I Do' }).locator('..');
+    // Find the section that contains the "What I Do" heading
+    const whatIDoSection = page.locator('section').filter({ has: page.getByRole('heading', { name: 'What I Do' }) });
     
     await expect(whatIDoSection.getByText('🧭 Engineering Leadership')).toBeVisible();
     await expect(whatIDoSection.getByText('🧪 Product Strategy')).toBeVisible();
