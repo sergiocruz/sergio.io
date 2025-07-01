@@ -39,14 +39,17 @@ test.describe('About Page', () => {
     // Find the section that contains the "Professional Journey" heading
     const journeySection = page.locator('section').filter({ has: page.getByRole('heading', { name: 'Professional Journey' }) });
     
-    // Check current role - look for the timeline item containing this role
-    await expect(journeySection.locator('div.relative.pl-8').filter({ hasText: 'Senior Director of Software Engineering' }).getByText('Ramsey Solutions')).toBeVisible();
+    // Check current role - be more specific by finding the exact heading first
+    const seniorDirectorContainer = journeySection.getByRole('heading', { name: 'Senior Director of Software Engineering', level: 3 }).locator('xpath=ancestor::div[contains(@class, "relative") and contains(@class, "pl-8")]');
+    await expect(seniorDirectorContainer.locator('p.text-brand-accent.dark\\:text-brand-accent.font-medium.mb-3', { hasText: 'Ramsey Solutions' })).toBeVisible();
     
-    // Check other roles within the journey section
-    await expect(journeySection.locator('div.relative.pl-8').filter({ hasText: 'Director of Software Engineering' }).getByText('Ramsey Solutions')).toBeVisible();
+    // Check Director role - use exact heading match to avoid confusion with Associate Director
+    const directorContainer = journeySection.getByRole('heading', { name: 'Director of Software Engineering', level: 3 }).locator('xpath=ancestor::div[contains(@class, "relative") and contains(@class, "pl-8")]');
+    await expect(directorContainer.locator('p.text-brand-accent.dark\\:text-brand-accent.font-medium.mb-3', { hasText: 'Ramsey Solutions' })).toBeVisible();
     
     // Check Engineering Manager role at different company
-    await expect(journeySection.locator('div.relative.pl-8').filter({ hasText: 'Engineering Manager' }).getByText('Trazi Ventures')).toBeVisible();
+    const engineeringManagerContainer = journeySection.getByRole('heading', { name: 'Engineering Manager', level: 3 }).locator('xpath=ancestor::div[contains(@class, "relative") and contains(@class, "pl-8")]');
+    await expect(engineeringManagerContainer.locator('p.text-brand-accent.dark\\:text-brand-accent.font-medium.mb-3', { hasText: 'Trazi Ventures' })).toBeVisible();
   });
 
   test('leadership philosophy section is present', async ({ page }) => {
