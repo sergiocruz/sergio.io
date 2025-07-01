@@ -50,6 +50,7 @@ const getTypeInfo = (type: string, item: any) => {
         </svg>`,
         smallLabelText: item.data.platform,
         gradient: 'from-blue-400 to-purple-600',
+        heroImage: item.data.heroImage,
       };
     case 'video':
       return {
@@ -339,9 +340,29 @@ const getTypeInfo = (type: string, item: any) => {
               return (
                 <div class="border-brand-subtle/20 dark:bg-brand-primary overflow-hidden rounded-lg border bg-white transition-shadow duration-300 hover:shadow-lg">
                   <div
-                    class={`h-48 bg-gradient-to-br ${typeInfo.gradient} flex items-center justify-center`}
+                    class={`relative h-48 overflow-hidden bg-cover bg-center ${
+                      item.type === 'course' && typeInfo.heroImage 
+                        ? '' 
+                        : `bg-gradient-to-br ${item.type === 'course' ? getGradientClass(index, 'course') : typeInfo.gradient}`
+                    } flex items-center justify-center`}
+                    style={
+                      item.type === 'course' && typeInfo.heroImage
+                        ? `background-image: url(${typeInfo.heroImage});`
+                        : ''
+                    }
                   >
-                    <div set:html={typeInfo.largeIconSvg} />
+                    {/* Gradient Overlay - only for courses with heroImage */}
+                    {item.type === 'course' && typeInfo.heroImage && (
+                      <div
+                        class={`absolute inset-0 bg-gradient-to-br ${getOverlayGradientClass(getGradientClass(index, 'course'))}`}
+                      />
+                    )}
+
+                    {/* SVG Icon */}
+                    <div 
+                      class={item.type === 'course' && typeInfo.heroImage ? 'relative z-10' : ''}
+                      set:html={typeInfo.largeIconSvg} 
+                    />
                   </div>
                   <div class="p-6">
                     <div class="mb-3 flex items-center">
