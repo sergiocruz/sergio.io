@@ -30,7 +30,7 @@ test.describe('Homepage', () => {
     // Check hero content
     await expect(
       page.getByText(
-        'I help engineering teams deliver real product outcomes—and teach others how to do the same.'
+        'I help engineering teams deliver real product outcomes and teach others how to do the same!'
       )
     ).toBeVisible();
 

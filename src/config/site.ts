@@ -35,7 +35,7 @@ export interface SiteConfig {
 export const SITE: SiteConfig = {
   title: 'Sergio Cruz - Senior Engineering Leader | Product Strategy | Scaled Teams & Systems',
   description:
-    'I help engineering teams deliver real product outcomes—and teach others how to do the same.',
+    'I help engineering teams deliver real product outcomes and teach others how to do the same.',
   author: 'Sergio Cruz',
   url: 'https://sergio.io',
 
