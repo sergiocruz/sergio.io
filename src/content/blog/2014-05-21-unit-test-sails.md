@@ -7,7 +7,7 @@ readingTime: "5 min read"
 slug: "unit-test-sailsjs-with-mocha-and-instanbul-for-code-coverage"
 ---
 
-# Unit testing JavaScript is easy they said. It only takes a few seconds they said.
+## Unit testing JavaScript is easy they said. It only takes a few seconds they said.
 
 *And they were right for the most part! Well, maybe seconds is an exaggeration but we can definitely achieve this with very few minutes*
 

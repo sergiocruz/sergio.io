@@ -13,12 +13,16 @@ test.describe('Homepage', () => {
 
   test('navigation links are present and visible', async ({ page }) => {
     await page.goto('/');
+
+    // Scope to the <nav> element
+    const nav = page.locator('nav');
+
     
     // Check main navigation links
-    await expect(page.getByRole('link', { name: 'Blog' })).toBeVisible();
-    await expect(page.getByRole('link', { name: 'About' })).toBeVisible();
-    await expect(page.getByRole('link', { name: 'Featured Work' })).toBeVisible();
-    await expect(page.getByRole('link', { name: 'Resume' })).toBeVisible();
+    await expect(nav.getByRole('link', { name: 'Blog' })).toBeVisible();
+    await expect(nav.getByRole('link', { name: 'About' })).toBeVisible();
+    await expect(nav.getByRole('link', { name: 'Featured Work' })).toBeVisible();
+    await expect(nav.getByRole('link', { name: 'Resume' })).toBeVisible();
   });
 
   test('hero section displays correct content', async ({ page }) => {

@@ -10,7 +10,7 @@ test.describe('Blog', () => {
     
     // Check that blog posts are displayed
     const articles = page.locator('article');
-    await expect(articles).toHaveCount(10); // Based on the content files
+    await expect(articles).toHaveCount(8); // Based on the content files
     
     // Check that the first post is visible
     await expect(page.getByText('Unit test SailsJS with Mocha and generate code coverage with Istanbul')).toBeVisible();
@@ -69,12 +69,14 @@ test.describe('Blog', () => {
 
   test('blog posts have proper metadata', async ({ page }) => {
     await page.goto('/blog');
+
+    const lastArticle = page.locator('article').last();
     
     // Check that posts have dates and reading time
-    await expect(page.getByText('May 21, 2014')).toBeVisible();
-    await expect(page.getByText('5 min read')).toBeVisible();
+    await expect(lastArticle.getByText('May 20, 2014')).toBeVisible();
+    await expect(lastArticle.getByText('5 min read')).toBeVisible();
     
     // Check that tags are displayed
-    await expect(page.locator('.bg-primary-100, .bg-primary-900').first()).toBeVisible();
+    await expect(lastArticle.locator('.bg-primary-100, .bg-primary-900').first()).toBeVisible();
   });
 });

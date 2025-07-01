@@ -7,7 +7,7 @@ readingTime: "5 min read"
 slug: "angularjs-how-to-generate-code-coverage-for-yeoman-scaffolded-apps"
 ---
 
-# Using Karma, Jasmine and PhantomJS to run tests on your AngularJS projects
+## Using Karma, Jasmine and PhantomJS to run tests on your AngularJS projects
 
 I shamefully admit that the first time I ever tested my frontend code was after I started using <a href="https://angularjs.org" target="_blank">AngularJS</a>. Before I had all kinds of excuses, however AngularJS was built with testing in mind and that definitely made a huge difference.
 
