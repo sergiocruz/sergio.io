@@ -1,0 +1,88 @@
+---
+import { getGradientClass } from '../utils/gradients.ts';
+import { getTypeInfo } from '../utils/content-helpers.ts';
+
+export interface Props {
+  item: any;
+  type: string;
+  index: number;
+  validatedThumbnailUrl?: string | null;
+}
+
+const { item, type, index, validatedThumbnailUrl } = Astro.props;
+
+const typeInfo = getTypeInfo(type, item);
+const linkText =
+  type === 'course'
+    ? 'View Course →'
+    : type === 'video'
+      ? 'Watch Video →'
+      : 'Read Article →';
+const linkUrl =
+  type === 'course'
+    ? item.data.link
+    : type === 'video'
+      ? item.data.link || '#'
+      : item.data.link;
+
+// Determine background style and overlay
+const hasHeroImage = type === 'course' && typeInfo.heroImage;
+const hasValidatedThumbnail = type === 'video' && validatedThumbnailUrl;
+const backgroundGradient = getGradientClass(index, type);
+const overlayGradient = hasValidatedThumbnail ? getGradientClass(index, 'video-overlay') : '';
+---
+
+<div class="border-brand-subtle/20 dark:bg-brand-primary overflow-hidden rounded-lg border bg-white transition-shadow duration-300 hover:shadow-lg">
+  <div
+    class={`relative h-48 overflow-hidden bg-cover bg-center ${
+      hasHeroImage || hasValidatedThumbnail 
+        ? '' 
+        : `bg-gradient-to-br ${backgroundGradient}`
+    } flex items-center justify-center`}
+    style={
+      hasHeroImage
+        ? `background-image: url(${typeInfo.heroImage});`
+        : hasValidatedThumbnail
+          ? `background-image: url(${validatedThumbnailUrl});`
+          : ''
+    }
+  >
+    <!-- Gradient Overlay - only for images -->
+    {(hasHeroImage || hasValidatedThumbnail) && (
+      <div
+        class={`absolute inset-0 ${
+          hasHeroImage 
+            ? `bg-gradient-to-br ${backgroundGradient} opacity-75`
+            : `bg-gradient-to-br ${overlayGradient}`
+        }`}
+      />
+    )}
+
+    <!-- SVG Icon -->
+    <div 
+      class={hasHeroImage || hasValidatedThumbnail ? 'relative z-10' : ''}
+      set:html={typeInfo.largeIconSvg} 
+    />
+  </div>
+  <div class="p-6">
+    <div class="mb-3 flex items-center">
+      <span class="bg-brand-link/10 text-brand-link rounded-full px-3 py-1 font-sans text-sm font-medium">
+        {typeInfo.smallLabelText}
+      </span>
+    </div>
+    <h4 class="text-brand-primary dark:text-brand-light mb-3 font-serif text-xl font-semibold">
+      {item.data.title}
+    </h4>
+    <p class="text-brand-subtle mb-4 font-sans dark:text-gray-300">
+      {item.data.description}
+    </p>
+    <a
+      href={linkUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-brand-link hover:text-accent-blue font-sans font-medium"
+    >
+      {linkText}
+    </a>
+  </div>
+</div>
