@@ -39,6 +39,9 @@
         "icon": {
           "type": "string"
         },
+        "heroImage": {
+          "type": "string"
+        },
         "$schema": {
           "type": "string"
         }
