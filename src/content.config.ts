@@ -26,6 +26,7 @@ const courses = defineCollection({
     link: z.string(),
     featured: z.boolean().default(false),
     icon: z.string().optional(),
+    heroImage: z.string().optional(),
   }),
 });
 
