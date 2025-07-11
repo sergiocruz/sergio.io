@@ -2,6 +2,7 @@
 import { SITE } from '../config/site.ts';
 import { getCollection } from 'astro:content';
 import { formatDate } from '../utils/content-helpers.ts';
+import { getValidatedYouTubeThumbnailUrl } from '../utils/youtube.ts';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
@@ -24,10 +25,23 @@ const featuredCourses = allCourses.filter(course => course.data.featured);
 const featuredVideos = allVideos.filter(video => video.data.featured);
 const featuredPublications = allPublications.filter(publication => publication.data.featured);
 
+// Validate YouTube thumbnails for featured videos
+const featuredVideosWithThumbnails = await Promise.all(
+  featuredVideos.map(async video => {
+    const thumbnailUrl = video.data.link
+      ? await getValidatedYouTubeThumbnailUrl(video.data.link)
+      : null;
+    return {
+      ...video,
+      validatedThumbnailUrl: thumbnailUrl,
+    };
+  })
+);
+
 // Combine all featured items and limit to 3 for homepage
 const allFeaturedWork = [
   ...featuredCourses.map(item => ({ ...item, type: 'course' })),
-  ...featuredVideos.map(item => ({ ...item, type: 'video' })),
+  ...featuredVideosWithThumbnails.map(item => ({ ...item, type: 'video' })),
   ...featuredPublications.map(item => ({ ...item, type: 'publication' })),
 ]
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
@@ -269,7 +283,14 @@ const allFeaturedWork = [
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {
             allFeaturedWork.map((item, index) => {
-              return <FeaturedWorkCard item={item} type={item.type} index={index} />;
+              return (
+                <FeaturedWorkCard 
+                  item={item} 
+                  type={item.type} 
+                  index={index} 
+                  validatedThumbnailUrl={item.type === 'video' ? item.validatedThumbnailUrl : undefined}
+                />
+              );
             })
           }
         </div>
