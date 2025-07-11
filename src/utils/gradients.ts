@@ -50,14 +50,14 @@ export const tailwindSafelistGradients = [
   'to-red-500',
   'from-teal-400',
   'to-blue-600',
-  
+
   // Video gradients
   'from-primary-400',
   'to-primary-600',
   'to-primary-500',
   'from-pink',
   'from-yellow',
-  
+
   // Video overlay gradients
   'from-primary-400-overlay',
   'to-primary-600-overlay',
@@ -65,7 +65,7 @@ export const tailwindSafelistGradients = [
   'to-primary-500-overlay',
   'from-pink-overlay',
   'from-yellow-overlay',
-  
+
   // Combined gradient classes
   'bg-gradient-to-br',
   'from-blue-400 to-purple-600',
