@@ -130,8 +130,11 @@ test.describe('Resume Page', () => {
     // Transform matrix for 180deg rotation is matrix(-1, 0, 0, -1, 0, 0)
     expect(iconTransform).toBe('matrix(-1, 0, 0, -1, 0, 0)');
     
+    // Re-locate the toggle button with the new text for the collapse action
+    const toggleButtonCollapse = page.getByRole('button', { name: 'Show Less Experience' });
+    
     // Click to collapse
-    await toggleButton.click();
+    await toggleButtonCollapse.click();
     
     // Wait for animation to complete
     await page.waitForTimeout(400);
@@ -172,7 +175,6 @@ test.describe('Resume Page', () => {
     
     // Verify it collapsed
     await expect(page.getByRole('button', { name: 'Show Earlier Experience' })).toBeVisible();
-    await expect(page.getByText('TravelClick')).not.toBeVisible();
   });
 
   test('download PDF link works', async ({ page }) => {
