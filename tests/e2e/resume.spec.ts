@@ -90,6 +90,99 @@ test.describe('Resume Page', () => {
     await expect(experienceSection.getByText('TravelClick')).toBeVisible();
   });
 
+  test('show/hide toggle functionality works completely', async ({ page }) => {
+    await page.goto('/resume');
+
+    const toggleButton = page.getByRole('button', { name: 'Show Earlier Experience' });
+    const toggleText = page.locator('#toggleText');
+    const toggleIcon = page.locator('#toggleIcon');
+    
+    // Initial state - older experience should be hidden
+    await expect(toggleButton).toBeVisible();
+    await expect(toggleText).toHaveText('Show Earlier Experience');
+    
+    // Check that older experience elements are initially hidden
+    const olderExperienceElements = page.locator('.older-experience');
+    const firstOlderElement = olderExperienceElements.first();
+    
+    // Verify initial hidden state
+    await expect(firstOlderElement).toHaveCSS('opacity', '0');
+    await expect(firstOlderElement).toHaveCSS('max-height', '0px');
+    
+    // Companies that should only be visible when expanded
+    await expect(page.getByText('TravelClick')).not.toBeVisible();
+    await expect(page.getByText('GIVTED')).not.toBeVisible();
+    
+    // Click to expand
+    await toggleButton.click();
+    
+    // Wait for animation to complete
+    await page.waitForTimeout(400); // Allow for 300ms transition + buffer
+    
+    // Check expanded state
+    await expect(toggleText).toHaveText('Show Less Experience');
+    await expect(firstOlderElement).toHaveCSS('opacity', '1');
+    
+    // Check that older companies are now visible
+    await expect(page.getByText('TravelClick')).toBeVisible();
+    await expect(page.getByText('GIVTED')).toBeVisible();
+    
+    // Check icon rotation (should be rotated 180deg when expanded)
+    const iconTransform = await toggleIcon.evaluate(el => 
+      window.getComputedStyle(el).transform
+    );
+    // Transform matrix for 180deg rotation is matrix(-1, 0, 0, -1, 0, 0)
+    expect(iconTransform).toBe('matrix(-1, 0, 0, -1, 0, 0)');
+    
+    // Click to collapse
+    await toggleButton.click();
+    
+    // Wait for animation to complete
+    await page.waitForTimeout(400);
+    
+    // Check collapsed state
+    await expect(toggleText).toHaveText('Show Earlier Experience');
+    await expect(firstOlderElement).toHaveCSS('opacity', '0');
+    await expect(firstOlderElement).toHaveCSS('max-height', '0px');
+    
+    // Check that older companies are hidden again
+    await expect(page.getByText('TravelClick')).not.toBeVisible();
+    await expect(page.getByText('GIVTED')).not.toBeVisible();
+    
+    // Check icon rotation (should be back to 0deg)
+    const iconTransformCollapsed = await toggleIcon.evaluate(el => 
+      window.getComputedStyle(el).transform
+    );
+    // Transform should be 'none' or 'matrix(1, 0, 0, 1, 0, 0)' for 0deg
+    expect(['none', 'matrix(1, 0, 0, 1, 0, 0)']).toContain(iconTransformCollapsed);
+  });
+
+  test('toggle functionality is accessible', async ({ page }) => {
+    await page.goto('/resume');
+
+    const toggleButton = page.getByRole('button', { name: 'Show Earlier Experience' });
+    
+    // Test keyboard accessibility
+    await toggleButton.focus();
+    await expect(toggleButton).toBeFocused();
+    
+    // Test keyboard activation (Enter key)
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(400);
+    
+    // Verify it expanded
+    await expect(page.getByRole('button', { name: 'Show Less Experience' })).toBeVisible();
+    await expect(page.getByText('TravelClick')).toBeVisible();
+    
+    // Test keyboard activation again (Space key)
+    await page.keyboard.press('Space');
+    await page.waitForTimeout(400);
+    
+    // Verify it collapsed
+    await expect(page.getByRole('button', { name: 'Show Earlier Experience' })).toBeVisible();
+    await expect(page.getByText('TravelClick')).not.toBeVisible();
+  });
+
   test('download PDF link works', async ({ page }) => {
     await page.goto('/resume');
 
