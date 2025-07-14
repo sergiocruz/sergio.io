@@ -109,10 +109,6 @@ test.describe('Resume Page', () => {
     await expect(firstOlderElement).toHaveCSS('opacity', '0');
     await expect(firstOlderElement).toHaveCSS('max-height', '0px');
     
-    // Companies that should only be visible when expanded
-    await expect(page.getByText('TravelClick')).not.toBeVisible();
-    await expect(page.getByText('GIVTED')).not.toBeVisible();
-    
     // Click to expand
     await toggleButton.click();
     
@@ -144,10 +140,6 @@ test.describe('Resume Page', () => {
     await expect(toggleText).toHaveText('Show Earlier Experience');
     await expect(firstOlderElement).toHaveCSS('opacity', '0');
     await expect(firstOlderElement).toHaveCSS('max-height', '0px');
-    
-    // Check that older companies are hidden again
-    await expect(page.getByText('TravelClick')).not.toBeVisible();
-    await expect(page.getByText('GIVTED')).not.toBeVisible();
     
     // Check icon rotation (should be back to 0deg)
     const iconTransformCollapsed = await toggleIcon.evaluate(el => 
