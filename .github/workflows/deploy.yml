@@ -129,8 +129,6 @@ jobs:
               exit 1
             fi
           fi
-          
-          echo "Cache purge validation completed successfully."
             echo "Cloudflare cache purged successfully!"
           else
             echo "Failed to purge Cloudflare cache."
