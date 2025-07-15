@@ -129,9 +129,3 @@ jobs:
               exit 1
             fi
           fi
-            echo "Cloudflare cache purged successfully!"
-          else
-            echo "Failed to purge Cloudflare cache."
-            echo "Error details: $response"
-            exit 1
-          fi
