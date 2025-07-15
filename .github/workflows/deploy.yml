@@ -60,3 +60,28 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  purge_cache:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Purge Cloudflare Cache
+        run: |
+          set -e
+          echo "Attempting to purge Cloudflare cache for zone ${{ secrets.CLOUDFLARE_ZONE_ID }}..."
+          
+          response=$(curl -s -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE_ID }}/purge_cache" \
+                       -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
+                       -H "Content-Type: application/json" \
+                       --data '{"purge_everything":true}')
+          
+          echo "Cloudflare API Response: $response"
+          
+          # Check if the API call was successful
+          if echo "$response" | grep -q '"success":true'; then
+            echo "Cloudflare cache purged successfully!"
+          else
+            echo "Failed to purge Cloudflare cache."
+            echo "Error details: $response"
+            exit 1
+          fi
