@@ -2,3 +2,25 @@
 
 @import 'tailwindcss';
 @custom-variant dark (&:where(.dark, .dark *));
+
+/* Prevent FOUC by ensuring smooth transitions only after page load */
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
+}
+
+/* Disable transitions during page load */
+.preload * {
+  transition: none !important;
+}
+
+/* Critical above-the-fold styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-brand-light text-brand-primary dark:bg-brand-dark dark:text-brand-light;
+    font-family: Inter, 'Helvetica Neue', Arial, sans-serif;
+  }
+}
