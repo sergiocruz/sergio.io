@@ -23,14 +23,23 @@ export default defineConfig({
         fontFaceInline: true,
         noscriptFallback: true,
 
-        inlineThreshold: 1024,
-        minimumExternalSize: 2048,
+        inlineThreshold: 2048,
+        minimumExternalSize: 1024,
 
         pruneSource: true,
         mergeStylesheets: true,
         keyframes: 'critical',
         compress: true,
         logLevel: 'info',
+        
+        // Additional options to improve critical CSS extraction
+        additionalStylesheets: [
+          'src/styles/globals.css'
+        ],
+        ignore: {
+          atrule: ['@font-face'],
+          rule: [/\.sr-only/]
+        }
       },
     }),
   ],
