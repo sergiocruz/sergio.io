@@ -6,7 +6,7 @@ platform: 'Pluralsight'
 link: 'https://www.pluralsight.com/courses/apis-explained'
 featured: true
 icon: '🔌'
-heroImage: '/images/courses/2025-09-apis-explained.jpg'
+heroImage: '/images/courses/2025-09-apis.jpg'
 ---
 
 A comprehensive introduction to Application Programming Interfaces (APIs) covering everything from basic concepts to practical implementation strategies.
