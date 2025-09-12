@@ -79,8 +79,7 @@ const videosWithThumbnails = await Promise.all(
         <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
           {
             sortedFeaturedCourses.map((course, index) => {
-              const courseItem = { ...course, data: { ...course.data, platform: `${course.data.icon} ${course.data.platform}` } };
-              return <FeaturedWorkCard item={courseItem} type="course" index={index} />;
+              return <FeaturedWorkCard item={course} type="course" index={index} />;
             })
           }
         </div>
