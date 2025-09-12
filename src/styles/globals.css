@@ -1,7 +1,6 @@
 @config "../../tailwind.config.ts";
 
 @import 'tailwindcss';
-@custom-variant dark (&:where(.dark, .dark *));
 
 /* Prevent FOUC by ensuring smooth transitions only after page load */
 .js-focus-visible :focus:not(.focus-visible) {

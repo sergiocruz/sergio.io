@@ -64,22 +64,6 @@ const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site);
       rel="stylesheet"
     />
 
-    <!-- Theme Script -->
-    <script is:inline>
-      // Immediately apply theme to prevent FOUC
-      (function() {
-        // Check system preference for dark mode
-        const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const root = document.documentElement;
-        
-        if (isDarkMode) {
-          root.classList.add('dark');
-        } else {
-          root.classList.remove('dark');
-        }
-      })();
-    </script>
-    
     <!-- Critical CSS for navigation -->
     <style>
       /* Critical styles for above-the-fold content */
@@ -89,14 +73,16 @@ const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site);
         transition: none !important;
       }
       
-      .dark body {
-        background-color: #121212;
-        color: #F6F5F4;
-      }
-      
       body {
         background-color: #F6F5F4;
         color: #2A2A2A;
+      }
+      
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: #121212;
+          color: #F6F5F4;
+        }
       }
       
       /* Navigation critical styles */
@@ -111,13 +97,15 @@ const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site);
         border-bottom: 1px solid rgba(107, 114, 128, 0.3);
       }
       
-      .dark nav {
-        background-color: rgba(18, 18, 18, 0.8);
-        border-bottom-color: rgba(107, 114, 128, 0.5);
-      }
-      
       nav {
         background-color: rgba(246, 245, 244, 0.8);
+      }
+      
+      @media (prefers-color-scheme: dark) {
+        nav {
+          background-color: rgba(18, 18, 18, 0.8);
+          border-bottom-color: rgba(107, 114, 128, 0.5);
+        }
       }
     </style>
 
