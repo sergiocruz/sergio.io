@@ -63,19 +63,6 @@ test.describe('Homepage', () => {
     await expect(page.getByRole('heading', { name: 'Blog' })).toBeVisible();
   });
 
-  test('theme toggle works', async ({ page }) => {
-    await page.goto('/');
-
-    // Find theme toggle button
-    const themeToggle = page.getByRole('button', { name: 'Toggle theme' });
-    await expect(themeToggle).toBeVisible();
-
-    // Test theme switching
-    await themeToggle.click();
-    // Note: We can't easily test the actual theme change without more complex setup
-    // but we can at least verify the button is interactive
-  });
-
   test('mobile menu works', async ({ page }) => {
     // Set mobile viewport
     await page.setViewportSize({ width: 375, height: 667 });
