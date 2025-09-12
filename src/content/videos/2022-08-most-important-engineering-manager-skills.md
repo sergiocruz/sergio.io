@@ -8,7 +8,7 @@ date: 2022-08-01
 type: 'Interview'
 venue: 'Exponent YouTube'
 link: 'https://youtu.be/5Qf5sOqRuLk'
-featured: true
+featured: false
 ---
 
 A focused discussion on the essential skills that separate effective engineering
