@@ -49,9 +49,9 @@ test.describe('Homepage', () => {
       .locator('section')
       .filter({ has: page.getByRole('heading', { name: 'What I Do' }) });
 
-    await expect(whatIDoSection.getByText('🧭 Engineering Leadership')).toBeVisible();
-    await expect(whatIDoSection.getByText('🧪 Product Strategy')).toBeVisible();
-    await expect(whatIDoSection.getByText('📊 Scaled Teams & Systems')).toBeVisible();
+    await expect(whatIDoSection.getByText('Engineering Leadership')).toBeVisible();
+    await expect(whatIDoSection.getByText('Product Strategy')).toBeVisible();
+    await expect(whatIDoSection.getByText('Scaled Teams & Systems')).toBeVisible();
   });
 
   test('navigation works correctly', async ({ page }) => {
