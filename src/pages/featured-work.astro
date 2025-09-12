@@ -15,6 +15,7 @@ const allPublications = await getCollection('publications');
 
 // Filter for featured content
 const featuredCourses = allCourses.filter(course => course.data.featured);
+const sortedFeaturedCourses = featuredCourses.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 const featuredVideos = allVideos.filter(video => video.data.featured);
 const featuredPublications = allPublications.filter(publication => publication.data.featured);
 
@@ -77,7 +78,7 @@ const videosWithThumbnails = await Promise.all(
 
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
           {
-            featuredCourses.map((course, index) => {
+            sortedFeaturedCourses.map((course, index) => {
               const courseItem = { ...course, data: { ...course.data, platform: `${course.data.icon} ${course.data.platform}` } };
               return <FeaturedWorkCard item={courseItem} type="course" index={index} />;
             })
