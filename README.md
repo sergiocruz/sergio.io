@@ -80,7 +80,6 @@ sergio.io/
 │   ├── components/          # React components
 │   │   ├── Navigation.astro # Main navigation
 │   │   ├── Footer.astro     # Site footer
-│   │   └── ThemeToggle.tsx  # Dark/light mode toggle
 │   ├── content/            # Content collections
 │   │   ├── blog/           # Blog posts (Markdown)
 │   │   ├── courses/        # Course content
