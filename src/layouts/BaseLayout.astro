@@ -68,48 +68,20 @@ const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site);
     <script is:inline>
       // Immediately apply theme to prevent FOUC
       (function() {
-        function getTheme() {
-          if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-            return localStorage.getItem('theme');
-          }
-          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            return 'dark';
-          }
-          return 'light';
-        }
-        
-        const theme = getTheme();
+        // Check system preference for dark mode
+        const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         const root = document.documentElement;
         
-        if (theme === 'dark') {
+        if (isDarkMode) {
           root.classList.add('dark');
         } else {
           root.classList.remove('dark');
         }
-        
-        // Set initial styles to prevent flash
-        root.style.visibility = 'visible';
-        
-        if (typeof localStorage !== 'undefined') {
-          localStorage.setItem('theme', theme);
-        }
       })();
     </script>
     
-    <!-- Critical CSS for initial render -->
+    <!-- Critical CSS for navigation -->
     <style>
-      html {
-        visibility: hidden;
-      }
-      
-      html.dark {
-        visibility: visible;
-      }
-      
-      html:not(.dark) {
-        visibility: visible;
-      }
-      
       /* Critical styles for above-the-fold content */
       body {
         margin: 0;
