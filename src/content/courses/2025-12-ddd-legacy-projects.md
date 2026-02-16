@@ -6,7 +6,7 @@ platform: 'Pluralsight'
 link: 'https://www.pluralsight.com/courses/domain-driven-design-working-legacy-projects'
 featured: true
 icon: '🏗️'
-heroImage: '/images/courses/2025-01-ddd-legacy.jpg'
+heroImage: '/images/courses/2025-12-ddd-for-legacy.png'
 ---
 
 A practical guide to applying Domain-Driven Design (DDD) principles when working with existing legacy systems, helping teams modernize complex codebases incrementally.
