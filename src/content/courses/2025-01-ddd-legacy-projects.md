@@ -1,7 +1,7 @@
 ---
 title: 'Domain-Driven Design: Working with Legacy Projects'
 description: 'Learn how to apply Domain-Driven Design principles to legacy codebases and gradually modernize complex systems while maintaining business continuity.'
-date: 2025-01-21
+date: 2025-12-16
 platform: 'Pluralsight'
 link: 'https://www.pluralsight.com/courses/domain-driven-design-working-legacy-projects'
 featured: true
