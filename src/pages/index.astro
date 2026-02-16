@@ -44,7 +44,12 @@ const allFeaturedWork = [
   ...featuredVideosWithThumbnails.map(item => ({ ...item, type: 'video' })),
   ...featuredPublications.map(item => ({ ...item, type: 'publication' })),
 ]
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .sort((a, b) => {
+    // Sort by date descending (newest first)
+    const dateA = new Date(a.data.date).valueOf();
+    const dateB = new Date(b.data.date).valueOf();
+    return dateB - dateA;
+  })
   .slice(0, 3);
 
 ---
