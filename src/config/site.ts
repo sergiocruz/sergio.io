@@ -55,6 +55,7 @@ export const SITE: SiteConfig = {
     { name: 'Blog', href: '/blog' },
     { name: 'Featured Work', href: '/featured-work' },
     { name: 'Resume', href: '/resume' },
+    { name: 'Contact', href: '/contact' },
   ],
 
   // Site branding

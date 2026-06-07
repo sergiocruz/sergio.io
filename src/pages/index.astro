@@ -121,8 +121,8 @@ const jsonLd = {
             <p
               class="text-brand-subtle dark:text-brand-light mx-auto mb-10 max-w-3xl font-sans text-lg leading-relaxed sm:text-xl"
             >
-              I turn technical systems, engineering teams, and AI-enabled practices into business
-              leverage.
+              I build engineering teams that create business leverage and teach others how to do the
+              same.
             </p>
 
             <!-- Primary CTA buttons - Enhanced with better hover states -->
@@ -131,15 +131,19 @@ const jsonLd = {
                 href="/about"
                 class="bg-brand-accent hover:bg-accent-bronze focus:ring-brand-accent inline-flex items-center justify-center rounded-md border border-transparent px-4 py-3 font-sans text-sm font-medium text-white transition-colors duration-200 focus:ring-2 focus:ring-offset-2 focus:outline-none sm:px-8 sm:text-base"
                 aria-label="Learn more about my background and experience"
+                data-ph-capture-true
+                data-ph-name="hero-about-cta"
               >
                 About Me
               </a>
               <a
-                href="/featured-work"
+                href="/contact"
                 class="border-brand-subtle text-brand-primary hover:border-brand-accent hover:bg-brand-accent focus:ring-brand-accent dark:text-brand-light inline-flex items-center justify-center rounded-md border bg-transparent px-4 py-3 font-sans text-sm font-medium transition-colors duration-200 hover:text-white focus:ring-2 focus:ring-offset-2 focus:outline-none sm:px-8 sm:text-base"
-                aria-label="View my courses, talks, and publications"
+                aria-label="Get in touch for opportunities or collaboration"
+                data-ph-capture-true
+                data-ph-name="hero-contact-cta"
               >
-                Courses & Talks
+                Get in Touch
               </a>
             </div>
           </div>
@@ -215,8 +219,9 @@ const jsonLd = {
               Business-Technical Integration
             </h3>
             <p class="text-brand-subtle font-sans dark:text-gray-300">
-              I find revenue leverage in technical work — surfacing business insights, identifying
-              mispriced programs, and turning data infrastructure into competitive advantages.
+              I look for the business story inside technical problems. One MySQL casting bug led to
+              a multimillion-dollar repricing opportunity because nobody had connected the data to
+              the revenue.
             </p>
           </div>
 
@@ -247,8 +252,9 @@ const jsonLd = {
               Engineering Org Leadership
             </h3>
             <p class="text-brand-subtle font-sans dark:text-gray-300">
-              Scaled teams from 2 to 15+ engineers. Built management layers, career growth tracks,
-              and contributed to AI tooling adoption across 150+ engineers.
+              I grew a team from 2 engineers to 15+ across multiple squads. Along the way I built
+              out the management layer, created career tracks that got adopted org-wide, and helped
+              drive AI tooling adoption across 150+ engineers.
             </p>
           </div>
 
@@ -279,8 +285,9 @@ const jsonLd = {
               Cross-Functional Strategy
             </h3>
             <p class="text-brand-subtle font-sans dark:text-gray-300">
-              I operate at the business table using EOS and OKRs, partnering across product,
-              marketing, and operations to tie engineering work to revenue outcomes.
+              Engineering doesn't sit in a silo on my teams. We use EOS and OKRs at the leadership
+              table, track business metrics alongside engineering output, and work directly with
+              product, marketing, and operations to connect what we build to revenue.
             </p>
           </div>
         </div>
@@ -330,6 +337,8 @@ const jsonLd = {
           <a
             href="/featured-work"
             class="border-brand-subtle text-brand-primary hover:bg-brand-subtle/10 focus:ring-brand-accent dark:text-brand-light inline-flex items-center rounded-md border bg-transparent px-6 py-3 font-sans text-base font-medium transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none"
+            data-ph-capture-true
+            data-ph-name="featured-work-view-all"
           >
             View All Featured Work →
           </a>
@@ -396,18 +405,31 @@ const jsonLd = {
     <section class="bg-brand-light dark:bg-brand-dark py-16">
       <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
         <h3 class="text-brand-primary dark:text-brand-light mb-6 font-serif text-3xl font-semibold">
-          Ready to Learn More?
+          Let's Connect
         </h3>
-        <p class="text-brand-subtle mx-auto mb-6 max-w-2xl font-sans text-xl dark:text-gray-300">
-          15+ years turning technical systems and engineering teams into business leverage. From
-          first technical hire at a startup to Senior Director at an enterprise with 150+ engineers.
+        <p class="text-brand-subtle mx-auto mb-8 max-w-2xl font-sans text-xl dark:text-gray-300">
+          Open to speaking engagements, mentoring, and collaboration.
         </p>
-        <a
-          href="/about"
-          class="bg-brand-accent hover:bg-accent-bronze focus:ring-brand-accent inline-flex items-center rounded-md border border-transparent px-8 py-3 font-sans text-base font-medium text-white transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none"
-        >
-          Learn More About Me →
-        </a>
+        <div class="flex flex-row justify-center gap-3">
+          <a
+            href="/contact"
+            class="bg-brand-accent hover:bg-accent-bronze focus:ring-brand-accent inline-flex items-center rounded-md border border-transparent px-8 py-3 font-sans text-base font-medium text-white transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none"
+            data-ph-capture-true
+            data-ph-name="bottom-contact-cta"
+          >
+            Get in Touch
+          </a>
+          <a
+            href="https://linkedin.com/in/sergiorlcruz"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="border-brand-subtle text-brand-primary hover:bg-brand-subtle/10 focus:ring-brand-accent dark:text-brand-light inline-flex items-center rounded-md border bg-transparent px-8 py-3 font-sans text-base font-medium transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none"
+            data-ph-capture-true
+            data-ph-name="bottom-linkedin-cta"
+          >
+            LinkedIn
+          </a>
+        </div>
       </div>
     </section>
   </main>
