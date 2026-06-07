@@ -76,7 +76,7 @@ const formatDate = (date: Date) => {
                   </div>
                   <h2 class="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
                     <a
-                      href={`/blog/${post.slug}`}
+                      href={`/blog/${post.id}`}
                       class="text-brand-primary dark:text-brand-light hover:text-brand-link transition-colors"
                     >
                       {post.data.title}
@@ -86,7 +86,7 @@ const formatDate = (date: Date) => {
                     {post.data.description}
                   </p>
                   <a
-                    href={`/blog/${post.slug}`}
+                    href={`/blog/${post.id}`}
                     class="text-brand-link dark:text-primary-400 hover:text-accent-blue dark:hover:text-primary-300 inline-flex items-center font-medium transition-colors"
                   >
                     Read full article

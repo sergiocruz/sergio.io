@@ -31,15 +31,11 @@ export default defineConfig({
         keyframes: 'critical',
         compress: true,
         logLevel: 'info',
-        
-        // Additional options to improve critical CSS extraction
-        additionalStylesheets: [
-          'src/styles/globals.css'
-        ],
+
         ignore: {
           atrule: ['@font-face'],
-          rule: [/\.sr-only/]
-        }
+          rule: [/\.sr-only/],
+        },
       },
     }),
   ],
