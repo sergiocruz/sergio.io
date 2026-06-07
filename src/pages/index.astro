@@ -1,19 +1,11 @@
 ---
 import { SITE } from '../config/site.ts';
 import { getCollection } from 'astro:content';
-import { formatDate } from '../utils/content-helpers.ts';
 import { getValidatedYouTubeThumbnailUrl } from '../utils/youtube.ts';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 import FeaturedWorkCard from '../components/FeaturedWorkCard.astro';
-
-// Get recent blog posts for the homepage
-const allPosts = await getCollection('blog');
-const recentPosts = allPosts
-  .filter(post => !post.data.draft)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, 3);
 
 // Get featured work content
 const allCourses = await getCollection('courses');
@@ -52,9 +44,33 @@ const allFeaturedWork = [
   })
   .slice(0, 3);
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      name: 'sergio.io',
+      url: SITE.url,
+      description: SITE.description,
+    },
+    {
+      '@type': 'Person',
+      name: SITE.author,
+      url: SITE.url,
+      jobTitle: 'Senior Director of Software Engineering',
+      worksFor: { '@type': 'Organization', name: 'Ramsey Solutions' },
+      sameAs: [SITE.social.twitter, SITE.social.github, SITE.social.linkedin],
+      knowsAbout: [
+        'Engineering Leadership',
+        'AI-Augmented Engineering',
+        'Business-Technical Integration',
+      ],
+    },
+  ],
+};
 ---
 
-<BaseLayout title={SITE.title}>
+<BaseLayout title={SITE.title} jsonLd={jsonLd}>
   <Navigation />
 
   <main class="pt-16">
@@ -92,12 +108,12 @@ const allFeaturedWork = [
               <span
                 class="bg-brand-accent/20 text-brand-primary dark:text-brand-light rounded-full px-4 py-2 font-sans text-lg font-medium"
               >
-                Product Strategy
+                Business-Technical Integration
               </span>
               <span
                 class="bg-accent-warm/20 text-brand-primary dark:text-brand-light rounded-full px-4 py-2 font-sans text-lg font-medium"
               >
-                Scaled Teams & Systems
+                AI-Augmented Engineering
               </span>
             </div>
 
@@ -105,25 +121,25 @@ const allFeaturedWork = [
             <p
               class="text-brand-subtle dark:text-brand-light mx-auto mb-10 max-w-3xl font-sans text-lg leading-relaxed sm:text-xl"
             >
-              I help engineering teams deliver real product outcomes and teach others how to do the
-              same!
+              I turn technical systems, engineering teams, and AI-enabled practices into business
+              leverage.
             </p>
 
             <!-- Primary CTA buttons - Enhanced with better hover states -->
             <div class="mx-auto flex flex-row justify-center gap-3">
               <a
-                href="/blog"
+                href="/about"
                 class="bg-brand-accent hover:bg-accent-bronze focus:ring-brand-accent inline-flex items-center justify-center rounded-md border border-transparent px-4 py-3 font-sans text-sm font-medium text-white transition-colors duration-200 focus:ring-2 focus:ring-offset-2 focus:outline-none sm:px-8 sm:text-base"
-                aria-label="Read my articles about engineering leadership and product strategy"
+                aria-label="Learn more about my background and experience"
               >
-                Read My Articles
+                About Me
               </a>
               <a
-                href="/talks-and-publications"
+                href="/featured-work"
                 class="border-brand-subtle text-brand-primary hover:border-brand-accent hover:bg-brand-accent focus:ring-brand-accent dark:text-brand-light inline-flex items-center justify-center rounded-md border bg-transparent px-4 py-3 font-sans text-sm font-medium transition-colors duration-200 hover:text-white focus:ring-2 focus:ring-offset-2 focus:outline-none sm:px-8 sm:text-base"
-                aria-label="View my talks, publications, and professional work"
+                aria-label="View my courses, talks, and publications"
               >
-                View My Work
+                Courses & Talks
               </a>
             </div>
           </div>
@@ -196,11 +212,11 @@ const allFeaturedWork = [
             <h3
               class="text-brand-primary dark:text-brand-light mb-4 font-serif text-xl font-semibold"
             >
-              Engineering Leadership
+              Business-Technical Integration
             </h3>
             <p class="text-brand-subtle font-sans dark:text-gray-300">
-              I've led high-performing teams from startup scale to enterprise, growing engineers and
-              EMs alike.
+              I find revenue leverage in technical work — surfacing business insights, identifying
+              mispriced programs, and turning data infrastructure into competitive advantages.
             </p>
           </div>
 
@@ -228,11 +244,11 @@ const allFeaturedWork = [
             <h3
               class="text-brand-primary dark:text-brand-light mb-4 font-serif text-xl font-semibold"
             >
-              Product Strategy
+              Engineering Org Leadership
             </h3>
             <p class="text-brand-subtle font-sans dark:text-gray-300">
-              I bridge business, product and engineering to ship meaningful outcomes, especially
-              when stakes are high.
+              Scaled teams from 2 to 15+ engineers. Built management layers, career growth tracks,
+              and contributed to AI tooling adoption across 150+ engineers.
             </p>
           </div>
 
@@ -260,11 +276,11 @@ const allFeaturedWork = [
             <h3
               class="text-brand-primary dark:text-brand-light mb-4 font-serif text-xl font-semibold"
             >
-              Scaled Teams & Systems
+              Cross-Functional Strategy
             </h3>
             <p class="text-brand-subtle font-sans dark:text-gray-300">
-              I architect systems and processes that enable teams to scale efficiently while
-              maintaining quality.
+              I operate at the business table using EOS and OKRs, partnering across product,
+              marketing, and operations to tie engineering work to revenue outcomes.
             </p>
           </div>
         </div>
@@ -278,10 +294,10 @@ const allFeaturedWork = [
           <h3
             class="text-brand-primary dark:text-brand-light mb-4 font-serif text-3xl font-semibold tracking-tight sm:text-4xl"
           >
-            Featured Work
+            Courses & Talks
           </h3>
           <p class="text-brand-subtle mx-auto max-w-2xl font-sans text-lg dark:text-gray-300">
-            Highlights from my courses, talks, and contributions to the engineering community.
+            Published courses, conference talks, and contributions to the engineering community.
           </p>
         </div>
 
@@ -289,11 +305,13 @@ const allFeaturedWork = [
           {
             allFeaturedWork.map((item, index) => {
               return (
-                <FeaturedWorkCard 
-                  item={item} 
-                  type={item.type} 
-                  index={index} 
-                  validatedThumbnailUrl={item.type === 'video' ? item.validatedThumbnailUrl : undefined}
+                <FeaturedWorkCard
+                  item={item}
+                  type={item.type}
+                  index={index}
+                  validatedThumbnailUrl={
+                    item.type === 'video' ? item.validatedThumbnailUrl : undefined
+                  }
                 />
               );
             })
@@ -319,63 +337,8 @@ const allFeaturedWork = [
       </div>
     </section>
 
-    <!-- Writing -->
-    <section class="dark:bg-brand-primary bg-white py-16">
-      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div class="mb-12 text-center">
-          <h3
-            class="text-brand-primary dark:text-brand-light mb-4 font-serif text-3xl font-semibold tracking-tight sm:text-4xl"
-          >
-            Writing
-          </h3>
-          <p class="text-brand-subtle mx-auto max-w-2xl font-sans text-lg dark:text-gray-300">
-            Latest thoughts on engineering leadership, product strategy, and building great teams.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {
-            recentPosts.map(post => (
-              <article class="border-brand-subtle/20 bg-brand-light dark:bg-brand-dark overflow-hidden rounded-lg border shadow-sm transition-shadow duration-300 hover:shadow-md">
-                <div class="p-6">
-                  <div class="text-brand-subtle-light mb-3 flex items-center font-sans text-sm dark:text-gray-400">
-                    <time datetime={post.data.date.toISOString()}>
-                      {formatDate(post.data.date)}
-                    </time>
-                  </div>
-                  <h4 class="text-brand-primary dark:text-brand-light mb-3 font-serif text-xl font-semibold">
-                    <a href={`/blog/${post.slug}`} class="hover:text-brand-link transition-colors">
-                      {post.data.title}
-                    </a>
-                  </h4>
-                  <p class="text-brand-subtle mb-4 font-sans dark:text-gray-300">
-                    {post.data.description}
-                  </p>
-                  <a
-                    href={`/blog/${post.slug}`}
-                    class="text-brand-link hover:text-accent-blue font-sans font-medium"
-                  >
-                    Read More →
-                  </a>
-                </div>
-              </article>
-            ))
-          }
-        </div>
-
-        <div class="mt-10 text-center">
-          <a
-            href="/blog"
-            class="border-brand-subtle text-brand-primary hover:bg-brand-subtle/10 focus:ring-brand-accent dark:text-brand-light inline-flex items-center rounded-md border bg-transparent px-6 py-3 font-sans text-base font-medium transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none"
-          >
-            View All Articles
-          </a>
-        </div>
-      </div>
-    </section>
-
     <!-- Trusted By / Logos -->
-    <section class="bg-brand-light dark:bg-brand-dark py-12">
+    <section class="dark:bg-brand-primary bg-white py-12">
       <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div class="mb-8 text-center">
           <h3
@@ -389,25 +352,40 @@ const allFeaturedWork = [
         </div>
 
         <div class="grid grid-cols-2 items-center gap-8 opacity-60 md:grid-cols-4">
-          <!-- Company/Platform logos would go here -->
           <div class="text-center">
-            <div class="bg-brand-subtle/20 flex h-12 items-center justify-center rounded">
-              <span class="text-brand-subtle font-sans font-semibold">Ramsey Solutions</span>
+            <div
+              class="bg-brand-light dark:bg-brand-dark flex h-12 items-center justify-center rounded"
+            >
+              <span class="text-brand-primary dark:text-brand-light font-sans font-semibold"
+                >Ramsey Solutions</span
+              >
             </div>
           </div>
           <div class="text-center">
-            <div class="bg-brand-subtle/20 flex h-12 items-center justify-center rounded">
-              <span class="text-brand-subtle font-sans font-semibold">Pluralsight</span>
+            <div
+              class="bg-brand-light dark:bg-brand-dark flex h-12 items-center justify-center rounded"
+            >
+              <span class="text-brand-primary dark:text-brand-light font-sans font-semibold"
+                >Pluralsight</span
+              >
             </div>
           </div>
           <div class="text-center">
-            <div class="bg-brand-subtle/20 flex h-12 items-center justify-center rounded">
-              <span class="text-brand-subtle font-sans font-semibold">ng-conf</span>
+            <div
+              class="bg-brand-light dark:bg-brand-dark flex h-12 items-center justify-center rounded"
+            >
+              <span class="text-brand-primary dark:text-brand-light font-sans font-semibold"
+                >ng-conf</span
+              >
             </div>
           </div>
           <div class="text-center">
-            <div class="bg-brand-subtle/20 flex h-12 items-center justify-center rounded">
-              <span class="text-brand-subtle font-sans font-semibold">O'Reilly</span>
+            <div
+              class="bg-brand-light dark:bg-brand-dark flex h-12 items-center justify-center rounded"
+            >
+              <span class="text-brand-primary dark:text-brand-light font-sans font-semibold"
+                >O'Reilly</span
+              >
             </div>
           </div>
         </div>
@@ -415,16 +393,18 @@ const allFeaturedWork = [
     </section>
 
     <!-- Short About + CTA -->
-    <section class="bg-brand-primary text-brand-light py-16">
+    <section class="bg-brand-light dark:bg-brand-dark py-16">
       <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-        <h3 class="mb-6 font-serif text-3xl font-semibold">Ready to Learn More?</h3>
-        <p class="mx-auto mb-6 max-w-2xl font-sans text-xl text-gray-300">
-          I'm a builder, coach, and lifelong learner. From startup scrappiness to scaled systems,
-          I've helped teams level up how they work and what they ship.
+        <h3 class="text-brand-primary dark:text-brand-light mb-6 font-serif text-3xl font-semibold">
+          Ready to Learn More?
+        </h3>
+        <p class="text-brand-subtle mx-auto mb-6 max-w-2xl font-sans text-xl dark:text-gray-300">
+          15+ years turning technical systems and engineering teams into business leverage. From
+          first technical hire at a startup to Senior Director at an enterprise with 150+ engineers.
         </p>
         <a
           href="/about"
-          class="bg-brand-light text-brand-primary focus:ring-brand-accent inline-flex items-center rounded-md border border-transparent px-8 py-3 font-sans text-base font-medium transition-colors hover:bg-white focus:ring-2 focus:ring-offset-2 focus:outline-none"
+          class="bg-brand-accent hover:bg-accent-bronze focus:ring-brand-accent inline-flex items-center rounded-md border border-transparent px-8 py-3 font-sans text-base font-medium text-white transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none"
         >
           Learn More About Me →
         </a>

@@ -33,9 +33,10 @@ export interface SiteConfig {
 }
 
 export const SITE: SiteConfig = {
-  title: 'Sergio Cruz - Senior Engineering Leader | Product Strategy | Scaled Teams & Systems',
+  title:
+    'Sergio Cruz - Senior Engineering Leader | Business-Technical Integration | AI-Augmented Engineering',
   description:
-    'I help engineering teams deliver real product outcomes and teach others how to do the same.',
+    'Senior engineering leader who turns technical systems, engineering teams, and AI-enabled practices into business leverage.',
   author: 'Sergio Cruz',
   url: 'https://sergio.io',
 
@@ -59,16 +60,16 @@ export const SITE: SiteConfig = {
   // Site branding
   brand: {
     name: 'sergio.io',
-    tagline: 'Senior Engineering Leader, Product Strategy, Scaled Teams & Systems',
+    tagline: 'Senior Engineering Leader | Business-Technical Integration',
   },
 
   // SEO
-  defaultImage: '/og-image.jpg',
+  defaultImage: '/images/sergiocruz-avatar.jpg',
 
   // Footer
   footer: {
     description:
-      'Senior engineering leader scaling teams, shaping systems, and shipping software people actually want to use.',
+      'Senior engineering leader who turns technical systems, teams, and AI-enabled practices into business leverage.',
     copyright: 'Sergio Cruz. All rights reserved.',
   },
 };
