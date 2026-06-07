@@ -117,7 +117,7 @@ const accomplishments = [
 
 <BaseLayout
   title={`Resume - ${SITE.author}`}
-  description={`Professional resume and experience of ${SITE.author}, Senior Engineering Leader with over 12 years of experience.`}
+  description={`Professional resume and experience of ${SITE.author}, Senior Engineering Leader with 15+ years of experience.`}
 >
   <Navigation />
 
@@ -131,14 +131,16 @@ const accomplishments = [
           Resume
         </h1>
         <p class="text-brand-subtle mx-auto mb-8 max-w-2xl text-xl dark:text-gray-300">
-          Senior engineering leader with experience scaling teams, shaping product strategy, and
-          delivering reliable systems.
+          Senior engineering leader who turns technical systems, engineering teams, and AI-enabled
+          practices into business leverage.
         </p>
         <div class="flex flex-row justify-center gap-3 sm:gap-4">
           <a
             href="/downloads/cruzresume.pdf"
             target="_blank"
             class="bg-brand-accent hover:bg-accent-bronze focus:ring-brand-accent inline-flex items-center rounded-md border border-transparent px-4 py-3 text-sm font-medium text-white transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none sm:px-6 sm:text-base"
+            data-ph-capture-true
+            data-ph-name="resume-download-pdf"
           >
             <svg class="mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
@@ -153,6 +155,8 @@ const accomplishments = [
           <a
             href="mailto:hi@sergio.io"
             class="focus:ring-brand-accent inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 focus:ring-2 focus:ring-offset-2 focus:outline-none sm:px-6 sm:text-base dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
+            data-ph-capture-true
+            data-ph-name="resume-contact-cta"
           >
             Contact Me
           </a>

@@ -1,6 +1,6 @@
 {
   "name": "Sergio Cruz",
-  "title": "Senior Engineering Leader | Product Strategy | Scaled Teams & Systems",
+  "title": "Senior Engineering Leader | Business-Technical Integration | AI-Augmented Engineering",
   "experience": [
     {
       "company": "Ramsey Solutions",
@@ -10,42 +10,38 @@
           "title": "Senior Director of Software Engineering",
           "start_date": "Mar 2024",
           "end_date": "Present",
-          "duration": "1 yr 4 mos",
           "responsibilities": [
-            "Coach and develop engineering managers to lead healthy, high-performing teams.",
-            "Review and guide senior-level IC promotions across the engineering org.",
-            "Develop and deploy interviewer training to improve hiring quality.",
-            "Collaborate with executives to clarify engineering's role in product discovery.",
-            "Contribute to company-wide engineering leveling standards."
+            "Engineering leader across four cross-functional teams within a 40+ person business unit reporting to a business VP. Part of the BU leadership team, connecting engineering priorities to revenue goals and product strategy.",
+            "Identified a MySQL casting error that masked partner profitability in a financial reporting pipeline; partnered with business leadership to reprice the program, creating a projected multimillion-dollar annual revenue opportunity.",
+            "Led a multi-year data science initiative on a high-value partner program using random forest modeling on live transactional data, increasing close rates 60% and tripling profitability over two years.",
+            "Led engineering for a business unit that grew 67% over three years; teams built and maintained the systems, integrations, and data infrastructure that powered that growth.",
+            "Applied CDH continuous discovery to quarterly OKRs, helping teams track business metrics and leading indicators instead of output alone. Part of the leadership team driving company-wide Claude Code adoption across 150+ engineers.",
+            "Key leader in the org-wide engineering growth tracks initiative: proposed behavioral criteria across six IC levels, led adoption rollout, and built the assessment tool used by engineering leaders twice yearly."
           ],
-          "skills": ["Product Discovery", "Engineering Leadership"]
+          "skills": ["Business Impact", "Data Science", "AI Adoption", "Engineering Leadership"]
         },
         {
           "title": "Director of Software Engineering",
           "start_date": "Mar 2021",
           "end_date": "Mar 2024",
-          "duration": "3 yrs 1 mo",
           "responsibilities": [
-            "Led engineering for a 40+ person business unit.",
-            "Grew the org to 15+ engineers and leaders.",
-            "Standardized practices across squads (CI/CD, testing, architecture).",
-            "Used the EOS model for business and tech alignment.",
-            "Implemented OKRs to drive ownership and outcomes.",
-            "Partnered across functions to improve customer experience."
+            "Scaled the engineering organization from 5 to 15+ engineers and leaders within a 40+ person cross-functional business unit, building a management layer and formal career development programs as the team tripled in size.",
+            "Owned integration platform strategy, architecting partner data integrations that connected Ramsey customers to mortgage, insurance, and financial providers through direct system integrations and third-party APIs.",
+            "Sat at the BU leadership table using EOS and OKRs; drove standardization of CI/CD pipelines, testing standards, and architectural patterns across multiple squads.",
+            "Partnered with product, marketing, and operations leadership to align engineering priorities with revenue growth, customer experience, and operational scalability."
           ],
-          "skills": ["Technical Direction", "Product Discovery", "Agile Environment", "Engineering Leadership"]
+          "skills": ["Team Scaling", "Integration Architecture", "OKRs", "Engineering Leadership"]
         },
         {
           "title": "Associate Director of Software Engineering",
           "start_date": "Mar 2019",
           "end_date": "Mar 2021",
-          "duration": "2 yrs 1 mo",
           "responsibilities": [
-            "Led two cross-functional squads delivering products and tools.",
-            "Scaled team from 2 to 8 engineers to support 3× revenue growth.",
-            "Introduced modern tech stacks.",
-            "Led structured growth plans and career development."
-          ]
+            "First engineering leader for a newly formed business unit. Built the engineering function from a 2-person team while representing engineering on the BU leadership team from day one.",
+            "Diagnosed and remediated a critical security and reliability failure in the first weeks: GET requests submitting PII exposed sensitive data in server logs and intermittently hit a 2KB load balancer limit that silently dropped requests.",
+            "Built the initial partner integration suite across mortgage, insurance, legal, and financial services, scaling the team from 2 to 8 engineers to support 3x revenue growth."
+          ],
+          "skills": ["Security", "Team Building", "Integration Architecture"]
         }
       ]
     },

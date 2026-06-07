@@ -20,7 +20,7 @@ test.describe('About Page', () => {
 
     // Check that professional summary is visible
     await expect(
-      page.getByText('Senior engineering leader with experience scaling teams')
+      page.getByText('Senior Director of Software Engineering at Ramsey Solutions')
     ).toBeVisible();
   });
 
@@ -32,16 +32,13 @@ test.describe('About Page', () => {
       .locator('section')
       .filter({ has: page.getByRole('heading', { name: 'What I Do Best' }) });
 
-    await expect(expertiseSection.getByText('Engineering Leadership')).toBeVisible();
-    await expect(expertiseSection.getByText('Product Strategy')).toBeVisible();
-    await expect(expertiseSection.getByText('Scaled Systems')).toBeVisible();
+    await expect(expertiseSection.getByText('Business-Technical Integration')).toBeVisible();
+    await expect(expertiseSection.getByText('Engineering Org Leadership')).toBeVisible();
+    await expect(expertiseSection.getByText('Cross-Functional Strategy')).toBeVisible();
   });
 
   test('Director role is displayed correctly', async ({ page }) => {
     await page.goto('/about');
-
-    // Locate the specific section
-    const journeySection = page.locator('section', { hasText: 'Professional Journey' });
 
     const directorContainer = page.locator('div.p-6').filter({
       has: page.getByRole('heading', { name: 'Director of Software Engineering', level: 3 }),
@@ -73,8 +70,8 @@ test.describe('About Page', () => {
     const statsSection = page.locator('.grid.grid-cols-2.md\\:grid-cols-4');
 
     // Check that statistics are visible within the stats section
-    await expect(statsSection.getByText('9+')).toBeVisible();
-    await expect(statsSection.getByText('Years Leading Teams')).toBeVisible();
+    await expect(statsSection.getByText('15+').first()).toBeVisible();
+    await expect(statsSection.getByText('Years in Software')).toBeVisible();
     await expect(statsSection.getByText('50+')).toBeVisible();
     await expect(statsSection.getByText('Engineers Mentored')).toBeVisible();
   });
