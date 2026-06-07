@@ -16,9 +16,7 @@ test.describe('Resume Page', () => {
 
     // Check hero description
     await expect(
-      page.getByText(
-        'Senior engineering leader with experience scaling teams, shaping product strategy'
-      )
+      page.getByText('Senior engineering leader who turns technical systems').first()
     ).toBeVisible();
 
     // Check CTA buttons
@@ -34,7 +32,7 @@ test.describe('Resume Page', () => {
       .getByRole('heading', { name: 'Professional Experience' })
       .locator('..');
 
-    // Check current role at Ramsey Solutions - be specific about which mention we're looking for
+    // Check current role at Ramsey Solutions
     const ramseyExperience = experienceSection
       .locator('[class*="border-l"]')
       .filter({ hasText: 'Senior Director of Software Engineering' });
@@ -96,59 +94,55 @@ test.describe('Resume Page', () => {
     const toggleButton = page.getByRole('button', { name: 'Show Earlier Experience' });
     const toggleText = page.locator('#toggleText');
     const toggleIcon = page.locator('#toggleIcon');
-    
+
     // Initial state - older experience should be hidden
     await expect(toggleButton).toBeVisible();
     await expect(toggleText).toHaveText('Show Earlier Experience');
-    
+
     // Check that older experience elements are initially hidden
     const olderExperienceElements = page.locator('.older-experience');
     const firstOlderElement = olderExperienceElements.first();
-    
+
     // Verify initial hidden state
     await expect(firstOlderElement).toHaveCSS('opacity', '0');
     await expect(firstOlderElement).toHaveCSS('max-height', '0px');
-    
+
     // Click to expand
     await toggleButton.click();
-    
+
     // Wait for animation to complete
-    await page.waitForTimeout(400); // Allow for 300ms transition + buffer
-    
+    await page.waitForTimeout(400);
+
     // Check expanded state
     await expect(toggleText).toHaveText('Show Less Experience');
     await expect(firstOlderElement).toHaveCSS('opacity', '1');
-    
+
     // Check that older companies are now visible
     await expect(page.getByText('TravelClick')).toBeVisible();
     await expect(page.getByText('GIVTED')).toBeVisible();
-    
+
     // Check icon rotation (should be rotated 180deg when expanded)
-    const iconTransform = await toggleIcon.evaluate(el => 
-      window.getComputedStyle(el).transform
-    );
-    // Transform matrix for 180deg rotation is matrix(-1, 0, 0, -1, 0, 0)
+    const iconTransform = await toggleIcon.evaluate(el => window.getComputedStyle(el).transform);
     expect(iconTransform).toBe('matrix(-1, 0, 0, -1, 0, 0)');
-    
+
     // Re-locate the toggle button with the new text for the collapse action
     const toggleButtonCollapse = page.getByRole('button', { name: 'Show Less Experience' });
-    
+
     // Click to collapse
     await toggleButtonCollapse.click();
-    
+
     // Wait for animation to complete
     await page.waitForTimeout(400);
-    
+
     // Check collapsed state
     await expect(toggleText).toHaveText('Show Earlier Experience');
     await expect(firstOlderElement).toHaveCSS('opacity', '0');
     await expect(firstOlderElement).toHaveCSS('max-height', '0px');
-    
+
     // Check icon rotation (should be back to 0deg)
-    const iconTransformCollapsed = await toggleIcon.evaluate(el => 
-      window.getComputedStyle(el).transform
+    const iconTransformCollapsed = await toggleIcon.evaluate(
+      el => window.getComputedStyle(el).transform
     );
-    // Transform should be 'none' or 'matrix(1, 0, 0, 1, 0, 0)' for 0deg
     expect(['none', 'matrix(1, 0, 0, 1, 0, 0)']).toContain(iconTransformCollapsed);
   });
 
@@ -156,23 +150,23 @@ test.describe('Resume Page', () => {
     await page.goto('/resume');
 
     const toggleButton = page.getByRole('button', { name: 'Show Earlier Experience' });
-    
+
     // Test keyboard accessibility
     await toggleButton.focus();
     await expect(toggleButton).toBeFocused();
-    
+
     // Test keyboard activation (Enter key)
     await page.keyboard.press('Enter');
     await page.waitForTimeout(400);
-    
+
     // Verify it expanded
     await expect(page.getByRole('button', { name: 'Show Less Experience' })).toBeVisible();
     await expect(page.getByText('TravelClick')).toBeVisible();
-    
+
     // Test keyboard activation again (Space key)
     await page.keyboard.press('Space');
     await page.waitForTimeout(400);
-    
+
     // Verify it collapsed
     await expect(page.getByRole('button', { name: 'Show Earlier Experience' })).toBeVisible();
   });

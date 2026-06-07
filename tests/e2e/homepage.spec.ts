@@ -22,6 +22,7 @@ test.describe('Homepage', () => {
     await expect(nav.getByRole('link', { name: 'About' })).toBeVisible();
     await expect(nav.getByRole('link', { name: 'Featured Work' })).toBeVisible();
     await expect(nav.getByRole('link', { name: 'Resume' })).toBeVisible();
+    await expect(nav.getByRole('link', { name: 'Contact' })).toBeVisible();
   });
 
   test('hero section displays correct content', async ({ page }) => {
@@ -30,14 +31,14 @@ test.describe('Homepage', () => {
     // Check hero content
     await expect(
       page.getByText(
-        'I help engineering teams deliver real product outcomes and teach others how to do the same!'
+        'I build engineering teams that create business leverage and teach others how to do the same.'
       )
     ).toBeVisible();
 
     // Check CTA buttons are present
-    await expect(page.locator('a[href="/blog"]').getByText('Read My Articles')).toBeVisible();
+    await expect(page.locator('a[href="/about"]').getByText('About Me')).toBeVisible();
     await expect(
-      page.locator('a[href="/talks-and-publications"]').getByText('View My Work')
+      page.locator('a[href="/contact"]').getByText('Get in Touch').first()
     ).toBeVisible();
   });
 
@@ -49,9 +50,9 @@ test.describe('Homepage', () => {
       .locator('section')
       .filter({ has: page.getByRole('heading', { name: 'What I Do' }) });
 
-    await expect(whatIDoSection.getByText('Engineering Leadership')).toBeVisible();
-    await expect(whatIDoSection.getByText('Product Strategy')).toBeVisible();
-    await expect(whatIDoSection.getByText('Scaled Teams & Systems')).toBeVisible();
+    await expect(whatIDoSection.getByText('Business-Technical Integration')).toBeVisible();
+    await expect(whatIDoSection.getByText('Engineering Org Leadership')).toBeVisible();
+    await expect(whatIDoSection.getByText('Cross-Functional Strategy')).toBeVisible();
   });
 
   test('navigation works correctly', async ({ page }) => {
