@@ -1,7 +1,8 @@
 import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
 
 const blog = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -17,7 +18,7 @@ const blog = defineCollection({
 });
 
 const courses = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md', base: './src/content/courses' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -31,12 +32,12 @@ const courses = defineCollection({
 });
 
 const videos = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md', base: './src/content/videos' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
     date: z.date(),
-    type: z.string(), // Conference, Meetup, Workshop, Keynote
+    type: z.string(),
     venue: z.string(),
     link: z.string().optional(),
     featured: z.boolean().default(false),
@@ -44,12 +45,12 @@ const videos = defineCollection({
 });
 
 const publications = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md', base: './src/content/publications' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
     date: z.date(),
-    type: z.string(), // Technical Article, Tutorial Series, Book Chapter
+    type: z.string(),
     publisher: z.string(),
     link: z.string(),
     featured: z.boolean().default(false),
