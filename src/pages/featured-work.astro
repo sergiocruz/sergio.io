@@ -15,7 +15,9 @@ const allPublications = await getCollection('publications');
 
 // Filter for featured content
 const featuredCourses = allCourses.filter(course => course.data.featured);
-const sortedFeaturedCourses = featuredCourses.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const sortedFeaturedCourses = featuredCourses.sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
 const featuredVideos = allVideos.filter(video => video.data.featured);
 const featuredPublications = allPublications.filter(publication => publication.data.featured);
 
@@ -23,7 +25,9 @@ const featuredPublications = allPublications.filter(publication => publication.d
 const sortedVideos = allVideos.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
 // Sort publications by date descending (newest first)
-const sortedPublications = allPublications.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const sortedPublications = allPublications.sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
 
 // Validate YouTube thumbnails at build time
 const videosWithThumbnails = await Promise.all(
@@ -37,7 +41,6 @@ const videosWithThumbnails = await Promise.all(
     };
   })
 );
-
 ---
 
 <BaseLayout
@@ -76,7 +79,7 @@ const videosWithThumbnails = await Promise.all(
           </p>
         </div>
 
-        <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {
             sortedFeaturedCourses.map((course, index) => {
               return <FeaturedWorkCard item={course} type="course" index={index} />;
@@ -104,11 +107,11 @@ const videosWithThumbnails = await Promise.all(
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {
             videosWithThumbnails.map((video, index) => (
-              <FeaturedWorkCard 
-                item={video} 
-                type="video" 
-                index={index} 
-                validatedThumbnailUrl={video.validatedThumbnailUrl} 
+              <FeaturedWorkCard
+                item={video}
+                type="video"
+                index={index}
+                validatedThumbnailUrl={video.validatedThumbnailUrl}
               />
             ))
           }
