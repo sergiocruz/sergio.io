@@ -43,9 +43,6 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   output: 'static',
-  // Astro 7 defaults to 'jsx', which strips whitespace between inline
-  // elements. Keep the Astro 6 behavior so rendered text doesn't change.
-  compressHTML: true,
   build: {
     inlineStylesheets: 'auto',
   },
