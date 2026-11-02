@@ -20,8 +20,8 @@ Let's suppose you wrote a
 Controller</a> and a SailsJS Service. You got them to work together, and now you
 want to mock the service while testing your controller.
 
-The problem is that SailsJS _magically_ injects Services -- and Models, and
-everything else -- into the Controller, making it difficult to simply call
+The problem is that SailsJS _magically_ injects Services (and Models, and
+everything else) into the Controller, making it difficult to simply call
 `HelloController.index()` without _lifting SailsJS_. We need the dependencies to
 be in place (otherwise we will get a bunch of ugly _undefined is not a function_
 kind of errors.
