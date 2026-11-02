@@ -14,7 +14,7 @@
     "test": "playwright test",
     "test:headed": "playwright test --headed",
     "test:ui": "playwright test --ui",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "dependencies": {
     "@astrojs/react": "^7.1.2",
@@ -50,5 +50,8 @@
   },
   "overrides": {
     "deepmerge-ts": "^8.0.0"
+  },
+  "engines": {
+    "node": ">=26"
   }
 }
