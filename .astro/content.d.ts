@@ -85,6 +85,10 @@ declare module 'astro:content' {
 		entry: DataEntryMap[C][string],
 	): Promise<RenderResult>;
 
+	export function render<C extends keyof LiveContentConfig['collections']>(
+		entry: import('astro').LiveDataEntry<LiveLoaderDataType<C>>,
+	): Promise<RenderResult>;
+
 	export function reference<
 		C extends
 			| keyof DataEntryMap
@@ -127,6 +131,7 @@ declare module 'astro:content' {
   data: InferEntrySchema<"blog">;
   rendered?: RenderedContent;
   filePath?: string;
+  digest?: string | number;
 }>;
 "courses": Record<string, {
   id: string;
@@ -135,6 +140,7 @@ declare module 'astro:content' {
   data: InferEntrySchema<"courses">;
   rendered?: RenderedContent;
   filePath?: string;
+  digest?: string | number;
 }>;
 "publications": Record<string, {
   id: string;
@@ -143,6 +149,7 @@ declare module 'astro:content' {
   data: InferEntrySchema<"publications">;
   rendered?: RenderedContent;
   filePath?: string;
+  digest?: string | number;
 }>;
 "videos": Record<string, {
   id: string;
@@ -151,6 +158,7 @@ declare module 'astro:content' {
   data: InferEntrySchema<"videos">;
   rendered?: RenderedContent;
   filePath?: string;
+  digest?: string | number;
 }>;
 
 	};

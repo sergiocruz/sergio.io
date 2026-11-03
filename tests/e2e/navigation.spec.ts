@@ -62,6 +62,14 @@ test.describe('Site Navigation', () => {
     await expect(page).toHaveURL('/about');
   });
 
+  test('footer copyright keeps spaces between year and name', async ({ page }) => {
+    await page.goto('/');
+
+    await expect(page.locator('footer')).toContainText(
+      `© ${new Date().getFullYear()} Sergio Cruz. All rights reserved.`
+    );
+  });
+
   test('social media links in footer work', async ({ page }) => {
     await page.goto('/');
 
