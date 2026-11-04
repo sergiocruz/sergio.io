@@ -34,9 +34,9 @@ export interface SiteConfig {
 
 export const SITE: SiteConfig = {
   title:
-    'Sergio Cruz - Senior Engineering Leader | Business-Technical Integration | AI-Augmented Engineering',
+    'Sergio Cruz - Senior Director of Software Engineering | Product Engineering & Partner Integrations',
   description:
-    'Senior engineering leader who turns technical systems, engineering teams, and AI-enabled practices into business leverage.',
+    'Senior Director of Software Engineering at Ramsey Solutions. I lead engineering for revenue-critical products and teach on Pluralsight.',
   author: 'Sergio Cruz',
   url: 'https://sergio.io',
 
@@ -61,7 +61,7 @@ export const SITE: SiteConfig = {
   // Site branding
   brand: {
     name: 'sergio.io',
-    tagline: 'Senior Engineering Leader | Business-Technical Integration',
+    tagline: 'Senior Director of Software Engineering',
   },
 
   // SEO
@@ -70,7 +70,7 @@ export const SITE: SiteConfig = {
   // Footer
   footer: {
     description:
-      'Senior engineering leader who turns technical systems, teams, and AI-enabled practices into business leverage.',
+      'Senior Director of Software Engineering at Ramsey Solutions and Pluralsight author.',
     copyright: 'Sergio Cruz. All rights reserved.',
   },
 };

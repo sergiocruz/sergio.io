@@ -30,9 +30,9 @@ test.describe('Homepage', () => {
 
     // Check hero content
     await expect(
-      page.getByText(
-        'I build engineering teams that create business leverage and teach others how to do the same.'
-      )
+      page.getByText('I lead engineering for four product squads at Ramsey Solutions.', {
+        exact: false,
+      })
     ).toBeVisible();
 
     // Check CTA buttons are present
@@ -50,9 +50,9 @@ test.describe('Homepage', () => {
       .locator('section')
       .filter({ has: page.getByRole('heading', { name: 'What I Do' }) });
 
-    await expect(whatIDoSection.getByText('Business-Technical Integration')).toBeVisible();
-    await expect(whatIDoSection.getByText('Engineering Org Leadership')).toBeVisible();
-    await expect(whatIDoSection.getByText('Cross-Functional Strategy')).toBeVisible();
+    await expect(whatIDoSection.getByText('Finding the money in the code')).toBeVisible();
+    await expect(whatIDoSection.getByText('Growing teams and leaders')).toBeVisible();
+    await expect(whatIDoSection.getByText('Working with the rest of the business')).toBeVisible();
   });
 
   test('navigation works correctly', async ({ page }) => {

@@ -20,7 +20,7 @@ test.describe('About Page', () => {
 
     // Check that professional summary is visible
     await expect(
-      page.getByText('Senior Director of Software Engineering at Ramsey Solutions')
+      page.locator('main').getByText('Senior Director of Software Engineering at Ramsey Solutions')
     ).toBeVisible();
   });
 
@@ -32,9 +32,9 @@ test.describe('About Page', () => {
       .locator('section')
       .filter({ has: page.getByRole('heading', { name: 'What I Do Best' }) });
 
-    await expect(expertiseSection.getByText('Business-Technical Integration')).toBeVisible();
-    await expect(expertiseSection.getByText('Engineering Org Leadership')).toBeVisible();
-    await expect(expertiseSection.getByText('Cross-Functional Strategy')).toBeVisible();
+    await expect(expertiseSection.getByText('Finding the money in the code')).toBeVisible();
+    await expect(expertiseSection.getByText('Growing teams and leaders')).toBeVisible();
+    await expect(expertiseSection.getByText('Working with the rest of the business')).toBeVisible();
   });
 
   test('Director role is displayed correctly', async ({ page }) => {
@@ -67,13 +67,12 @@ test.describe('About Page', () => {
     await page.goto('/about');
 
     // Find the stats section by looking for the grid layout containing stats
-    const statsSection = page.locator('.grid.grid-cols-2.md\\:grid-cols-4');
+    const statsSection = page.locator('.grid.grid-cols-3.border-t');
 
     // Check that statistics are visible within the stats section
     await expect(statsSection.getByText('15+').first()).toBeVisible();
     await expect(statsSection.getByText('Years in Software')).toBeVisible();
-    await expect(statsSection.getByText('50+')).toBeVisible();
-    await expect(statsSection.getByText('Engineers Mentored')).toBeVisible();
+    await expect(statsSection.getByText('Published Courses')).toBeVisible();
   });
 
   test('view full resume link works', async ({ page }) => {
@@ -95,8 +94,8 @@ test.describe('About Page', () => {
     await expect(page.getByRole('heading', { name: 'About Me' })).toBeVisible();
     await expect(page.getByAltText('Sergio Cruz')).toBeVisible();
 
-    // Check that the layout adapts (stats should stack on mobile)
-    const statsSection = page.locator('.grid.grid-cols-2.md\\:grid-cols-4');
+    // Check that the layout adapts (stats stay in one row on mobile)
+    const statsSection = page.locator('.grid.grid-cols-3.border-t');
     await expect(statsSection).toBeVisible();
   });
 });
