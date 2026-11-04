@@ -20,7 +20,7 @@ const jsonLd = {
 
 <BaseLayout
   title={`About - ${SITE.author}`}
-  description={`Learn more about ${SITE.author}, Senior Engineering Leader with 15+ years of experience building and scaling engineering organizations.`}
+  description={`Learn more about ${SITE.author}, Senior Director of Software Engineering with 15+ years in software.`}
   jsonLd={jsonLd}
 >
   <Navigation />
@@ -29,14 +29,11 @@ const jsonLd = {
     <!-- Hero Section -->
     <section class="bg-brand-light dark:bg-brand-dark py-20">
       <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-        <h1
-          class="text-brand-primary dark:text-brand-light mb-6 font-serif text-4xl font-semibold sm:text-5xl"
-        >
+        <h1 class="text-brand-primary dark:text-brand-light mb-6 font-serif text-4xl font-semibold sm:text-5xl">
           About Me
         </h1>
         <p class="text-brand-subtle mx-auto max-w-3xl text-xl dark:text-gray-300">
-          Senior engineering leader who turns technical systems, engineering teams, and AI-enabled
-          practices into business leverage.
+          A bit about how I work and where I've been.
         </p>
       </div>
     </section>
@@ -56,10 +53,7 @@ const jsonLd = {
                 />
               </div>
               <!-- Decorative element -->
-              <div
-                class="bg-brand-accent/10 absolute -right-4 -bottom-4 -z-10 h-20 w-20 rounded-full sm:h-24 sm:w-24 lg:-right-6 lg:-bottom-6 lg:h-32 lg:w-32"
-              >
-              </div>
+              <div class="bg-brand-accent/10 absolute -right-4 -bottom-4 -z-10 h-20 w-20 rounded-full sm:h-24 sm:w-24 lg:-right-6 lg:-bottom-6 lg:h-32 lg:w-32"></div>
             </div>
           </div>
 
@@ -67,44 +61,37 @@ const jsonLd = {
           <div class="space-y-6 lg:col-span-8">
             <div class="space-y-6 text-lg leading-relaxed">
               <p class="text-brand-subtle dark:text-gray-300">
-                I'm a Senior Director of Software Engineering at Ramsey Solutions, where I lead four
-                cross-functional teams within a 40+ person business unit that grew 67% over three
-                years. I operate at the intersection of technology, product, and business strategy.
-                The kind of work where a MySQL data-quality issue becomes a multimillion-dollar
+                I'm a Senior Director of Software Engineering at Ramsey Solutions, where I lead
+                engineering for four product squads inside a 40+ person business unit that grew 67%
+                over three years. The work I like most is when a technical detail changes a business
+                decision. Like the time a MySQL data-quality issue turned into a multimillion-dollar
                 revenue opportunity.
               </p>
 
               <p class="text-brand-subtle dark:text-gray-300">
                 15+ years in software, from first technical hire at a startup that scaled to 8-digit
-                monthly revenue, to engineering leader within a 150-person engineering organization.
-                I've scaled teams from 2 to 15+ engineers, initiated data science programs that
-                tripled partner profitability, and contributed to driving AI adoption across an
-                entire engineering org.
+                annual revenue, to engineering leader within a 150-person engineering organization.
+                I've grown a team from 2 engineers to 15+ and started a data science effort that
+                tripled a partner program's profitability. More recently I helped roll out Claude
+                Code across 150+ engineers.
               </p>
 
               <p class="text-brand-subtle dark:text-gray-300">
                 I stay close to the craft. At work that means joining architectural reviews and
                 weighing in on system design decisions with my teams. Outside of work, I publish
-                courses on Pluralsight, speak at conferences like ng-conf, and run a YouTube series
-                on engineering leadership with 45K+ views.
+                courses on Pluralsight and speak at conferences like ng-conf. I've also talked
+                engineering leadership on Exponent's YouTube channel, where those videos have 45K+
+                views.
               </p>
             </div>
 
             <!-- Quick Stats -->
-            <div
-              class="border-brand-subtle/20 mt-8 grid grid-cols-2 gap-6 border-t pt-8 md:grid-cols-4"
-            >
+            <div class="border-brand-subtle/20 mt-8 grid grid-cols-3 gap-6 border-t pt-8">
               <div class="text-center">
                 <div class="text-brand-primary dark:text-brand-light mb-1 text-2xl font-bold">
                   15+
                 </div>
                 <div class="text-brand-subtle text-sm dark:text-gray-400">Years in Software</div>
-              </div>
-              <div class="text-center">
-                <div class="text-brand-primary dark:text-brand-light mb-1 text-2xl font-bold">
-                  50+
-                </div>
-                <div class="text-brand-subtle text-sm dark:text-gray-400">Engineers Mentored</div>
               </div>
               <div class="text-center">
                 <div class="text-brand-primary dark:text-brand-light mb-1 text-2xl font-bold">
@@ -116,7 +103,7 @@ const jsonLd = {
               </div>
               <div class="text-center">
                 <div class="text-brand-primary dark:text-brand-light mb-1 text-2xl font-bold">
-                  5
+                  8
                 </div>
                 <div class="text-brand-subtle text-sm dark:text-gray-400">Published Courses</div>
               </div>
@@ -130,23 +117,17 @@ const jsonLd = {
     <section class="bg-brand-light dark:bg-brand-dark py-20">
       <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div class="mb-16 text-center">
-          <h2
-            class="text-brand-primary dark:text-brand-light mb-4 font-serif text-3xl font-semibold"
-          >
+          <h2 class="text-brand-primary dark:text-brand-light mb-4 font-serif text-3xl font-semibold">
             What I Do Best
           </h2>
           <p class="text-brand-subtle mx-auto max-w-2xl text-lg dark:text-gray-300">
-            Three core areas where I focus my energy and create the most impact.
+            Where I spend most of my time.
           </p>
         </div>
 
         <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
-          <div
-            class="border-brand-subtle/20 dark:bg-brand-primary rounded-xl border bg-white p-8 text-center shadow-sm transition-shadow hover:shadow-md"
-          >
-            <div
-              class="bg-brand-accent/20 mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-xl"
-            >
+          <div class="border-brand-subtle/20 dark:bg-brand-primary rounded-xl border bg-white p-8 text-center shadow-sm transition-shadow hover:shadow-md">
+            <div class="bg-brand-accent/20 mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-xl">
               <svg
                 class="text-brand-accent h-8 w-8"
                 fill="none"
@@ -161,10 +142,8 @@ const jsonLd = {
                 ></path>
               </svg>
             </div>
-            <h3
-              class="text-brand-primary dark:text-brand-light mb-4 font-serif text-xl font-semibold"
-            >
-              Business-Technical Integration
+            <h3 class="text-brand-primary dark:text-brand-light mb-4 font-serif text-xl font-semibold">
+              Finding the money in the code
             </h3>
             <p class="text-brand-subtle dark:text-gray-300">
               I look for the business story inside technical problems. One MySQL casting bug led to
@@ -173,12 +152,8 @@ const jsonLd = {
             </p>
           </div>
 
-          <div
-            class="border-brand-subtle/20 dark:bg-brand-primary rounded-xl border bg-white p-8 text-center shadow-sm transition-shadow hover:shadow-md"
-          >
-            <div
-              class="bg-brand-accent/20 mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-xl"
-            >
+          <div class="border-brand-subtle/20 dark:bg-brand-primary rounded-xl border bg-white p-8 text-center shadow-sm transition-shadow hover:shadow-md">
+            <div class="bg-brand-accent/20 mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-xl">
               <svg
                 class="text-brand-accent h-8 w-8"
                 fill="none"
@@ -193,24 +168,18 @@ const jsonLd = {
                 ></path>
               </svg>
             </div>
-            <h3
-              class="text-brand-primary dark:text-brand-light mb-4 font-serif text-xl font-semibold"
-            >
-              Engineering Org Leadership
+            <h3 class="text-brand-primary dark:text-brand-light mb-4 font-serif text-xl font-semibold">
+              Growing teams and leaders
             </h3>
             <p class="text-brand-subtle dark:text-gray-300">
-              I grew a team from 2 engineers to 15+ across multiple squads. Along the way I built
-              out the management layer, created career tracks that got adopted org-wide, and helped
-              drive AI tooling adoption across 150+ engineers.
+              I grew a team from 2 engineers to 15+ across four product squads, with three
+              engineering managers. I was also a key contributor to the career tracks our whole
+              engineering org uses now, and I helped roll out Claude Code across 150+ engineers.
             </p>
           </div>
 
-          <div
-            class="border-brand-subtle/20 dark:bg-brand-primary rounded-xl border bg-white p-8 text-center shadow-sm transition-shadow hover:shadow-md"
-          >
-            <div
-              class="bg-brand-accent/20 mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-xl"
-            >
+          <div class="border-brand-subtle/20 dark:bg-brand-primary rounded-xl border bg-white p-8 text-center shadow-sm transition-shadow hover:shadow-md">
+            <div class="bg-brand-accent/20 mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-xl">
               <svg
                 class="text-brand-accent h-8 w-8"
                 fill="none"
@@ -225,15 +194,13 @@ const jsonLd = {
                 ></path>
               </svg>
             </div>
-            <h3
-              class="text-brand-primary dark:text-brand-light mb-4 font-serif text-xl font-semibold"
-            >
-              Cross-Functional Strategy
+            <h3 class="text-brand-primary dark:text-brand-light mb-4 font-serif text-xl font-semibold">
+              Working with the rest of the business
             </h3>
             <p class="text-brand-subtle dark:text-gray-300">
               Engineering doesn't sit in a silo on my teams. We use EOS and OKRs at the leadership
-              table, track business metrics alongside engineering output, and work directly with
-              product, marketing, and operations to connect what we build to revenue.
+              table and track business metrics right next to the engineering ones. My squads work
+              directly with marketing and operations, so what we build connects to revenue.
             </p>
           </div>
         </div>
@@ -244,9 +211,7 @@ const jsonLd = {
     <section class="dark:bg-brand-primary bg-white py-20">
       <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <div class="mb-16 text-center">
-          <h2
-            class="text-brand-primary dark:text-brand-light mb-4 font-serif text-3xl font-semibold"
-          >
+          <h2 class="text-brand-primary dark:text-brand-light mb-4 font-serif text-3xl font-semibold">
             Professional Journey
           </h2>
           <p class="text-brand-subtle text-lg dark:text-gray-300">
@@ -259,13 +224,9 @@ const jsonLd = {
           <!-- Experience Item -->
           <div class="border-brand-accent/30 dark:border-brand-accent/50 relative border-l-2 pl-8">
             <div class="bg-brand-accent absolute top-0 -left-2 h-4 w-4 rounded-full"></div>
-            <div
-              class="border-brand-subtle/20 bg-brand-light dark:bg-brand-dark rounded-lg border p-6 shadow-sm"
-            >
+            <div class="border-brand-subtle/20 bg-brand-light dark:bg-brand-dark rounded-lg border p-6 shadow-sm">
               <div class="mb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between">
-                <h3
-                  class="text-brand-primary dark:text-brand-light font-serif text-xl font-semibold"
-                >
+                <h3 class="text-brand-primary dark:text-brand-light font-serif text-xl font-semibold">
                   Senior Director of Software Engineering
                 </h3>
                 <span class="text-sm text-gray-500 dark:text-gray-400">2024 - Present</span>
@@ -274,24 +235,24 @@ const jsonLd = {
                 Ramsey Solutions
               </p>
               <p class="text-brand-subtle mb-4 dark:text-gray-300">
-                Engineering leader across four cross-functional teams within a 40+ person business
-                unit. Identified a MySQL casting error that masked partner profitability in a
-                financial reporting pipeline; partnered with business leadership to reprice the
-                program, creating a projected multimillion-dollar annual revenue opportunity. Led a
-                multi-year data science initiative that increased partner close rates 60% and
-                tripled profitability. Part of the leadership team driving company-wide AI tooling
-                adoption across 150+ engineers.
+                Engineering leader for four cross-functional product squads, with three engineering
+                managers, inside a 40+ person business unit. Identified a MySQL casting error that
+                masked partner profitability in a financial reporting pipeline; partnered with
+                business leadership to reprice the program, creating a projected multimillion-dollar
+                annual revenue opportunity. Led a multi-year data science initiative that increased
+                partner close rates 60% and tripled profitability. Part of the leadership team
+                driving company-wide AI tooling adoption across 150+ engineers.
               </p>
               <div class="flex flex-wrap gap-2">
-                <span class="bg-brand-accent/20 text-brand-accent rounded-full px-3 py-1 text-sm"
-                  >Business Impact</span
-                >
-                <span class="bg-brand-accent/20 text-brand-accent rounded-full px-3 py-1 text-sm"
-                  >Data Science</span
-                >
-                <span class="bg-brand-accent/20 text-brand-accent rounded-full px-3 py-1 text-sm"
-                  >AI Adoption</span
-                >
+                <span class="bg-brand-accent/20 text-brand-accent rounded-full px-3 py-1 text-sm">
+                  Business Impact
+                </span>
+                <span class="bg-brand-accent/20 text-brand-accent rounded-full px-3 py-1 text-sm">
+                  Data Science
+                </span>
+                <span class="bg-brand-accent/20 text-brand-accent rounded-full px-3 py-1 text-sm">
+                  AI Adoption
+                </span>
               </div>
             </div>
           </div>
@@ -299,13 +260,9 @@ const jsonLd = {
           <!-- Experience Item -->
           <div class="border-brand-accent/30 dark:border-brand-accent/50 relative border-l-2 pl-8">
             <div class="bg-brand-accent absolute top-0 -left-2 h-4 w-4 rounded-full"></div>
-            <div
-              class="border-brand-subtle/20 bg-brand-light dark:bg-brand-dark rounded-lg border p-6 shadow-sm"
-            >
+            <div class="border-brand-subtle/20 bg-brand-light dark:bg-brand-dark rounded-lg border p-6 shadow-sm">
               <div class="mb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between">
-                <h3
-                  class="text-brand-primary dark:text-brand-light font-serif text-xl font-semibold"
-                >
+                <h3 class="text-brand-primary dark:text-brand-light font-serif text-xl font-semibold">
                   Director of Software Engineering
                 </h3>
                 <span class="text-sm text-gray-500 dark:text-gray-400">2021 - 2024</span>
@@ -321,15 +278,15 @@ const jsonLd = {
                 standardization of CI/CD, testing, and architecture across multiple squads.
               </p>
               <div class="flex flex-wrap gap-2">
-                <span class="bg-brand-accent/20 text-brand-accent rounded-full px-3 py-1 text-sm"
-                  >Team Scaling</span
-                >
-                <span class="bg-brand-accent/20 text-brand-accent rounded-full px-3 py-1 text-sm"
-                  >Integration Architecture</span
-                >
-                <span class="bg-brand-accent/20 text-brand-accent rounded-full px-3 py-1 text-sm"
-                  >OKRs</span
-                >
+                <span class="bg-brand-accent/20 text-brand-accent rounded-full px-3 py-1 text-sm">
+                  Team Scaling
+                </span>
+                <span class="bg-brand-accent/20 text-brand-accent rounded-full px-3 py-1 text-sm">
+                  Integration Architecture
+                </span>
+                <span class="bg-brand-accent/20 text-brand-accent rounded-full px-3 py-1 text-sm">
+                  OKRs
+                </span>
               </div>
             </div>
           </div>
@@ -337,13 +294,9 @@ const jsonLd = {
           <!-- Experience Item -->
           <div class="border-brand-accent/30 dark:border-brand-accent/50 relative border-l-2 pl-8">
             <div class="bg-brand-accent absolute top-0 -left-2 h-4 w-4 rounded-full"></div>
-            <div
-              class="border-brand-subtle/20 bg-brand-light dark:bg-brand-dark rounded-lg border p-6 shadow-sm"
-            >
+            <div class="border-brand-subtle/20 bg-brand-light dark:bg-brand-dark rounded-lg border p-6 shadow-sm">
               <div class="mb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between">
-                <h3
-                  class="text-brand-primary dark:text-brand-light font-serif text-xl font-semibold"
-                >
+                <h3 class="text-brand-primary dark:text-brand-light font-serif text-xl font-semibold">
                   Engineering Manager
                 </h3>
                 <span class="text-sm text-gray-500 dark:text-gray-400">2017 - 2019</span>
@@ -353,18 +306,18 @@ const jsonLd = {
               </p>
               <p class="text-brand-subtle mb-4 dark:text-gray-300">
                 First technical hire building consumer-facing app. Scaled product to handle 7-digit
-                monthly signups and 8-digit revenue. Hired and mentored technical team.
+                monthly signups and 8-digit annual revenue. Hired and mentored technical team.
               </p>
               <div class="flex flex-wrap gap-2">
-                <span class="bg-brand-accent/20 text-brand-accent rounded-full px-3 py-1 text-sm"
-                  >Startup Experience</span
-                >
-                <span class="bg-brand-accent/20 text-brand-accent rounded-full px-3 py-1 text-sm"
-                  >High Scale</span
-                >
-                <span class="bg-brand-accent/20 text-brand-accent rounded-full px-3 py-1 text-sm"
-                  >Team Building</span
-                >
+                <span class="bg-brand-accent/20 text-brand-accent rounded-full px-3 py-1 text-sm">
+                  Startup Experience
+                </span>
+                <span class="bg-brand-accent/20 text-brand-accent rounded-full px-3 py-1 text-sm">
+                  High Scale
+                </span>
+                <span class="bg-brand-accent/20 text-brand-accent rounded-full px-3 py-1 text-sm">
+                  Team Building
+                </span>
               </div>
             </div>
           </div>
@@ -383,7 +336,8 @@ const jsonLd = {
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              ></path>
             </svg>
           </a>
         </div>
@@ -394,9 +348,7 @@ const jsonLd = {
     <section class="bg-brand-light dark:bg-brand-dark py-20">
       <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div class="mb-16 text-center">
-          <h2
-            class="text-brand-primary dark:text-brand-light mb-4 font-serif text-3xl font-semibold"
-          >
+          <h2 class="text-brand-primary dark:text-brand-light mb-4 font-serif text-3xl font-semibold">
             My Leadership Philosophy
           </h2>
           <p class="text-brand-subtle mx-auto max-w-2xl text-lg dark:text-gray-300">
@@ -405,12 +357,8 @@ const jsonLd = {
         </div>
 
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          <div
-            class="border-brand-subtle/20 dark:bg-brand-primary rounded-xl border bg-white p-8 shadow-sm"
-          >
-            <div
-              class="bg-brand-accent/20 mb-6 flex h-12 w-12 items-center justify-center rounded-lg"
-            >
+          <div class="border-brand-subtle/20 dark:bg-brand-primary rounded-xl border bg-white p-8 shadow-sm">
+            <div class="bg-brand-accent/20 mb-6 flex h-12 w-12 items-center justify-center rounded-lg">
               <svg
                 class="text-brand-accent h-6 w-6"
                 fill="none"
@@ -425,23 +373,17 @@ const jsonLd = {
                 ></path>
               </svg>
             </div>
-            <h3
-              class="text-brand-primary dark:text-brand-light mb-4 font-serif text-xl font-semibold"
-            >
+            <h3 class="text-brand-primary dark:text-brand-light mb-4 font-serif text-xl font-semibold">
               Shared Ownership
             </h3>
             <p class="text-brand-subtle dark:text-gray-300">
-              The best teams are built on trust, not control. I empower people to take real
-              ownership of their work. Whether engineers owning quality or managers owning outcomes.
+              Each squad picks the business metric it's trying to move and checks on it every
+              quarter. When the team owns the number, I don't have to chase the work.
             </p>
           </div>
 
-          <div
-            class="border-brand-subtle/20 dark:bg-brand-primary rounded-xl border bg-white p-8 shadow-sm"
-          >
-            <div
-              class="bg-brand-accent/20 mb-6 flex h-12 w-12 items-center justify-center rounded-lg"
-            >
+          <div class="border-brand-subtle/20 dark:bg-brand-primary rounded-xl border bg-white p-8 shadow-sm">
+            <div class="bg-brand-accent/20 mb-6 flex h-12 w-12 items-center justify-center rounded-lg">
               <svg
                 class="text-brand-accent h-6 w-6"
                 fill="none"
@@ -452,27 +394,22 @@ const jsonLd = {
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
               </svg>
             </div>
-            <h3
-              class="text-brand-primary dark:text-brand-light mb-4 font-serif text-xl font-semibold"
-            >
+            <h3 class="text-brand-primary dark:text-brand-light mb-4 font-serif text-xl font-semibold">
               Craft with Purpose
             </h3>
             <p class="text-brand-subtle dark:text-gray-300">
-              I care deeply about building things well and hold a high bar for code quality and
-              system design. Not for perfectionism, but because the craft matters for long-term
-              success.
+              Everyone who joins my teams reads Clean Code and The Pragmatic Programmer during
+              onboarding. Senior engineers add Domain-Driven Design. We argue about code a lot less
+              when we've all read the same books.
             </p>
           </div>
 
-          <div
-            class="border-brand-subtle/20 dark:bg-brand-primary rounded-xl border bg-white p-8 shadow-sm"
-          >
-            <div
-              class="bg-brand-accent/20 mb-6 flex h-12 w-12 items-center justify-center rounded-lg"
-            >
+          <div class="border-brand-subtle/20 dark:bg-brand-primary rounded-xl border bg-white p-8 shadow-sm">
+            <div class="bg-brand-accent/20 mb-6 flex h-12 w-12 items-center justify-center rounded-lg">
               <svg
                 class="text-brand-accent h-6 w-6"
                 fill="none"
@@ -483,17 +420,16 @@ const jsonLd = {
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                ></path>
               </svg>
             </div>
-            <h3
-              class="text-brand-primary dark:text-brand-light mb-4 font-serif text-xl font-semibold"
-            >
+            <h3 class="text-brand-primary dark:text-brand-light mb-4 font-serif text-xl font-semibold">
               Cross-Functional Partnership
             </h3>
             <p class="text-brand-subtle dark:text-gray-300">
-              Great products come from strong collaboration. I work to break down silos so
-              engineering, product, and design solve problems together from the start.
+              Engineers on my teams take part in product discovery alongside product and design.
+              They hear the customer problem firsthand, so the solution they build actually fits it.
             </p>
           </div>
         </div>

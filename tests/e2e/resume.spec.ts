@@ -16,7 +16,7 @@ test.describe('Resume Page', () => {
 
     // Check hero description
     await expect(
-      page.getByText('Senior engineering leader who turns technical systems').first()
+      page.getByText('Senior Director of Software Engineering with 15+ years in software.').first()
     ).toBeVisible();
 
     // Check CTA buttons
