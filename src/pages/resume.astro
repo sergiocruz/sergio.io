@@ -125,9 +125,7 @@ const accomplishments = [
     <!-- Hero Section -->
     <section class="bg-brand-light dark:bg-brand-dark py-24">
       <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-        <h1
-          class="text-brand-primary dark:text-brand-light mb-6 font-serif text-4xl font-semibold sm:text-5xl"
-        >
+        <h1 class="text-brand-primary dark:text-brand-light mb-6 font-serif text-4xl font-semibold sm:text-5xl">
           Resume
         </h1>
         <p class="text-brand-subtle mx-auto mb-8 max-w-2xl text-xl dark:text-gray-300">
@@ -172,78 +170,76 @@ const accomplishments = [
         </h2>
 
         <div class="space-y-10">
-          {
-            resumeData.experience.map((company, index) => (
-              <div
-                class:list={{
-                  'border-l-4': true,
-                  'pl-6': true,
-                  relative: true,
-                  'border-gray-300': true,
-                  'older-experience': index >= 3,
-                  'transition-all': true,
-                  'duration-300': true,
-                  'ease-in-out': true,
-                }}
-              >
-                <div class="mb-4">
-                  <h3 class="text-brand-primary dark:text-brand-light font-serif text-xl font-semibold">
-                    {company.company}
-                  </h3>
-                  <p class="text-brand-accent dark:text-brand-accent mb-1 font-semibold">
-                    {company.location}
-                  </p>
-                  <span class="text-sm text-gray-500 dark:text-gray-400">
-                    {getCompanyDateRange(company, index >= 2)}
-                  </span>
-                </div>
-
-                {company.roles ? (
-                  // Multiple roles for this company
-                  <div class="space-y-6">
-                    {company.roles.map(role => (
-                      <div class="ml-4 border-l-2 border-gray-200 pl-4">
-                        <div class="mb-2 flex flex-col sm:flex-row sm:items-center sm:justify-between">
-                          <h4 class="text-brand-primary dark:text-brand-light font-serif text-lg font-semibold">
-                            {role.title}
-                          </h4>
-                          <span class="text-sm text-gray-500 dark:text-gray-400">
-                            {index >= 2
-                              ? `${formatDateYearsOnly(role.start_date)} - ${formatDateYearsOnly(role.end_date)}`
-                              : `${formatDate(role.start_date)} - ${formatDate(role.end_date)}`}
-                          </span>
-                        </div>
-                        <ul class="text-brand-subtle mb-4 space-y-2 dark:text-gray-300">
-                          {role.responsibilities.map(responsibility => (
-                            <li>• {responsibility}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  // Single role for this company
-                  <div>
-                    <div class="mb-2 flex flex-col sm:flex-row sm:items-center sm:justify-between">
-                      <h4 class="text-brand-primary dark:text-brand-light font-serif text-lg font-semibold">
-                        {company.title}
-                      </h4>
-                      <span class="text-sm text-gray-500 dark:text-gray-400">
-                        {index >= 2
-                          ? `${formatDateYearsOnly(company.start_date)} - ${formatDateYearsOnly(company.end_date)}`
-                          : `${formatDate(company.start_date)} - ${formatDate(company.end_date)}`}
-                      </span>
-                    </div>
-                    <ul class="text-brand-subtle mb-4 space-y-2 dark:text-gray-300">
-                      {company.responsibilities.map(responsibility => (
-                        <li>• {responsibility}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
+          {resumeData.experience.map((company, index) => (
+            <div
+              class:list={{
+                'border-l-4': true,
+                'pl-6': true,
+                relative: true,
+                'border-gray-300': true,
+                'older-experience': index >= 3,
+                'transition-all': true,
+                'duration-300': true,
+                'ease-in-out': true,
+              }}
+            >
+              <div class="mb-4">
+                <h3 class="text-brand-primary dark:text-brand-light font-serif text-xl font-semibold">
+                  {company.company}
+                </h3>
+                <p class="text-brand-accent dark:text-brand-accent mb-1 font-semibold">
+                  {company.location}
+                </p>
+                <span class="text-sm text-gray-500 dark:text-gray-400">
+                  {getCompanyDateRange(company, index >= 2)}
+                </span>
               </div>
-            ))
-          }
+
+              {company.roles ? (
+                // Multiple roles for this company
+                <div class="space-y-6">
+                  {company.roles.map(role => (
+                    <div class="ml-4 border-l-2 border-gray-200 pl-4">
+                      <div class="mb-2 flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                        <h4 class="text-brand-primary dark:text-brand-light font-serif text-lg font-semibold">
+                          {role.title}
+                        </h4>
+                        <span class="text-sm text-gray-500 dark:text-gray-400">
+                          {index >= 2
+                            ? `${formatDateYearsOnly(role.start_date)} - ${formatDateYearsOnly(role.end_date)}`
+                            : `${formatDate(role.start_date)} - ${formatDate(role.end_date)}`}
+                        </span>
+                      </div>
+                      <ul class="text-brand-subtle mb-4 space-y-2 dark:text-gray-300">
+                        {role.responsibilities.map(responsibility => (
+                          <li>• {responsibility}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                // Single role for this company
+                <div>
+                  <div class="mb-2 flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                    <h4 class="text-brand-primary dark:text-brand-light font-serif text-lg font-semibold">
+                      {company.title}
+                    </h4>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">
+                      {index >= 2
+                        ? `${formatDateYearsOnly(company.start_date)} - ${formatDateYearsOnly(company.end_date)}`
+                        : `${formatDate(company.start_date)} - ${formatDate(company.end_date)}`}
+                    </span>
+                  </div>
+                  <ul class="text-brand-subtle mb-4 space-y-2 dark:text-gray-300">
+                    {company.responsibilities.map(responsibility => (
+                      <li>• {responsibility}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          ))}
         </div>
 
         <!-- Show More/Less Button -->
@@ -264,7 +260,8 @@ const accomplishments = [
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                d="M19 9l-7 7-7-7"></path>
+                d="M19 9l-7 7-7-7"
+              ></path>
             </svg>
           </button>
         </div>
@@ -279,38 +276,32 @@ const accomplishments = [
         </h2>
 
         <div class="space-y-6">
-          {
-            accomplishments.map(accomplishment => (
-              <div class="border-l-4 border-gray-300 pl-6">
-                <div class="mb-2 flex flex-col sm:flex-row sm:items-center sm:justify-between">
-                  <div class="flex items-center gap-2">
-                    <h3 class="text-brand-primary dark:text-brand-light font-serif text-lg font-semibold">
-                      {accomplishment.name}
-                    </h3>
-                    <span class="text-brand-accent dark:text-brand-accent font-medium">
-                      • {accomplishment.position}
-                    </span>
-                  </div>
-                  <span class="text-sm text-gray-500 dark:text-gray-400">
-                    {accomplishment.when}
+          {accomplishments.map(accomplishment => (
+            <div class="border-l-4 border-gray-300 pl-6">
+              <div class="mb-2 flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                <div class="flex items-center gap-2">
+                  <h3 class="text-brand-primary dark:text-brand-light font-serif text-lg font-semibold">
+                    {accomplishment.name}
+                  </h3>
+                  <span class="text-brand-accent dark:text-brand-accent font-medium">
+                    • {accomplishment.position}
                   </span>
                 </div>
-                <p class="text-brand-subtle mb-2 dark:text-gray-300">
-                  {accomplishment.description}
-                </p>
-                {accomplishment.url && (
-                  <a
-                    href={accomplishment.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-brand-link hover:text-accent-blue dark:text-brand-link dark:hover:text-accent-blue text-sm font-medium"
-                  >
-                    Visit Website →
-                  </a>
-                )}
+                <span class="text-sm text-gray-500 dark:text-gray-400">{accomplishment.when}</span>
               </div>
-            ))
-          }
+              <p class="text-brand-subtle mb-2 dark:text-gray-300">{accomplishment.description}</p>
+              {accomplishment.url && (
+                <a
+                  href={accomplishment.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-brand-link hover:text-accent-blue dark:text-brand-link dark:hover:text-accent-blue text-sm font-medium"
+                >
+                  Visit Website →
+                </a>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </section>
